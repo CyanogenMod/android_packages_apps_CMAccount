@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+    <LinearLayout android:layout_height="match_parent"
+                  android:layout_width="match_parent"
+                  android:orientation="vertical">
+
+        <Spinner android:id="@+id/accounts"
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"/>
+
+        <Button android:id="@+id/get_token"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/get_token"/>
+
+        <Button android:id="@+id/invalidate_token"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/invalidate_token"/>
+
+        <Button android:id="@+id/expire_token"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/expire_token"/>
+
+
+    </LinearLayout>
+</ScrollView>
+

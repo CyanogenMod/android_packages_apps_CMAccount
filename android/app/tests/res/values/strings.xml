@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_test">CMID Test Auth</string>
+    <string name="get_token">Get Token</string>
+    <string name="invalidate_token">Invalidate Token</string>
+    <string name="expire_token">Expire Token</string>
+</resources>
