@@ -1,68 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              style="@style/SetupWizardPageContainer">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+    <LinearLayout style="@style/SetupWizardPageContainer">
 
-    <TextView style="@style/SetupWizardPageTitle" />
+        <TextView style="@style/SetupWizardPageTitle" />
 
-    <TextView
-            android:id="@+id/cmid_email_label"
-            android:text="@string/cmid_setup_email_label"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorPrimary" />
-    <EditText
-            android:id="@+id/cmid_email"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:contentDescription="@string/cmid_setup_email_label"
-            android:inputType="textEmailAddress"
-            android:imeOptions="actionNext" />
-    <TextView
-            android:text="@string/cmid_setup_username_label"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorPrimary" />
-    <EditText
-            android:id="@+id/cmid_username"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:contentDescription="@string/cmid_setup_username_label"
-            android:imeOptions="actionNext"/>
-    <TextView
-            android:text="@string/cmid_setup_password_label"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorPrimary" />
-    <EditText
-            android:id="@+id/cmid_password"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:contentDescription="@string/cmid_setup_password_label"
-            android:inputType="textPassword"
-            android:imeOptions="actionNext"/>
-    <LinearLayout
-            android:id="@+id/back_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="horizontal" >
-
-        <Button
-                android:id="@+id/cancel_button"
-                android:layout_width="150dip"
+        <TextView
+                android:id="@+id/cmid_firstname_label"
+                android:text="@string/cmid_setup_firstname_label"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:text="@string/cancel"/>
-
-        <Button
-                android:id="@+id/submit_button"
-                android:layout_width="150dip"
+                android:layout_width="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorPrimary" />
+        <EditText
+                android:id="@+id/cmid_firstname"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dip"
-                android:text="@string/login" />
+                android:layout_width="match_parent"
+                android:contentDescription="@string/cmid_setup_firstname_label"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext" />
+
+        <TextView
+                android:id="@+id/cmid_lastname_label"
+                android:text="@string/cmid_setup_lastname_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorPrimary" />
+        <EditText
+                android:id="@+id/cmid_lastname"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:contentDescription="@string/cmid_setup_lastname_label"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext" />
+
+        <TextView
+                android:id="@+id/cmid_email_label"
+                android:text="@string/cmid_setup_email_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorPrimary" />
+        <EditText
+                android:id="@+id/cmid_email"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:contentDescription="@string/cmid_setup_email_label"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext" />
+        <TextView
+                android:id="@+id/cmid_username_label"
+                android:text="@string/cmid_setup_username_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorPrimary" />
+        <EditText
+                android:id="@+id/cmid_username"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:contentDescription="@string/cmid_setup_username_label"
+                android:imeOptions="actionNext" />
+        <TextView
+                android:text="@string/cmid_setup_password_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?android:attr/textColorPrimary" />
+        <EditText
+                android:id="@+id/cmid_password"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:contentDescription="@string/cmid_setup_password_label"
+                android:inputType="textPassword"/>
+
+        <CheckBox
+                android:id="@+id/cmid_tos"
+                android:text="@string/cmid_setup_tos_label"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="?android:attr/textColorPrimary" />
+
+        <LinearLayout
+                android:id="@+id/back_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal" >
+
+            <Button
+                    android:id="@+id/cancel_button"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:text="@string/cancel"/>
+
+            <Button
+                    android:id="@+id/submit_button"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dip"
+                    android:text="@string/login" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
 

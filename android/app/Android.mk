@@ -9,6 +9,14 @@ LOCAL_PACKAGE_NAME := CMID
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
-    android-support-v13
+    android-support-v13 \
+    volley-v14 \
+    gson
+
 
 include $(BUILD_PACKAGE)
+include $(CLEAR_VARS)
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := gson:libs/gson-2.2.4.jar volley-v14:libs/volley.jar
+
+include $(BUILD_MULTI_PREBUILT)
+

@@ -1,5 +1,6 @@
 package com.cyanogenmod.id.setup;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,9 +21,9 @@ public class CMSetupWizardData extends AbstractSetupData {
                 OptionPage.Option option = (OptionPage.Option)adapterView.getItemAtPosition(position);
                 switch (option.getId()) {
                     case R.string.setup_option_create_cmid:
-                        AuthActivity.showForCreate(mContext);
+                        AuthActivity.showForCreate((Activity)mContext, 0);
                     case R.string.setup_option_login_cmid:
-                        AuthActivity.showForAuth(mContext);
+                        AuthActivity.showForAuth((Activity)mContext, 0);
                 }
             }
         };

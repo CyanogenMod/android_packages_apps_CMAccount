@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.cyanogenmod.id">
+          package="com.cyanogenmod.id"
+        >
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.STATUS_BAR"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -13,21 +14,41 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-    <application android:label="@string/app_name">
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15" />
+    <application android:label="@string/app_name"
+                 android:icon="@drawable/icon">
+        <service
+                android:name="com.cyanogenmod.id.auth.AuthService"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                    android:name="android.accounts.AccountAuthenticator"
+                    android:resource="@xml/authenticator" />
+        </service>
         <activity android:name=".ui.SetupWizardActivity"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.Holo.NoActionBar"
                   android:launchMode="singleTask"
                   android:excludeFromRecents="true">
-            <intent-filter android:priority="9">
+            <!-- Uncomment this to re-enable for setup wizard
+                <intent-filter android:priority="9">
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <category android:name="android.intent.category.HOME"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
+            </intent-filter>  -->
         </activity>
+        <activity android:name=".ui.CMIDActivity"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.Holo.NoActionBar"
+                  android:launchMode="singleTask"
+                  android:excludeFromRecents="true"/>
+
         <activity android:name=".auth.AuthActivity"
+                  android:label="@string/app_name"
                   android:theme="@android:style/Theme.Holo.NoActionBar"
                   android:launchMode="singleTask"
                   android:excludeFromRecents="true"/>

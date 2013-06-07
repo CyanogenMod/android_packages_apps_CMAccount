@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/SetupWizardPageContainer">
+
+    <TextView style="@style/SetupWizardPageTitle"
+              android:text="@string/cmid_add_title"/>
+
+    <TextView android:id="@+id/cmid_add_create"
+              android:text="@string/cmid_add_create_label"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent"
+              android:layout_margin="5dip"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:textColor="?android:attr/textColorPrimary" />
+
+    <ImageView android:layout_height="0px"
+               android:layout_width="match_parent"
+               android:layout_weight="1"
+               android:scaleType="centerInside"
+               android:src="@drawable/cid_welcome"/>
+
+
+    <Button android:id="@+id/existing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:text="@string/existing"/>
+
+    <Button android:id="@+id/new_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:text="@string/new_account"/>
+
+</LinearLayout>

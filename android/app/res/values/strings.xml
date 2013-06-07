@@ -2,24 +2,37 @@
 <resources>
     <string name="app_name">CMID</string>
 
+    <string name="app_test">CMID Test Auth</string>
+
     <string name="next">Next</string>
     <string name="prev">Previous</string>
     <string name="finish">Finish</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
     <string name="login">Login</string>
+    <string name="existing">Existing</string>
+    <string name="new_account">New</string>
 
     <string name="setup_complete">Setup is complete</string>
     <string name="setup_welcome">Welcome to Cyanogenmod</string>
-    <string name="setup_cmid">Set up your CM ID</string>
+    <string name="setup_cmid">Set up your CMID</string>
     <string name="setup_option_login_cmid">Login to your CMID</string>
     <string name="setup_option_create_cmid">Create a CMID</string>
 
-    <string name="cmid_setup_create_title">Create a CM ID</string>
-    <string name="cmid_setup_login_title">Log in to CM ID</string>
+    <string name="cmid_setup_create_title">Create a CMID</string>
+    <string name="cmid_setup_login_title">Log in to CMID</string>
+    <string name="cmid_setup_firstname_label">First Name</string>
+    <string name="cmid_setup_lastname_label">Last Name</string>
     <string name="cmid_setup_email_label">Email</string>
+    <string name="cmid_setup_email_unavailable_label">Email already registered</string>
+    <string name="cmid_setup_email_invalid_label">Not a valid Email address</string>
     <string name="cmid_setup_username_label">Username</string>
+    <string name="cmid_setup_username_unavailable_label">Username is taken!</string>
     <string name="cmid_setup_password_label">Password</string>
+    <string name="cmid_setup_tos_label">I agree to the terms of service?</string>
+    <string name="cmid_add_title">Add a CMID Account</string>
+    <string name="cmid_add_create_label">Do you add an existing CMID or create a new one?</string>
 
-    <string name="cmid_login_message">Logging in to CM ID</string>
+    <string name="cmid_login_message">Logging in to CMID</string>
+    <string name="cmid_creating_profile_message">Creating your CMID profile</string>
 </resources>
