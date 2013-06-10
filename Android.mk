@@ -1,7 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := $(call all-subdir-java-files)
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
 LOCAL_MODULE_TAGS := optional
 
@@ -15,7 +15,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 
 include $(BUILD_PACKAGE)
-include $(CLEAR_VARS)
+
 LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := gson:libs/gson-2.2.4.jar volley-v14:libs/volley.jar
 
 include $(BUILD_MULTI_PREBUILT)
