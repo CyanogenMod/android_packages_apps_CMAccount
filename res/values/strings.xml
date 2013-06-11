@@ -35,4 +35,7 @@
 
     <string name="cmid_login_message">Logging in to CMID</string>
     <string name="cmid_creating_profile_message">Creating your CMID profile</string>
+
+    <string name="cmid_server_error_title">Server Error</string>
+    <string name="cmid_server_error_message">An error has occurred</string>
 </resources>

@@ -15,7 +15,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -30,8 +29,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.regex.Pattern;
 
 public class AuthActivity extends AccountAuthenticatorActivity implements Response.ErrorListener {
 
@@ -285,11 +282,16 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     @Override
     public void onErrorResponse(VolleyError error) {
         hideProgress();
-        error.printStackTrace();
-        String errorJson = new String(error.networkResponse.data);
-        if (Constants.DEBUG) Log.d(TAG, new String(error.networkResponse.data));
-        final Gson gson = new Gson();
-        mAuthServerError = gson.fromJson(errorJson, AuthServerError.class);
+        if (error.networkResponse.statusCode != 500) {
+            String errorJson = new String(error.networkResponse.data);
+            if (Constants.DEBUG) Log.d(TAG, errorJson);
+            final Gson gson = new Gson();
+            mAuthServerError = gson.fromJson(errorJson, AuthServerError.class);
+        } else {
+            if (Constants.DEBUG) Log.d(TAG, "Response = " + new String(error.networkResponse.data));
+            final String errorMessage = error.getMessage();
+            mAuthServerError = new AuthServerError(getString(R.string.cmid_server_error_title), errorMessage == null ? getString(R.string.cmid_server_error_message) : error.getMessage());
+        }
         mInFlightRequest = null;
         showDialog(DIALOG_SERVER_ERROR);
     }
@@ -303,7 +305,9 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     @Override
     protected Dialog onCreateDialog(int id, Bundle args) {
         if (id == DIALOG_SERVER_ERROR) {
-            mDialog = new AlertDialog.Builder(this).setMessage(mAuthServerError.getErrorDescription()).show();
+            mDialog = new AlertDialog.Builder(this)
+                    .setTitle(mAuthServerError.getError())
+                    .setMessage(mAuthServerError.getErrorDescription()).show();
             return mDialog;
         } else {
             final ProgressDialog dialog = new ProgressDialog(this);
