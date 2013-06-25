@@ -21,9 +21,9 @@ public class CMSetupWizardData extends AbstractSetupData {
                 OptionPage.Option option = (OptionPage.Option)adapterView.getItemAtPosition(position);
                 switch (option.getId()) {
                     case R.string.setup_option_create_cmid:
-                        AuthActivity.showForCreate((Activity)mContext, 0);
+                        AuthActivity.showForCreate((Activity)mContext);
                     case R.string.setup_option_login_cmid:
-                        AuthActivity.showForAuth((Activity)mContext, 0);
+                        AuthActivity.showForAuth((Activity)mContext);
                 }
             }
         };
