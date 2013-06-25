@@ -5,6 +5,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
 import com.cyanogenmod.id.Constants;
 import com.cyanogenmod.id.api.AuthTokenRequest;
@@ -28,6 +29,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import java.sql.Timestamp;
+import java.util.concurrent.ExecutionException;
 
 public class AuthClient {
 
@@ -54,8 +56,6 @@ public class AuthClient {
     public static final String ENCODED_ID_SECRET = new String(Base64.encode((CLIENT_ID + ":" + SECRET).getBytes(), Base64.NO_WRAP));
 
     private RequestQueue mRequestQueue;
-    private VolleyError mVolleyError;
-    private volatile boolean mRequestRunning = false;
 
     private static AuthClient sInstance;
     private Context mContext;
@@ -95,38 +95,16 @@ public class AuthClient {
         return mRequestQueue.add(new ReportLocationRequest(getAndroidID(), authToken, latitude, longitude, listener, errorListener));
     }
 
-    /*
-     * XXX: This is a kludge. FIXIT
-     */
     public AuthTokenResponse blockingRefreshAccessToken(String refreshToken) throws VolleyError {
-        final AuthTokenResponse authResponse = new AuthTokenResponse();
-        mRequestRunning = true;
-        refreshAccessToken(refreshToken, new Listener<AuthTokenResponse>() {
-              @Override
-              public void onResponse(AuthTokenResponse response) {
-                  authResponse.copy(response);
-                  mRequestRunning = false;
-              }
-          }, new ErrorListener() {
-              @Override
-              public void onErrorResponse(VolleyError error) {
-                  String jsonResponse = new String(error.networkResponse.data);
-                  if (Constants.DEBUG) Log.d(TAG, "error jsonResponse="+jsonResponse);
-                  mVolleyError = error;
-                  mRequestRunning = false;
-              }
-          });
-          while (mRequestRunning) {
-               // do nothing
-          }
+        RequestFuture<AuthTokenResponse> future = RequestFuture.newFuture();
+        mRequestQueue.add(new AuthTokenRequest(refreshToken, future, future));
         try {
-            if (mVolleyError != null) {
-                throw new VolleyError(mVolleyError);
-            }
-        } finally {
-            mVolleyError = null;
+            return future.get();
+        } catch (InterruptedException e) {
+            throw new VolleyError(e);
+        } catch (ExecutionException e) {
+            throw new VolleyError(e);
         }
-        return authResponse;
     }
 
     public void addLocalAccount(AccountManager accountManager, Account account, AuthTokenResponse response) {
