@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/cmid_account_pref_title"
+                android:summary="@string/cmid_account_pref_summary">
+        <intent android:action="com.cyanogenmod.id.account.SETTINGS"/>
+    </Preference>
+</PreferenceScreen>

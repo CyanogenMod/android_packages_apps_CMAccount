@@ -13,6 +13,9 @@
     <string name="existing">Existing</string>
     <string name="new_account">New</string>
 
+    <string name="account_settings_find_device_title">Find My Device</string>
+    <string name="account_settings_find_device_summary">Find your device via the CMID website</string>
+
     <string name="setup_complete">Setup is complete</string>
     <string name="setup_welcome">Welcome to Cyanogenmod</string>
     <string name="setup_cmid">Set up your CMID</string>
@@ -36,6 +39,11 @@
     <string name="cmid_login_message">Logging in to CMID</string>
     <string name="cmid_creating_profile_message">Creating your CMID profile</string>
 
+    <string name="cmid_account_pref_title">Account Settings</string>
+    <string name="cmid_account_pref_summary">Change your cmid settings</string>
+
     <string name="cmid_server_error_title">Server Error</string>
     <string name="cmid_server_error_message">An error has occurred</string>
+
+    <string name="cmid_error_multiple_accounts">Only one CMID allowed on a device</string>
 </resources>
