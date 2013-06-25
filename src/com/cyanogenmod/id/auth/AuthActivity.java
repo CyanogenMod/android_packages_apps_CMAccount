@@ -7,6 +7,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.cyanogenmod.id.Constants;
 import com.cyanogenmod.id.R;
+import com.cyanogenmod.id.api.AuthTokenResponse;
+import com.cyanogenmod.id.api.CheckProfileResponse;
+import com.cyanogenmod.id.api.CreateProfileResponse;
+import com.cyanogenmod.id.api.ProfileAvailableResponse;
+import com.cyanogenmod.id.gcm.GCMService;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -15,8 +20,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -79,6 +86,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private Dialog mDialog;
     private AuthServerError mAuthServerError;
 
+    private SharedPreferences mPreferences;
+
     private Request<?> mInFlightRequest;
 
     private Response.Listener<AuthTokenResponse> mAuthTokenResponseListener = new Response.Listener<AuthTokenResponse>() {
@@ -114,14 +123,14 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         }
     };
 
-    public static void showForCreate(Activity context, int requestCode) {
+    public static void showForCreate(Activity context) {
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra(PARAM_CREATE_ACCOUNT, true);
-        context.startActivityForResult(intent, requestCode);
+        context.startActivity(intent);
     }
 
-    public static void showForAuth(Activity context, int requestCode) {
-        context.startActivityForResult(new Intent(context, AuthActivity.class), requestCode);
+    public static void showForAuth(Activity context) {
+        context.startActivity(new Intent(context, AuthActivity.class));
     }
 
     @Override
@@ -130,6 +139,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         setContentView(R.layout.cmid_auth);
         mAccountManager = AccountManager.get(this);
         mAuthClient = AuthClient.getInstance(getApplicationContext());
+        mPreferences = getSharedPreferences(Constants.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         mTitle = (TextView) findViewById(android.R.id.title);
         mFirstNameText = (TextView) findViewById(R.id.cmid_firstname_label);
         mFirstNameEdit = (EditText) findViewById(R.id.cmid_firstname);
@@ -373,6 +383,14 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+    private void trimFields() {
+        mFirstName =  mFirstName != null ? mFirstName.trim() : "";
+        mLastName =  mLastName != null ? mLastName.trim() : "";
+        mUsername =  mUsername != null ? mUsername.trim() : "";
+        mPassword =  mPassword != null ? mPassword.trim() : "";
+        mEmail =  mEmail != null ? mEmail.trim() : "";
+    }
+
     private void hideProgress() {
         if (mDialog != null) {
             mDialog.dismiss();
@@ -395,6 +413,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             mEmailEdit.requestFocus();
         } else {
             showDialog(DIALOG_CREATE_ACCOUNT);
+            trimFields();
             mInFlightRequest = mAuthClient.createProfile(mFirstName, mLastName, mEmail, mUsername, mPassword, mCheckBox.isChecked(), mCreateProfileResponseListener, this);
         }
     }
@@ -415,12 +434,16 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     private void login() {
         showDialog(DIALOG_LOGIN);
+        trimFields();
         mInFlightRequest =  mAuthClient.login(mUsername, mPassword, mAuthTokenResponseListener, this);
     }
 
     private void handleLogin(AuthTokenResponse response) {
         final Account account = new Account(mUsername, Constants.ACCOUNT_TYPE);
         mAuthClient.addLocalAccount(mAccountManager, account, response);
+        if (mPreferences.getBoolean(Constants.KEY_FIND_DEVICE_PREF, false)) {
+            GCMService.registerClient(getApplicationContext(), account);
+        }
         Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, mUsername);
         result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE);
