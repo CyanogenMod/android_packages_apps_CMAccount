@@ -18,6 +18,7 @@ import com.cyanogenmod.id.api.PingService;
 import com.cyanogenmod.id.api.ProfileAvailableRequest;
 import com.cyanogenmod.id.api.ProfileAvailableResponse;
 import com.cyanogenmod.id.api.ReportLocationRequest;
+import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -88,11 +89,11 @@ public class AuthClient {
     }
 
     public Request<?> pingService(String authToken, Listener<PingResponse> listener, ErrorListener errorListener) {
-        return mRequestQueue.add(new PingRequest(mContext, getAndroidID(), authToken, getCarrierName(), listener, errorListener));
+        return mRequestQueue.add(new PingRequest(mContext, CMIDUtils.getUniqueDeviceId(mContext), authToken, getCarrierName(), listener, errorListener));
     }
 
     public Request<?> reportLocation(String authToken, double latitude, double longitude, Listener<Integer> listener, ErrorListener errorListener) {
-        return mRequestQueue.add(new ReportLocationRequest(getAndroidID(), authToken, latitude, longitude, listener, errorListener));
+        return mRequestQueue.add(new ReportLocationRequest(CMIDUtils.getUniqueDeviceId(mContext), authToken, latitude, longitude, listener, errorListener));
     }
 
     public AuthTokenResponse blockingRefreshAccessToken(String refreshToken) throws VolleyError {
@@ -118,16 +119,11 @@ public class AuthClient {
         if (!TextUtils.isEmpty(response.getRefreshToken())) {
             accountManager.setUserData(account, Constants.AUTHTOKEN_TYPE_REFRESH, response.getRefreshToken());
         }
-        accountManager.setUserData(account, Constants.AUTHTOKEN_EXPIRES_IN, String.valueOf(System.currentTimeMillis() + (Long.valueOf(response.getExpiresIn())*1000)));
+        accountManager.setUserData(account, Constants.AUTHTOKEN_EXPIRES_IN, String.valueOf(System.currentTimeMillis() + (Long.valueOf(response.getExpiresIn()) * 1000)));
         if (Constants.DEBUG) {
             Log.d(TAG, "Current Time = " + new Timestamp(System.currentTimeMillis()));
             Log.d(TAG, "Expires in = " + response.getExpiresIn() + "ms");
         }
-    }
-
-    private String getAndroidID() {
-        return android.provider.Settings.Secure.getString(mContext.getContentResolver(),
-                android.provider.Settings.Secure.ANDROID_ID);
     }
 
     private String getCarrierName() {

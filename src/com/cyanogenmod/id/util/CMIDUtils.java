@@ -10,14 +10,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
+import android.os.SystemProperties;
+import android.provider.Settings;
 import android.util.Log;
 
+import java.math.BigInteger;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.security.MessageDigest;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class CMIDUtils {
 
     private static final String TAG = CMIDUtils.class.getSimpleName();
     private static final Random sRandom = new Random();
+
+    private static final String KEY_UDID = "udid";
 
     private CMIDUtils(){}
 
@@ -59,5 +69,47 @@ public class CMIDUtils {
             }
         }
         return null;
+    }
+
+    public static String getUniqueDeviceId(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(Constants.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        String udid = prefs.getString(KEY_UDID, null);
+        if (udid != null) return udid;
+        String wifiInterface = SystemProperties.get("wifi.interface");
+        if (wifiInterface != null) {
+            try {
+                List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+                for (NetworkInterface networkInterface : interfaces) {
+                    if (wifiInterface.equals(networkInterface.getDisplayName())) {
+                        byte[] mac = networkInterface.getHardwareAddress();
+                        if (mac != null) {
+                            StringBuilder buf = new StringBuilder();
+                            for (int i=0; i < mac.length; i++)
+                                buf.append(String.format("%02X:", mac[i]));
+                            if (buf.length()>0) buf.deleteCharAt(buf.length()-1);
+                            if (Constants.DEBUG) Log.d(TAG, "using wifi mac for id : " + buf.toString());
+                            return digest(prefs, context.getPackageName() + buf.toString());
+                        }
+                    }
+
+                }
+            } catch (SocketException e) {
+                Log.e(TAG, "Unable to get wifi mac address", e);
+            }
+        }
+        //If we fail, just use android id.
+        return digest(prefs, context.getPackageName() + Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID));
+    }
+
+
+    private static String digest(SharedPreferences prefs, String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            String id = new BigInteger(1, md.digest(input.getBytes())).toString(16).toUpperCase();
+            prefs.edit().putString(KEY_UDID, id).commit();
+            return id;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
