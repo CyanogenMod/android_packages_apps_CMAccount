@@ -25,6 +25,11 @@
                 android:layout_width="match_parent"
                 android:text="@string/expire_token"/>
 
+        <Button android:id="@+id/enable_setup"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/enable_setup"/>
+
 
     </LinearLayout>
 </ScrollView>

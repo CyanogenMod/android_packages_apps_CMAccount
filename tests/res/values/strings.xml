@@ -4,4 +4,5 @@
     <string name="get_token">Get Token</string>
     <string name="invalidate_token">Invalidate Token</string>
     <string name="expire_token">Expire Token</string>
+    <string name="enable_setup">Enable Setup Wizard</string>
 </resources>

@@ -9,8 +9,13 @@ import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ManualTestActivity extends Activity {
 
@@ -63,6 +69,12 @@ public class ManualTestActivity extends Activity {
                 expireAuthToken();
             }
         });
+        findViewById(R.id.enable_setup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enableSetup();
+            }
+        });
     }
 
     private void getToken() {
@@ -104,5 +116,19 @@ public class ManualTestActivity extends Activity {
         Toast.makeText(ManualTestActivity.this, "AuthToken expired", Toast.LENGTH_SHORT).show();
     }
 
+    private void enableSetup() {
+        Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 0);
+        Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 0);
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.HOME");
+        final PackageManager pm = getPackageManager();
+        ComponentName componentName = new ComponentName("com.cyanogenmod.id", "com.cyanogenmod.id.ui.SetupWizardActivity");
+        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        componentName = new ComponentName("com.google.android.setupwizard", "com.google.android.setupwizard.SetupWizardActivity");
+        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
+        startActivity(intent);
+        finish();
+    }
 
 }
