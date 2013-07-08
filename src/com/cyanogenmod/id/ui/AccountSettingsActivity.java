@@ -1,6 +1,7 @@
 package com.cyanogenmod.id.ui;
 
 import com.cyanogenmod.id.R;
+import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.Account;
 import android.app.Activity;
@@ -20,19 +21,15 @@ public class AccountSettingsActivity extends Activity {
             if (savedInstanceState != null) {
                 return;
             }
-            AccountListFragment accountListFragment = new AccountListFragment();
-            mFragmentManager.beginTransaction().add(R.id.account_settings_container, accountListFragment).commit();
+            Account account = CMIDUtils.getCMIDAccount(this);
+            AccountSettingsFragment accountSettingsFragment = new AccountSettingsFragment();
+            Bundle args = new Bundle();
+            args.putParcelable(AccountSettingsFragment.BUNDLE_KEY_ACCOUNT, account);
+            accountSettingsFragment.setArguments(args);
+            FragmentTransaction transaction = mFragmentManager.beginTransaction();
+            transaction.replace(R.id.account_settings_container, accountSettingsFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
-    }
-
-    public void onAccountSelected(Account account) {
-        AccountSettingsFragment accountSettingsFragment = new AccountSettingsFragment();
-        Bundle args = new Bundle();
-        args.putParcelable(AccountSettingsFragment.BUNDLE_KEY_ACCOUNT, account);
-        accountSettingsFragment.setArguments(args);
-        FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        transaction.replace(R.id.account_settings_container, accountSettingsFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 }
