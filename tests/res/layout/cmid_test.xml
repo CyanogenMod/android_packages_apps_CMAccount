@@ -30,6 +30,11 @@
                 android:layout_width="match_parent"
                 android:text="@string/enable_setup"/>
 
+        <Button android:id="@+id/enable_google_setup"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/enable_google_setup"/>
+
 
     </LinearLayout>
 </ScrollView>

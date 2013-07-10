@@ -12,7 +12,6 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -24,7 +23,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.List;
 
 public class ManualTestActivity extends Activity {
 
@@ -37,7 +35,7 @@ public class ManualTestActivity extends Activity {
         setContentView(R.layout.cmid_test);
         mSpinner = (Spinner) findViewById(R.id.accounts);
         mAccountManager = AccountManager.get(this);
-        final Account[] accounts = mAccountManager.getAccountsByType(Constants.ACCOUNT_TYPE);
+        final Account[] accounts = mAccountManager.getAccountsByType(Constants.ACCOUNT_TYPE_CMID);
         ArrayAdapter<Account> adapter = new ArrayAdapter<Account>(this, android.R.layout.simple_list_item_1, android.R.id.text1, accounts);
         mSpinner.setAdapter(adapter);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,6 +71,12 @@ public class ManualTestActivity extends Activity {
             @Override
             public void onClick(View view) {
                 enableSetup();
+            }
+        });
+        findViewById(R.id.enable_google_setup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                enableGoogleSetup();
             }
         });
     }
@@ -125,6 +129,19 @@ public class ManualTestActivity extends Activity {
         ComponentName componentName = new ComponentName("com.cyanogenmod.id", "com.cyanogenmod.id.ui.SetupWizardActivity");
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
         componentName = new ComponentName("com.google.android.setupwizard", "com.google.android.setupwizard.SetupWizardActivity");
+        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
+        startActivity(intent);
+        finish();
+    }
+
+    private void enableGoogleSetup() {
+        Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 0);
+        Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 0);
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.HOME");
+        final PackageManager pm = getPackageManager();
+        ComponentName componentName = new ComponentName("com.google.android.setupwizard", "com.google.android.setupwizard.SetupWizardActivity");
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
         startActivity(intent);
