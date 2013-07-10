@@ -9,9 +9,13 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.math.BigInteger;
@@ -62,13 +66,44 @@ public class CMIDUtils {
 
     public static Account getAccountByName(Context context, String name) {
         final AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(Constants.ACCOUNT_TYPE);
+        Account[] accounts = am.getAccountsByType(Constants.ACCOUNT_TYPE_CMID);
         for (Account account : accounts) {
             if (account.name.equals(name)) {
                 return account;
             }
         }
         return null;
+    }
+
+    public static Account getCMIDAccount(Context context) {
+        final AccountManager am = AccountManager.get(context);
+        Account[] accounts = am.getAccountsByType(Constants.ACCOUNT_TYPE_CMID);
+        return accounts.length > 0 ? accounts[0] : null;
+    }
+
+    public static void tryEnablingWifi(Context context) {
+        WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+        if (!wifiManager.isWifiEnabled()) {
+            wifiManager.setWifiEnabled(true);
+        }
+    }
+
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+    public static boolean isGSMPhone(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        int phoneType = telephonyManager.getPhoneType();
+        return phoneType == TelephonyManager.PHONE_TYPE_GSM;
+    }
+
+    public static boolean isSimMissing(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        int simState = telephonyManager.getSimState();
+        return simState == TelephonyManager.SIM_STATE_ABSENT || simState == TelephonyManager.SIM_STATE_UNKNOWN;
     }
 
     public static String getUniqueDeviceId(Context context) {

@@ -18,7 +18,17 @@ public class PageList extends ArrayList<Page> implements PageNode {
                 return found;
             }
         }
+        return null;
+    }
 
+    @Override
+    public Page findPage(int id) {
+        for (Page childPage : this) {
+            Page found = childPage.findPage(id);
+            if (found != null) {
+                return found;
+            }
+        }
         return null;
     }
 

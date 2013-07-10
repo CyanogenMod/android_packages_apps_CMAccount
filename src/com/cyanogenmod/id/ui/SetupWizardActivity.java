@@ -1,29 +1,44 @@
 package com.cyanogenmod.id.ui;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.content.Intent;
-import android.os.Bundle;
-import android.provider.Settings;
-import android.support.v13.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import com.cyanogenmod.id.Constants;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.setup.AbstractSetupData;
 import com.cyanogenmod.id.setup.CMSetupWizardData;
-import com.cyanogenmod.id.setup.SetupDataCallbacks;
+import com.cyanogenmod.id.setup.GoogleAccountPage;
 import com.cyanogenmod.id.setup.Page;
+import com.cyanogenmod.id.setup.PageList;
+import com.cyanogenmod.id.setup.SetupDataCallbacks;
+import com.cyanogenmod.id.setup.SimMissingPage;
+import com.cyanogenmod.id.util.CMIDUtils;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
+import android.support.v13.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.List;
 
 public class SetupWizardActivity extends Activity implements SetupDataCallbacks {
 
-    private static final int RESULT_CODE_SETUP_WIFI = 0;
-    private static final int RESULT_CODE_SETUP_GOOGLE_ACCOUNT = 1;
+    private static final String TAG = SetupWizardActivity.class.getSimpleName();
+
+    private static final String DEFAULT_LAUNCHER = "com.cyanogenmod.trebuchet.Launcher";
 
     private ViewPager mViewPager;
     private CMPagerAdapter mPagerAdapter;
@@ -31,7 +46,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private Button mNextButton;
     private Button mPrevButton;
 
-    private List<Page> mPageList;
+    private PageList mPageList;
 
     private AbstractSetupData mSetupData;
 
@@ -56,23 +71,25 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                updateButtonBar();
+                if (position < mPageList.size()) {
+                    onPageLoaded(mPageList.get(position));
+                }
             }
         });
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                doNextForPage(mViewPager.getCurrentItem());
+                doNext();
             }
         });
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+                doPrevious();
             }
         });
+        doSimCheck();
         onPageTreeChanged();
-        updateButtonBar();
     }
 
     @Override
@@ -83,10 +100,11 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == RESULT_CODE_SETUP_WIFI && resultCode == RESULT_OK) {
-            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
-        } else if (requestCode == RESULT_CODE_SETUP_GOOGLE_ACCOUNT) {
-            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+        if (requestCode == Constants.REQUEST_CODE_SETUP_WIFI && resultCode != RESULT_OK) {
+            doNext();
+        } else if (requestCode == Constants.REQUEST_CODE_SETUP_CMID && resultCode == RESULT_OK) {
+            Page cmidPage = mPageList.findPage(R.string.setup_cmid);
+            removeSetupPage(cmidPage);
         }
     }
 
@@ -101,49 +119,61 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         outState.putBundle("data", mSetupData.save());
     }
 
-    private void doNextForPage(int currentPage) {
-        // XXX TODO: Implement an elegant way to control next behavior.
-        if (currentPage == mPageList.size()) {
-            Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
-            //XXX: Commented out for devvin'
-//                    PackageManager pm = getPackageManager();
-//                    pm.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-
-            finish();
-        } else if (currentPage == 0) {
-            Intent intent = new Intent(Constants.ACTION_SETUP_WIFI);
-            intent.putExtra(Constants.EXTRA_FIRST_RUN, true);
-            intent.putExtra(Constants.EXTRA_SHOW_BUTTON_BAR, true);
-            intent.putExtra(Constants.EXTRA_SHOW_WIFI_MENU, true);
-            startActivityForResult(intent, RESULT_CODE_SETUP_WIFI);
-        } else if (currentPage == 1) {
-            launchGoogleAccountSetup();
+    public void doNext() {
+        final int currentItem = mViewPager.getCurrentItem();
+        final Page currentPage = mPageList.get(currentItem);
+        if (currentPage.getId() == R.string.setup_sim_missing) {
+            removeSetupPage(currentPage);
+        } else if (currentPage.getId() == R.string.setup_complete) {
+            finishSetup();
         } else {
-            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+            mViewPager.setCurrentItem(currentItem + 1);
         }
     }
 
-    private void updateButtonBar() {
-        int position = mViewPager.getCurrentItem();
-        if (position == mPageList.size()) {
-            mNextButton.setText(R.string.finish);
-        } else {
-            mNextButton.setText(R.string.next);
-            mNextButton.setEnabled(position != mPagerAdapter.getCutOffPage());
+    public void doPrevious() {
+        final int currentItem = mViewPager.getCurrentItem();
+        if (currentItem > 0 ) {
+            mViewPager.setCurrentItem(currentItem - 1);
         }
+    }
 
+    private void removeSetupPage(final Page page) {
+        final int position = mViewPager.getCurrentItem();
+        mViewPager.setCurrentItem(0);
+        mSetupData.removePage(page);
+        mViewPager.setCurrentItem(position);
+    }
+
+    private void updateButtonBar() {
+        final int position = mViewPager.getCurrentItem();
+        mNextButton.setEnabled(position != mPagerAdapter.getCutOffPage());
         mPrevButton.setVisibility(position <= 0 ? View.INVISIBLE : View.VISIBLE);
     }
 
     @Override
-    public void onPageDataChanged(Page page) {
+    public void onPageLoaded(Page page) {
+        mNextButton.setText(page.getNextButtonResId());
+        switch (page.getId()) {
+            case R.string.setup_cmid:
+                if (accountExists(Constants.ACCOUNT_TYPE_CMID)) {
+                    removeSetupPage(page);
+                } else if (!CMIDUtils.isNetworkConnected(this)) {
+                    launchWifiSetup();
+                }
+                break;
+            case R.string.setup_google_account:
+                if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE)) {
+                    removeSetupPage(page);
+                }
+                break;
+        }
         if (page.isRequired()) {
             if (recalculateCutOffPage()) {
                 mPagerAdapter.notifyDataSetChanged();
-                updateButtonBar();
             }
         }
+        updateButtonBar();
     }
 
     @Override
@@ -160,7 +190,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private boolean recalculateCutOffPage() {
         // Cut off the pager adapter at first required page that isn't completed
-        int cutOffPage = mPageList.size() + 1;
+        int cutOffPage = mPageList.size();
         for (int i = 0; i < mPageList.size(); i++) {
             Page page = mPageList.get(i);
             if (page.isRequired() && !page.isCompleted()) {
@@ -177,15 +207,61 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         return false;
     }
 
-    private void launchGoogleAccountSetup() {
-        Intent intent = new Intent(Constants.ACTION_SETUP_GOOGLE_ACCOUNT);
-        startActivityForResult(intent, RESULT_CODE_SETUP_GOOGLE_ACCOUNT);
+    private void launchWifiSetup() {
+        CMIDUtils.tryEnablingWifi(this);
+        Intent intent = new Intent(Constants.ACTION_SETUP_WIFI);
+        intent.putExtra(Constants.EXTRA_FIRST_RUN, true);
+        intent.putExtra(Constants.EXTRA_SHOW_BUTTON_BAR, true);
+        intent.putExtra(Constants.EXTRA_SHOW_WIFI_MENU, true);
+        startActivityForResult(intent, Constants.REQUEST_CODE_SETUP_WIFI);
+    }
+
+    private void enableDefaultHome(Intent intent) {
+        final PackageManager pm = getPackageManager();
+        final List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo info : resolveInfos) {
+            if (!DEFAULT_LAUNCHER.equals(info.activityInfo.name)) {
+                final ComponentName componentName = new ComponentName(info.activityInfo.packageName, info.activityInfo.name);
+                pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            }
+        }
+    }
+
+    public void onGoogleAccountSetupLaunched() {
+        if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE)) {
+            removeSetupPage(mPageList.findPage(R.string.setup_google_account));
+        } else {
+            doNext();
+        }
+    }
+
+    private void finishSetup() {
+        Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
+        Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.HOME");
+        enableDefaultHome(intent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
+        startActivity(intent);
+        finish();
+    }
+
+    private void doSimCheck() {
+        if (!CMIDUtils.isGSMPhone(this) || !CMIDUtils.isSimMissing(this)) {
+            Page page = mPageList.findPage(R.string.setup_sim_missing);
+            if (page != null) {
+                mSetupData.removePage(page);
+            }
+        }
+    }
+
+    private boolean accountExists(String accountType) {
+        return AccountManager.get(this).getAccountsByType(accountType).length > 0;
     }
 
     private class CMPagerAdapter extends FragmentStatePagerAdapter {
 
         private int mCutOffPage;
-        private Fragment mPrimaryItem;
 
         private CMPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -193,31 +269,17 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
         @Override
         public Fragment getItem(int i) {
-            if (i == mPageList.size()) {
-                return new FinishFragment();
-            }
-
             return mPageList.get(i).createFragment();
         }
 
         @Override
         public int getItemPosition(Object object) {
-            if (object == mPrimaryItem) {
-                return POSITION_UNCHANGED;
-            }
-
             return POSITION_NONE;
         }
 
         @Override
-        public void setPrimaryItem(ViewGroup container, int position, Object object) {
-            super.setPrimaryItem(container, position, object);
-            mPrimaryItem = (Fragment) object;
-        }
-
-        @Override
         public int getCount() {
-            return Math.min(mCutOffPage + 1, mPageList.size() + 1);
+            return Math.min(mCutOffPage, mPageList.size());
         }
 
         public void setCutOffPage(int cutOffPage) {

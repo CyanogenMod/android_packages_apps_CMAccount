@@ -10,13 +10,14 @@ public abstract class Page implements PageNode {
     public static final String DATA_KEY = "data-value";
     public static final String KEY_PAGE_ARGUMENT = "key_arg";
 
-    protected SetupDataCallbacks mCallbacks;
+    private SetupDataCallbacks mCallbacks;
 
-    protected Bundle mData = new Bundle();
-    protected String mTitle;
-    protected int mTitleResourceId;
-    protected int mImageResourceId = -1;
-    protected boolean mRequired = false;
+    private Bundle mData = new Bundle();
+    private String mTitle;
+    private int mTitleResourceId;
+    private int mImageResourceId = -1;
+    private boolean mRequired = false;
+    private boolean mCompleted = false;
 
     protected Page(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
         this(context, callbacks, titleResourceId, -1);
@@ -46,7 +47,14 @@ public abstract class Page implements PageNode {
         return getKey().equals(key) ? this : null;
     }
 
+    @Override
+    public Page findPage(int id) {
+        return getId() == id ? this : null;
+    }
+
     public abstract Fragment createFragment();
+
+    public abstract int getNextButtonResId();
 
     public int getId() {
         return mTitleResourceId;
@@ -57,7 +65,11 @@ public abstract class Page implements PageNode {
     }
 
     public boolean isCompleted() {
-        return true;
+        return mCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        mCompleted = completed;
     }
 
     public void resetData(Bundle data) {
@@ -66,7 +78,7 @@ public abstract class Page implements PageNode {
     }
 
     public void notifyDataChanged() {
-        mCallbacks.onPageDataChanged(this);
+        mCallbacks.onPageLoaded(this);
     }
 
     public Page setRequired(boolean required) {

@@ -2,6 +2,7 @@ package com.cyanogenmod.id.setup;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,10 @@ import java.util.List;
  * Represents the wizard data, including the pages/steps in the wizard.
  */
 public abstract class AbstractSetupData implements SetupDataCallbacks {
-    protected Context mContext;
 
+    private static final String TAG = AbstractSetupData.class.getSimpleName();
+
+    protected Context mContext;
     private List<SetupDataCallbacks> mListeners = new ArrayList<SetupDataCallbacks>();
     private PageList mPageList;
 
@@ -23,9 +26,9 @@ public abstract class AbstractSetupData implements SetupDataCallbacks {
     protected abstract PageList onNewPageList();
 
     @Override
-    public void onPageDataChanged(Page page) {
+    public void onPageLoaded(Page page) {
         for (int i = 0; i < mListeners.size(); i++) {
-            mListeners.get(i).onPageDataChanged(page);
+            mListeners.get(i).onPageLoaded(page);
         }
     }
 
@@ -54,11 +57,21 @@ public abstract class AbstractSetupData implements SetupDataCallbacks {
         return bundle;
     }
 
+    public void addPage(int index, Page page) {
+        mPageList.add(index, page);
+        onPageTreeChanged();
+    }
+
+    public void removePage(Page page) {
+        mPageList.remove(page);
+        onPageTreeChanged();
+    }
+
     public void registerListener(SetupDataCallbacks listener) {
         mListeners.add(listener);
     }
 
-    public List<Page> getPageList() {
+    public PageList getPageList() {
         return mPageList;
     }
 

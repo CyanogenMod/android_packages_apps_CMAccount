@@ -12,6 +12,7 @@ import com.cyanogenmod.id.api.CheckProfileResponse;
 import com.cyanogenmod.id.api.CreateProfileResponse;
 import com.cyanogenmod.id.api.ProfileAvailableResponse;
 import com.cyanogenmod.id.gcm.GCMService;
+import com.cyanogenmod.id.ui.SetupWizardActivity;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -123,14 +124,14 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         }
     };
 
-    public static void showForCreate(Activity context) {
+    public static void showForCreate(Activity context, int requestCode) {
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra(PARAM_CREATE_ACCOUNT, true);
-        context.startActivity(intent);
+        context.startActivityForResult(intent, requestCode);
     }
 
-    public static void showForAuth(Activity context) {
-        context.startActivity(new Intent(context, AuthActivity.class));
+    public static void showForAuth(Activity context, int requestCode) {
+        context.startActivityForResult(new Intent(context, AuthActivity.class), requestCode);
     }
 
     @Override
@@ -439,14 +440,14 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     }
 
     private void handleLogin(AuthTokenResponse response) {
-        final Account account = new Account(mUsername, Constants.ACCOUNT_TYPE);
+        final Account account = new Account(mUsername, Constants.ACCOUNT_TYPE_CMID);
         mAuthClient.addLocalAccount(mAccountManager, account, response);
         if (mPreferences.getBoolean(Constants.KEY_FIND_DEVICE_PREF, false)) {
             GCMService.registerClient(getApplicationContext(), account);
         }
         Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, mUsername);
-        result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE);
+        result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
         setAccountAuthenticatorResult(result);
         Intent intent = new Intent();
         intent.putExtras(result);

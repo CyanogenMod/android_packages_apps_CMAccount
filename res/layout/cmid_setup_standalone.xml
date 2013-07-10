@@ -1,0 +1,6 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SetupWizardPageContainer">
+
+    <include layout="@layout/cmid_account"/>
+
+</LinearLayout>

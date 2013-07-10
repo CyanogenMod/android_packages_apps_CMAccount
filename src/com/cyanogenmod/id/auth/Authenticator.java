@@ -53,7 +53,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
             return bundle;
         } else {
             final Intent intent = new Intent(mContext, CMIDActivity.class);
-            intent.putExtra(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE);
+            intent.putExtra(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
             intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
             return bundle;
@@ -103,7 +103,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
         final Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
-        result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE);
+        result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
         result.putString(AccountManager.KEY_AUTHTOKEN, token);
         return result;
     }
@@ -137,7 +137,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
                     result.putParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
                     result.putString(AccountManager.KEY_AUTHTOKEN, token);
                     result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
-                    result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE);
+                    result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
                     am.setAuthToken(account, Constants.AUTHTOKEN_TYPE_ACCESS, token);
                     return result;
                 }
@@ -155,7 +155,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
         if (expired) {
             final String token = am.getUserData(account, Constants.AUTHTOKEN_TYPE_ACCESS);
             if (!TextUtils.isEmpty(token)) {
-                am.invalidateAuthToken(Constants.ACCOUNT_TYPE, token);
+                am.invalidateAuthToken(Constants.ACCOUNT_TYPE_CMID, token);
             }
         }
         return expired;
