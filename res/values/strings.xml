@@ -6,6 +6,7 @@
 
     <string name="next">Next</string>
     <string name="prev">Previous</string>
+    <string name="skip">Skip</string>
     <string name="finish">Finish</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
@@ -19,8 +20,8 @@
     <string name="setup_complete">Setup is complete</string>
     <string name="setup_welcome">Welcome to Cyanogenmod</string>
     <string name="setup_cmid">Set up your CMID</string>
-    <string name="setup_option_login_cmid">Login to your CMID</string>
-    <string name="setup_option_create_cmid">Create a CMID</string>
+    <string name="setup_sim_missing">Insert SIM card</string>
+    <string name="setup_google_account">Google Account</string>
 
     <string name="cmid_setup_create_title">Create a CMID</string>
     <string name="cmid_setup_login_title">Log in to CMID</string>
@@ -46,4 +47,8 @@
     <string name="cmid_server_error_message">An error has occurred</string>
 
     <string name="cmid_error_multiple_accounts">Only one CMID allowed on a device</string>
+
+    <string name="sim_missing_summary">You need to refer to the SIM card instructions that came with your device.</string>
+    <string name="google_account_summary">Do you want to set up a Google account?</string>
+    <string name="btn_google_account">Set up Google account</string>
 </resources>
