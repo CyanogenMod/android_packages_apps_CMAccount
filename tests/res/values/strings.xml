@@ -5,4 +5,5 @@
     <string name="invalidate_token">Invalidate Token</string>
     <string name="expire_token">Expire Token</string>
     <string name="enable_setup">Enable Setup Wizard</string>
+    <string name="enable_google_setup">Enable Google Setup Wizard</string>
 </resources>
