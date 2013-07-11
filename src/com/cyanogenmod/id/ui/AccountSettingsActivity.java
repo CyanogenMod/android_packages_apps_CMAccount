@@ -28,7 +28,6 @@ public class AccountSettingsActivity extends Activity {
             accountSettingsFragment.setArguments(args);
             FragmentTransaction transaction = mFragmentManager.beginTransaction();
             transaction.replace(R.id.account_settings_container, accountSettingsFragment);
-            transaction.addToBackStack(null);
             transaction.commit();
         }
     }
