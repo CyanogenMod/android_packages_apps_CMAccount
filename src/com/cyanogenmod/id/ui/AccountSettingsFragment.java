@@ -15,7 +15,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
-public class AccountSettingsFragment extends PreferenceFragment {
+public class AccountSettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
 
 
     private static final String TAG = AccountSettingsFragment.class.getSimpleName();
@@ -36,6 +36,7 @@ public class AccountSettingsFragment extends PreferenceFragment {
             throw new IllegalArgumentException("Must provide an Account");
         }
         mAccount = (Account)b.get(BUNDLE_KEY_ACCOUNT);
+        mDeviceFinderPreference.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -49,16 +50,15 @@ public class AccountSettingsFragment extends PreferenceFragment {
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (mDeviceFinderPreference == preference) {
-            if (mDeviceFinderPreference.isChecked()) {
+    public boolean onPreferenceChange(Preference preference, Object value) {
+        if (preference.getKey().equals(Constants.KEY_FIND_DEVICE_PREF)) {
+            if ((Boolean)value) {
                 GCMService.registerClient(getActivity(), mAccount);
-            }  else {
+            } else {
                 GCMService.unregisterClient(getActivity(), mAccount);
             }
-            return true;
         }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        return true;
     }
 
     private void checkForPlayServices() {
