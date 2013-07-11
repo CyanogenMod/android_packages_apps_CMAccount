@@ -88,8 +88,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 doPrevious();
             }
         });
-        doSimCheck();
         onPageTreeChanged();
+        doSimCheck();
     }
 
     @Override
