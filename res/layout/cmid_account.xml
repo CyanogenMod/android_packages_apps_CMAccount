@@ -14,11 +14,12 @@
               android:textAppearance="?android:attr/textAppearanceMedium"
               android:textColor="?android:attr/textColorPrimary" />
 
-    <ImageView android:layout_height="0px"
+    <ImageView android:id="@+id/setup_img"
                android:layout_width="match_parent"
+               android:layout_height="0px"
                android:layout_weight="1"
-               android:scaleType="centerInside"
-               android:src="@drawable/cid_welcome"/>
+               android:scaleType="fitCenter"
+               android:padding="10dp"/>
 
 
     <Button android:id="@+id/existing_button"
@@ -31,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dip"
+            android:layout_marginBottom="20dp"
             android:text="@string/new_account"/>
 
 </LinearLayout>

@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 public class GoogleAccountPage extends Page {
 
-    public GoogleAccountPage(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
-        super(context, callbacks, titleResourceId);
+    public GoogleAccountPage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResId) {
+        super(context, callbacks, titleResourceId, imageResId);
     }
 
     @Override

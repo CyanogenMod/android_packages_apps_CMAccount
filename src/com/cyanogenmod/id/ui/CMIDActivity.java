@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class CMIDActivity extends Activity {
 
@@ -30,6 +31,7 @@ public class CMIDActivity extends Activity {
 
             }
         });
+        ((ImageView) findViewById(R.id.setup_img)).setImageResource(R.drawable.cid_cmid);
     }
 
     @Override

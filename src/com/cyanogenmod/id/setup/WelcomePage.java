@@ -47,10 +47,6 @@ public class WelcomePage extends Page {
 
         @Override
         protected void setUpPage() {
-            int imageId = mPage.getImageResourceId();
-            if (imageId != -1) {
-                ((ImageView) mRootView.findViewById(R.id.setup_img)).setImageResource(imageId);
-            }
             final Spinner spinner = (Spinner) mRootView.findViewById(R.id.locale_list);
             final ArrayAdapter<LocalePicker.LocaleInfo> adapter = LocalePicker.constructAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1);
             spinner.setAdapter(adapter);

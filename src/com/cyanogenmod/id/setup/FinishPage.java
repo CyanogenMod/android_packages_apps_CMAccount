@@ -29,7 +29,7 @@ public class FinishPage extends Page {
 
     @Override
     public int getNextButtonResId() {
-        return R.string.finish;
+        return R.string.bacon;
     }
 
 
@@ -40,7 +40,7 @@ public class FinishPage extends Page {
 
         @Override
         protected int getLayoutResource() {
-            return R.layout.setup_fragment_page;
+            return R.layout.setup_finished_page;
         }
 
     }

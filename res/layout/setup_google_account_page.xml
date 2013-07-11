@@ -5,13 +5,17 @@
 
     <ImageView android:id="@+id/setup_img"
                android:layout_width="match_parent"
-               android:layout_height="@dimen/setup_img_height"/>
+               android:layout_height="0px"
+               android:layout_weight="1"
+               android:scaleType="fitCenter"
+               android:padding="10dp"/>
 
     <TextView style="@style/SetupWizardPageSummary" />
 
     <Button android:id="@+id/google_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dip"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/btn_google_account"/>
 </LinearLayout>
