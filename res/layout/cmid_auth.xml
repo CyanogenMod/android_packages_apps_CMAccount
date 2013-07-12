@@ -6,39 +6,26 @@
 
         <TextView style="@style/SetupWizardPageTitle" />
 
-        <TextView
-                android:id="@+id/cmid_firstname_label"
-                android:text="@string/cmid_setup_firstname_label"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorPrimary" />
         <EditText
                 android:id="@+id/cmid_firstname"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:contentDescription="@string/cmid_setup_firstname_label"
                 android:inputType="textPersonName"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:hint="@string/cmid_setup_firstname_label"/>
 
-        <TextView
-                android:id="@+id/cmid_lastname_label"
-                android:text="@string/cmid_setup_lastname_label"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorPrimary" />
         <EditText
                 android:id="@+id/cmid_lastname"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:contentDescription="@string/cmid_setup_lastname_label"
                 android:inputType="textPersonName"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:hint="@string/cmid_setup_lastname_label"/>
 
         <TextView
                 android:id="@+id/cmid_email_label"
-                android:text="@string/cmid_setup_email_label"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -49,10 +36,11 @@
                 android:layout_width="match_parent"
                 android:contentDescription="@string/cmid_setup_email_label"
                 android:inputType="textEmailAddress"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:hint="@string/cmid_setup_email_label"/>
+
         <TextView
                 android:id="@+id/cmid_username_label"
-                android:text="@string/cmid_setup_username_label"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -63,9 +51,11 @@
                 android:layout_width="match_parent"
                 android:inputType="text"
                 android:contentDescription="@string/cmid_setup_username_label"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:hint="@string/cmid_setup_username_label"/>
+
         <TextView
-                android:text="@string/cmid_setup_password_label"
+                android:id="@+id/cmid_password_label"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -75,7 +65,15 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:contentDescription="@string/cmid_setup_password_label"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:hint="@string/cmid_setup_password_label"/>
+        <EditText
+                android:id="@+id/cmid_confirm_password"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:contentDescription="@string/cmid_setup_confirm_password_label"
+                android:inputType="textPassword"
+                android:hint="@string/cmid_setup_confirm_password_label"/>
 
         <CheckBox
                 android:id="@+id/cmid_tos"
