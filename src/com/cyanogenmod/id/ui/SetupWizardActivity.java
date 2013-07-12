@@ -1,5 +1,8 @@
 package com.cyanogenmod.id.ui;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+
 import com.cyanogenmod.id.Constants;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.setup.AbstractSetupData;
@@ -163,7 +166,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 }
                 break;
             case R.string.setup_google_account:
-                if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE)) {
+                int playServiceStatus = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+                if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE) || playServiceStatus == ConnectionResult.SERVICE_MISSING) {
                     removeSetupPage(page);
                 }
                 break;
