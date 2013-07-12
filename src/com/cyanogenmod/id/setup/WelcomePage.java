@@ -4,21 +4,15 @@ package com.cyanogenmod.id.setup;
 import com.android.internal.app.LocalePicker;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.ui.SetupPageFragment;
-import com.cyanogenmod.id.ui.SetupWizardActivity;
 
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -48,7 +42,7 @@ public class WelcomePage extends Page {
         @Override
         protected void setUpPage() {
             final Spinner spinner = (Spinner) mRootView.findViewById(R.id.locale_list);
-            final ArrayAdapter<LocalePicker.LocaleInfo> adapter = LocalePicker.constructAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1);
+            final ArrayAdapter<LocalePicker.LocaleInfo> adapter = LocalePicker.constructAdapter(getActivity(), R.layout.locale_picker_item, R.id.locale);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
