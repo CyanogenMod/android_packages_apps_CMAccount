@@ -39,7 +39,8 @@
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.Holo.NoActionBar"
                   android:launchMode="singleTop"
-                  android:excludeFromRecents="true">
+                  android:excludeFromRecents="true"
+                  android:immersive="true">
                 <intent-filter android:priority="9">
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD"/>
