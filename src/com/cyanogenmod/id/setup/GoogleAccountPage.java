@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 public class GoogleAccountPage extends Page {
 
+    private static final String TAG = GoogleAccountPage.class.getSimpleName();
+
     public GoogleAccountPage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResId) {
         super(context, callbacks, titleResourceId, imageResId);
     }
@@ -52,13 +54,10 @@ public class GoogleAccountPage extends Page {
             Bundle bundle = new Bundle();
             bundle.putBoolean(Constants.EXTRA_FIRST_RUN, true);
             bundle.putBoolean(Constants.EXTRA_ALLOW_SKIP, true);
-            AccountManager.get(getActivity()).addAccount(Constants.ACCOUNT_TYPE_GOOGLE, null, null, bundle, mActivity, new AccountManagerCallback<Bundle>() {
+            AccountManager.get(getActivity()).addAccount(Constants.ACCOUNT_TYPE_GOOGLE, null, null, bundle, getActivity(), new AccountManagerCallback<Bundle>() {
                 @Override
                 public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
-                    if (mActivity != null) {
-                        mActivity.onGoogleAccountSetupLaunched();
-                    }
-
+                    mCallbacks.onPageFinished(mPage);
                 }
             }, null);
         }

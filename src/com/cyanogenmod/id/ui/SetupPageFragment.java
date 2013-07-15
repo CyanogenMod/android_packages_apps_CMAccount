@@ -2,10 +2,12 @@ package com.cyanogenmod.id.ui;
 
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.setup.Page;
+import com.cyanogenmod.id.setup.SetupDataCallbacks;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 
 public abstract class SetupPageFragment extends Fragment {
 
-    protected SetupWizardActivity mActivity;
+    protected SetupDataCallbacks mCallbacks;
     protected String mKey;
     protected Page mPage;
     protected View mRootView;
@@ -41,7 +43,7 @@ public abstract class SetupPageFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mPage = mActivity.getPage(mKey);
+        mPage = mCallbacks.getPage(mKey);
         int imageId = mPage.getImageResourceId();
         if (imageId != -1) {
             ((ImageView) mRootView.findViewById(R.id.setup_img)).setImageResource(imageId);
@@ -52,16 +54,16 @@ public abstract class SetupPageFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if (!(activity instanceof SetupWizardActivity)) {
-            throw new ClassCastException("Activity must be SetupWizardActivity");
+        if (!(activity instanceof SetupDataCallbacks)) {
+            throw new ClassCastException("Activity implement SetupDataCallbacks");
         }
-        mActivity = (SetupWizardActivity) activity;
+        mCallbacks = (SetupDataCallbacks) activity;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mActivity = null;
+        mCallbacks = null;
     }
 
     protected abstract void setUpPage();

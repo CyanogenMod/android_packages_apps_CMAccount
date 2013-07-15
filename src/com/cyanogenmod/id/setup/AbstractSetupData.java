@@ -39,6 +39,18 @@ public abstract class AbstractSetupData implements SetupDataCallbacks {
         }
     }
 
+    @Override
+    public void onPageFinished(Page page) {
+        for (int i = 0; i < mListeners.size(); i++) {
+            mListeners.get(i).onPageFinished(page);
+        }
+    }
+
+    @Override
+    public Page getPage(String key) {
+        return findPage(key);
+    }
+
     public Page findPage(String key) {
         return mPageList.findPage(key);
     }

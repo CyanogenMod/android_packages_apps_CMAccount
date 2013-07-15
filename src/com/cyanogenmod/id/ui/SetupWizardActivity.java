@@ -7,17 +7,12 @@ import com.cyanogenmod.id.Constants;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.setup.AbstractSetupData;
 import com.cyanogenmod.id.setup.CMSetupWizardData;
-import com.cyanogenmod.id.setup.GoogleAccountPage;
 import com.cyanogenmod.id.setup.Page;
 import com.cyanogenmod.id.setup.PageList;
 import com.cyanogenmod.id.setup.SetupDataCallbacks;
-import com.cyanogenmod.id.setup.SimMissingPage;
 import com.cyanogenmod.id.util.CMIDUtils;
 
-import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -26,13 +21,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.List;
@@ -96,19 +89,18 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSetupData.unregisterListener(this);
+    protected void onResume() {
+        super.onResume();
+        removeAccountsIfNeeded();
+        if (!CMIDUtils.isNetworkConnected(this)) {
+            CMIDUtils.tryEnablingWifi(this);
+        }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Constants.REQUEST_CODE_SETUP_WIFI && resultCode != RESULT_OK) {
-            doNext();
-        } else if (requestCode == Constants.REQUEST_CODE_SETUP_CMID && resultCode == RESULT_OK) {
-            Page cmidPage = mPageList.findPage(R.string.setup_cmid);
-            removeSetupPage(cmidPage);
-        }
+    protected void onDestroy() {
+        super.onDestroy();
+        mSetupData.unregisterListener(this);
     }
 
     @Override
@@ -120,6 +112,14 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBundle("data", mSetupData.save());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == Constants.REQUEST_CODE_SETUP_WIFI && resultCode == Activity.RESULT_CANCELED) {
+//                mCallbacks.onPageFinished(mPage);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void doNext() {
@@ -142,9 +142,11 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     private void removeSetupPage(final Page page) {
+        if (page == null) return;
         final int position = mViewPager.getCurrentItem();
         mViewPager.setCurrentItem(0);
         mSetupData.removePage(page);
+        onPageTreeChanged();
         mViewPager.setCurrentItem(position);
     }
 
@@ -157,20 +159,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     @Override
     public void onPageLoaded(Page page) {
         mNextButton.setText(page.getNextButtonResId());
-        switch (page.getId()) {
-            case R.string.setup_cmid:
-                if (accountExists(Constants.ACCOUNT_TYPE_CMID)) {
-                    removeSetupPage(page);
-                } else if (!CMIDUtils.isNetworkConnected(this)) {
-                    launchWifiSetup();
-                }
-                break;
-            case R.string.setup_google_account:
-                int playServiceStatus = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-                if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE) || playServiceStatus == ConnectionResult.SERVICE_MISSING) {
-                    removeSetupPage(page);
-                }
-                break;
+        if (page.getId() == R.string.setup_cmid && !CMIDUtils.isNetworkConnected(this)) {
+            launchWifiSetup();
         }
         if (page.isRequired()) {
             if (recalculateCutOffPage()) {
@@ -188,8 +178,25 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         updateButtonBar();
     }
 
+    @Override
     public Page getPage(String key) {
         return mSetupData.findPage(key);
+    }
+
+    @Override
+    public void onPageFinished(Page page) {
+        switch (page.getId()) {
+            case R.string.setup_cmid:
+                removeSetupPage(page);
+                break;
+            case R.string.setup_google_account:
+                if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE)) {
+                    removeSetupPage(page);
+                } else {
+                    doNext();
+                }
+                break;
+        }
     }
 
     private boolean recalculateCutOffPage() {
@@ -211,6 +218,18 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         return false;
     }
 
+    private void removeAccountsIfNeeded() {
+        Page page = mPageList.findPage(R.string.setup_cmid);
+        if (page != null && accountExists(Constants.ACCOUNT_TYPE_CMID)) {
+            removeSetupPage(page);
+        }
+        int playServiceStatus = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        page = mPageList.findPage(R.string.setup_google_account);
+        if (page != null && (playServiceStatus == ConnectionResult.SERVICE_MISSING || accountExists(Constants.ACCOUNT_TYPE_GOOGLE))) {
+            removeSetupPage(page);
+        }
+    }
+
     private void launchWifiSetup() {
         CMIDUtils.tryEnablingWifi(this);
         Intent intent = new Intent(Constants.ACTION_SETUP_WIFI);
@@ -228,14 +247,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 final ComponentName componentName = new ComponentName(info.activityInfo.packageName, info.activityInfo.name);
                 pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
             }
-        }
-    }
-
-    public void onGoogleAccountSetupLaunched() {
-        if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE)) {
-            removeSetupPage(mPageList.findPage(R.string.setup_google_account));
-        } else {
-            doNext();
         }
     }
 

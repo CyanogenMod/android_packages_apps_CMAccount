@@ -5,14 +5,12 @@ import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.auth.AuthActivity;
 import com.cyanogenmod.id.ui.SetupPageFragment;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class CMIDPage extends Page {
 
@@ -30,7 +28,6 @@ public class CMIDPage extends Page {
         return fragment;
     }
 
-
     @Override
     public int getNextButtonResId() {
         return R.string.skip;
@@ -39,21 +36,36 @@ public class CMIDPage extends Page {
     public static class CMIDFragment extends SetupPageFragment {
 
         @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            if (requestCode == Constants.REQUEST_CODE_SETUP_CMID && resultCode == Activity.RESULT_OK) {
+                mCallbacks.onPageFinished(mPage);
+            }
+        }
+
+        @Override
         protected void setUpPage() {
             mRootView.findViewById(R.id.existing_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AuthActivity.showForAuth(getActivity(), Constants.REQUEST_CODE_SETUP_CMID);
-
+                    loginCMID();
                 }
             });
             mRootView.findViewById(R.id.new_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AuthActivity.showForCreate(getActivity(), Constants.REQUEST_CODE_SETUP_CMID);
-
+                    createCMID();
                 }
             });
+        }
+
+        private void createCMID() {
+            Intent intent = new Intent(getActivity(), AuthActivity.class);
+            intent.putExtra(AuthActivity.EXTRA_PARAM_CREATE_ACCOUNT, true);
+            startActivityForResult(intent, Constants.REQUEST_CODE_SETUP_CMID);
+        }
+
+        private void loginCMID() {
+            startActivityForResult(new Intent(getActivity(), AuthActivity.class), Constants.REQUEST_CODE_SETUP_CMID);
         }
 
         @Override
