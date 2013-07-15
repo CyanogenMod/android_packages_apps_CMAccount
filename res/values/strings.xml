@@ -14,6 +14,8 @@
     <string name="login">Login</string>
     <string name="existing">Existing</string>
     <string name="new_account">New</string>
+    <string name="skip_anyway">Skip anyway</string>
+    <string name="dont_skip">Don\'t skip</string>
 
     <string name="account_settings_find_device_title">Find My Device</string>
     <string name="account_settings_find_device_summary">Find your device via the CMID website</string>
@@ -23,6 +25,7 @@
     <string name="setup_cmid">Set up your CMID</string>
     <string name="setup_sim_missing">Insert SIM card</string>
     <string name="setup_google_account">Google Account</string>
+    <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
 
     <string name="cmid_setup_create_title">Create a CMID</string>
     <string name="cmid_setup_login_title">Log in to CMID</string>

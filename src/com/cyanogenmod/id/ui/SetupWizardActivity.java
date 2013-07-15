@@ -14,9 +14,12 @@ import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -35,6 +38,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private static final String TAG = SetupWizardActivity.class.getSimpleName();
 
     private static final String DEFAULT_LAUNCHER = "com.cyanogenmod.trebuchet.Launcher";
+
+    private static final int DIALOG_NO_NETWORK_WARNING = 0;
 
     private ViewPager mViewPager;
     private CMPagerAdapter mPagerAdapter;
@@ -116,10 +121,32 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Constants.REQUEST_CODE_SETUP_WIFI && resultCode == Activity.RESULT_CANCELED) {
-//                mCallbacks.onPageFinished(mPage);
+        if (requestCode == Constants.REQUEST_CODE_SETUP_WIFI && resultCode != Activity.RESULT_OK) {
+            showDialog(DIALOG_NO_NETWORK_WARNING);
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id, Bundle args) {
+        if (id == DIALOG_NO_NETWORK_WARNING) {
+            return new AlertDialog.Builder(this)
+                    .setMessage(R.string.setup_msg_no_network)
+                    .setNeutralButton(R.string.skip_anyway, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            doNext();
+                        }
+                    })
+                    .setPositiveButton(R.string.dont_skip, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                            launchWifiSetup();
+                        }
+                    }).show();
+        }
+        return super.onCreateDialog(id, args);
     }
 
     public void doNext() {
@@ -234,8 +261,12 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         CMIDUtils.tryEnablingWifi(this);
         Intent intent = new Intent(Constants.ACTION_SETUP_WIFI);
         intent.putExtra(Constants.EXTRA_FIRST_RUN, true);
+        intent.putExtra(Constants.EXTRA_ALLOW_SKIP, true);
         intent.putExtra(Constants.EXTRA_SHOW_BUTTON_BAR, true);
-        intent.putExtra(Constants.EXTRA_SHOW_WIFI_MENU, true);
+        intent.putExtra(Constants.EXTRA_ONLY_ACCESS_POINTS, true);
+        intent.putExtra(Constants.EXTRA_SHOW_SKIP, true);
+        intent.putExtra(Constants.EXTRA_AUTO_FINISH, true);
+        intent.putExtra(Constants.EXTRA_PREF_BACK_TEXT, getString(R.string.skip));
         startActivityForResult(intent, Constants.REQUEST_CODE_SETUP_WIFI);
     }
 

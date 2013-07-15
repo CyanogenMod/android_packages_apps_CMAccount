@@ -15,8 +15,11 @@ public class Constants {
 
     public static final String EXTRA_FIRST_RUN = "firstRun";
     public static final String EXTRA_ALLOW_SKIP = "allowSkip";
+    public static final String EXTRA_SHOW_SKIP = "extra_prefs_show_button_bar";
+    public static final String EXTRA_AUTO_FINISH = "wifi_auto_finish_on_connect";
     public static final String EXTRA_SHOW_BUTTON_BAR = "extra_prefs_show_button_bar";
-    public static final String EXTRA_SHOW_WIFI_MENU = "wifi_show_menus";
+    public static final String EXTRA_PREF_BACK_TEXT = "extra_prefs_set_back_text";
+    public static final String EXTRA_ONLY_ACCESS_POINTS = "only_access_points";
 
     public static final String GCM_PREFERENCES = "com.cyanogenmod.id.gcm";
     public static final String AUTH_PREFERENCES = "com.cyanogenmod.id.auth";
