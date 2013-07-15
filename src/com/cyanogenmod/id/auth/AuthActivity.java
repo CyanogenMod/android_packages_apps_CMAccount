@@ -12,7 +12,6 @@ import com.cyanogenmod.id.api.CheckProfileResponse;
 import com.cyanogenmod.id.api.CreateProfileResponse;
 import com.cyanogenmod.id.api.ProfileAvailableResponse;
 import com.cyanogenmod.id.gcm.GCMService;
-import com.cyanogenmod.id.ui.SetupWizardActivity;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -42,7 +41,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     private static final String TAG = "AuthActivity";
 
-    private static final String PARAM_CREATE_ACCOUNT = "create-account";
+    public static final String EXTRA_PARAM_CREATE_ACCOUNT = "create-account";
 
     private static final int DIALOG_LOGIN = 0;
     private static final int DIALOG_CREATE_ACCOUNT = 1;
@@ -127,7 +126,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     public static void showForCreate(Activity context, int requestCode) {
         Intent intent = new Intent(context, AuthActivity.class);
-        intent.putExtra(PARAM_CREATE_ACCOUNT, true);
+        intent.putExtra(EXTRA_PARAM_CREATE_ACCOUNT, true);
         context.startActivityForResult(intent, requestCode);
     }
 
@@ -242,7 +241,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                 validateFields();
             }
         });
-        mCreateNewAccount = getIntent().getBooleanExtra(PARAM_CREATE_ACCOUNT, false);
+        mCreateNewAccount = getIntent().getBooleanExtra(EXTRA_PARAM_CREATE_ACCOUNT, false);
         mUsernameAvailableText = getString(R.string.cmid_setup_username_label);
         mUsernameUnavailableText = getString(R.string.cmid_setup_username_unavailable_label);
         mPasswordMismatchText = getString(R.string.cmid_setup_password_mismatch_label);
@@ -304,13 +303,13 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     @Override
     public void onErrorResponse(VolleyError error) {
         hideProgress();
-        if (error.networkResponse.statusCode != 500) {
+        if (error.networkResponse != null && error.networkResponse.statusCode != 500) {
             String errorJson = new String(error.networkResponse.data);
             if (Constants.DEBUG) Log.d(TAG, errorJson);
             final Gson gson = new Gson();
             mAuthServerError = gson.fromJson(errorJson, AuthServerError.class);
         } else {
-            if (Constants.DEBUG) Log.d(TAG, "Response = " + new String(error.networkResponse.data));
+            if (Constants.DEBUG && error.networkResponse != null) Log.d(TAG, "Response = " + new String(error.networkResponse.data));
             final String errorMessage = error.getMessage();
             mAuthServerError = new AuthServerError(getString(R.string.cmid_server_error_title), errorMessage == null ? getString(R.string.cmid_server_error_message) : error.getMessage());
         }
