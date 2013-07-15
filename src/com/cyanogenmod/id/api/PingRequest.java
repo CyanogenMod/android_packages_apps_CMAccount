@@ -27,6 +27,7 @@ public class PingRequest extends CMIDRequest<PingResponse> {
         addParameter(PARAM_MAKE, Build.MANUFACTURER);
         addParameter(PARAM_MODEL, Build.MODEL);
         addParameter(PARAM_CARRIER, carrier);
+        addParameter(PARAM_OS_VERSION, Build.FINGERPRINT);
     }
 
     @Override

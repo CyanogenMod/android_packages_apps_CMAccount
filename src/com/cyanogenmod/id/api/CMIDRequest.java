@@ -22,6 +22,7 @@ public abstract class CMIDRequest<T> extends Request<T> {
     public static final String PARAM_PUSH_ID= "push_id";
     public static final String PARAM_MAKE= "make";
     public static final String PARAM_MODEL= "model";
+    public static final String PARAM_OS_VERSION= "os_version";
     public static final String PARAM_CARRIER= "carrier";
     public static final String PARAM_LATITUDE= "latitude";
     public static final String PARAM_LONGITUDE= "longitude";
