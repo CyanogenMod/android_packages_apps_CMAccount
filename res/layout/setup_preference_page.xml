@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SetupWizardPageContainer">
+
+    <TextView style="@style/SetupWizardPageTitle" />
+
+    <ImageView android:id="@+id/setup_img"
+               android:layout_width="match_parent"
+               android:layout_height="0px"
+               android:layout_weight="1"
+               android:scaleType="fitCenter"
+               android:padding="10dp"/>
+
+    <include layout="@layout/preference_list_fragment"/>
+
+</LinearLayout>

@@ -25,6 +25,7 @@
     <string name="setup_cmid">Set up your CMID</string>
     <string name="setup_sim_missing">Insert SIM card</string>
     <string name="setup_google_account">Google Account</string>
+    <string name="setup_location">Location Settings</string>
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
 
     <string name="cmid_setup_create_title">Create a CMID</string>
@@ -58,6 +59,8 @@
     <string name="google_account_summary">Do you want to set up a Google account?</string>
     <string name="btn_google_account">Set up Google account</string>
 
+    <string name="location_access_title">Access to my location</string>
+    <string name="location_access_summary">Let apps that have asked your permission use your location information</string>
     <string name="location_sources_heading">Location sources</string>
     <string name="location_gps">GPS satellites</string>
     <string name="location_street_level" product="tablet">Let apps use GPS on your tablet to pinpoint your location</string>

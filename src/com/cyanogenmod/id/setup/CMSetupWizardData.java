@@ -16,6 +16,7 @@ public class CMSetupWizardData extends AbstractSetupData {
                new SimMissingPage(mContext, this, R.string.setup_sim_missing, R.drawable.cid_confused),
                new CMIDPage(mContext, this, R.string.setup_cmid, R.drawable.cid_cmid),
                new GoogleAccountPage(mContext, this, R.string.setup_google_account, R.drawable.cid_google),
+               new LocationSettingsPage(mContext, this, R.string.setup_location),
                new FinishPage(mContext, this, R.string.setup_complete, R.drawable.cid_finish)
         );
     }
