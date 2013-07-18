@@ -61,16 +61,6 @@
                   android:launchMode="singleTop"
                   android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.AccountSettingsActivity"
-                  android:excludeFromRecents="true">
-            <intent-filter>
-                <action
-                        android:name="com.cyanogenmod.id.account.SETTINGS" />
-                <category
-                        android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <receiver
                 android:name=".gcm.GCMReceiver" android:exported="true"
                 android:permission="com.google.android.c2dm.permission.SEND" >

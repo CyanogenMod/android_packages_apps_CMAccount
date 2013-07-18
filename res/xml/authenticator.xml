@@ -4,5 +4,4 @@
     android:icon="@drawable/cid_welcome"
     android:smallIcon="@drawable/icon"
     android:label="@string/app_name"
-    android:accountPreferences="@xml/account_prefs"
 />

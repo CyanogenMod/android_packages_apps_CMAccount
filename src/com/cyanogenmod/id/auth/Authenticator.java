@@ -1,20 +1,23 @@
 package com.cyanogenmod.id.auth;
 
-import android.accounts.*;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.android.volley.VolleyError;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.api.AuthTokenResponse;
 import com.cyanogenmod.id.ui.CMIDActivity;
+
+import android.accounts.AbstractAccountAuthenticator;
+import android.accounts.Account;
+import android.accounts.AccountAuthenticatorResponse;
+import android.accounts.AccountManager;
+import android.accounts.NetworkErrorException;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 
 public class Authenticator extends AbstractAccountAuthenticator {
@@ -29,7 +32,6 @@ public class Authenticator extends AbstractAccountAuthenticator {
     public Authenticator(Context context) {
         super(context);
         mContext = context;
-        PreferenceManager.setDefaultValues(context, R.xml.account_settings_preferences, false);
         mAuthClient = AuthClient.getInstance(context);
         mAccountManager = AccountManager.get(mContext);
     }
