@@ -12,6 +12,7 @@
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
     <string name="login">Login</string>
+    <string name="ok">Okay</string>
     <string name="existing">Existing</string>
     <string name="new_account">New</string>
     <string name="skip_anyway">Skip anyway</string>
@@ -50,6 +51,7 @@
     <string name="cmid_account_pref_title">Account Settings</string>
     <string name="cmid_account_pref_summary">Change your cmid settings</string>
 
+    <string name="cmid_login_error_title">Login Failed</string>
     <string name="cmid_server_error_title">Server Error</string>
     <string name="cmid_server_error_message">An error has occurred</string>
 

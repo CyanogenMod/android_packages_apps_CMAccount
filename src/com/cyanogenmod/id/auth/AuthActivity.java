@@ -344,8 +344,22 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         switch (id) {
             case DIALOG_SERVER_ERROR:
                 mDialog = new AlertDialog.Builder(this)
-                        .setTitle(mAuthServerError.getError())
-                        .setMessage(mAuthServerError.getErrorDescription()).create();
+                        .setTitle(R.string.cmid_login_error_title)
+                        .setMessage(mAuthServerError.getErrorDescription())
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                setResult(Activity.RESULT_CANCELED);
+                                finish();
+                            }
+                        })
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .create();
                 return mDialog;
             case DIALOG_NO_NETWORK_WARNING:
                 mDialog = new AlertDialog.Builder(this)
