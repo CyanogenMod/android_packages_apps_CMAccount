@@ -5,13 +5,13 @@ import com.google.gson.Gson;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.api.AuthTokenResponse;
 import com.cyanogenmod.id.api.CheckProfileResponse;
 import com.cyanogenmod.id.api.CreateProfileResponse;
 import com.cyanogenmod.id.api.ProfileAvailableResponse;
-import com.cyanogenmod.id.gcm.GCMService;
+import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -46,6 +46,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private static final int DIALOG_LOGIN = 0;
     private static final int DIALOG_CREATE_ACCOUNT = 1;
     private static final int DIALOG_SERVER_ERROR = 2;
+    private static final int DIALOG_NO_NETWORK_WARNING = 3;
 
     private AccountManager mAccountManager;
     private AuthClient mAuthClient;
@@ -140,7 +141,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         setContentView(R.layout.cmid_auth);
         mAccountManager = AccountManager.get(this);
         mAuthClient = AuthClient.getInstance(getApplicationContext());
-        mPreferences = getSharedPreferences(Constants.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        mPreferences = getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         mTitle = (TextView) findViewById(android.R.id.title);
         mFirstNameEdit = (EditText) findViewById(R.id.cmid_firstname);
         mFirstNameEdit.addTextChangedListener(new TextWatcher() {
@@ -283,6 +284,9 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                 }
             }
         });
+        if (savedInstanceState == null && !CMIDUtils.isNetworkConnected(this)) {
+            CMIDUtils.launchWifiSetup(this);
+        }
     }
 
     @Override
@@ -301,15 +305,27 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CMID.REQUEST_CODE_SETUP_WIFI) {
+            if (resultCode == Activity.RESULT_OK) {
+                setResult(Activity.RESULT_OK);
+            } else {
+                showDialog(DIALOG_NO_NETWORK_WARNING);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     public void onErrorResponse(VolleyError error) {
         hideProgress();
         if (error.networkResponse != null && error.networkResponse.statusCode != 500) {
             String errorJson = new String(error.networkResponse.data);
-            if (Constants.DEBUG) Log.d(TAG, errorJson);
+            if (CMID.DEBUG) Log.d(TAG, errorJson);
             final Gson gson = new Gson();
             mAuthServerError = gson.fromJson(errorJson, AuthServerError.class);
         } else {
-            if (Constants.DEBUG && error.networkResponse != null) Log.d(TAG, "Response = " + new String(error.networkResponse.data));
+            if (CMID.DEBUG) Log.e(TAG, "Error Authorizing CMID", error.fillInStackTrace());
             final String errorMessage = error.getMessage();
             mAuthServerError = new AuthServerError(getString(R.string.cmid_server_error_title), errorMessage == null ? getString(R.string.cmid_server_error_message) : error.getMessage());
         }
@@ -325,27 +341,49 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     @Override
     protected Dialog onCreateDialog(int id, Bundle args) {
-        if (id == DIALOG_SERVER_ERROR) {
-            mDialog = new AlertDialog.Builder(this)
-                    .setTitle(mAuthServerError.getError())
-                    .setMessage(mAuthServerError.getErrorDescription()).show();
-            return mDialog;
-        } else {
-            final ProgressDialog dialog = new ProgressDialog(this);
-            dialog.setMessage(getText(id == DIALOG_CREATE_ACCOUNT ? R.string.cmid_creating_profile_message : R.string.cmid_login_message));
-            dialog.setIndeterminate(true);
-            dialog.setCancelable(true);
-            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                public void onCancel(DialogInterface dialog) {
-                    if (mInFlightRequest != null) {
-                        mInFlightRequest.cancel();
-                        mInFlightRequest = null;
-                        hideProgress();
+        switch (id) {
+            case DIALOG_SERVER_ERROR:
+                mDialog = new AlertDialog.Builder(this)
+                        .setTitle(mAuthServerError.getError())
+                        .setMessage(mAuthServerError.getErrorDescription()).create();
+                return mDialog;
+            case DIALOG_NO_NETWORK_WARNING:
+                mDialog = new AlertDialog.Builder(this)
+                        .setMessage(R.string.setup_msg_no_network)
+                        .setNeutralButton(R.string.skip_anyway, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                setResult(Activity.RESULT_CANCELED);
+                                finish();
+                            }
+                        })
+                        .setPositiveButton(R.string.dont_skip, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                                CMIDUtils.launchWifiSetup(AuthActivity.this);
+                            }
+                        }).create();
+                return mDialog;
+            case DIALOG_LOGIN:
+            case DIALOG_CREATE_ACCOUNT:
+                final ProgressDialog dialog = new ProgressDialog(this);
+                dialog.setMessage(getText(id == DIALOG_CREATE_ACCOUNT ? R.string.cmid_creating_profile_message : R.string.cmid_login_message));
+                dialog.setIndeterminate(true);
+                dialog.setCancelable(true);
+                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    public void onCancel(DialogInterface dialog) {
+                        if (mInFlightRequest != null) {
+                            mInFlightRequest.cancel();
+                            mInFlightRequest = null;
+                            hideProgress();
+                        }
                     }
-                }
-            });
-            mDialog = dialog;
-            return dialog;
+                });
+                mDialog = dialog;
+                return dialog;
+            default:
+                return super.onCreateDialog(id, args);
         }
     }
 
@@ -464,14 +502,11 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     }
 
     private void handleLogin(AuthTokenResponse response) {
-        final Account account = new Account(mUsername, Constants.ACCOUNT_TYPE_CMID);
+        final Account account = new Account(mUsername, CMID.ACCOUNT_TYPE_CMID);
         mAuthClient.addLocalAccount(mAccountManager, account, response);
-        if (mPreferences.getBoolean(Constants.KEY_FIND_DEVICE_PREF, false)) {
-            GCMService.registerClient(getApplicationContext(), account);
-        }
         Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, mUsername);
-        result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
+        result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
         setAccountAuthenticatorResult(result);
         Intent intent = new Intent();
         intent.putExtras(result);

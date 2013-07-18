@@ -57,4 +57,14 @@
     <string name="sim_missing_summary">You need to refer to the SIM card instructions that came with your device.</string>
     <string name="google_account_summary">Do you want to set up a Google account?</string>
     <string name="btn_google_account">Set up Google account</string>
+
+    <string name="location_sources_heading">Location sources</string>
+    <string name="location_gps">GPS satellites</string>
+    <string name="location_street_level" product="tablet">Let apps use GPS on your tablet to pinpoint your location</string>
+    <string name="location_street_level" product="default">Let apps use GPS on your phone to pinpoint your location</string>
+    <string name="location_network_based">Wi-Fi &amp; mobile network location</string>
+    <string name="location_neighborhood_level">Let apps use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
+
+    <string name="device_admin">CMID Device Administration</string>
+    <string name="device_admin_description">Use the CMID website to remote wipe your device.</string>
 </resources>

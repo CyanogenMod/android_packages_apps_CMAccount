@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.STATUS_BAR"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> >
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
@@ -24,7 +25,8 @@
     <uses-permission android:name="com.cyanogenmod.id.permission.C2D_MESSAGE" />
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="17" />
     <application android:label="@string/app_name"
-                 android:icon="@drawable/icon">
+                 android:icon="@drawable/icon"
+                 android:name=".CMID">
         <service
                 android:name="com.cyanogenmod.id.auth.AuthService"
                 android:exported="true">
@@ -51,7 +53,7 @@
         <activity android:name=".ui.CMIDActivity"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.Holo.NoActionBar"
-                  android:launchMode="singleTask"
+                  android:launchMode="singleTop"
                   android:excludeFromRecents="true"/>
 
         <activity android:name=".auth.AuthActivity"
@@ -76,6 +78,20 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="com.cyanogenmod.id" />
             </intent-filter>
+        </receiver>
+
+        <receiver
+                android:name=".gcm.AccountsReceiver" android:exported="true"
+                android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".gcm.AccountsReceiver$CMIDAdminReceiver"
+                  android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin"
+                       android:resource="@xml/device_admin"/>
         </receiver>
 
         <service

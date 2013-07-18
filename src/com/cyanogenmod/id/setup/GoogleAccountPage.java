@@ -1,6 +1,6 @@
 package com.cyanogenmod.id.setup;
 
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.ui.SetupPageFragment;
 
@@ -52,12 +52,14 @@ public class GoogleAccountPage extends Page {
 
         private void launchGoogleAccountSetup() {
             Bundle bundle = new Bundle();
-            bundle.putBoolean(Constants.EXTRA_FIRST_RUN, true);
-            bundle.putBoolean(Constants.EXTRA_ALLOW_SKIP, true);
-            AccountManager.get(getActivity()).addAccount(Constants.ACCOUNT_TYPE_GOOGLE, null, null, bundle, getActivity(), new AccountManagerCallback<Bundle>() {
+            bundle.putBoolean(CMID.EXTRA_FIRST_RUN, true);
+            bundle.putBoolean(CMID.EXTRA_ALLOW_SKIP, true);
+            AccountManager.get(getActivity()).addAccount(CMID.ACCOUNT_TYPE_GOOGLE, null, null, bundle, getActivity(), new AccountManagerCallback<Bundle>() {
                 @Override
                 public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
-                    mCallbacks.onPageFinished(mPage);
+                    if (mCallbacks != null) {
+                        mCallbacks.onPageFinished(mPage);
+                    }
                 }
             }, null);
         }

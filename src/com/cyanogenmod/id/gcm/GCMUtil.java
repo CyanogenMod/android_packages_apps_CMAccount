@@ -1,6 +1,9 @@
 package com.cyanogenmod.id.gcm;
 
-import com.cyanogenmod.id.Constants;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.api.DeviceFinderService;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -32,6 +35,7 @@ public class GCMUtil {
     private static final long RE_REGISTRATION_INTERVAL = 1000 * 3600 * 24;
 
     public static final String COMMAND_LOCATE = "begin_locate";
+    public static final String COMMAND_WIPE = "wipe_device";
 
 
     static void reportLocation(Context context, GCMessage message) {
@@ -52,13 +56,13 @@ public class GCMUtil {
         final SharedPreferences prefs = getGCMPreferences(context);
         String registrationId = prefs.getString(PROPERTY_REG_ID, "");
         if (registrationId.length() == 0) {
-            if (Constants.DEBUG) Log.d(TAG, "Registration not found.");
+            if (CMID.DEBUG) Log.d(TAG, "Registration not found.");
             return "";
         }
         int registeredVersion = prefs.getInt(PROPERTY_APP_VERSION, Integer.MIN_VALUE);
         int currentVersion = getAppVersion(context);
         if (registeredVersion != currentVersion) {
-            if (Constants.DEBUG) Log.d(TAG, "App version changed");
+            if (CMID.DEBUG) Log.d(TAG, "App version changed");
             return "";
         }
         return registrationId;
@@ -67,12 +71,12 @@ public class GCMUtil {
     static void setRegistrationId(Context context, String regId) {
         final SharedPreferences prefs = getGCMPreferences(context);
         int appVersion = getAppVersion(context);
-        if (Constants.DEBUG) Log.d(TAG, "Saving regId on app version " + appVersion + " regId " + regId);
+        if (CMID.DEBUG) Log.d(TAG, "Saving regId on app version " + appVersion + " regId " + regId);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PROPERTY_REG_ID, regId);
         editor.putInt(PROPERTY_APP_VERSION, appVersion);
-        long expirationTime = System.currentTimeMillis() + REGISTRATION_EXPIRY_TIME_MS;
-        if (Constants.DEBUG) Log.d(TAG, "Setting registration expiry time to " + new Timestamp(expirationTime));
+        long expirationTime = System.currentTimeMillis() + (regId.length() == 0 ? 0 : REGISTRATION_EXPIRY_TIME_MS);
+        if (CMID.DEBUG) Log.d(TAG, "Setting registration expiry time to " + new Timestamp(expirationTime));
         editor.putLong(PROPERTY_ON_SERVER_EXPIRATION_TIME, expirationTime);
         editor.commit();
     }
@@ -92,12 +96,12 @@ public class GCMUtil {
     }
 
     static SharedPreferences getGCMPreferences(Context context) {
-        return context.getSharedPreferences(Constants.GCM_PREFERENCES,
+        return context.getSharedPreferences(CMID.GCM_PREFERENCES,
                 Context.MODE_PRIVATE);
     }
 
     static void scheduleGCMReRegister(Context context, Intent intent) {
-        if (Constants.DEBUG) Log.d(TAG, "Scheduling re gcm register, starting = " +
+        if (CMID.DEBUG) Log.d(TAG, "Scheduling re gcm register, starting = " +
                 new Timestamp(SystemClock.elapsedRealtime() + RE_REGISTRATION_INTERVAL) + " interval (" + RE_REGISTRATION_INTERVAL + ")" + intent.getAction());
         PendingIntent reRegisterPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -107,10 +111,13 @@ public class GCMUtil {
     }
 
     static void cancelGCMReRegister(Context context, Intent intent) {
-        if (Constants.DEBUG) Log.d(TAG, "Canceling gcm register " + intent.getAction());
+        if (CMID.DEBUG) Log.d(TAG, "Canceling gcm register " + intent.getAction());
         PendingIntent reRegisterPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(reRegisterPendingIntent);
     }
 
+    public static boolean googleServicesExist(Context context) {
+        return GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) != ConnectionResult.SERVICE_MISSING;
+    }
 }

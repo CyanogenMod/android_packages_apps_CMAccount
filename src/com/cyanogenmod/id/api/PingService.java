@@ -2,7 +2,7 @@ package com.cyanogenmod.id.api;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -56,7 +56,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
             sWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         }
         if (!sWakeLock.isHeld()) {
-            if (Constants.DEBUG) Log.v(TAG, "Acquiring wakelock");
+            if (CMID.DEBUG) Log.v(TAG, "Acquiring wakelock");
             sWakeLock.acquire();
         }
         mAccount = intent.getParcelableExtra(EXTRA_ACCOUNT);
@@ -66,7 +66,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
         if (!retry) {
             CMIDUtils.resetBackoff(AuthClient.getInstance(context).getAuthPreferences());
         }
-        mAccountManager.getAuthToken(mAccount, Constants.AUTHTOKEN_TYPE_ACCESS, true, new AccountManagerCallback<Bundle>() {
+        mAccountManager.getAuthToken(mAccount, CMID.AUTHTOKEN_TYPE_ACCESS, true, new AccountManagerCallback<Bundle>() {
             @Override
             public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
                 try {
@@ -92,7 +92,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
     public void onDestroy() {
         super.onDestroy();
         if (sWakeLock != null) {
-            if (Constants.DEBUG) Log.v(TAG, "Releasing wakelock");
+            if (CMID.DEBUG) Log.v(TAG, "Releasing wakelock");
             sWakeLock.release();
         }
     }
@@ -101,7 +101,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
     public void onErrorResponse(VolleyError volleyError) {
         volleyError.printStackTrace();
         if (volleyError.networkResponse.statusCode == 401) {
-            mAccountManager.invalidateAuthToken(Constants.AUTHTOKEN_TYPE_ACCESS, mAuthToken);
+            mAccountManager.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_ACCESS, mAuthToken);
         }
         handleError();
     }

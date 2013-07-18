@@ -6,7 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 
 import android.util.Log;
@@ -25,7 +25,7 @@ public class ProfileAvailableRequest extends CMIDRequest<ProfileAvailableRespons
     @Override
     protected Response<ProfileAvailableResponse> parseNetworkResponse(NetworkResponse response) {
         String jsonResponse = new String(response.data);
-        if (Constants.DEBUG) Log.d(TAG, "jsonResponse=" + jsonResponse);
+        if (CMID.DEBUG) Log.d(TAG, "jsonResponse=" + jsonResponse);
         try {
             ProfileAvailableResponse res = new Gson().fromJson(jsonResponse, ProfileAvailableResponse.class);
             return Response.success(res, getCacheEntry());

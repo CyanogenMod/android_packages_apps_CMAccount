@@ -64,7 +64,9 @@ public class GCMService extends IntentService {
         if (regId != null) {
             GCMUtil.setRegistrationId(context, regId);
             CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
-            PingService.pingServer(context, account);
+            if (account != null) {
+                PingService.pingServer(context, account);
+            }
             GCMUtil.scheduleGCMReRegister(context, intent);
         } else {
             GCMUtil.clearRegistrationId(context);
@@ -77,7 +79,9 @@ public class GCMService extends IntentService {
         gcm.unregister();
         GCMUtil.clearRegistrationId(context);
         CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
-        PingService.pingServer(context, account);
+        if (account != null) {
+            PingService.pingServer(context, account);
+        }
         GCMUtil.cancelGCMReRegister(context, getRegisterIntent(context, account));
     }
 

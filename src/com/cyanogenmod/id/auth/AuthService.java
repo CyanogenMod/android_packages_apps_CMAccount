@@ -1,6 +1,6 @@
 package com.cyanogenmod.id.auth;
 
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 
 import android.app.Service;
 import android.content.Intent;
@@ -14,7 +14,7 @@ public class AuthService extends Service {
 
     @Override
     public void onCreate() {
-        if (Constants.DEBUG) Log.d(TAG, "CMID Auth Service started.");
+        if (CMID.DEBUG) Log.d(TAG, "CMID Auth Service started.");
         mAuthenticator = new Authenticator(this);
     }
 

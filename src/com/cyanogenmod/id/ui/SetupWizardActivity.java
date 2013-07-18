@@ -1,10 +1,8 @@
 package com.cyanogenmod.id.ui;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
+import com.cyanogenmod.id.gcm.GCMUtil;
 import com.cyanogenmod.id.setup.AbstractSetupData;
 import com.cyanogenmod.id.setup.CMSetupWizardData;
 import com.cyanogenmod.id.setup.Page;
@@ -14,16 +12,14 @@ import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -39,8 +35,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private static final String DEFAULT_LAUNCHER = "com.cyanogenmod.trebuchet.Launcher";
 
-    private static final int DIALOG_NO_NETWORK_WARNING = 0;
-
     private ViewPager mViewPager;
     private CMPagerAdapter mPagerAdapter;
 
@@ -50,6 +44,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private PageList mPageList;
 
     private AbstractSetupData mSetupData;
+
+    private final Handler mHandler = new Handler();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,13 +86,13 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             }
         });
         onPageTreeChanged();
-        doSimCheck();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        removeAccountsIfNeeded();
+        onPageTreeChanged();
+        removeUnNeededPages();
         if (!CMIDUtils.isNetworkConnected(this)) {
             CMIDUtils.tryEnablingWifi(this);
         }
@@ -119,62 +115,35 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         outState.putBundle("data", mSetupData.save());
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Constants.REQUEST_CODE_SETUP_WIFI && resultCode != Activity.RESULT_OK) {
-            showDialog(DIALOG_NO_NETWORK_WARNING);
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected Dialog onCreateDialog(int id, Bundle args) {
-        if (id == DIALOG_NO_NETWORK_WARNING) {
-            return new AlertDialog.Builder(this)
-                    .setMessage(R.string.setup_msg_no_network)
-                    .setNeutralButton(R.string.skip_anyway, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            doNext();
-                        }
-                    })
-                    .setPositiveButton(R.string.dont_skip, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                            launchWifiSetup();
-                        }
-                    }).show();
-        }
-        return super.onCreateDialog(id, args);
-    }
-
     public void doNext() {
         final int currentItem = mViewPager.getCurrentItem();
         final Page currentPage = mPageList.get(currentItem);
         if (currentPage.getId() == R.string.setup_sim_missing) {
-            removeSetupPage(currentPage);
+            removeSetupPage(currentPage, true);
         } else if (currentPage.getId() == R.string.setup_complete) {
             finishSetup();
         } else {
-            mViewPager.setCurrentItem(currentItem + 1);
+            mViewPager.setCurrentItem(currentItem + 1, true);
         }
     }
 
     public void doPrevious() {
         final int currentItem = mViewPager.getCurrentItem();
         if (currentItem > 0 ) {
-            mViewPager.setCurrentItem(currentItem - 1);
+            mViewPager.setCurrentItem(currentItem - 1, true);
         }
     }
 
-    private void removeSetupPage(final Page page) {
-        if (page == null) return;
-        final int position = mViewPager.getCurrentItem();
-        mViewPager.setCurrentItem(0);
-        mSetupData.removePage(page);
-        onPageTreeChanged();
-        mViewPager.setCurrentItem(position);
+    private void removeSetupPage(final Page page, boolean animate) {
+        if (page == null || getPage(page.getKey()) == null) return;
+        if (animate) {
+            final int position = mViewPager.getCurrentItem();
+            mViewPager.setCurrentItem(0);
+            mSetupData.removePage(page);
+            mViewPager.setCurrentItem(position);
+        } else {
+            mSetupData.removePage(page);
+        }
     }
 
     private void updateButtonBar() {
@@ -186,9 +155,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     @Override
     public void onPageLoaded(Page page) {
         mNextButton.setText(page.getNextButtonResId());
-        if (page.getId() == R.string.setup_cmid && !CMIDUtils.isNetworkConnected(this)) {
-            launchWifiSetup();
-        }
         if (page.isRequired()) {
             if (recalculateCutOffPage()) {
                 mPagerAdapter.notifyDataSetChanged();
@@ -211,19 +177,25 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     @Override
-    public void onPageFinished(Page page) {
-        switch (page.getId()) {
-            case R.string.setup_cmid:
-                removeSetupPage(page);
-                break;
-            case R.string.setup_google_account:
-                if (accountExists(Constants.ACCOUNT_TYPE_GOOGLE)) {
-                    removeSetupPage(page);
-                } else {
-                    doNext();
+    public void onPageFinished(final Page page) {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                switch (page.getId()) {
+                    case R.string.setup_cmid:
+                        removeSetupPage(page, true);
+                        break;
+                    case R.string.setup_google_account:
+                        if (accountExists(CMID.ACCOUNT_TYPE_GOOGLE)) {
+                            removeSetupPage(page, true);
+                        } else {
+                            doNext();
+                        }
+                        break;
                 }
-                break;
-        }
+                onPageTreeChanged();
+            }
+        });
     }
 
     private boolean recalculateCutOffPage() {
@@ -245,29 +217,27 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         return false;
     }
 
-    private void removeAccountsIfNeeded() {
-        Page page = mPageList.findPage(R.string.setup_cmid);
-        if (page != null && accountExists(Constants.ACCOUNT_TYPE_CMID)) {
-            removeSetupPage(page);
-        }
-        int playServiceStatus = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        page = mPageList.findPage(R.string.setup_google_account);
-        if (page != null && (playServiceStatus == ConnectionResult.SERVICE_MISSING || accountExists(Constants.ACCOUNT_TYPE_GOOGLE))) {
-            removeSetupPage(page);
-        }
-    }
-
-    private void launchWifiSetup() {
-        CMIDUtils.tryEnablingWifi(this);
-        Intent intent = new Intent(Constants.ACTION_SETUP_WIFI);
-        intent.putExtra(Constants.EXTRA_FIRST_RUN, true);
-        intent.putExtra(Constants.EXTRA_ALLOW_SKIP, true);
-        intent.putExtra(Constants.EXTRA_SHOW_BUTTON_BAR, true);
-        intent.putExtra(Constants.EXTRA_ONLY_ACCESS_POINTS, true);
-        intent.putExtra(Constants.EXTRA_SHOW_SKIP, true);
-        intent.putExtra(Constants.EXTRA_AUTO_FINISH, true);
-        intent.putExtra(Constants.EXTRA_PREF_BACK_TEXT, getString(R.string.skip));
-        startActivityForResult(intent, Constants.REQUEST_CODE_SETUP_WIFI);
+    private void removeUnNeededPages() {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Page page = mPageList.findPage(R.string.setup_cmid);
+                if (page != null && accountExists(CMID.ACCOUNT_TYPE_CMID)) {
+                    removeSetupPage(page, false);
+                }
+                page = mPageList.findPage(R.string.setup_google_account);
+                if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMID.ACCOUNT_TYPE_GOOGLE))) {
+                    removeSetupPage(page, false);
+                }
+                if (!CMIDUtils.isGSMPhone(SetupWizardActivity.this) || !CMIDUtils.isSimMissing(SetupWizardActivity.this)) {
+                    page = mPageList.findPage(R.string.setup_sim_missing);
+                    if (page != null) {
+                        removeSetupPage(page, false);
+                    }
+                }
+                onPageTreeChanged();
+            }
+        });
     }
 
     private void enableDefaultHome(Intent intent) {
@@ -290,15 +260,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
         startActivity(intent);
         finish();
-    }
-
-    private void doSimCheck() {
-        if (!CMIDUtils.isGSMPhone(this) || !CMIDUtils.isSimMissing(this)) {
-            Page page = mPageList.findPage(R.string.setup_sim_missing);
-            if (page != null) {
-                mSetupData.removePage(page);
-            }
-        }
     }
 
     private boolean accountExists(String accountType) {

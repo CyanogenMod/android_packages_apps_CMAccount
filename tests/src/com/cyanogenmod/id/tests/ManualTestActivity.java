@@ -1,6 +1,6 @@
 package com.cyanogenmod.id.tests;
 
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -35,7 +35,7 @@ public class ManualTestActivity extends Activity {
         setContentView(R.layout.cmid_test);
         mSpinner = (Spinner) findViewById(R.id.accounts);
         mAccountManager = AccountManager.get(this);
-        final Account[] accounts = mAccountManager.getAccountsByType(Constants.ACCOUNT_TYPE_CMID);
+        final Account[] accounts = mAccountManager.getAccountsByType(CMID.ACCOUNT_TYPE_CMID);
         ArrayAdapter<Account> adapter = new ArrayAdapter<Account>(this, android.R.layout.simple_list_item_1, android.R.id.text1, accounts);
         mSpinner.setAdapter(adapter);
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -82,7 +82,7 @@ public class ManualTestActivity extends Activity {
     }
 
     private void getToken() {
-        mAccountManager.getAuthToken(mSelectedAccount, Constants.AUTHTOKEN_TYPE_ACCESS, null, this, new AccountManagerCallback<Bundle>() {
+        mAccountManager.getAuthToken(mSelectedAccount, CMID.AUTHTOKEN_TYPE_ACCESS, null, this, new AccountManagerCallback<Bundle>() {
             @Override
             public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
                 try {
@@ -102,9 +102,9 @@ public class ManualTestActivity extends Activity {
     }
 
     private void invalidateAuthToken() {
-        String token = mAccountManager.peekAuthToken(mSelectedAccount, Constants.AUTHTOKEN_TYPE_ACCESS);
+        String token = mAccountManager.peekAuthToken(mSelectedAccount, CMID.AUTHTOKEN_TYPE_ACCESS);
         if (token != null) {
-            mAccountManager.invalidateAuthToken(Constants.AUTHTOKEN_TYPE_ACCESS, token);
+            mAccountManager.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_ACCESS, token);
             Toast.makeText(ManualTestActivity.this, "AuthToken\n" + token + "\nInvalidated", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(ManualTestActivity.this, "No AuthToken", Toast.LENGTH_SHORT).show();
@@ -112,10 +112,10 @@ public class ManualTestActivity extends Activity {
     }
 
     private void expireAuthToken() {
-        mAccountManager.setUserData(mSelectedAccount, Constants.AUTHTOKEN_EXPIRES_IN, "0");
-        String token = mAccountManager.peekAuthToken(mSelectedAccount, Constants.AUTHTOKEN_TYPE_ACCESS);
+        mAccountManager.setUserData(mSelectedAccount, CMID.AUTHTOKEN_EXPIRES_IN, "0");
+        String token = mAccountManager.peekAuthToken(mSelectedAccount, CMID.AUTHTOKEN_TYPE_ACCESS);
         if (token != null) {
-            mAccountManager.invalidateAuthToken(Constants.AUTHTOKEN_TYPE_ACCESS, token);
+            mAccountManager.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_ACCESS, token);
         }
         Toast.makeText(ManualTestActivity.this, "AuthToken expired", Toast.LENGTH_SHORT).show();
     }

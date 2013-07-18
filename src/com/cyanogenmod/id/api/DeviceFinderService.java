@@ -9,7 +9,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 
 import android.accounts.Account;
@@ -62,7 +62,7 @@ public class DeviceFinderService extends Service implements LocationListener,
             sWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         }
         if (!sWakeLock.isHeld()) {
-            if (Constants.DEBUG) Log.v(TAG, "Acquiring wakelock");
+            if (CMID.DEBUG) Log.v(TAG, "Acquiring wakelock");
             sWakeLock.acquire();
         }
         Intent intent = new Intent(context, DeviceFinderService.class);
@@ -88,7 +88,7 @@ public class DeviceFinderService extends Service implements LocationListener,
                     .setInterval(LOCATION_UPDATE_INTERVAL)
                     .setNumUpdates(MAX_LOCATION_UPDATES);
             final AccountManager am = AccountManager.get(context);
-            am.getAuthToken(mAccount, Constants.AUTHTOKEN_TYPE_ACCESS, true, new AccountManagerCallback<Bundle>() {
+            am.getAuthToken(mAccount, CMID.AUTHTOKEN_TYPE_ACCESS, true, new AccountManagerCallback<Bundle>() {
                 @Override
                 public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
                     try {
@@ -115,7 +115,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     public void onDestroy() {
         super.onDestroy();
         if (sWakeLock != null) {
-            if (Constants.DEBUG) Log.v(TAG, "Releasing wakelock");
+            if (CMID.DEBUG) Log.v(TAG, "Releasing wakelock");
             sWakeLock.release();
         }
         mIsRunning = false;
@@ -127,7 +127,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     }
 
     private void onLocationChanged(final Location location, boolean fromLastLocation) {
-        if (Constants.DEBUG) Log.v(TAG, "onLocationChanged() " + location.toString());
+        if (CMID.DEBUG) Log.v(TAG, "onLocationChanged() " + location.toString());
         mLastLocationUpdate = location;
         if (mInFlightRequest != null && !fromLastLocation) {
             mInFlightRequest.cancel();
@@ -160,7 +160,7 @@ public class DeviceFinderService extends Service implements LocationListener,
 
     @Override
     public void onResponse(Integer status) {
-        if (Constants.DEBUG) Log.v(TAG, "Successfully posted location");
+        if (CMID.DEBUG) Log.v(TAG, "Successfully posted location");
         mInFlightRequest = null;
         if (mLastLocationUpdate != null) {
             maybeStopLocationUpdates(mLastLocationUpdate.getAccuracy());
@@ -170,20 +170,20 @@ public class DeviceFinderService extends Service implements LocationListener,
     @Override
     public void onErrorResponse(VolleyError volleyError) {
         int statusCode = volleyError.networkResponse.statusCode;
-        if (Constants.DEBUG) Log.v(TAG, "Location post error status = "+ statusCode);
+        if (CMID.DEBUG) Log.v(TAG, "Location post error status = "+ statusCode);
         volleyError.printStackTrace();
         mInFlightRequest = null;
         mLocationClient.disconnect();
         stopSelf();
         if (statusCode == 401) {
             final AccountManager am = AccountManager.get(getApplicationContext());
-            am.invalidateAuthToken(Constants.AUTHTOKEN_TYPE_ACCESS, mAuthToken);
+            am.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_ACCESS, mAuthToken);
             reportLocation(getApplicationContext(), mAccount);
         }
     }
 
     private void maybeStopLocationUpdates(float accuracy) {
-        if (Constants.DEBUG) Log.v(TAG, "Update count = "+ mUpdateCount);
+        if (CMID.DEBUG) Log.v(TAG, "Update count = "+ mUpdateCount);
         // if mUpdateCount, then this is a case we have the last known location. Don't stop in that case.
         if ((mUpdateCount != 0) && (accuracy <= LOCATION_ACCURACY_THRESHOLD || mUpdateCount == MAX_LOCATION_UPDATES)) {
             stopUpdates();
@@ -191,7 +191,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     }
 
     private void stopUpdates() {
-        if (Constants.DEBUG) Log.v(TAG, "Stopping location updates");
+        if (CMID.DEBUG) Log.v(TAG, "Stopping location updates");
         mLocationClient.removeLocationUpdates(this);
         mLocationClient.disconnect();
         stopSelf();

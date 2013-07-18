@@ -4,7 +4,7 @@ package com.cyanogenmod.id.api;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 
 import android.util.Log;
@@ -24,7 +24,7 @@ public class ReportLocationRequest extends CMIDRequest<Integer> {
 
     @Override
     protected Response<Integer> parseNetworkResponse(NetworkResponse response) {
-        if (Constants.DEBUG) Log.d(TAG, "response code=" + response.statusCode);
+        if (CMID.DEBUG) Log.d(TAG, "response code=" + response.statusCode);
         if (response.statusCode == 200) {
             return Response.success(new Integer(response.statusCode), getCacheEntry());
         } else {

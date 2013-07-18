@@ -7,7 +7,7 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.api.AuthTokenRequest;
 import com.cyanogenmod.id.api.AuthTokenResponse;
 import com.cyanogenmod.id.api.CreateProfileRequest;
@@ -115,12 +115,12 @@ public class AuthClient {
     }
 
     public void updateLocalAccount(AccountManager accountManager, Account account, AuthTokenResponse response) {
-        accountManager.setUserData(account, Constants.AUTHTOKEN_TYPE_ACCESS, response.getAccessToken());
+        accountManager.setUserData(account, CMID.AUTHTOKEN_TYPE_ACCESS, response.getAccessToken());
         if (!TextUtils.isEmpty(response.getRefreshToken())) {
-            accountManager.setUserData(account, Constants.AUTHTOKEN_TYPE_REFRESH, response.getRefreshToken());
+            accountManager.setUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH, response.getRefreshToken());
         }
-        accountManager.setUserData(account, Constants.AUTHTOKEN_EXPIRES_IN, String.valueOf(System.currentTimeMillis() + (Long.valueOf(response.getExpiresIn()) * 1000)));
-        if (Constants.DEBUG) {
+        accountManager.setUserData(account, CMID.AUTHTOKEN_EXPIRES_IN, String.valueOf(System.currentTimeMillis() + (Long.valueOf(response.getExpiresIn()) * 1000)));
+        if (CMID.DEBUG) {
             Log.d(TAG, "Current Time = " + new Timestamp(System.currentTimeMillis()));
             Log.d(TAG, "Expires in = " + response.getExpiresIn() + "ms");
         }
@@ -132,7 +132,7 @@ public class AuthClient {
     }
 
     public SharedPreferences getAuthPreferences() {
-        return mContext.getSharedPreferences(Constants.AUTH_PREFERENCES,
+        return mContext.getSharedPreferences(CMID.AUTH_PREFERENCES,
                 Context.MODE_PRIVATE);
     }
 

@@ -11,7 +11,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.api.AuthTokenResponse;
 import com.cyanogenmod.id.ui.CMIDActivity;
@@ -37,7 +37,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
     @Override
     public Bundle addAccount(AccountAuthenticatorResponse response, String accountType,
                              String authTokenType, String[] requiredFeatures, Bundle options) throws NetworkErrorException {
-        if (Constants.DEBUG) Log.d(TAG, "addAccount()");
+        if (CMID.DEBUG) Log.d(TAG, "addAccount()");
         int accounts = mAccountManager.getAccountsByType(accountType).length;
         final Bundle bundle = new Bundle();
         if (accounts > 0) {
@@ -53,7 +53,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
             return bundle;
         } else {
             final Intent intent = new Intent(mContext, CMIDActivity.class);
-            intent.putExtra(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
+            intent.putExtra(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
             intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
             return bundle;
@@ -72,14 +72,14 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
     @Override
     public Bundle getAuthToken(AccountAuthenticatorResponse response, Account account, String authTokenType, Bundle loginOptions) throws NetworkErrorException {
-        if (Constants.DEBUG) Log.d(TAG, "getAuthToken() account="+account.name+ " type="+account.type);
-        if (!authTokenType.equals(Constants.AUTHTOKEN_TYPE_ACCESS)) {
+        if (CMID.DEBUG) Log.d(TAG, "getAuthToken() account="+account.name+ " type="+account.type);
+        if (!authTokenType.equals(CMID.AUTHTOKEN_TYPE_ACCESS)) {
             final Bundle result = new Bundle();
             result.putString(AccountManager.KEY_ERROR_MESSAGE, "invalid authTokenType");
             return result;
         }
         if (!hasAuthenticated(mAccountManager, account)) {
-            if (Constants.DEBUG) Log.d(TAG, "not authenticated account="+account.name+ " type="+account.type);
+            if (CMID.DEBUG) Log.d(TAG, "not authenticated account="+account.name+ " type="+account.type);
             final Bundle bundle = new Bundle();
             final Intent intent = new Intent(mContext, AuthActivity.class);
             intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
@@ -87,7 +87,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
             return bundle;
         }
         if (isTokenExpired(mAccountManager, account)) {
-            if (Constants.DEBUG) Log.d(TAG, "token is expired, refreshing... account="+account.name+ " type="+account.type);
+            if (CMID.DEBUG) Log.d(TAG, "token is expired, refreshing... account="+account.name+ " type="+account.type);
             Bundle bundle = refreshToken(mAccountManager, account, response);
             if (bundle == null) {
                 final Intent intent = new Intent(mContext, AuthActivity.class);
@@ -98,12 +98,12 @@ public class Authenticator extends AbstractAccountAuthenticator {
             return bundle;
         }
 
-        String token =  mAccountManager.getUserData(account, Constants.AUTHTOKEN_TYPE_ACCESS);
-        mAccountManager.setAuthToken(account, Constants.AUTHTOKEN_TYPE_ACCESS, token);
+        String token =  mAccountManager.getUserData(account, CMID.AUTHTOKEN_TYPE_ACCESS);
+        mAccountManager.setAuthToken(account, CMID.AUTHTOKEN_TYPE_ACCESS, token);
 
         final Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
-        result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
+        result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
         result.putString(AccountManager.KEY_AUTHTOKEN, token);
         return result;
     }
@@ -126,7 +126,7 @@ public class Authenticator extends AbstractAccountAuthenticator {
     }
 
     private Bundle refreshToken(AccountManager am, Account account, AccountAuthenticatorResponse response) {
-        final String refreshToken = am.getUserData(account, Constants.AUTHTOKEN_TYPE_REFRESH);
+        final String refreshToken = am.getUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH);
         if (!TextUtils.isEmpty(refreshToken)) {
             try {
                 AuthTokenResponse authResponse = mAuthClient.blockingRefreshAccessToken(refreshToken);
@@ -137,8 +137,8 @@ public class Authenticator extends AbstractAccountAuthenticator {
                     result.putParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
                     result.putString(AccountManager.KEY_AUTHTOKEN, token);
                     result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
-                    result.putString(AccountManager.KEY_ACCOUNT_TYPE, Constants.ACCOUNT_TYPE_CMID);
-                    am.setAuthToken(account, Constants.AUTHTOKEN_TYPE_ACCESS, token);
+                    result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
+                    am.setAuthToken(account, CMID.AUTHTOKEN_TYPE_ACCESS, token);
                     return result;
                 }
             } catch (VolleyError volleyError) {
@@ -149,19 +149,19 @@ public class Authenticator extends AbstractAccountAuthenticator {
     }
 
     private boolean isTokenExpired(AccountManager am, Account account) {
-        final String expires_in = am.getUserData(account, Constants.AUTHTOKEN_EXPIRES_IN);
+        final String expires_in = am.getUserData(account, CMID.AUTHTOKEN_EXPIRES_IN);
         final long expiresTime = expires_in == null ? 0 : Long.valueOf(expires_in);
         final boolean expired = System.currentTimeMillis() > expiresTime;
         if (expired) {
-            final String token = am.getUserData(account, Constants.AUTHTOKEN_TYPE_ACCESS);
+            final String token = am.getUserData(account, CMID.AUTHTOKEN_TYPE_ACCESS);
             if (!TextUtils.isEmpty(token)) {
-                am.invalidateAuthToken(Constants.ACCOUNT_TYPE_CMID, token);
+                am.invalidateAuthToken(CMID.ACCOUNT_TYPE_CMID, token);
             }
         }
         return expired;
     }
 
     private boolean hasAuthenticated(AccountManager am, Account account) {
-        return am.getUserData(account, Constants.AUTHTOKEN_TYPE_REFRESH) != null;
+        return am.getUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH) != null;
     }
 }

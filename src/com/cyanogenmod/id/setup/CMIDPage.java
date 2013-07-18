@@ -1,15 +1,19 @@
 package com.cyanogenmod.id.setup;
 
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.auth.AuthActivity;
+import com.cyanogenmod.id.gcm.GCMService;
 import com.cyanogenmod.id.ui.SetupPageFragment;
+import com.cyanogenmod.id.util.CMIDUtils;
 
+import android.accounts.Account;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class CMIDPage extends Page {
@@ -37,7 +41,11 @@ public class CMIDPage extends Page {
 
         @Override
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
-            if (requestCode == Constants.REQUEST_CODE_SETUP_CMID && resultCode == Activity.RESULT_OK) {
+            if (requestCode == CMID.REQUEST_CODE_SETUP_CMID && resultCode == Activity.RESULT_OK) {
+                Account account = CMIDUtils.getCMIDAccount(getActivity());
+                if (account != null) {
+                    GCMService.registerClient(getActivity(), account);
+                }
                 mCallbacks.onPageFinished(mPage);
             }
         }
@@ -61,11 +69,11 @@ public class CMIDPage extends Page {
         private void createCMID() {
             Intent intent = new Intent(getActivity(), AuthActivity.class);
             intent.putExtra(AuthActivity.EXTRA_PARAM_CREATE_ACCOUNT, true);
-            startActivityForResult(intent, Constants.REQUEST_CODE_SETUP_CMID);
+            startActivityForResult(intent, CMID.REQUEST_CODE_SETUP_CMID);
         }
 
         private void loginCMID() {
-            startActivityForResult(new Intent(getActivity(), AuthActivity.class), Constants.REQUEST_CODE_SETUP_CMID);
+            startActivityForResult(new Intent(getActivity(), AuthActivity.class), CMID.REQUEST_CODE_SETUP_CMID);
         }
 
         @Override

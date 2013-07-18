@@ -1,9 +1,11 @@
 package com.cyanogenmod.id.util;
 
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
+import com.cyanogenmod.id.R;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -36,37 +38,37 @@ public class CMIDUtils {
     private CMIDUtils(){}
 
     public static void resetBackoff(SharedPreferences prefs) {
-        setBackoff(prefs, Constants.DEFAULT_BACKOFF_MS);
+        setBackoff(prefs, CMID.DEFAULT_BACKOFF_MS);
     }
 
     private static int getBackoff(SharedPreferences prefs) {
-        return prefs.getInt(Constants.BACKOFF_MS, Constants.DEFAULT_BACKOFF_MS);
+        return prefs.getInt(CMID.BACKOFF_MS, CMID.DEFAULT_BACKOFF_MS);
     }
 
     private static void setBackoff(SharedPreferences prefs, int backoff) {
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(Constants.BACKOFF_MS, backoff);
+        editor.putInt(CMID.BACKOFF_MS, backoff);
         editor.commit();
     }
 
     public static void scheduleRetry(Context context, SharedPreferences prefs, Intent intent) {
         int backoffTimeMs = getBackoff(prefs);
         int nextAttempt = backoffTimeMs / 2 + sRandom.nextInt(backoffTimeMs);
-        if (Constants.DEBUG) Log.d(TAG, "Scheduling retry, backoff = " +
+        if (CMID.DEBUG) Log.d(TAG, "Scheduling retry, backoff = " +
                 nextAttempt + " (" + backoffTimeMs + ") for " + intent.getAction());
         PendingIntent retryPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.set(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + nextAttempt,
                 retryPendingIntent);
-        if (backoffTimeMs < Constants.MAX_BACKOFF_MS) {
+        if (backoffTimeMs < CMID.MAX_BACKOFF_MS) {
             setBackoff(prefs, backoffTimeMs * 2);
         }
     }
 
     public static Account getAccountByName(Context context, String name) {
         final AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(Constants.ACCOUNT_TYPE_CMID);
+        Account[] accounts = am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID);
         for (Account account : accounts) {
             if (account.name.equals(name)) {
                 return account;
@@ -77,8 +79,28 @@ public class CMIDUtils {
 
     public static Account getCMIDAccount(Context context) {
         final AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(Constants.ACCOUNT_TYPE_CMID);
+        Account[] accounts = am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID);
         return accounts.length > 0 ? accounts[0] : null;
+    }
+
+    public static void setCMIDAccountAdded(Context context, boolean added) {
+        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        prefs.edit().putBoolean(CMID.KEY_CMID_ACCOUNT_ADDED_PREF, added).commit();
+    }
+
+    public static void setGoogleAccountAdded(Context context, boolean added) {
+        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        prefs.edit().putBoolean(CMID.KEY_GOOGLE_ACCOUNT_ADDED_PREF, added).commit();
+    }
+
+    public static boolean getCMIDAccountAdded(Context context) {
+        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        return prefs.getBoolean(CMID.KEY_CMID_ACCOUNT_ADDED_PREF, false);
+    }
+
+    public static boolean getGoogleAccountAdded(Context context) {
+        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        return prefs.getBoolean(CMID.KEY_GOOGLE_ACCOUNT_ADDED_PREF, false);
     }
 
     public static void tryEnablingWifi(Context context) {
@@ -86,6 +108,19 @@ public class CMIDUtils {
         if (!wifiManager.isWifiEnabled()) {
             wifiManager.setWifiEnabled(true);
         }
+    }
+
+    public static void launchWifiSetup(Activity context) {
+        CMIDUtils.tryEnablingWifi(context);
+        Intent intent = new Intent(CMID.ACTION_SETUP_WIFI);
+        intent.putExtra(CMID.EXTRA_FIRST_RUN, true);
+        intent.putExtra(CMID.EXTRA_ALLOW_SKIP, true);
+        intent.putExtra(CMID.EXTRA_SHOW_BUTTON_BAR, true);
+        intent.putExtra(CMID.EXTRA_ONLY_ACCESS_POINTS, true);
+        intent.putExtra(CMID.EXTRA_SHOW_SKIP, true);
+        intent.putExtra(CMID.EXTRA_AUTO_FINISH, true);
+        intent.putExtra(CMID.EXTRA_PREF_BACK_TEXT, context.getString(R.string.skip));
+        context.startActivityForResult(intent, CMID.REQUEST_CODE_SETUP_WIFI);
     }
 
     public static boolean isNetworkConnected(Context context) {
@@ -107,7 +142,7 @@ public class CMIDUtils {
     }
 
     public static String getUniqueDeviceId(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(Constants.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         String udid = prefs.getString(KEY_UDID, null);
         if (udid != null) return udid;
         String wifiInterface = SystemProperties.get("wifi.interface");
@@ -122,7 +157,7 @@ public class CMIDUtils {
                             for (int i=0; i < mac.length; i++)
                                 buf.append(String.format("%02X:", mac[i]));
                             if (buf.length()>0) buf.deleteCharAt(buf.length()-1);
-                            if (Constants.DEBUG) Log.d(TAG, "using wifi mac for id : " + buf.toString());
+                            if (CMID.DEBUG) Log.d(TAG, "using wifi mac for id : " + buf.toString());
                             return digest(prefs, context.getPackageName() + buf.toString());
                         }
                     }

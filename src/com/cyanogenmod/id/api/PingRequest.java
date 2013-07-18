@@ -6,7 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 import com.cyanogenmod.id.gcm.GCMUtil;
 
@@ -33,7 +33,7 @@ public class PingRequest extends CMIDRequest<PingResponse> {
     @Override
     protected Response<PingResponse> parseNetworkResponse(NetworkResponse response) {
         String jsonResponse = new String(response.data);
-        if (Constants.DEBUG) Log.d(TAG, "jsonResponse=" + jsonResponse);
+        if (CMID.DEBUG) Log.d(TAG, "jsonResponse=" + jsonResponse);
         try {
             PingResponse res = new Gson().fromJson(jsonResponse, PingResponse.class);
             res.statusCode = response.statusCode;

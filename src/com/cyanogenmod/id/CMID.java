@@ -1,6 +1,13 @@
 package com.cyanogenmod.id;
 
-public class Constants {
+import com.cyanogenmod.id.gcm.AccountsReceiver;
+
+import android.app.Application;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
+
+public class CMID extends Application {
 
     public static final String TAG = "CMID";
     public static final boolean DEBUG = true;
@@ -26,12 +33,23 @@ public class Constants {
     public static final String SETTINGS_PREFERENCES = "com.cyanogenmod.id_preferences";
 
     public static final String KEY_FIND_DEVICE_PREF = "find_device";
+    public static final String KEY_CMID_ACCOUNT_ADDED_PREF = "cmid_account_added";
+    public static final String KEY_GOOGLE_ACCOUNT_ADDED_PREF = "google_account_added";
 
     public static final String BACKOFF_MS = "backoff_ms";
     public static final int DEFAULT_BACKOFF_MS = 3000;
-    public static final int MAX_BACKOFF_MS = 1000 * 60 * 60; // 1 hour
+    public static final int MAX_BACKOFF_MS = 1000 * 60 * 60 * 6; // 6 hours
 
     public static final int REQUEST_CODE_SETUP_WIFI = 0;
     public static final int REQUEST_CODE_SETUP_CMID = 1;
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), AccountsReceiver.CMIDAdminReceiver.class);
+        dpm.setActiveAdmin(deviceAdmin, true);
+    }
 
 }

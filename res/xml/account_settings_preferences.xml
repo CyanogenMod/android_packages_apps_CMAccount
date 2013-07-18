@@ -7,4 +7,22 @@
             android:summary="@string/account_settings_find_device_summary"
             android:defaultValue="false"/>
 
+    <PreferenceCategory
+            android:key="location_sources"
+            android:title="@string/location_sources_heading" />
+
+    <CheckBoxPreference
+            android:key="location_gps"
+            android:title="@string/location_gps"
+            android:summary="@string/location_street_level"
+            android:dependency="find_device"
+            android:persistent="false" />
+
+    <CheckBoxPreference
+            android:key="location_network"
+            android:title="@string/location_network_based"
+            android:summary="@string/location_neighborhood_level"
+            android:dependency="find_device"
+            android:persistent="false" />
+
 </PreferenceScreen>

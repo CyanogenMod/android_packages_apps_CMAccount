@@ -6,7 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.cyanogenmod.id.Constants;
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 
 import android.util.Log;
@@ -29,7 +29,7 @@ public class CreateProfileRequest extends CMIDRequest<CreateProfileResponse> {
     @Override
     protected Response<CreateProfileResponse> parseNetworkResponse(NetworkResponse response) {
         String jsonResponse = new String(response.data);
-        if (Constants.DEBUG) Log.d(TAG, "jsonResponse=" + jsonResponse);
+        if (CMID.DEBUG) Log.d(TAG, "jsonResponse=" + jsonResponse);
         try {
             CreateProfileResponse res = new Gson().fromJson(jsonResponse, CreateProfileResponse.class);
             return Response.success(res, getCacheEntry());
