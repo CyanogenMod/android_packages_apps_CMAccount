@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SetupWizardPageContainer">
+
+    <TextView style="@style/SetupWizardPageTitle" />
+
+    <ImageView android:id="@+id/setup_img"
+               android:layout_width="match_parent"
+               android:layout_height="0px"
+               android:layout_weight="1"
+               android:scaleType="fitCenter"
+               android:padding="10dp"/>
+
+    <Spinner android:id="@+id/timezone_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:saveEnabled="false"/>
+
+    <TwoLineListItem android:id="@+id/date_item"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:minHeight="?android:attr/listPreferredItemHeight"
+                     android:mode="twoLine"
+                     android:clickable="true"
+                     android:gravity="center_vertical">
+
+        <TextView android:id="@+id/date_title"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="16dip"
+                  android:layout_marginStart="10dip"
+                  android:textAppearance="?android:attr/textAppearanceMedium"
+                  android:text="@string/setup_current_date"/>
+
+        <TextView android:id="@+id/date_text"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="10dip"
+                  android:layout_below="@id/date_title"
+                  android:layout_alignStart="@id/date_title"
+                  android:textAppearance="?android:attr/textAppearanceSmall"
+                />
+
+    </TwoLineListItem>
+
+    <TwoLineListItem android:id="@+id/time_item"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:minHeight="?android:attr/listPreferredItemHeight"
+                     android:mode="twoLine"
+                     android:clickable="true"
+                     android:gravity="center_vertical">
+
+        <TextView android:id="@+id/time_title"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="16dip"
+                  android:layout_marginStart="10dip"
+                  android:textAppearance="?android:attr/textAppearanceMedium"
+                  android:text="@string/setup_current_time"/>
+
+        <TextView android:id="@+id/time_text"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="10dip"
+                  android:layout_below="@id/time_title"
+                  android:layout_alignStart="@id/time_title"
+                  android:textAppearance="?android:attr/textAppearanceSmall"
+                />
+
+    </TwoLineListItem>
+
+</LinearLayout>

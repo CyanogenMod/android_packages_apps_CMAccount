@@ -27,6 +27,9 @@
     <string name="setup_sim_missing">Insert SIM card</string>
     <string name="setup_google_account">Google Account</string>
     <string name="setup_location">Location Settings</string>
+    <string name="setup_datetime">Date &amp; Time Settings</string>
+    <string name="setup_current_date">Current date</string>
+    <string name="setup_current_time">Current time</string>
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
 
     <string name="cmid_setup_create_title">Create a CMID</string>
