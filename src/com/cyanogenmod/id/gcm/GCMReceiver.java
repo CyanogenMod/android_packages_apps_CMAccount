@@ -17,7 +17,6 @@ public class GCMReceiver extends BroadcastReceiver {
 
     private static final String TAG = GCMReceiver.class.getSimpleName();
 
-    private PowerManager.WakeLock mWakeLock;
     private GoogleCloudMessaging mGoogleCloudMessaging;
 
     public void onReceive(Context context, Intent intent) {
