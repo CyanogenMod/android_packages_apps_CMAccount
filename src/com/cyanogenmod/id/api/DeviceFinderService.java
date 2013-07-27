@@ -14,21 +14,14 @@ import com.cyanogenmod.id.auth.AuthClient;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.util.Log;
-
-import java.io.IOException;
 
 public class DeviceFinderService extends Service implements LocationListener,
         GooglePlayServicesClient.ConnectionCallbacks,  GooglePlayServicesClient.OnConnectionFailedListener,
@@ -46,10 +39,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     private LocationClient mLocationClient;
     private LocationRequest mLocationRequest;
     private Location mLastLocationUpdate;
-    private Account mAccount;
-    private String mAuthToken;
     private AuthClient mAuthClient;
-    private Request<?> mInFlightRequest;
 
     private int mUpdateCount = 0;
 
@@ -80,33 +70,13 @@ public class DeviceFinderService extends Service implements LocationListener,
         if (!mIsRunning) {
             final Context context = getApplicationContext();
             mIsRunning = true;
-            mAccount = intent.getParcelableExtra(EXTRA_ACCOUNT);
             mAuthClient = AuthClient.getInstance(context);
             mLocationClient = new LocationClient(context, this, this);
             mLocationRequest = LocationRequest.create()
                     .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                     .setInterval(LOCATION_UPDATE_INTERVAL)
                     .setNumUpdates(MAX_LOCATION_UPDATES);
-            final AccountManager am = AccountManager.get(context);
-            am.getAuthToken(mAccount, CMID.AUTHTOKEN_TYPE_ACCESS, true, new AccountManagerCallback<Bundle>() {
-                @Override
-                public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
-                    try {
-                        Bundle bundle =  bundleAccountManagerFuture.getResult();
-                        mAuthToken = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-                        mLocationClient.connect();
-                    } catch (OperationCanceledException e) {
-                        Log.e(TAG, "Unable to get AuthToken", e);
-                        stopSelf();
-                    } catch (IOException e) {
-                        Log.e(TAG, "Unable to get AuthToken", e);
-                        stopSelf();
-                    } catch (AuthenticatorException e) {
-                        Log.e(TAG, "Unable to get AuthToken", e);
-                        stopSelf();
-                    }
-                }
-            }, new Handler());
+            mLocationClient.connect();
         }
         return START_NOT_STICKY;
     }
@@ -129,14 +99,10 @@ public class DeviceFinderService extends Service implements LocationListener,
     private void onLocationChanged(final Location location, boolean fromLastLocation) {
         if (CMID.DEBUG) Log.v(TAG, "onLocationChanged() " + location.toString());
         mLastLocationUpdate = location;
-        if (mInFlightRequest != null && !fromLastLocation) {
-            mInFlightRequest.cancel();
-            mInFlightRequest = null;
-        }
-        if (mAuthToken != null) {
-            mInFlightRequest = mAuthClient.reportLocation(mAuthToken, location.getLatitude(), location.getLongitude(), this, this);
-            if (!fromLastLocation) mUpdateCount++;
-        }
+
+        mAuthClient.reportLocation(location.getLatitude(), location.getLongitude(), location.getAccuracy(), this, this);
+        if (!fromLastLocation) mUpdateCount++;
+
         mLastLocationUpdate = location;
     }
 
@@ -161,7 +127,6 @@ public class DeviceFinderService extends Service implements LocationListener,
     @Override
     public void onResponse(Integer status) {
         if (CMID.DEBUG) Log.v(TAG, "Successfully posted location");
-        mInFlightRequest = null;
         if (mLastLocationUpdate != null) {
             maybeStopLocationUpdates(mLastLocationUpdate.getAccuracy());
         }
@@ -172,14 +137,8 @@ public class DeviceFinderService extends Service implements LocationListener,
         int statusCode = volleyError.networkResponse.statusCode;
         if (CMID.DEBUG) Log.v(TAG, "Location post error status = "+ statusCode);
         volleyError.printStackTrace();
-        mInFlightRequest = null;
         mLocationClient.disconnect();
         stopSelf();
-        if (statusCode == 401) {
-            final AccountManager am = AccountManager.get(getApplicationContext());
-            am.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_ACCESS, mAuthToken);
-            reportLocation(getApplicationContext(), mAccount);
-        }
     }
 
     private void maybeStopLocationUpdates(float accuracy) {
