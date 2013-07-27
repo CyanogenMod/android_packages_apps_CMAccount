@@ -13,13 +13,14 @@ public class ReportLocationRequest extends CMIDRequest<Integer> {
 
     private static final String TAG = ReportLocationRequest.class.getSimpleName();
 
-    public ReportLocationRequest(String deviceId, String authToken, double latitude, double longitude,
+    public ReportLocationRequest(String deviceId, String authToken, double latitude, double longitude, float accuracy,
             Response.Listener<Integer> listener, Response.ErrorListener errorListener) {
         super(AuthClient.REPORT_LOCATION_URI, listener, errorListener);
         addHeader(PARAM_AUTHORIZATION, "OAuth " + authToken);
         addParameter(PARAM_DID, deviceId);
         addParameter(PARAM_LATITUDE, String.valueOf(latitude));
         addParameter(PARAM_LONGITUDE, String.valueOf(longitude));
+        addParameter(PARAM_ACCURACY, String.valueOf(accuracy));
     }
 
     @Override
