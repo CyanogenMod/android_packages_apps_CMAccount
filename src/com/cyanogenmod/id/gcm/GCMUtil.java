@@ -36,10 +36,11 @@ public class GCMUtil {
 
     public static final String COMMAND_LOCATE = "begin_locate";
     public static final String COMMAND_WIPE = "wipe_device";
+    public static final String COMMAND_START_HANDSHAKE = "start_handshake";
 
 
-    static void reportLocation(Context context, GCMessage message) {
-        Account account = CMIDUtils.getAccountByName(context, message.getAccount().getUsername());
+    static void reportLocation(Context context) {
+        Account account = CMIDUtils.getCMIDAccount(context);
         if (account != null) {
             DeviceFinderService.reportLocation(context, account);
         }
