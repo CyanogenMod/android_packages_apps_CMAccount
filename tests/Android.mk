@@ -10,6 +10,7 @@ LOCAL_JAVA_LIBRARIES := android.test.runner
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
 LOCAL_PACKAGE_NAME := CMIDTests
+LOCAL_CERTIFICATE := platform
 
 LOCAL_INSTRUMENTATION_FOR := CMID
 
