@@ -88,8 +88,8 @@ public class Authenticator extends AbstractAccountAuthenticator {
             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
             return bundle;
         }
-        if (isTokenExpired(mAccountManager, account)) {
-            if (CMID.DEBUG) Log.d(TAG, "token is expired, refreshing... account="+account.name+ " type="+account.type);
+        if (mAccountManager.peekAuthToken(account, authTokenType) == null) {
+            if (CMID.DEBUG) Log.d(TAG, "token is invalid, refreshing... account="+account.name+ " type="+account.type);
             Bundle bundle = refreshToken(mAccountManager, account, response);
             if (bundle == null) {
                 final Intent intent = new Intent(mContext, AuthActivity.class);
@@ -148,19 +148,6 @@ public class Authenticator extends AbstractAccountAuthenticator {
             }
         }
         return null;
-    }
-
-    private boolean isTokenExpired(AccountManager am, Account account) {
-        final String expires_in = am.getUserData(account, CMID.AUTHTOKEN_EXPIRES_IN);
-        final long expiresTime = expires_in == null ? 0 : Long.valueOf(expires_in);
-        final boolean expired = System.currentTimeMillis() > expiresTime;
-        if (expired) {
-            final String token = am.getUserData(account, CMID.AUTHTOKEN_TYPE_ACCESS);
-            if (!TextUtils.isEmpty(token)) {
-                am.invalidateAuthToken(CMID.ACCOUNT_TYPE_CMID, token);
-            }
-        }
-        return expired;
     }
 
     private boolean hasAuthenticated(AccountManager am, Account account) {

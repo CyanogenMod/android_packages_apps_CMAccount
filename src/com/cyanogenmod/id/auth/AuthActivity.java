@@ -77,6 +77,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private String mEmail;
     private String mUsername;
     private String mPassword;
+    private String mPasswordHash;
 
     private String mUsernameAvailableText;
     private String mUsernameUnavailableText;
@@ -463,6 +464,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         mLastName =  mLastName != null ? mLastName.trim() : "";
         mUsername =  mUsername != null ? mUsername.trim() : "";
         mPassword =  mPassword != null ? mPassword.trim() : "";
+        mPasswordHash = CMIDUtils.digest("SHA512", mPassword);
         mEmail =  mEmail != null ? mEmail.trim() : "";
     }
 
@@ -491,7 +493,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         } else {
             showDialog(DIALOG_CREATE_ACCOUNT);
             trimFields();
-            mInFlightRequest = mAuthClient.createProfile(mFirstName, mLastName, mEmail, mUsername, mPassword, mCheckBox.isChecked(), mCreateProfileResponseListener, this);
+            mInFlightRequest = mAuthClient.createProfile(mFirstName, mLastName, mEmail, mUsername, CMIDUtils.digest("SHA512", mPasswordHash), mCheckBox.isChecked(), mCreateProfileResponseListener, this);
         }
     }
 
@@ -512,12 +514,14 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private void login() {
         showDialog(DIALOG_LOGIN);
         trimFields();
-        mInFlightRequest =  mAuthClient.login(mUsername, mPassword, mAuthTokenResponseListener, this);
+        Log.d(TAG, "double hash = " + CMIDUtils.digest("SHA512", mPasswordHash));
+        mInFlightRequest =  mAuthClient.login(mUsername, CMIDUtils.digest("SHA512", mPasswordHash), mAuthTokenResponseListener, this);
     }
 
     private void handleLogin(AuthTokenResponse response) {
         final Account account = new Account(mUsername, CMID.ACCOUNT_TYPE_CMID);
         mAuthClient.addLocalAccount(mAccountManager, account, response);
+        mAccountManager.setPassword(account, mPasswordHash);
         Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, mUsername);
         result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);

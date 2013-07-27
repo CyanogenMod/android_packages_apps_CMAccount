@@ -42,10 +42,7 @@ public class CMIDPage extends Page {
         @Override
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
             if (requestCode == CMID.REQUEST_CODE_SETUP_CMID && resultCode == Activity.RESULT_OK) {
-                Account account = CMIDUtils.getCMIDAccount(getActivity());
-                if (account != null) {
-                    GCMService.registerClient(getActivity(), account);
-                }
+                GCMService.registerClient(getActivity());
                 mCallbacks.onPageFinished(mPage);
             }
         }

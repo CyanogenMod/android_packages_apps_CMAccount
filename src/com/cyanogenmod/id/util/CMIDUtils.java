@@ -66,17 +66,6 @@ public class CMIDUtils {
         }
     }
 
-    public static Account getAccountByName(Context context, String name) {
-        final AccountManager am = AccountManager.get(context);
-        Account[] accounts = am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID);
-        for (Account account : accounts) {
-            if (account.name.equals(name)) {
-                return account;
-            }
-        }
-        return null;
-    }
-
     public static Account getCMIDAccount(Context context) {
         final AccountManager am = AccountManager.get(context);
         Account[] accounts = am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID);
@@ -174,10 +163,19 @@ public class CMIDUtils {
 
     private static String digest(SharedPreferences prefs, String input) {
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            String id = new BigInteger(1, md.digest(input.getBytes())).toString(16).toUpperCase();
+            String id = digest("MD5", input);
             prefs.edit().putString(KEY_UDID, id).commit();
             return id;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String digest(String algorithm, String id) {
+        try {
+            MessageDigest md = MessageDigest.getInstance(algorithm);
+            String hash = new BigInteger(1, md.digest(id.getBytes())).toString(16);
+            return hash;
         } catch (Exception e) {
             return null;
         }

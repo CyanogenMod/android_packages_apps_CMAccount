@@ -4,7 +4,6 @@ import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 import com.cyanogenmod.id.util.CMIDUtils;
 
-import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.admin.DeviceAdminReceiver;
 import android.content.BroadcastReceiver;
@@ -25,9 +24,8 @@ public class AccountsReceiver extends BroadcastReceiver {
         if (!CMIDUtils.getCMIDAccountAdded(context)) {
             if (am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID).length > 0) {
                 CMIDUtils.setCMIDAccountAdded(context, true);
-                final Account account = CMIDUtils.getCMIDAccount(context);
                 CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
-                GCMService.registerClient(context, account);
+                GCMService.registerClient(context);
             }
         } else {
             if (am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID).length == 0) {
@@ -38,9 +36,8 @@ public class AccountsReceiver extends BroadcastReceiver {
         if (!CMIDUtils.getGoogleAccountAdded(context)) {
             if (am.getAccountsByType(CMID.ACCOUNT_TYPE_GOOGLE).length > 0) {
                 CMIDUtils.setGoogleAccountAdded(context, true);
-                final Account account = CMIDUtils.getCMIDAccount(context);
                 CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
-                GCMService.registerClient(context, account);
+                GCMService.registerClient(context);
             }
         } else {
             if (am.getAccountsByType(CMID.ACCOUNT_TYPE_GOOGLE).length == 0) {
