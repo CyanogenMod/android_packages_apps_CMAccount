@@ -97,5 +97,9 @@
         <service
                 android:name=".api.PingService"
                 android:exported="false" />
+
+        <provider
+                android:name=".provider.CMIDProvider"
+                android:authorities="com.cyanogenmod.id.store"/>
     </application>
 </manifest> 
