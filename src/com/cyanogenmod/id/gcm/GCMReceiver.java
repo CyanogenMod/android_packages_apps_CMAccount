@@ -4,23 +4,39 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.cyanogenmod.id.CMID;
+import com.cyanogenmod.id.auth.AuthClient;
+import com.cyanogenmod.id.util.CMIDUtils;
 
-import android.app.admin.DevicePolicyManager;
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.PowerManager;
 import android.util.Log;
 
-public class GCMReceiver extends BroadcastReceiver {
+import java.util.UUID;
+
+public class GCMReceiver extends BroadcastReceiver implements Response.Listener<Integer>, Response.ErrorListener {
 
     private static final String TAG = GCMReceiver.class.getSimpleName();
 
     private GoogleCloudMessaging mGoogleCloudMessaging;
+    private AccountManager mAccountManager;
+    private Account mAccount;
+    private AuthClient mAuthClient;
 
     public void onReceive(Context context, Intent intent) {
         mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(context);
+        mAccountManager = AccountManager.get(context);
+        mAccount = CMIDUtils.getCMIDAccount(context);
+        if (mAccount == null) {
+            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
+            return;
+        }
+        mAuthClient = AuthClient.getInstance(context);
 
         String messageType = mGoogleCloudMessaging.getMessageType(intent);
 
@@ -36,21 +52,46 @@ public class GCMReceiver extends BroadcastReceiver {
         }
     }
 
-    private void handleMessage(Context context, GCMessage message) {
-        if (GCMUtil.COMMAND_LOCATE.equals(message.getCommand())) {
-            GCMUtil.reportLocation(context, message);
-        } else  if (GCMUtil.COMMAND_WIPE.equals(message.getCommand())) {
-            final PowerManager pm = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
-            final PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
-            wakeLock.acquire(1000 * 60);
-            final DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    dpm.wipeData(DevicePolicyManager.WIPE_EXTERNAL_STORAGE);
-                }
-            });
-            t.start();
+    private void handleMessage(final Context context, final GCMessage message) {
+        if (GCMUtil.COMMAND_START_HANDSHAKE.equals(message.getCommand())) {
+            setHandshakeSecret(message.getArgs().getCommand());
         }
+        if (GCMUtil.COMMAND_LOCATE.equals(message.getCommand())) {
+            AuthClient.HandshakeTokenItem item = mAuthClient.getHandshakeToken(message.getToken(), message.getCommand());
+            if (item != null) {
+                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is good!");
+                GCMUtil.reportLocation(context);
+                mAuthClient.cleanupHandshakeTokenByType(message.getCommand());
+            } else {
+                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is bad!");
+                setHandshakeSecret(message.getCommand());
+            }
+        } else  if (GCMUtil.COMMAND_WIPE.equals(message.getCommand())) {
+            AuthClient.HandshakeTokenItem item = mAuthClient.getHandshakeToken(message.getToken(), message.getCommand());
+            if (item != null) {
+                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is good!");
+                mAuthClient.destroyDevice(context);
+                mAuthClient.cleanupHandshakeTokenByType(message.getCommand());
+            } else {
+                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is bad!");
+                setHandshakeSecret(message.getCommand());
+            }
+        }
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError volleyError) {
+        if (CMID.DEBUG) volleyError.printStackTrace();
+    }
+
+    @Override
+    public void onResponse(Integer integer) {
+        if (CMID.DEBUG) Log.d(TAG, "sendHandshakeSecret response="+integer);
+    }
+
+    private void setHandshakeSecret(final String command) {
+        String uuid = UUID.randomUUID().toString();
+        mAuthClient.generateHandshakeToken(mAccountManager, mAccount, uuid, command);
+        mAuthClient.sendHandshakeSecret(command, uuid, GCMReceiver.this, GCMReceiver.this);
     }
 }
