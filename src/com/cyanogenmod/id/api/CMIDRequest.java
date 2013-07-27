@@ -26,6 +26,9 @@ public abstract class CMIDRequest<T> extends Request<T> {
     public static final String PARAM_CARRIER= "carrier";
     public static final String PARAM_LATITUDE= "latitude";
     public static final String PARAM_LONGITUDE= "longitude";
+    public static final String PARAM_ACCURACY= "accuracy";
+    public static final String PARAM_COMMAND= "command";
+    public static final String PARAM_SECRET= "secret";
 
     private final Response.Listener<T> mListener;
     private HashMap<String, String> mParams = new HashMap<String, String>();
