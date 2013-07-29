@@ -15,10 +15,9 @@ public class ProfileAvailableRequest extends CMIDRequest<ProfileAvailableRespons
 
     private static final String TAG = ProfileAvailableRequest.class.getSimpleName();
 
-    public ProfileAvailableRequest(String email, String username,
+    public ProfileAvailableRequest(String email,
             Response.Listener<ProfileAvailableResponse> listener, Response.ErrorListener errorListener) {
         super(AuthClient.PROFILE_AVAILABLE_URI, listener, errorListener);
-        if (username != null) addParameter(PARAM_USERNAME, username);
         if (email != null) addParameter(PARAM_EMAIL, email);
     }
 

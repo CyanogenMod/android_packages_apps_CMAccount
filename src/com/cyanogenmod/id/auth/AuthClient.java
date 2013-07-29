@@ -25,11 +25,17 @@ import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.telephony.TelephonyManager;
@@ -37,6 +43,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 public class AuthClient {
@@ -80,7 +87,7 @@ public class AuthClient {
     private Request<?> mInFlightLocationRequest;
     private Request<?> mInFlightTokenRequest;
     private Request<?> mInFlightStartWipeRequest;
-    private Request<?> mInRefreshTokenRequest;
+    private Request<?> mInFlightAuthTokenRequest;
 
     private AuthClient(Context context) {
         mContext = context.getApplicationContext();
@@ -93,17 +100,14 @@ public class AuthClient {
         return sInstance;
     }
 
-    public Request<?> login(String username, String password, Listener<AuthTokenResponse> listener, ErrorListener errorListener) {
-        return mRequestQueue.add(new AuthTokenRequest(username, password, listener, errorListener));
-    }
 
-    public AuthTokenResponse blockingRefreshAccessToken(String refreshToken) throws VolleyError {
+    public AuthTokenResponse blockingLogin(String accountName, String password) throws VolleyError {
         RequestFuture<AuthTokenResponse> future = RequestFuture.newFuture();
-        if (mInRefreshTokenRequest != null) {
-            mInRefreshTokenRequest.cancel();
-            mInRefreshTokenRequest = null;
+        if (mInFlightAuthTokenRequest != null) {
+            mInFlightAuthTokenRequest.cancel();
+            mInFlightAuthTokenRequest = null;
         }
-        mInRefreshTokenRequest = mRequestQueue.add(new AuthTokenRequest(refreshToken, future, future));
+        mInFlightAuthTokenRequest = mRequestQueue.add(new AuthTokenRequest(accountName, CMIDUtils.digest("SHA512", password), future, future));
         try {
             AuthTokenResponse response = future.get();
             return response;
@@ -112,7 +116,30 @@ public class AuthClient {
         } catch (ExecutionException e) {
             throw new VolleyError(e);
         } finally {
-            mInRefreshTokenRequest = null;
+            mInFlightAuthTokenRequest = null;
+        }
+    }
+
+    public Request<?> login(String accountName, String password, Listener<AuthTokenResponse> listener, ErrorListener errorListener) {
+        return mRequestQueue.add(new AuthTokenRequest(accountName, password, listener, errorListener));
+    }
+
+    public AuthTokenResponse blockingRefreshAccessToken(String refreshToken) throws VolleyError {
+        RequestFuture<AuthTokenResponse> future = RequestFuture.newFuture();
+        if (mInFlightAuthTokenRequest != null) {
+            mInFlightAuthTokenRequest.cancel();
+            mInFlightAuthTokenRequest = null;
+        }
+        mInFlightAuthTokenRequest = mRequestQueue.add(new AuthTokenRequest(refreshToken, future, future));
+        try {
+            AuthTokenResponse response = future.get();
+            return response;
+        } catch (InterruptedException e) {
+            throw new VolleyError(e);
+        } catch (ExecutionException e) {
+            throw new VolleyError(e);
+        } finally {
+            mInFlightAuthTokenRequest = null;
         }
     }
 
@@ -120,19 +147,20 @@ public class AuthClient {
         return mRequestQueue.add(new AuthTokenRequest(refreshToken, listener, errorListener));
     }
 
-    public Request<?> createProfile(String firstName, String lastName, String email, String username, String password, boolean termsOfService,
+    public Request<?> createProfile(String firstName, String lastName, String email, String password, boolean termsOfService,
             Listener<CreateProfileResponse> listener, ErrorListener errorListener) {
-        return mRequestQueue.add(new CreateProfileRequest(firstName, lastName, email, username, password, termsOfService, listener, errorListener));
+        return mRequestQueue.add(new CreateProfileRequest(firstName, lastName, email, password, termsOfService, listener, errorListener));
     }
 
-    public Request<?> checkProfile(String email, String username, Listener<ProfileAvailableResponse> listener, ErrorListener errorListener) {
-        return mRequestQueue.add(new ProfileAvailableRequest(email, username, listener, errorListener));
+    public Request<?> checkProfile(String email, Listener<ProfileAvailableResponse> listener, ErrorListener errorListener) {
+        return mRequestQueue.add(new ProfileAvailableRequest(email, listener, errorListener));
     }
 
     public void pingService(final Listener<PingResponse> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
-            throw new IllegalStateException("No CMID account configured");
+            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
+            return;
         }
         final TokenCallback callback = new TokenCallback() {
             @Override
@@ -184,7 +212,8 @@ public class AuthClient {
     public void reportLocation(final double latitude, final double longitude, final float accuracy, final Listener<Integer> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
-            throw new IllegalStateException("No CMID account configured");
+            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
+            return;
         }
 
         final TokenCallback callback = new TokenCallback() {
@@ -232,7 +261,8 @@ public class AuthClient {
     public void sendHandshakeSecret(final String command, final String secret, final Listener<Integer> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
-            throw new IllegalStateException("No CMID account configured");
+            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
+            return;
         }
         final TokenCallback callback = new TokenCallback() {
             @Override
@@ -279,7 +309,8 @@ public class AuthClient {
     public void setWipeStartedCommand(final Listener<Integer> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
-            throw new IllegalStateException("No CMID account configured");
+            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
+            return;
         }
         final TokenCallback callback = new TokenCallback() {
             @Override
@@ -366,14 +397,46 @@ public class AuthClient {
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
                             mInFlightTokenRequest = null;
-                            if (CMID.DEBUG) Log.d(TAG, "refreshAccessToken() onErrorResponse:  " + volleyError.networkResponse.statusCode);
-                            tokenCallback.onError(volleyError);
+                            final int status = volleyError.networkResponse.statusCode;
+                            if (CMID.DEBUG) Log.d(TAG, "refreshAccessToken() onErrorResponse:  " + status);
+                            if (status == 400 || status == 401) {
+                                mAccountManager.setUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH, null);
+                                reAuthenticate(account, tokenCallback, volleyError);
+                            } else {
+                                tokenCallback.onError(volleyError);
+                            }
                         }
                     });
         } else {
             if (CMID.DEBUG) Log.d(TAG, "doTokenRequest() returning cached token : " + currentToken);
             tokenCallback.onTokenReceived(currentToken);
         }
+    }
+
+    private void reAuthenticate(final Account account, final TokenCallback tokenCallback, final VolleyError originalError) {
+        mAccountManager.getAuthToken(account, CMID.ACCOUNT_TYPE_CMID, null, true, new AccountManagerCallback<Bundle>() {
+            @Override
+            public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
+                try {
+                    Bundle bundle =  bundleAccountManagerFuture.getResult();
+                    String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
+                    if (!TextUtils.isEmpty(token)) {
+                        tokenCallback.onTokenReceived(token);
+                    } else {
+                        tokenCallback.onError(originalError);
+                    }
+                } catch (OperationCanceledException e) {
+                    Log.e(TAG, "Unable to get AuthToken", e);
+                    tokenCallback.onError(new VolleyError(e));
+                } catch (IOException e) {
+                    Log.e(TAG, "Unable to get AuthToken", e);
+                    tokenCallback.onError(new VolleyError(e));
+                } catch (AuthenticatorException e) {
+                    Log.e(TAG, "Unable to get AuthToken", e);
+                    tokenCallback.onError(new VolleyError(e));
+                }
+            }
+        }, new Handler());
     }
 
     private String getCarrierName() {

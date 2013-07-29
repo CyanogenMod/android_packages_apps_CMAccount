@@ -42,9 +42,6 @@ public class GCMService extends IntentService {
             if (ACTION_UNREGISTER.equals(action)) {
                 unregister(context, gcm);
             } else if (ACTION_REGISTER.equals(action)) {
-                if (GCMUtil.isRegistrationExpired(context)) {
-                    unregister(context, gcm);
-                }
                 register(context, gcm, GCMUtil.SENDER_ID, intent);
             }
         } catch (IOException e) {

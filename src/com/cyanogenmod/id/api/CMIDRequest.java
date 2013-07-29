@@ -13,7 +13,6 @@ public abstract class CMIDRequest<T> extends Request<T> {
     public static final String PARAM_FIRST_NAME = "first_name";
     public static final String PARAM_LAST_NAME = "last_name";
     public static final String PARAM_EMAIL = "email";
-    public static final String PARAM_USERNAME = "username";
     public static final String PARAM_PASSWORD = "password";
     public static final String PARAM_TERMS = "terms_of_service";
     public static final String PARAM_GRANT_TYPE = "grant_type";
@@ -22,7 +21,8 @@ public abstract class CMIDRequest<T> extends Request<T> {
     public static final String PARAM_PUSH_ID= "push_id";
     public static final String PARAM_MAKE= "make";
     public static final String PARAM_MODEL= "model";
-    public static final String PARAM_OS_VERSION= "os_version";
+    public static final String PARAM_ANDROID_VERSION = "android_version";
+    public static final String PARAM_CM_VERSION = "cm_version";
     public static final String PARAM_CARRIER= "carrier";
     public static final String PARAM_LATITUDE= "latitude";
     public static final String PARAM_LONGITUDE= "longitude";

@@ -4,11 +4,15 @@ import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 import com.cyanogenmod.id.util.CMIDUtils;
 
+import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.accounts.OnAccountsUpdateListener;
 import android.app.admin.DeviceAdminReceiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 public class AccountsReceiver extends BroadcastReceiver {
@@ -19,32 +23,15 @@ public class AccountsReceiver extends BroadcastReceiver {
 
         if (CMID.DEBUG) Log.d(TAG, "action = " + intent.getAction());
 
-        final AccountManager am = AccountManager.get(context);
-
-        if (!CMIDUtils.getCMIDAccountAdded(context)) {
-            if (am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID).length > 0) {
-                CMIDUtils.setCMIDAccountAdded(context, true);
-                CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
-                GCMService.registerClient(context);
-            }
-        } else {
-            if (am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID).length == 0) {
-                CMIDUtils.setCMIDAccountAdded(context, false);
-                CMIDUtils.resetBackoff(AuthClient.getInstance(context).getAuthPreferences());
-            }
+        Account account = CMIDUtils.getCMIDAccount(context);
+        if (account == null) {
+            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
+            return;
         }
-        if (!CMIDUtils.getGoogleAccountAdded(context)) {
-            if (am.getAccountsByType(CMID.ACCOUNT_TYPE_GOOGLE).length > 0) {
-                CMIDUtils.setGoogleAccountAdded(context, true);
-                CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
-                GCMService.registerClient(context);
-            }
-        } else {
-            if (am.getAccountsByType(CMID.ACCOUNT_TYPE_GOOGLE).length == 0) {
-                CMIDUtils.setGoogleAccountAdded(context, false);
-            }
+        if (GCMUtil.isRegistrationExpired(context)) {
+            CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
+            GCMService.registerClient(context);
         }
-
     }
 
     public static class CMIDAdminReceiver extends DeviceAdminReceiver {}

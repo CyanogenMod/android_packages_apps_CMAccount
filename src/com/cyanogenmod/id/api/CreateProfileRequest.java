@@ -15,10 +15,9 @@ public class CreateProfileRequest extends CMIDRequest<CreateProfileResponse> {
 
     private static final String TAG = CreateProfileRequest.class.getSimpleName();
 
-    public CreateProfileRequest(String firstName, String lastName, String email, String username, String password, boolean termsOfService,
+    public CreateProfileRequest(String firstName, String lastName, String email, String password, boolean termsOfService,
             Response.Listener<CreateProfileResponse> listener, Response.ErrorListener errorListener) {
         super(AuthClient.REGISTER_PROFILE_URI, listener, errorListener);
-        addParameter(PARAM_USERNAME, username);
         addParameter(PARAM_PASSWORD, password);
         addParameter(PARAM_FIRST_NAME, firstName);
         addParameter(PARAM_LAST_NAME, lastName);

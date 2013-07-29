@@ -72,26 +72,6 @@ public class CMIDUtils {
         return accounts.length > 0 ? accounts[0] : null;
     }
 
-    public static void setCMIDAccountAdded(Context context, boolean added) {
-        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
-        prefs.edit().putBoolean(CMID.KEY_CMID_ACCOUNT_ADDED_PREF, added).commit();
-    }
-
-    public static void setGoogleAccountAdded(Context context, boolean added) {
-        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
-        prefs.edit().putBoolean(CMID.KEY_GOOGLE_ACCOUNT_ADDED_PREF, added).commit();
-    }
-
-    public static boolean getCMIDAccountAdded(Context context) {
-        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
-        return prefs.getBoolean(CMID.KEY_CMID_ACCOUNT_ADDED_PREF, false);
-    }
-
-    public static boolean getGoogleAccountAdded(Context context) {
-        final SharedPreferences prefs = context.getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
-        return prefs.getBoolean(CMID.KEY_GOOGLE_ACCOUNT_ADDED_PREF, false);
-    }
-
     public static void tryEnablingWifi(Context context) {
         WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
         if (!wifiManager.isWifiEnabled()) {
@@ -128,6 +108,10 @@ public class CMIDUtils {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         int simState = telephonyManager.getSimState();
         return simState == TelephonyManager.SIM_STATE_ABSENT || simState == TelephonyManager.SIM_STATE_UNKNOWN;
+    }
+
+    public static String getModVersion() {
+        return SystemProperties.get("ro.cm.version");
     }
 
     public static String getUniqueDeviceId(Context context) {

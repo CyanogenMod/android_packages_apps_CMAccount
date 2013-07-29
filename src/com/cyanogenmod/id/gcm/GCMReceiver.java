@@ -15,6 +15,7 @@ import android.accounts.AccountManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.PowerManager;
 import android.util.Log;
 
 import java.util.UUID;
@@ -23,12 +24,24 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
 
     private static final String TAG = GCMReceiver.class.getSimpleName();
 
+    private static PowerManager.WakeLock sWakeLock;
+    private static final int WAKE_LOCK_TIMEOUT = 1000 * 60 * 5;
+
     private GoogleCloudMessaging mGoogleCloudMessaging;
     private AccountManager mAccountManager;
     private Account mAccount;
     private AuthClient mAuthClient;
 
     public void onReceive(Context context, Intent intent) {
+        if (sWakeLock == null) {
+            PowerManager pm = (PowerManager)
+                    context.getSystemService(Context.POWER_SERVICE);
+            sWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        }
+        if (!sWakeLock.isHeld()) {
+            if (CMID.DEBUG) Log.v(TAG, "Acquiring " + WAKE_LOCK_TIMEOUT + " ms wakelock");
+            sWakeLock.acquire(WAKE_LOCK_TIMEOUT);
+        }
         mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(context);
         mAccountManager = AccountManager.get(context);
         mAccount = CMIDUtils.getCMIDAccount(context);

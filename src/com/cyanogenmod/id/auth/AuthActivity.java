@@ -56,8 +56,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private EditText mLastNameEdit;
     private TextView mEmailText;
     private EditText mEmailEdit;
-    private TextView mUsernameText;
-    private EditText mUsernameEdit;
     private TextView mPasswordText;
     private EditText mPasswordEdit;
     private EditText mConfirmPasswordEdit;
@@ -68,19 +66,15 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     private boolean mCreateNewAccount = false;
 
-    private boolean mUsernameAvailable = true;
     private boolean mEmailAvailable = true;
     private boolean mEmailInvalid = false;
 
     private String mFirstName;
     private String mLastName;
     private String mEmail;
-    private String mUsername;
     private String mPassword;
     private String mPasswordHash;
 
-    private String mUsernameAvailableText;
-    private String mUsernameUnavailableText;
     private String mPasswordMismatchText;
     private String mEmailAvailableText;
     private String mEmailInvalidText;
@@ -88,8 +82,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     private Dialog mDialog;
     private AuthServerError mAuthServerError;
-
-    private SharedPreferences mPreferences;
 
     private Request<?> mInFlightRequest;
 
@@ -142,7 +134,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         setContentView(R.layout.cmid_auth);
         mAccountManager = AccountManager.get(this);
         mAuthClient = AuthClient.getInstance(getApplicationContext());
-        mPreferences = getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         mTitle = (TextView) findViewById(android.R.id.title);
         mFirstNameEdit = (EditText) findViewById(R.id.cmid_firstname);
         mFirstNameEdit.addTextChangedListener(new TextWatcher() {
@@ -179,27 +170,9 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
                 mEmailAvailable = true;
-                if (validEmail(text.toString())) {
-                    mEmailInvalid = false;
-                    validateFields();
-                    checkProfile();
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
-        mUsernameText = (TextView) findViewById(R.id.cmid_username_label);
-        mUsernameEdit = (EditText) findViewById(R.id.cmid_username);
-        mUsernameEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence text, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence text, int start, int before, int count) {
                 validateFields();
-                if (mCreateNewAccount) {
-                    mUsernameAvailable = true;
+                if (mCreateNewAccount && validEmail(text.toString())) {
+                    mEmailInvalid = false;
                     checkProfile();
                 }
             }
@@ -244,8 +217,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             }
         });
         mCreateNewAccount = getIntent().getBooleanExtra(EXTRA_PARAM_CREATE_ACCOUNT, false);
-        mUsernameAvailableText = getString(R.string.cmid_setup_username_label);
-        mUsernameUnavailableText = getString(R.string.cmid_setup_username_unavailable_label);
         mPasswordMismatchText = getString(R.string.cmid_setup_password_mismatch_label);
         mEmailAvailableText = getString(R.string.cmid_setup_email_label);
         mEmailUnavailableText = getString(R.string.cmid_setup_email_unavailable_label);
@@ -261,8 +232,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         }  else {
             mFirstNameEdit.setVisibility(View.GONE);
             mLastNameEdit.setVisibility(View.GONE);
-            mEmailText.setVisibility(View.GONE);
-            mEmailEdit.setVisibility(View.GONE);
             mCheckBox.setVisibility(View.GONE);
             mConfirmPasswordEdit.setVisibility(View.GONE);
             mTitle.setText(R.string.cmid_setup_login_title);
@@ -407,29 +376,19 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         mFirstName = mFirstNameEdit.getText().toString();
         mLastName = mLastNameEdit.getText().toString();
         mEmail = mEmailEdit.getText().toString();
-        mUsername = mUsernameEdit.getText().toString();
         mPassword = mPasswordEdit.getText().toString();
         boolean terms = mCheckBox.isChecked();
         if (mCreateNewAccount) {
             valid = mFirstName.length() > 0 &&
                     mLastName.length() > 0 &&
                     mEmail.length() > 0 &&
-                    mUsername.length() > 0 &&
                     mPassword.length() > 0 &&
                     mConfirmPasswordEdit.getText().toString().length() > 0 &&
-                    mUsernameAvailable &&
                     mEmailAvailable &&
                     terms;
         } else {
-            valid = mUsername.length() > 0 &&
+            valid = mEmail.length() > 0 &&
                     mPassword.length() > 0;
-        }
-        if (mUsernameAvailable) {
-            mUsernameText.setText("");
-            mUsernameText.setTextColor(Color.WHITE);
-        } else {
-            mUsernameText.setText(mUsernameUnavailableText);
-            mUsernameText.setTextColor(Color.RED);
         }
         if (mEmailInvalid) {
             mEmailText.setText(mEmailInvalidText);
@@ -462,7 +421,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private void trimFields() {
         mFirstName =  mFirstName != null ? mFirstName.trim() : "";
         mLastName =  mLastName != null ? mLastName.trim() : "";
-        mUsername =  mUsername != null ? mUsername.trim() : "";
         mPassword =  mPassword != null ? mPassword.trim() : "";
         mPasswordHash = CMIDUtils.digest("SHA512", mPassword);
         mEmail =  mEmail != null ? mEmail.trim() : "";
@@ -480,7 +438,9 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             mInFlightRequest.cancel();
             mInFlightRequest = null;
         }
-        mAuthClient.checkProfile(validEmail(mEmail) ? mEmail : null, mUsername, mProfileAvailableResponseListener, mProfileAvailableErrorListener);
+        if (validEmail(mEmail)) {
+            mAuthClient.checkProfile(mEmail, mProfileAvailableResponseListener, mProfileAvailableErrorListener);
+        }
     }
 
     private void createProfile() {
@@ -493,13 +453,12 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         } else {
             showDialog(DIALOG_CREATE_ACCOUNT);
             trimFields();
-            mInFlightRequest = mAuthClient.createProfile(mFirstName, mLastName, mEmail, mUsername, CMIDUtils.digest("SHA512", mPasswordHash), mCheckBox.isChecked(), mCreateProfileResponseListener, this);
+            mInFlightRequest = mAuthClient.createProfile(mFirstName, mLastName, mEmail, CMIDUtils.digest("SHA512", mPasswordHash), mCheckBox.isChecked(), mCreateProfileResponseListener, this);
         }
     }
 
     private void handleCheckProfileResponse(CheckProfileResponse checkProfileResponse) {
         mEmailAvailable = checkProfileResponse.emailAvailable();
-        mUsernameAvailable = checkProfileResponse.usernameAvailable();
         validateFields();
     }
 
@@ -515,15 +474,15 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         showDialog(DIALOG_LOGIN);
         trimFields();
         Log.d(TAG, "double hash = " + CMIDUtils.digest("SHA512", mPasswordHash));
-        mInFlightRequest =  mAuthClient.login(mUsername, CMIDUtils.digest("SHA512", mPasswordHash), mAuthTokenResponseListener, this);
+        mInFlightRequest =  mAuthClient.login(mEmail, CMIDUtils.digest("SHA512", mPasswordHash), mAuthTokenResponseListener, this);
     }
 
     private void handleLogin(AuthTokenResponse response) {
-        final Account account = new Account(mUsername, CMID.ACCOUNT_TYPE_CMID);
+        final Account account = new Account(mEmail, CMID.ACCOUNT_TYPE_CMID);
         mAuthClient.addLocalAccount(mAccountManager, account, response);
         mAccountManager.setPassword(account, mPasswordHash);
         Bundle result = new Bundle();
-        result.putString(AccountManager.KEY_ACCOUNT_NAME, mUsername);
+        result.putString(AccountManager.KEY_ACCOUNT_NAME, mEmail);
         result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
         setAccountAuthenticatorResult(result);
         Intent intent = new Intent();

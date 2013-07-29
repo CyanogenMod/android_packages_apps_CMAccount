@@ -9,6 +9,7 @@ import com.android.volley.VolleyError;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 import com.cyanogenmod.id.gcm.GCMUtil;
+import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.content.Context;
 import android.os.Build;
@@ -27,7 +28,8 @@ public class PingRequest extends CMIDRequest<PingResponse> {
         addParameter(PARAM_MAKE, Build.MANUFACTURER);
         addParameter(PARAM_MODEL, Build.MODEL);
         addParameter(PARAM_CARRIER, carrier);
-        addParameter(PARAM_OS_VERSION, Build.FINGERPRINT);
+        addParameter(PARAM_ANDROID_VERSION, Build.VERSION.RELEASE);
+        addParameter(PARAM_CM_VERSION, CMIDUtils.getModVersion());
     }
 
     @Override

@@ -15,10 +15,10 @@ public class AuthTokenRequest extends CMIDRequest<AuthTokenResponse> {
 
     private static final String TAG = AuthTokenRequest.class.getSimpleName();
 
-    public AuthTokenRequest(String username, String password, Response.Listener<AuthTokenResponse> listener, Response.ErrorListener errorListener) {
+    public AuthTokenRequest(String id, String password, Response.Listener<AuthTokenResponse> listener, Response.ErrorListener errorListener) {
         super(AuthClient.AUTH_URI, listener, errorListener);
         addParameter(PARAM_GRANT_TYPE, PARAM_PASSWORD);
-        addParameter(PARAM_USERNAME, username);
+        addParameter(PARAM_EMAIL, id);
         addParameter(PARAM_PASSWORD, password);
         addHeader(PARAM_AUTHORIZATION, "Basic " + AuthClient.ENCODED_ID_SECRET);
     }

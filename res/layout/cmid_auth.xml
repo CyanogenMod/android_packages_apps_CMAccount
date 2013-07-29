@@ -40,21 +40,6 @@
                 android:hint="@string/cmid_setup_email_label"/>
 
         <TextView
-                android:id="@+id/cmid_username_label"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorPrimary" />
-        <EditText
-                android:id="@+id/cmid_username"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:inputType="text"
-                android:contentDescription="@string/cmid_setup_username_label"
-                android:imeOptions="actionNext"
-                android:hint="@string/cmid_setup_username_label"/>
-
-        <TextView
                 android:id="@+id/cmid_password_label"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"

@@ -39,8 +39,6 @@
     <string name="cmid_setup_email_label">Email</string>
     <string name="cmid_setup_email_unavailable_label">Email already registered</string>
     <string name="cmid_setup_email_invalid_label">Not a valid Email address</string>
-    <string name="cmid_setup_username_label">Username</string>
-    <string name="cmid_setup_username_unavailable_label">Username is taken!</string>
     <string name="cmid_setup_password_label">Password</string>
     <string name="cmid_setup_password_mismatch_label">Passwords don\'t match!</string>
     <string name="cmid_setup_confirm_password_label">Confirm password</string>

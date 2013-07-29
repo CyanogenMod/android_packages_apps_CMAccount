@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import java.sql.Timestamp;
@@ -46,11 +47,13 @@ public class GCMUtil {
         }
     }
 
-    static boolean isRegistrationExpired(Context context) {
+    public static boolean isRegistrationExpired(Context context) {
         final SharedPreferences prefs = getGCMPreferences(context);
         long expirationTime =
-                prefs.getLong(PROPERTY_ON_SERVER_EXPIRATION_TIME, -1);
-        return System.currentTimeMillis() > expirationTime;
+                prefs.getLong(PROPERTY_ON_SERVER_EXPIRATION_TIME, 0);
+        boolean expired = System.currentTimeMillis() > expirationTime;
+        if (CMID.DEBUG) Log.d(TAG, "GCM Registration exipred = " + expired);
+        return expired;
     }
 
      public static String getRegistrationId(Context context) {

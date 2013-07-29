@@ -80,33 +80,27 @@ public class Authenticator extends AbstractAccountAuthenticator {
             result.putString(AccountManager.KEY_ERROR_MESSAGE, "invalid authTokenType");
             return result;
         }
-        if (!hasAuthenticated(mAccountManager, account)) {
-            if (CMID.DEBUG) Log.d(TAG, "not authenticated account="+account.name+ " type="+account.type);
-            final Bundle bundle = new Bundle();
-            final Intent intent = new Intent(mContext, AuthActivity.class);
-            intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-            return bundle;
-        }
-        if (mAccountManager.peekAuthToken(account, authTokenType) == null) {
-            if (CMID.DEBUG) Log.d(TAG, "token is invalid, refreshing... account="+account.name+ " type="+account.type);
+        if (hasRefreshToken(mAccountManager, account)) {
+            if (CMID.DEBUG) Log.d(TAG, "refreshing token... account="+account.name+ " type="+account.type);
             Bundle bundle = refreshToken(mAccountManager, account, response);
-            if (bundle == null) {
-                final Intent intent = new Intent(mContext, AuthActivity.class);
-                intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-                bundle = new Bundle();
-                bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+            if (bundle != null) {
+                return bundle;
             }
             return bundle;
         }
-
-        String token =  mAccountManager.getUserData(account, CMID.AUTHTOKEN_TYPE_ACCESS);
-        mAccountManager.setAuthToken(account, CMID.AUTHTOKEN_TYPE_ACCESS, token);
+        final String password = mAccountManager.getPassword(account);
+        if (password != null) {
+            if (CMID.DEBUG) Log.d(TAG, "authenticating account="+account.name+ " type="+account.type);
+            Bundle bundle = login(mAccountManager, account, password, response);
+            if (bundle != null) {
+                return bundle;
+            }
+        }
 
         final Bundle result = new Bundle();
-        result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
-        result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
-        result.putString(AccountManager.KEY_AUTHTOKEN, token);
+        final Intent intent = new Intent(mContext, AuthActivity.class);
+        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+        result.putParcelable(AccountManager.KEY_INTENT, intent);
         return result;
     }
 
@@ -127,6 +121,27 @@ public class Authenticator extends AbstractAccountAuthenticator {
         return result;
     }
 
+    private Bundle login(AccountManager am, Account account, String password, AccountAuthenticatorResponse response) {
+        final String accountName = account.name;
+        try {
+            AuthTokenResponse authResponse = mAuthClient.blockingLogin(accountName, password);
+            mAuthClient.updateLocalAccount(am, account, authResponse);
+            final String token = authResponse.getAccessToken();
+            if (!TextUtils.isEmpty(token)) {
+                final Bundle result = new Bundle();
+                result.putParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+                result.putString(AccountManager.KEY_AUTHTOKEN, token);
+                result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
+                result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
+                am.setAuthToken(account, CMID.AUTHTOKEN_TYPE_ACCESS, token);
+                return result;
+            }
+        } catch (VolleyError volleyError) {
+            volleyError.printStackTrace();
+        }
+        return null;
+    }
+
     private Bundle refreshToken(AccountManager am, Account account, AccountAuthenticatorResponse response) {
         final String refreshToken = am.getUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH);
         if (!TextUtils.isEmpty(refreshToken)) {
@@ -145,12 +160,16 @@ public class Authenticator extends AbstractAccountAuthenticator {
                 }
             } catch (VolleyError volleyError) {
                 volleyError.printStackTrace();
+                final int status = volleyError.networkResponse.statusCode;
+                if (status == 400 || status == 401) {
+                    mAccountManager.setUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH, null);
+                }
             }
         }
         return null;
     }
 
-    private boolean hasAuthenticated(AccountManager am, Account account) {
+    private boolean hasRefreshToken(AccountManager am, Account account) {
         return am.getUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH) != null;
     }
 }
