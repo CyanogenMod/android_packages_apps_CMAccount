@@ -58,7 +58,6 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (CMID.DEBUG) Log.d(TAG, "message data = " + data);
         try {
             GCMessage message = new Gson().fromJson(data, GCMessage.class);
-            if (CMID.DEBUG) Log.d(TAG, "GCMessage: \n " + message.dump());
             handleMessage(context, message);
         } catch (JsonSyntaxException e) {
             Log.e(TAG, "Error parsing GCM message", e);

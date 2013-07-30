@@ -78,6 +78,10 @@
             <intent-filter>
                 <action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package"/>
+            </intent-filter>
         </receiver>
 
         <receiver android:name=".gcm.AccountsReceiver$CMIDAdminReceiver"

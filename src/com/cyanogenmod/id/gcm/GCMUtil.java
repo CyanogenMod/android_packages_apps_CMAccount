@@ -30,8 +30,8 @@ public class GCMUtil {
     private static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private static final String PROPERTY_ON_SERVER_EXPIRATION_TIME = "onServerExpirationTimeMs";
-    // 7 days
-    private static final long REGISTRATION_EXPIRY_TIME_MS = 1000 * 3600 * 24 * 7;
+    // 2 days
+    private static final long REGISTRATION_EXPIRY_TIME_MS = 1000 * 3600 * 24 * 2;
     // 1 day
     private static final long RE_REGISTRATION_INTERVAL = 1000 * 3600 * 24;
 
@@ -51,9 +51,7 @@ public class GCMUtil {
         final SharedPreferences prefs = getGCMPreferences(context);
         long expirationTime =
                 prefs.getLong(PROPERTY_ON_SERVER_EXPIRATION_TIME, 0);
-        boolean expired = System.currentTimeMillis() > expirationTime;
-        if (CMID.DEBUG) Log.d(TAG, "GCM Registration exipred = " + expired);
-        return expired;
+        return System.currentTimeMillis() > expirationTime;
     }
 
      public static String getRegistrationId(Context context) {

@@ -2,6 +2,7 @@ package com.cyanogenmod.id.gcm;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.api.PingService;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -45,7 +46,7 @@ public class GCMService extends IntentService {
                 register(context, gcm, GCMUtil.SENDER_ID, intent);
             }
         } catch (IOException e) {
-            Log.e(TAG, e.toString(), e);
+            if (CMID.DEBUG) Log.e(TAG, "Unable to register for GCM: " + e.toString());
             GCMUtil.clearRegistrationId(context);
             CMIDUtils.scheduleRetry(context, GCMUtil.getGCMPreferences(context), intent);
         }
