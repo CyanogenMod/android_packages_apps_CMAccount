@@ -47,6 +47,11 @@ public class GCMUtil {
         }
     }
 
+    public static void registerForGCM(Context context) {
+        CMIDUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
+        GCMService.registerClient(context);
+    }
+
     public static boolean isRegistrationExpired(Context context) {
         final SharedPreferences prefs = getGCMPreferences(context);
         long expirationTime =
@@ -121,5 +126,8 @@ public class GCMUtil {
 
     public static boolean googleServicesExist(Context context) {
         return GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) != ConnectionResult.SERVICE_MISSING;
+    }
+    public static boolean playServicesUpdateRequired(Context context) {
+        return GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) == ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED;
     }
 }
