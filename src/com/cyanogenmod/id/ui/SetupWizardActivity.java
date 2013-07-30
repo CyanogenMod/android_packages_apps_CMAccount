@@ -23,7 +23,6 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -33,7 +32,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private static final String TAG = SetupWizardActivity.class.getSimpleName();
 
-    private static final String DEFAULT_LAUNCHER = "com.cyanogenmod.trebuchet.Launcher";
+    private static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
 
     private ViewPager mViewPager;
     private CMPagerAdapter mPagerAdapter;
@@ -240,15 +239,16 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         });
     }
 
-    private void enableDefaultHome(Intent intent) {
+    private void disableSetupWizards(Intent intent) {
         final PackageManager pm = getPackageManager();
         final List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         for (ResolveInfo info : resolveInfos) {
-            if (!DEFAULT_LAUNCHER.equals(info.activityInfo.name)) {
+            if (GOOGLE_SETUPWIZARD_PACKAGE.equals(info.activityInfo.packageName)) {
                 final ComponentName componentName = new ComponentName(info.activityInfo.packageName, info.activityInfo.name);
                 pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
             }
         }
+        pm.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
 
     private void finishSetup() {
@@ -256,7 +256,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.HOME");
-        enableDefaultHome(intent);
+        disableSetupWizards(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
         startActivity(intent);
         finish();
