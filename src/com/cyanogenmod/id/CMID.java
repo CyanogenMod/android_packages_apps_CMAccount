@@ -1,8 +1,7 @@
 package com.cyanogenmod.id;
 
-import com.cyanogenmod.id.gcm.AccountsReceiver;
-
 import android.app.Application;
+import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -46,8 +45,10 @@ public class CMID extends Application {
     public void onCreate() {
         super.onCreate();
         final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), AccountsReceiver.CMIDAdminReceiver.class);
+        final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), CMIDAdminReceiver.class);
         dpm.setActiveAdmin(deviceAdmin, true);
     }
+
+    public static class CMIDAdminReceiver extends DeviceAdminReceiver {}
 
 }
