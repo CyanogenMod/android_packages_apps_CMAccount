@@ -20,6 +20,7 @@ import com.cyanogenmod.id.api.ProfileAvailableResponse;
 import com.cyanogenmod.id.api.ReportLocationRequest;
 import com.cyanogenmod.id.api.SendStartingWipeRequest;
 import com.cyanogenmod.id.api.SetHandshakeRequest;
+import com.cyanogenmod.id.gcm.GCMUtil;
 import com.cyanogenmod.id.provider.CMIDProvider;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -28,6 +29,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
+import android.accounts.OnAccountsUpdateListener;
 import android.accounts.OperationCanceledException;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentValues;
@@ -88,6 +90,8 @@ public class AuthClient {
     private Request<?> mInFlightTokenRequest;
     private Request<?> mInFlightStartWipeRequest;
     private Request<?> mInFlightAuthTokenRequest;
+
+    private OnAccountsUpdateListener mAccountsUpdateListener;
 
     private AuthClient(Context context) {
         mContext = context.getApplicationContext();
@@ -354,10 +358,27 @@ public class AuthClient {
         doTokenRequest(account, callback);
     }
 
-    public void addLocalAccount(AccountManager accountManager, Account account, AuthTokenResponse response) {
-        accountManager.addAccountExplicitly(account, null, null);
+    public void addLocalAccount(final AccountManager accountManager, final Account account, String password, AuthTokenResponse response) {
+        mAccountsUpdateListener = new OnAccountsUpdateListener() {
+            @Override
+            public void onAccountsUpdated(Account[] accounts) {
+                Log.d(TAG, "onAccountsUpdated()");
+                for (Account updatedAccount : accounts) {
+                    if (updatedAccount.type.equals(CMID.ACCOUNT_TYPE_CMID) && CMIDUtils.getCMIDAccount(mContext) != null) {
+                        Log.d(TAG, "onAccountsUpdated() ACCOUNT_TYPE_CMID");
+                        if (GCMUtil.googleServicesExist(mContext)) {
+                            GCMUtil.registerForGCM(mContext);
+                        } else {
+                            PingService.pingServer(mContext);
+                        }
+                        mAccountManager.removeOnAccountsUpdatedListener(mAccountsUpdateListener);
+                    }
+                }
+            }
+        };
+        mAccountManager.addOnAccountsUpdatedListener(mAccountsUpdateListener, new Handler(), false);
+        accountManager.addAccountExplicitly(account, password, null);
         updateLocalAccount(accountManager, account, response);
-        PingService.pingServer(mContext);
     }
 
     public void updateLocalAccount(AccountManager accountManager, Account account, AuthTokenResponse response) {
