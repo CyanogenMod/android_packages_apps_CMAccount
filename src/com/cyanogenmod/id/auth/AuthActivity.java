@@ -473,14 +473,12 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private void login() {
         showDialog(DIALOG_LOGIN);
         trimFields();
-        Log.d(TAG, "double hash = " + CMIDUtils.digest("SHA512", mPasswordHash));
         mInFlightRequest =  mAuthClient.login(mEmail, CMIDUtils.digest("SHA512", mPasswordHash), mAuthTokenResponseListener, this);
     }
 
     private void handleLogin(AuthTokenResponse response) {
         final Account account = new Account(mEmail, CMID.ACCOUNT_TYPE_CMID);
-        mAuthClient.addLocalAccount(mAccountManager, account, response);
-        mAccountManager.setPassword(account, mPasswordHash);
+        mAuthClient.addLocalAccount(mAccountManager, account, mPasswordHash, response);
         Bundle result = new Bundle();
         result.putString(AccountManager.KEY_ACCOUNT_NAME, mEmail);
         result.putString(AccountManager.KEY_ACCOUNT_TYPE, CMID.ACCOUNT_TYPE_CMID);
