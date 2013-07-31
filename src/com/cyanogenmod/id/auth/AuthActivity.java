@@ -54,9 +54,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private TextView mTitle;
     private EditText mFirstNameEdit;
     private EditText mLastNameEdit;
-    private TextView mEmailText;
     private EditText mEmailEdit;
-    private TextView mPasswordText;
     private EditText mPasswordEdit;
     private EditText mConfirmPasswordEdit;
     private CheckBox mCheckBox;
@@ -76,7 +74,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private String mPasswordHash;
 
     private String mPasswordMismatchText;
-    private String mEmailAvailableText;
     private String mEmailInvalidText;
     private String mEmailUnavailableText;
 
@@ -161,7 +158,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             @Override
             public void afterTextChanged(Editable editable) {}
         });
-        mEmailText = (TextView) findViewById(R.id.cmid_email_label);
         mEmailEdit = (EditText) findViewById(R.id.cmid_email);
         mEmailEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -180,7 +176,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             @Override
             public void afterTextChanged(Editable editable) {}
         });
-        mPasswordText = (TextView) findViewById(R.id.cmid_password_label);
         mPasswordEdit = (EditText) findViewById(R.id.cmid_password);
         mPasswordEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -188,6 +183,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
+                mPasswordEdit.setError(null);
                 validateFields();
             }
 
@@ -201,6 +197,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
+                mPasswordEdit.setError(null);
                 validateFields();
             }
 
@@ -218,13 +215,11 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         });
         mCreateNewAccount = getIntent().getBooleanExtra(EXTRA_PARAM_CREATE_ACCOUNT, false);
         mPasswordMismatchText = getString(R.string.cmid_setup_password_mismatch_label);
-        mEmailAvailableText = getString(R.string.cmid_setup_email_label);
         mEmailUnavailableText = getString(R.string.cmid_setup_email_unavailable_label);
         mEmailInvalidText = getString(R.string.cmid_setup_email_invalid_label);
         if (mCreateNewAccount) {
             mFirstNameEdit.setVisibility(View.VISIBLE);
             mLastNameEdit.setVisibility(View.VISIBLE);
-            mEmailText.setVisibility(View.VISIBLE);
             mEmailEdit.setVisibility(View.VISIBLE);
             mCheckBox.setVisibility(View.VISIBLE);
             mTitle.setText(R.string.cmid_setup_create_title);
@@ -391,25 +386,21 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                     mPassword.length() > 0;
         }
         if (mEmailInvalid) {
-            mEmailText.setText(mEmailInvalidText);
-            mEmailText.setTextColor(Color.RED);
+            mEmailEdit.setError(mEmailInvalidText);
         } else if (mEmailAvailable) {
-            mEmailText.setText("");
-            mEmailText.setTextColor(Color.WHITE);
+            mEmailEdit.setError(null);
         } else {
-            mEmailText.setText(mEmailUnavailableText);
-            mEmailText.setTextColor(Color.RED);
+            mEmailEdit.setError(mEmailUnavailableText);
         }
         mSubmitButton.setEnabled(valid);
     }
 
     private boolean confirmPasswords() {
         if (!mPassword.equals(mConfirmPasswordEdit.getText().toString())) {
-            mPasswordText.setText(mPasswordMismatchText);
-            mPasswordText.setTextColor(Color.RED);
+            mPasswordEdit.setError(mPasswordMismatchText);
             return false;
         } else {
-            mPasswordText.setText("");
+            mPasswordEdit.setError(null);
             return true;
         }
     }
