@@ -40,7 +40,9 @@
     <string name="cmid_setup_email_unavailable_label">Email already registered</string>
     <string name="cmid_setup_email_invalid_label">Not a valid Email address</string>
     <string name="cmid_setup_password_label">Password</string>
+    <string name="cmid_setup_password_create_label">Password (Min 8 chars)</string>
     <string name="cmid_setup_password_mismatch_label">Passwords don\'t match!</string>
+    <string name="cmid_setup_password_invalid_label">Password must be at least 8 characters!</string>
     <string name="cmid_setup_confirm_password_label">Confirm password</string>
     <string name="cmid_setup_tos_label">I agree to the terms of service?</string>
     <string name="cmid_add_title">Add a CMID Account</string>

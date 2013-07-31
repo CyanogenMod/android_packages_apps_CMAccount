@@ -48,6 +48,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private static final int DIALOG_SERVER_ERROR = 2;
     private static final int DIALOG_NO_NETWORK_WARNING = 3;
 
+    private static final int MIN_PASSWORD_LENGTH = 8;
+
     private AccountManager mAccountManager;
     private AuthClient mAuthClient;
 
@@ -74,6 +76,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private String mPasswordHash;
 
     private String mPasswordMismatchText;
+    private String mPasswordInvalidText;
     private String mEmailInvalidText;
     private String mEmailUnavailableText;
 
@@ -183,7 +186,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
-                mPasswordEdit.setError(null);
+                mConfirmPasswordEdit.setError(null);
                 validateFields();
             }
 
@@ -197,7 +200,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
-                mPasswordEdit.setError(null);
+                mConfirmPasswordEdit.setError(null);
                 validateFields();
             }
 
@@ -215,6 +218,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         });
         mCreateNewAccount = getIntent().getBooleanExtra(EXTRA_PARAM_CREATE_ACCOUNT, false);
         mPasswordMismatchText = getString(R.string.cmid_setup_password_mismatch_label);
+        mPasswordInvalidText = getString(R.string.cmid_setup_password_invalid_label);
         mEmailUnavailableText = getString(R.string.cmid_setup_email_unavailable_label);
         mEmailInvalidText = getString(R.string.cmid_setup_email_invalid_label);
         if (mCreateNewAccount) {
@@ -223,6 +227,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             mEmailEdit.setVisibility(View.VISIBLE);
             mCheckBox.setVisibility(View.VISIBLE);
             mTitle.setText(R.string.cmid_setup_create_title);
+            mPasswordEdit.setHint(R.string.cmid_setup_password_create_label);
             mSubmitButton.setText(R.string.create);
         }  else {
             mFirstNameEdit.setVisibility(View.GONE);
@@ -397,7 +402,17 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     private boolean confirmPasswords() {
         if (!mPassword.equals(mConfirmPasswordEdit.getText().toString())) {
-            mPasswordEdit.setError(mPasswordMismatchText);
+            mConfirmPasswordEdit.setError(mPasswordMismatchText);
+            return false;
+        } else {
+            mConfirmPasswordEdit.setError(null);
+            return true;
+        }
+    }
+
+    private boolean isPasswordValid() {
+        if (mPassword.length() < MIN_PASSWORD_LENGTH) {
+            mPasswordEdit.setError(mPasswordInvalidText);
             return false;
         } else {
             mPasswordEdit.setError(null);
@@ -435,8 +450,10 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     }
 
     private void createProfile() {
-        if (!confirmPasswords()) {
+        if (!isPasswordValid()) {
             mPasswordEdit.requestFocus();
+        } else if (!confirmPasswords()) {
+            mConfirmPasswordEdit.requestFocus();
         } else if (!validEmail(mEmail)) {
             mEmailInvalid = true;
             validateFields();
