@@ -188,6 +188,12 @@ public class AuthClient {
                             @Override
                             public void onErrorResponse(VolleyError volleyError) {
                                 mInFlightPingRequest = null;
+                                if (volleyError.networkResponse == null) {
+                                    if (CMID.DEBUG) Log.d(TAG, "pingService onErrorResponse() no response");
+                                    volleyError.printStackTrace();
+                                    errorListener.onErrorResponse(volleyError);
+                                    return;
+                                }
                                 int statusCode = volleyError.networkResponse.statusCode;
                                 if (CMID.DEBUG) Log.d(TAG, "pingService onErrorResponse() : " + statusCode);
                                 if (statusCode == 401) {
@@ -241,6 +247,12 @@ public class AuthClient {
                             @Override
                             public void onErrorResponse(VolleyError volleyError) {
                                 mInFlightLocationRequest = null;
+                                if (volleyError.networkResponse == null) {
+                                    if (CMID.DEBUG) Log.d(TAG, "reportLocation onErrorResponse() no response");
+                                    volleyError.printStackTrace();
+                                    errorListener.onErrorResponse(volleyError);
+                                    return;
+                                }
                                 int statusCode = volleyError.networkResponse.statusCode;
                                 if (CMID.DEBUG) Log.d(TAG, "reportLocation onErrorResponse() : " + statusCode);
                                 if (statusCode == 401) {
@@ -289,6 +301,12 @@ public class AuthClient {
                             @Override
                             public void onErrorResponse(VolleyError volleyError) {
                                 mInFlightHandshakeRequest = null;
+                                if (volleyError.networkResponse == null) {
+                                    if (CMID.DEBUG) Log.d(TAG, "sendHandshakeSecret() onErrorResponse no response");
+                                    volleyError.printStackTrace();
+                                    errorListener.onErrorResponse(volleyError);
+                                    return;
+                                }
                                 int statusCode = volleyError.networkResponse.statusCode;
                                 if (CMID.DEBUG) Log.d(TAG, "sendHandshakeSecret onErrorResponse() : " + statusCode);
                                 if (statusCode == 401) {
@@ -337,6 +355,12 @@ public class AuthClient {
                             @Override
                             public void onErrorResponse(VolleyError volleyError) {
                                 mInFlightStartWipeRequest = null;
+                                if (volleyError.networkResponse == null) {
+                                    if (CMID.DEBUG) Log.d(TAG, "setWipeStartedCommand() onErrorResponse no response");
+                                    volleyError.printStackTrace();
+                                    errorListener.onErrorResponse(volleyError);
+                                    return;
+                                }
                                 int statusCode = volleyError.networkResponse.statusCode;
                                 if (CMID.DEBUG) Log.d(TAG, "setWipeStartedCommand onErrorResponse() : " + statusCode);
                                 if (statusCode == 401) {
@@ -418,7 +442,14 @@ public class AuthClient {
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
                             mInFlightTokenRequest = null;
+                            if (volleyError.networkResponse == null) {
+                                if (CMID.DEBUG) Log.d(TAG, "refreshAccessToken() onErrorResponse no response");
+                                volleyError.printStackTrace();
+                                tokenCallback.onError(volleyError);
+                                return;
+                            }
                             final int status = volleyError.networkResponse.statusCode;
+
                             if (CMID.DEBUG) Log.d(TAG, "refreshAccessToken() onErrorResponse:  " + status);
                             if (status == 400 || status == 401) {
                                 mAccountManager.setUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH, null);
