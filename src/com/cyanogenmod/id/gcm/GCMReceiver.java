@@ -174,7 +174,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
             if (CMID.DEBUG) Log.d(TAG, "Sequence " + plaintextMessage.getSequence() + " is valid for session " + message.getSessionId());
             // Increment the local sequence, messages are responsible for loading the sequence from the DB, which is now
             // the correct sequence, before being sent.  See LocationMessage.
-            mAuthClient.incrSessionLocalSequence(message.getSessionId());
+            mAuthClient.incrementSessionLocalSequence(message.getSessionId());
 
             handlePlaintextMessage(context, plaintextMessage, message.getSessionId());
         }

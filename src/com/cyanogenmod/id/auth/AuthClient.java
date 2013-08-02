@@ -213,7 +213,7 @@ public class AuthClient {
         }
 
         // Since we are sending a message, bump the remote sequence.
-        incrSessionRemoteSequence(sendChannelRequestBody.getSessionId());
+        incrementSessionRemoteSequence(sendChannelRequestBody.getSessionId());
 
         if (CMID.DEBUG) Log.d(TAG, "Sending secure message, plaintext content = " + sendChannelRequestBody.toJsonPlaintext());
 
@@ -458,12 +458,12 @@ public class AuthClient {
         mContext.getContentResolver().insert(CMIDProvider.CONTENT_URI, values);
     }
 
-    public void incrSessionRemoteSequence(String sessionId) {
+    public void incrementSessionRemoteSequence(String sessionId) {
         if (CMID.DEBUG) Log.d(TAG, "Incrementing remote sequence for sessionId:" + sessionId);
         CMIDProvider.incrementSequence(mContext, CMIDProvider.SymmetricKeyStoreColumns.REMOTE_SEQUENCE, sessionId);
     }
 
-    public void incrSessionLocalSequence(String sessionId) {
+    public void incrementSessionLocalSequence(String sessionId) {
         if (CMID.DEBUG) Log.d(TAG, "Incrementing local sequence for sessionId:" + sessionId);
         CMIDProvider.incrementSequence(mContext, CMIDProvider.SymmetricKeyStoreColumns.LOCAL_SEQUENCE, sessionId);
     }
