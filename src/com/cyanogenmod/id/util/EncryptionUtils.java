@@ -28,13 +28,13 @@ public class EncryptionUtils {
             }
         }
 
-        public static String decrypt(String _ciphertext, String _key, String _iv) {
+        public static String decrypt(String _ciphertext, String _key, String _initializationVector) {
             byte[] key = Base64.decode(_key, Base64.DEFAULT);
-            byte[] iv = Base64.decode(_iv, Base64.DEFAULT);
+            byte[] initializationVector = Base64.decode(_initializationVector, Base64.DEFAULT);
             byte[] ciphertext = Base64.decode(_ciphertext, Base64.DEFAULT);
 
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
-            IvParameterSpec ivSpec = new IvParameterSpec(iv);
+            IvParameterSpec ivSpec = new IvParameterSpec(initializationVector);
 
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -71,13 +71,13 @@ public class EncryptionUtils {
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(Cipher.ENCRYPT_MODE, keySpec);
-                byte[] iv = cipher.getIV();
+                byte[] initializationVector = cipher.getIV();
                 byte[] ciphertext = cipher.doFinal(plaintext.getBytes());
 
                 String encodedCiphertext = Base64.encodeToString(ciphertext, Base64.NO_WRAP);
-                String encodedIv = Base64.encodeToString(iv, Base64.NO_WRAP);
+                String encodedInitializationVector = Base64.encodeToString(initializationVector, Base64.NO_WRAP);
 
-                return new CipherResult(encodedCiphertext, encodedIv);
+                return new CipherResult(encodedCiphertext, encodedInitializationVector);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
                 throw new AssertionError(e);
