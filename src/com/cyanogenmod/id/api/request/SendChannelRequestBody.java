@@ -1,5 +1,10 @@
 package com.cyanogenmod.id.api.request;
 
+import android.location.Location;
+import com.cyanogenmod.id.auth.AuthClient;
+import com.cyanogenmod.id.gcm.GCMUtil;
+import com.cyanogenmod.id.gcm.model.EncryptedMessage;
+import com.cyanogenmod.id.gcm.model.LocationMessage;
 import com.cyanogenmod.id.gcm.model.Message;
 import com.cyanogenmod.id.gcm.model.MessageTypeAdapterFactory;
 import com.google.gson.Gson;
@@ -16,6 +21,23 @@ public class SendChannelRequestBody {
         this.device_id = device_id;
         this.session_id = session_id;
         this.message = message;
+    }
+
+    // LocationMessage constructor
+    public SendChannelRequestBody(Location location, AuthClient authClient, String sessionId) {
+        this.command = GCMUtil.COMMAND_SECURE_MESSAGE;
+        this.device_id = authClient.getUniqueDeviceId();
+        this.session_id = sessionId;
+
+        // Try to load the symmetric key from the database.
+        AuthClient.SymmetricKeySequencePair keyPair = authClient.getSymmetricKey(sessionId);
+        if (keyPair == null) {
+            return;
+        }
+
+        // Create an encrypted copy of LocationMessage
+        EncryptedMessage locationMessage = LocationMessage.getEncrypted(location, keyPair);
+        this.message = locationMessage;
     }
 
     public static SendChannelRequestBody fromJson(String json) {

@@ -520,7 +520,6 @@ public class AuthClient {
         CMIDProvider.incrementSequence(mContext, CMIDProvider.SymmetricKeyStoreColumns.LOCAL_SEQUENCE, sessionId);
     }
 
-
     public SymmetricKeySequencePair getSymmetricKey(String sessionId) {
         // TODO: keys should expire
         if (sessionId == null) {
@@ -542,7 +541,12 @@ public class AuthClient {
             }
         }
 
+        Log.w(TAG, "Unable to load symmetric key from database for sessionId:" + sessionId);
         return null;
+    }
+
+    public String getUniqueDeviceId() {
+        return CMIDUtils.getUniqueDeviceId(mContext);
     }
 
     private static interface TokenCallback {
