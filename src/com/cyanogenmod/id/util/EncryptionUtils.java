@@ -24,8 +24,8 @@ public class EncryptionUtils {
                 return Base64.encodeToString(symmetricKey, Base64.NO_WRAP);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
+                throw new AssertionError(e);
             }
-            return null;
         }
 
         public static String decrypt(String _ciphertext, String _key, String _iv) {
@@ -44,19 +44,23 @@ public class EncryptionUtils {
                 return new String(plaintext);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
+                throw new AssertionError(e);
             } catch (NoSuchPaddingException e) {
                 Log.e(TAG, "NoSuchPaddingException", e);
+                throw new AssertionError(e);
             } catch (InvalidKeyException e) {
                 Log.e(TAG, "InvalidKeyException", e);
+                throw new AssertionError(e);
             } catch (IllegalBlockSizeException e) {
                 Log.e(TAG, "IllegalBlockSizeException", e);
+                throw new AssertionError(e);
             } catch (BadPaddingException e) {
                 Log.e(TAG, "BadPaddingException", e);
+                throw new AssertionError(e);
             } catch (InvalidAlgorithmParameterException e) {
                 Log.e(TAG, "InvalidAlgorithmParameterException", e);
+                throw new AssertionError(e);
             }
-
-            return null;
         }
 
         public static CipherResult encrypt(String plaintext, String _key) {
@@ -76,16 +80,20 @@ public class EncryptionUtils {
                 return new CipherResult(encodedCiphertext, encodedIv);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
+                throw new AssertionError(e);
             } catch (NoSuchPaddingException e) {
                 Log.e(TAG, "NoSuchPaddingException", e);
+                throw new AssertionError(e);
             } catch (InvalidKeyException e) {
                 Log.e(TAG, "InvalidKeyException", e);
+                throw new AssertionError(e);
             } catch (IllegalBlockSizeException e) {
                 Log.e(TAG, "IllegalBlockSizeException", e);
+                throw new AssertionError(e);
             } catch (BadPaddingException e) {
                 Log.e(TAG, "BadPaddingException", e);
+                throw new AssertionError(e);
             }
-            return null;
         }
 
         public static class CipherResult {
@@ -116,10 +124,11 @@ public class EncryptionUtils {
                 return keyFactory.generatePublic(new X509EncodedKeySpec(Base64.decode(publicKey.toString(), Base64.DEFAULT)));
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
+                throw new AssertionError(e);
             } catch (InvalidKeySpecException e) {
                 Log.e(TAG, "InvalidKeySpecException", e);
+                throw new AssertionError(e);
             }
-            return null;
         }
 
         public static String encrypt(String _publicKey, String data) {
@@ -132,16 +141,20 @@ public class EncryptionUtils {
                 return Base64.encodeToString(result, Base64.NO_WRAP);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
+                throw new AssertionError(e);
             } catch (NoSuchPaddingException e) {
                 Log.e(TAG, "NoSuchPaddingException", e);
+                throw new AssertionError(e);
             } catch (InvalidKeyException e) {
                 Log.e(TAG, "InvalidKeyException", e);
+                throw new AssertionError(e);
             } catch (IllegalBlockSizeException e) {
                 Log.e(TAG, "IllegalBlockSizeException", e);
+                throw new AssertionError(e);
             } catch (BadPaddingException e) {
                 Log.e(TAG, "BadPaddingException");
+                throw new AssertionError(e);
             }
-            return null;
         }
     }
 }
