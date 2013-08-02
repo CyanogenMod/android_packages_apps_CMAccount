@@ -21,7 +21,7 @@ public class EncryptionUtils {
                 SecureRandom secureRandom = new SecureRandom();
                 keyGenerator.init(128, secureRandom);
                 byte[] symmetricKey = keyGenerator.generateKey().getEncoded();
-                return Base64.encodeToString(symmetricKey, Base64.DEFAULT).replace("\n", "");
+                return Base64.encodeToString(symmetricKey, Base64.NO_WRAP);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
             }
@@ -70,8 +70,8 @@ public class EncryptionUtils {
                 byte[] iv = cipher.getIV();
                 byte[] ciphertext = cipher.doFinal(plaintext.getBytes());
 
-                String encodedCiphertext = Base64.encodeToString(ciphertext, Base64.DEFAULT).replace("\n", "");
-                String encodedIv = Base64.encodeToString(iv, Base64.DEFAULT).replace("\n", "");
+                String encodedCiphertext = Base64.encodeToString(ciphertext, Base64.NO_WRAP);
+                String encodedIv = Base64.encodeToString(iv, Base64.NO_WRAP);
 
                 return new CipherResult(encodedCiphertext, encodedIv);
             } catch (NoSuchAlgorithmException e) {
@@ -129,7 +129,7 @@ public class EncryptionUtils {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(Cipher.ENCRYPT_MODE, publicKey);
                 byte[] result = cipher.doFinal(data.getBytes());
-                return Base64.encodeToString(result, Base64.DEFAULT).replace("\n", "");
+                return Base64.encodeToString(result, Base64.NO_WRAP);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
             } catch (NoSuchPaddingException e) {
