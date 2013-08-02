@@ -1,4 +1,4 @@
-package com.cyanogenmod.id.encryption;
+package com.cyanogenmod.id.util;
 
 import android.util.Base64;
 import android.util.Log;

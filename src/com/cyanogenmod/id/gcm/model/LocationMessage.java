@@ -4,7 +4,7 @@ import android.location.Location;
 import android.util.Log;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
-import com.cyanogenmod.id.encryption.EncryptionUtils;
+import com.cyanogenmod.id.util.EncryptionUtils;
 import com.google.gson.Gson;
 
 public class LocationMessage {

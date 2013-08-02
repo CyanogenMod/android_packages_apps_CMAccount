@@ -1,7 +1,7 @@
 package com.cyanogenmod.id.gcm;
 
 import com.cyanogenmod.id.api.request.SendChannelRequestBody;
-import com.cyanogenmod.id.encryption.EncryptionUtils;
+import com.cyanogenmod.id.util.EncryptionUtils;
 import com.cyanogenmod.id.gcm.model.*;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.gson.JsonSyntaxException;
