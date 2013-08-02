@@ -219,6 +219,8 @@ public class AuthClient {
         // Since we are sending a message, bump the remote sequence.
         incrSessionRemoteSequence(sendChannelRequestBody.getSessionId());
 
+        if (CMID.DEBUG) Log.d(TAG, "Sending secure message, plaintext content = " + sendChannelRequestBody.toJsonPlaintext());
+
         final TokenCallback callback = new TokenCallback() {
             @Override
             public void onTokenReceived(String token) {
@@ -521,6 +523,7 @@ public class AuthClient {
     }
 
     public SymmetricKeySequencePair getSymmetricKey(String sessionId) {
+        if (CMID.DEBUG) Log.d(TAG, "Loading symmetric key for sessionId:" + sessionId);
         // TODO: keys should expire
         if (sessionId == null) {
             return null;

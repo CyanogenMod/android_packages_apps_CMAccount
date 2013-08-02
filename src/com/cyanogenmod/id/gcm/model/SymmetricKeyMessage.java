@@ -1,7 +1,13 @@
 package com.cyanogenmod.id.gcm.model;
 
+import com.google.gson.annotations.Expose;
+
 public class SymmetricKeyMessage extends Message {
+
+    @Expose
     private String symmetric_key;
+
+    @Expose
     private String symmetric_key_verification;
 
     public SymmetricKeyMessage(String symmetric_key, String symmetric_key_verification) {

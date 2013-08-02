@@ -116,8 +116,6 @@ public class DeviceFinderService extends Service implements LocationListener,
         if (!fromLastLocation) mUpdateCount++;
 
         SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(location, mAuthClient, mSessionId);
-
-        if (CMID.DEBUG) Log.d(TAG, "Sending secure location message = " + sendChannelRequestBody.toJson());
         mAuthClient.sendChannel(sendChannelRequestBody, this, this);
     }
 

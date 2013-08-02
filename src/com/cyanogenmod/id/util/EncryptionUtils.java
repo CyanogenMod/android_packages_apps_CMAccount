@@ -3,7 +3,6 @@ package com.cyanogenmod.id.util;
 import android.util.Base64;
 import android.util.Log;
 import com.cyanogenmod.id.CMID;
-import com.cyanogenmod.id.gcm.model.EncryptedMessage;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
@@ -60,7 +59,7 @@ public class EncryptionUtils {
             return null;
         }
 
-        public static EncryptedMessage encrypt(String plaintext, String _key) {
+        public static CipherResult encrypt(String plaintext, String _key) {
             byte[] key = Base64.decode(_key, Base64.DEFAULT);
 
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
@@ -74,7 +73,7 @@ public class EncryptionUtils {
                 String encodedCiphertext = Base64.encodeToString(ciphertext, Base64.DEFAULT).replace("\n", "");
                 String encodedIv = Base64.encodeToString(iv, Base64.DEFAULT).replace("\n", "");
 
-                return new EncryptedMessage(encodedCiphertext, encodedIv);
+                return new CipherResult(encodedCiphertext, encodedIv);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
             } catch (NoSuchPaddingException e) {
@@ -87,6 +86,24 @@ public class EncryptionUtils {
                 Log.e(TAG, "BadPaddingException", e);
             }
             return null;
+        }
+
+        public static class CipherResult {
+            private String ciphertext;
+            private String iv;
+
+            private CipherResult(String ciphertext, String iv) {
+                this.ciphertext = ciphertext;
+                this.iv = iv;
+            }
+
+            public String getCiphertext() {
+                return ciphertext;
+            }
+
+            public String getIv() {
+                return iv;
+            }
         }
     }
 
