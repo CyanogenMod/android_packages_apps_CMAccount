@@ -32,7 +32,7 @@ public class LocationMessage {
         this.params = new Params(location, sequence);
     }
 
-    public static SecureMessage getEncrypted(final Location location, AuthClient authClient, String sessionId) {
+    public static EncryptedMessage getEncrypted(final Location location, AuthClient authClient, String sessionId) {
         // Load AES key from database
         AuthClient.SymmetricKeySequencePair pair = authClient.getSymmetricKey(sessionId);
         if (pair == null) {
@@ -45,11 +45,11 @@ public class LocationMessage {
         // Encrypt the JSON version of the LocationMessage
         String json = locationMessage.toJson();
         EncryptionUtils.AES.CiphertextIvPair result = EncryptionUtils.AES.encrypt(json, pair.getSymmetricKey());
-        SecureMessage secureMessage = null;
+        EncryptedMessage encryptedMessage = null;
         if (result != null) {
-            secureMessage = new SecureMessage(result.getCiphertext(), result.getIV());
+            encryptedMessage = new EncryptedMessage(result.getCiphertext(), result.getIV());
         }
-        return secureMessage;
+        return encryptedMessage;
     }
 
     public String toJson() {

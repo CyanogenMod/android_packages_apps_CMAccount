@@ -1,10 +1,10 @@
 package com.cyanogenmod.id.gcm.model;
 
-public class SecureMessage extends Message {
+public class EncryptedMessage extends Message {
     private String ciphertext;
     private String iv;
 
-    public SecureMessage(String ciphertext, String iv) {
+    public EncryptedMessage(String ciphertext, String iv) {
         this.ciphertext = ciphertext;
         this.iv = iv;
     }

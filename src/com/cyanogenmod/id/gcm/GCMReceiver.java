@@ -138,13 +138,13 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
     }
 
     private void handleSecureMessage(final Context context, final GCMessage message) {
-        if (!(message.getMessage() instanceof SecureMessage)) {
-            Log.w(TAG, "Expected SecureMessage, but got " + message.getClass().toString());
+        if (!(message.getMessage() instanceof EncryptedMessage)) {
+            Log.w(TAG, "Expected EncryptedMessage, but got " + message.getClass().toString());
             return;
         }
 
         // Cast the message to the correct type
-        SecureMessage secureMessage = (SecureMessage) message.getMessage();
+        EncryptedMessage encryptedMessage = (EncryptedMessage) message.getMessage();
 
         // Pull the AES key from the database
         // TODO: Also grab pair.
@@ -157,7 +157,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (CMID.DEBUG) Log.d(TAG, "Attempting to decrypt secure message with key:" + pair.getSymmetricKey() + " for session_id:" + message.getSessionId());
 
         // Attempt to decrypt the message.
-        String plaintext = EncryptionUtils.AES.decrypt(secureMessage.getCiphertext(), pair.getSymmetricKey(), secureMessage.getIV());
+        String plaintext = EncryptionUtils.AES.decrypt(encryptedMessage.getCiphertext(), pair.getSymmetricKey(), encryptedMessage.getIV());
         if (plaintext != null) {
             if (CMID.DEBUG) Log.d(TAG, "plaintext message = " + plaintext);
             PlaintextMessage plaintextMessage = PlaintextMessage.fromJson(plaintext);

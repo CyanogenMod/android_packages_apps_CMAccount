@@ -2,8 +2,8 @@ package com.cyanogenmod.id.api;
 
 import com.cyanogenmod.id.api.request.SendChannelRequestBody;
 import com.cyanogenmod.id.gcm.GCMUtil;
+import com.cyanogenmod.id.gcm.model.EncryptedMessage;
 import com.cyanogenmod.id.gcm.model.LocationMessage;
-import com.cyanogenmod.id.gcm.model.SecureMessage;
 import com.cyanogenmod.id.util.CMIDUtils;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -115,7 +115,7 @@ public class DeviceFinderService extends Service implements LocationListener,
         mLastLocationUpdate = location;
 
         // Create an encrypted LocationMessage
-        SecureMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId);
+        EncryptedMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId);
 
         // Create the SendChannelRequestBody
         SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_SECURE_MESSAGE, sDeviceId, mSessionId, locationMessage);
