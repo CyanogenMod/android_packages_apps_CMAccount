@@ -1,5 +1,6 @@
 package com.cyanogenmod.id.gcm;
 
+import com.cyanogenmod.id.api.request.SendChannelRequestBody;
 import com.cyanogenmod.id.encryption.EncryptionUtils;
 import com.cyanogenmod.id.gcm.model.*;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -110,8 +111,8 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
 
             // TODO: Listen for some type of invalid message, for now, just send some bogus hash.
             SymmetricKeyMessage symmetricKeyMessage = new SymmetricKeyMessage("QkFDT04=", "1683867bccd35381e3c8b99c6a59095b");
-            ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, "sessionId", symmetricKeyMessage);
-            mAuthClient.sendChannel(channelMessage, GCMReceiver.this, GCMReceiver.this);
+            SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, "sessionId", symmetricKeyMessage);
+            mAuthClient.sendChannel(sendChannelRequestBody, GCMReceiver.this, GCMReceiver.this);
             return;
         }
 
@@ -130,10 +131,10 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         SymmetricKeyMessage symmetricKeyMessage = new SymmetricKeyMessage(encryptedSymmetricKey, symmetricKeyVerify);
 
         // Build the channel message, passing in symmetric key message
-        ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, sessionId, symmetricKeyMessage);
+        SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, sessionId, symmetricKeyMessage);
 
         // Send the channel message
-        mAuthClient.sendChannel(channelMessage, GCMReceiver.this, GCMReceiver.this);
+        mAuthClient.sendChannel(sendChannelRequestBody, GCMReceiver.this, GCMReceiver.this);
     }
 
     private void handleSecureMessage(final Context context, final GCMessage message) {

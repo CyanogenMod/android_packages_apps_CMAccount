@@ -10,7 +10,7 @@ import com.android.volley.toolbox.Volley;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.api.*;
 import com.cyanogenmod.id.gcm.GCMUtil;
-import com.cyanogenmod.id.gcm.model.ChannelMessage;
+import com.cyanogenmod.id.api.request.SendChannelRequestBody;
 import com.cyanogenmod.id.provider.CMIDProvider;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -209,7 +209,7 @@ public class AuthClient {
         doTokenRequest(account, callback);
     }
 
-    public void sendChannel(final ChannelMessage channelMessage, final Listener<Integer> listener, final ErrorListener errorListener) {
+    public void sendChannel(final SendChannelRequestBody sendChannelRequestBody, final Listener<Integer> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
             if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
@@ -217,7 +217,7 @@ public class AuthClient {
         }
 
         // Since we are sending a message, bump the remote sequence.
-        incrSessionRemoteSequence(channelMessage.getSessionId());
+        incrSessionRemoteSequence(sendChannelRequestBody.getSessionId());
 
         final TokenCallback callback = new TokenCallback() {
             @Override
@@ -227,7 +227,7 @@ public class AuthClient {
                     mInFlightChannelRequest = null;
                 }
 
-                mInFlightChannelRequest = mRequestQueue.add(new SendChannelRequest(token, channelMessage,
+                mInFlightChannelRequest = mRequestQueue.add(new SendChannelRequest(token, sendChannelRequestBody,
                         new Listener<Integer>() {
                             @Override
                             public void onResponse(Integer integer) {
@@ -251,7 +251,7 @@ public class AuthClient {
                                 if (CMID.DEBUG) Log.d(TAG, "sendChannel onErrorResponse() : " + statusCode);
                                 if (statusCode == 401) {
                                     expireToken(mAccountManager, account);
-                                    sendChannel(channelMessage, listener, errorListener);
+                                    sendChannel(sendChannelRequestBody, listener, errorListener);
                                 }
                             }
                         }

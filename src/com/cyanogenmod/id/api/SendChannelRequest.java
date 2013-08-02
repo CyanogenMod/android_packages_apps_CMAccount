@@ -4,16 +4,15 @@ import android.util.Log;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonRequest;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
-import com.cyanogenmod.id.gcm.model.ChannelMessage;
+import com.cyanogenmod.id.api.request.SendChannelRequestBody;
 
 public class SendChannelRequest extends CMIDJsonRequest<Integer> {
 
     private static final String TAG = SendChannelRequest.class.getSimpleName();
 
-    public SendChannelRequest(String authToken, ChannelMessage message, Response.Listener<Integer> listener,
+    public SendChannelRequest(String authToken, SendChannelRequestBody message, Response.Listener<Integer> listener,
             Response.ErrorListener errorListener) {
         super(AuthClient.SEND_CHANNEL_URI, message.toJson(), listener, errorListener);
         addHeader(PARAM_AUTHORIZATION, "OAuth " + authToken);

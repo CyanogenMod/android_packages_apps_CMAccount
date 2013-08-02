@@ -1,7 +1,7 @@
 package com.cyanogenmod.id.api;
 
+import com.cyanogenmod.id.api.request.SendChannelRequestBody;
 import com.cyanogenmod.id.gcm.GCMUtil;
-import com.cyanogenmod.id.gcm.model.ChannelMessage;
 import com.cyanogenmod.id.gcm.model.LocationMessage;
 import com.cyanogenmod.id.gcm.model.SecureMessage;
 import com.cyanogenmod.id.util.CMIDUtils;
@@ -11,14 +11,12 @@ import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
 
 import android.accounts.Account;
-import android.accounts.AccountManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -119,12 +117,12 @@ public class DeviceFinderService extends Service implements LocationListener,
         // Create an encrypted LocationMessage
         SecureMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId);
 
-        // Create the ChannelMessage
-        ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_SECURE_MESSAGE, sDeviceId, mSessionId, locationMessage);
+        // Create the SendChannelRequestBody
+        SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_SECURE_MESSAGE, sDeviceId, mSessionId, locationMessage);
 
         // Send it
-        if (CMID.DEBUG) Log.d(TAG, "Sending secure location message = " + channelMessage.toJson());
-        mAuthClient.sendChannel(channelMessage, this, this);
+        if (CMID.DEBUG) Log.d(TAG, "Sending secure location message = " + sendChannelRequestBody.toJson());
+        mAuthClient.sendChannel(sendChannelRequestBody, this, this);
         if (!fromLastLocation) mUpdateCount++;
 
         mLastLocationUpdate = location;
