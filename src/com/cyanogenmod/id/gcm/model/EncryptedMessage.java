@@ -11,14 +11,14 @@ public class EncryptedMessage extends Message {
     private String ciphertext;
 
     @Expose
-    private String iv;
+    private String initializationVector;
 
     public EncryptedMessage() {
     }
 
-    public EncryptedMessage(String ciphertext, String iv) {
+    public EncryptedMessage(String ciphertext, String initializationVector) {
         this.ciphertext = ciphertext;
-        this.iv = iv;
+        this.initializationVector = initializationVector;
     }
 
     public String getCiphertext() {
@@ -26,7 +26,7 @@ public class EncryptedMessage extends Message {
     }
 
     public String getIV() {
-        return iv;
+        return initializationVector;
     }
 
     public String toJson() {
@@ -39,7 +39,7 @@ public class EncryptedMessage extends Message {
 
         AES.CipherResult result = AES.encrypt(json, symmetricKey);
         ciphertext = result.getCiphertext();
-        iv = result.getIv();
+        initializationVector = result.getInitializationVector();
     }
 
 }

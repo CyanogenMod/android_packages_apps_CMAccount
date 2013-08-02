@@ -98,19 +98,19 @@ public class EncryptionUtils {
 
         public static class CipherResult {
             private String ciphertext;
-            private String iv;
+            private String initializationVector;
 
-            private CipherResult(String ciphertext, String iv) {
+            private CipherResult(String ciphertext, String initializationVector) {
                 this.ciphertext = ciphertext;
-                this.iv = iv;
+                this.initializationVector = initializationVector;
             }
 
             public String getCiphertext() {
                 return ciphertext;
             }
 
-            public String getIv() {
-                return iv;
+            public String getInitializationVector() {
+                return initializationVector;
             }
         }
     }
