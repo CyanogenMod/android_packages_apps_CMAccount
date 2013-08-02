@@ -50,8 +50,6 @@ public class AuthClient {
     private static final String DEVICE_METHOD = "/device";
     private static final String PING_METHOD = "/ping";
     private static final String SECMSG_METHOD = "/secmsg";
-    private static final String SEND_WIPE_STARTED_METHOD = "/wipe_started";
-    private static final String REPORT_LOCATION_METHOD = "/report_location";
     private static final String SEND_CHANNEL_METHOD = "/send_channel";
     private static final String CMID_URI = "https://cmid-devel.appspot.com";
     private static final String SERVER_URI = getServerURI();
@@ -60,8 +58,6 @@ public class AuthClient {
     public static final String REGISTER_PROFILE_URI = SERVER_URI + API_ROOT + PROFILE_METHOD + REGISTER_METHOD;
     public static final String PROFILE_AVAILABLE_URI = SERVER_URI + API_ROOT + PROFILE_METHOD + AVAILABLE_METHOD;
     public static final String PING_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + PING_METHOD;
-    public static final String REPORT_LOCATION_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + REPORT_LOCATION_METHOD;
-    public static final String SEND_WIPE_STARTED_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + SEND_WIPE_STARTED_METHOD;
     public static final String SEND_CHANNEL_URI = SERVER_URI + API_ROOT + SECMSG_METHOD + SEND_CHANNEL_METHOD;
 
     private static final String CLIENT_ID = "8001";
@@ -76,7 +72,6 @@ public class AuthClient {
     private AccountManager mAccountManager;
 
     private Request<?> mInFlightPingRequest;
-    private Request<?> mInFlightLocationRequest;
     private Request<?> mInFlightTokenRequest;
     private Request<?> mInFlightStartWipeRequest;
     private Request<?> mInFlightAuthTokenRequest;
@@ -259,60 +254,6 @@ public class AuthClient {
                             }
                         }
                 ));
-            }
-
-            @Override
-            public void onError(VolleyError error) {
-                if (errorListener != null) {
-                    errorListener.onErrorResponse(error);
-                }
-            }
-        };
-
-        doTokenRequest(account, callback);
-    }
-
-    public void setWipeStartedCommand(final Listener<Integer> listener, final ErrorListener errorListener) {
-        final Account account = CMIDUtils.getCMIDAccount(mContext);
-        if (account == null) {
-            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
-            return;
-        }
-        final TokenCallback callback = new TokenCallback() {
-            @Override
-            public void onTokenReceived(String token) {
-                if (mInFlightStartWipeRequest != null) {
-                    mInFlightStartWipeRequest.cancel();
-                    mInFlightStartWipeRequest = null;
-                }
-                mInFlightStartWipeRequest = mRequestQueue.add(new SendStartingWipeRequest(CMIDUtils.getUniqueDeviceId(mContext), token,
-                        new Listener<Integer>() {
-                            @Override
-                            public void onResponse(Integer integer) {
-                                mInFlightStartWipeRequest = null;
-                                if (listener != null) {
-                                    listener.onResponse(integer);
-                                }
-                            }
-                        },
-                        new ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError volleyError) {
-                                mInFlightStartWipeRequest = null;
-                                if (volleyError.networkResponse == null) {
-                                    if (CMID.DEBUG) Log.d(TAG, "setWipeStartedCommand() onErrorResponse no response");
-                                    volleyError.printStackTrace();
-                                    errorListener.onErrorResponse(volleyError);
-                                    return;
-                                }
-                                int statusCode = volleyError.networkResponse.statusCode;
-                                if (CMID.DEBUG) Log.d(TAG, "setWipeStartedCommand onErrorResponse() : " + statusCode);
-                                if (statusCode == 401) {
-                                    expireToken(mAccountManager, account);
-                                    setWipeStartedCommand(listener, errorListener);
-                                }
-                            }
-                        }));
             }
 
             @Override
