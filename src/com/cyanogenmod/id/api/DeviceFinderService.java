@@ -113,19 +113,20 @@ public class DeviceFinderService extends Service implements LocationListener,
     private void onLocationChanged(final Location location, boolean fromLastLocation) {
         if (CMID.DEBUG) Log.v(TAG, "onLocationChanged() " + location.toString());
         mLastLocationUpdate = location;
+        if (!fromLastLocation) mUpdateCount++;
 
-        // Create an encrypted LocationMessage
-        EncryptedMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId);
+        // Try to load the symmetric key for this session from the database.
+        AuthClient.SymmetricKeySequencePair keyPair = mAuthClient.getSymmetricKey(mSessionId);
+        if (keyPair == null) {
+            return;
+        }
 
-        // Create the SendChannelRequestBody
+        EncryptedMessage locationMessage = LocationMessage.getEncrypted(location, keyPair);
         SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_SECURE_MESSAGE, sDeviceId, mSessionId, locationMessage);
 
         // Send it
         if (CMID.DEBUG) Log.d(TAG, "Sending secure location message = " + sendChannelRequestBody.toJson());
         mAuthClient.sendChannel(sendChannelRequestBody, this, this);
-        if (!fromLastLocation) mUpdateCount++;
-
-        mLastLocationUpdate = location;
     }
 
     @Override
