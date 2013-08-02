@@ -147,21 +147,32 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
 
         // Pull the AES key from the database
         // TODO: Also grab pair.
-        String symmetricKey = mAuthClient.getSymmetricKey(message.getSessionId());
-        if (symmetricKey == null) {
+        AuthClient.SymmetricKeySequencePair pair = mAuthClient.getSymmetricKey(message.getSessionId());
+        if (pair == null) {
             Log.w(TAG, "Unable to find symmetric key for session=" + message.getSessionId());
             return;
         }
 
-        if (CMID.DEBUG) Log.d(TAG, "Attempting to decrypt secure message with key:" + symmetricKey + " for session_id:" + message.getSessionId());
+        if (CMID.DEBUG) Log.d(TAG, "Attempting to decrypt secure message with key:" + pair.getSymmetricKey() + " for session_id:" + message.getSessionId());
 
         // Attempt to decrypt the message.
-        String plaintext = EncryptionUtils.AES.decrypt(secureMessage.getCiphertext(), symmetricKey, secureMessage.getIV());
+        String plaintext = EncryptionUtils.AES.decrypt(secureMessage.getCiphertext(), pair.getSymmetricKey(), secureMessage.getIV());
         if (plaintext != null) {
             if (CMID.DEBUG) Log.d(TAG, "plaintext message = " + plaintext);
             PlaintextMessage plaintextMessage = PlaintextMessage.fromJson(plaintext);
 
-            // Increment the local sequence
+            // Verify the sequence
+            int messageSequence = plaintextMessage.getSequence();
+            int localSequence = pair.getLocalSequence();
+            Log.d(TAG, "messageSequence=" + messageSequence + ", localSequence="+ localSequence);
+            if (localSequence >= messageSequence) {
+                Log.w(TAG, "Sequence " + plaintextMessage.getSequence() + " is invalid for session " + message.getSessionId());
+                return;
+            }
+
+            if (CMID.DEBUG) Log.d(TAG, "Sequence " + plaintextMessage.getSequence() + " is valid for session " + message.getSessionId());
+            // Increment the local sequence, messages are responsible for loading the sequence from the DB, which is now
+            // the correct sequence, before being sent.  See LocationMessage.
             mAuthClient.incrSessionLocalSequence(message.getSessionId());
 
             handlePlaintextMessage(context, plaintextMessage, message.getSessionId());

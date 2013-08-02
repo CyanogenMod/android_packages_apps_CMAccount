@@ -576,7 +576,7 @@ public class AuthClient {
     }
 
 
-    public String getSymmetricKey(String sessionId) {
+    public SymmetricKeySequencePair getSymmetricKey(String sessionId) {
         // TODO: keys should expire
         if (sessionId == null) {
             return null;
@@ -587,7 +587,9 @@ public class AuthClient {
             if (c != null && c.getCount() > 0) {
                 c.moveToFirst();
                 String symmetricKey = c.getString(c.getColumnIndex(CMIDProvider.SymmetricKeyStoreColumns.KEY));
-                return symmetricKey;
+                int localSequence = c.getInt(c.getColumnIndex(CMIDProvider.SymmetricKeyStoreColumns.LOCAL_SEQUENCE));
+                int remoteSequence = c.getInt(c.getColumnIndex(CMIDProvider.SymmetricKeyStoreColumns.REMOTE_SEQUENCE));
+                return new SymmetricKeySequencePair(symmetricKey, localSequence, remoteSequence);
             }
         } finally {
             if (c != null) {
@@ -601,6 +603,30 @@ public class AuthClient {
     private static interface TokenCallback {
         void onTokenReceived(String token);
         void onError(VolleyError error);
+    }
+
+    public static class SymmetricKeySequencePair {
+        private String symmetricKey;
+        private int localSequence;
+        private int remoteSequence;
+
+        public SymmetricKeySequencePair(String symmetricKey, int localSequence, int remoteSequence) {
+            this.symmetricKey = symmetricKey;
+            this.localSequence = localSequence;
+            this.remoteSequence = remoteSequence;
+        }
+
+        public String getSymmetricKey() {
+            return symmetricKey;
+        }
+
+        public int getLocalSequence() {
+            return localSequence;
+        }
+
+        public int getRemoteSequence() {
+            return remoteSequence;
+        }
     }
 
 }

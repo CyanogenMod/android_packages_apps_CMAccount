@@ -5,9 +5,9 @@ import com.google.gson.GsonBuilder;
 
 public class PlaintextMessage {
     private String command;
-    private String sequence;
+    private int sequence;
 
-    public PlaintextMessage(String command, String sequence) {
+    public PlaintextMessage(String command, int sequence) {
         this.command = command;
         this.sequence = sequence;
     }
@@ -26,7 +26,7 @@ public class PlaintextMessage {
         return command;
     }
 
-    public String getSequence() {
+    public int getSequence() {
         return sequence;
     }
 }

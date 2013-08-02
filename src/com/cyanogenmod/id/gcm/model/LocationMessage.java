@@ -32,19 +32,19 @@ public class LocationMessage {
         this.params = new Params(location, sequence);
     }
 
-    public static SecureMessage getEncrypted(final Location location, AuthClient authClient, String sessionId, int sequence) {
-        LocationMessage locationMessage = new LocationMessage(location, sequence);
-
+    public static SecureMessage getEncrypted(final Location location, AuthClient authClient, String sessionId) {
         // Load AES key from database
-        String aesKey = authClient.getSymmetricKey(sessionId);
-        if (aesKey == null) {
+        AuthClient.SymmetricKeySequencePair pair = authClient.getSymmetricKey(sessionId);
+        if (pair == null) {
             if (CMID.DEBUG) Log.d(TAG, "Unable to load AES key for session:" + sessionId);
             return null;
         }
 
+        LocationMessage locationMessage = new LocationMessage(location, pair.getRemoteSequence());
+
         // Encrypt the JSON version of the LocationMessage
         String json = locationMessage.toJson();
-        EncryptionUtils.AES.CiphertextIvPair result = EncryptionUtils.AES.encrypt(json, aesKey);
+        EncryptionUtils.AES.CiphertextIvPair result = EncryptionUtils.AES.encrypt(json, pair.getSymmetricKey());
         SecureMessage secureMessage = null;
         if (result != null) {
             secureMessage = new SecureMessage(result.getCiphertext(), result.getIV());

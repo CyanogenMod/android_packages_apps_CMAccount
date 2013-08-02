@@ -50,7 +50,6 @@ public class DeviceFinderService extends Service implements LocationListener,
     private static String sDeviceId;
 
     private int mUpdateCount = 0;
-    private int mLocalSequence = 1;
 
     private boolean mIsRunning = false;
 
@@ -93,7 +92,6 @@ public class DeviceFinderService extends Service implements LocationListener,
         // Reset the session
         Bundle extras = intent.getExtras();
         if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
-        mLocalSequence = 1;
         mUpdateCount = 0;
 
         return START_NOT_STICKY;
@@ -118,11 +116,8 @@ public class DeviceFinderService extends Service implements LocationListener,
         if (CMID.DEBUG) Log.v(TAG, "onLocationChanged() " + location.toString());
         mLastLocationUpdate = location;
 
-        // TODO: Should probably store the sequence in the database.
-        mLocalSequence += 1;
-
         // Create an encrypted LocationMessage
-        SecureMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId, mLocalSequence);
+        SecureMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId);
 
         // Create the ChannelMessage
         ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_SECURE_MESSAGE, sDeviceId, mSessionId, locationMessage);
