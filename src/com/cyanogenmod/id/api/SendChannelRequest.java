@@ -1,31 +1,28 @@
 package com.cyanogenmod.id.api;
 
-
+import android.util.Log;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonRequest;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.auth.AuthClient;
+import com.cyanogenmod.id.gcm.model.ChannelMessage;
 
-import android.util.Log;
+public class SendChannelRequest extends CMIDJsonRequest<Integer> {
 
-public class SetHandshakeRequest extends CMIDRequest<Integer> {
+    private static final String TAG = SendChannelRequest.class.getSimpleName();
 
-    private static final String TAG = SetHandshakeRequest.class.getSimpleName();
-
-    public SetHandshakeRequest(String deviceId, String authToken, String command, String secret,
-            Response.Listener<Integer> listener, Response.ErrorListener errorListener) {
-        super(AuthClient.SET_HANDSHAKE_URI, listener, errorListener);
+    public SendChannelRequest(String authToken, ChannelMessage message, Response.Listener<Integer> listener,
+            Response.ErrorListener errorListener) {
+        super(AuthClient.SEND_CHANNEL_URI, message.toJson(), listener, errorListener);
         addHeader(PARAM_AUTHORIZATION, "OAuth " + authToken);
-        addParameter(PARAM_DID, deviceId);
-        addParameter(PARAM_COMMAND, command);
-        addParameter(PARAM_SECRET, secret);
-        Log.d(TAG, PARAM_SECRET + " = " + secret);
     }
 
     @Override
     protected Response<Integer> parseNetworkResponse(NetworkResponse response) {
         if (CMID.DEBUG) Log.d(TAG, "response code=" + response.statusCode);
+        if (CMID.DEBUG) Log.d(TAG, "response content = " + new String(response.data));
         if (response.statusCode == 200) {
             return Response.success(new Integer(response.statusCode), getCacheEntry());
         } else {

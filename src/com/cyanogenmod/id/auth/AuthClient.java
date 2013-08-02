@@ -8,19 +8,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
 import com.cyanogenmod.id.CMID;
-import com.cyanogenmod.id.api.AuthTokenRequest;
-import com.cyanogenmod.id.api.AuthTokenResponse;
-import com.cyanogenmod.id.api.CreateProfileRequest;
-import com.cyanogenmod.id.api.CreateProfileResponse;
-import com.cyanogenmod.id.api.PingRequest;
-import com.cyanogenmod.id.api.PingResponse;
-import com.cyanogenmod.id.api.PingService;
-import com.cyanogenmod.id.api.ProfileAvailableRequest;
-import com.cyanogenmod.id.api.ProfileAvailableResponse;
-import com.cyanogenmod.id.api.ReportLocationRequest;
-import com.cyanogenmod.id.api.SendStartingWipeRequest;
-import com.cyanogenmod.id.api.SetHandshakeRequest;
+import com.cyanogenmod.id.api.*;
 import com.cyanogenmod.id.gcm.GCMUtil;
+import com.cyanogenmod.id.gcm.model.ChannelMessage;
 import com.cyanogenmod.id.provider.CMIDProvider;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -58,10 +48,10 @@ public class AuthClient {
     private static final String AVAILABLE_METHOD = "/available";
     private static final String DEVICE_METHOD = "/device";
     private static final String PING_METHOD = "/ping";
-    private static final String AUTH_METHOD = "/auth";
-    private static final String SET_HANDSHAKE_METHOD = "/set_handshake_secret";
+    private static final String SECMSG_METHOD = "/secmsg";
     private static final String SEND_WIPE_STARTED_METHOD = "/wipe_started";
     private static final String REPORT_LOCATION_METHOD = "/report_location";
+    private static final String SEND_CHANNEL_METHOD = "/send_channel";
     private static final String CMID_URI = "https://cmid-devel.appspot.com";
     private static final String SERVER_URI = getServerURI();
 
@@ -70,8 +60,8 @@ public class AuthClient {
     public static final String PROFILE_AVAILABLE_URI = SERVER_URI + API_ROOT + PROFILE_METHOD + AVAILABLE_METHOD;
     public static final String PING_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + PING_METHOD;
     public static final String REPORT_LOCATION_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + REPORT_LOCATION_METHOD;
-    public static final String SET_HANDSHAKE_URI = SERVER_URI + API_ROOT + AUTH_METHOD + SET_HANDSHAKE_METHOD;
     public static final String SEND_WIPE_STARTED_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + SEND_WIPE_STARTED_METHOD;
+    public static final String SEND_CHANNEL_URI = SERVER_URI + API_ROOT + SECMSG_METHOD + SEND_CHANNEL_METHOD;
 
     private static final String CLIENT_ID = "8001";
     private static final String SECRET = "b93bb90299bb46f3bafdd6ca630c8f3c";
@@ -85,11 +75,11 @@ public class AuthClient {
     private AccountManager mAccountManager;
 
     private Request<?> mInFlightPingRequest;
-    private Request<?> mInFlightHandshakeRequest;
     private Request<?> mInFlightLocationRequest;
     private Request<?> mInFlightTokenRequest;
     private Request<?> mInFlightStartWipeRequest;
     private Request<?> mInFlightAuthTokenRequest;
+    private Request<?> mInFlightChannelRequest;
 
     private OnAccountsUpdateListener mAccountsUpdateListener;
 
@@ -274,24 +264,26 @@ public class AuthClient {
         doTokenRequest(account, callback);
     }
 
-    public void sendHandshakeSecret(final String command, final String secret, final Listener<Integer> listener, final ErrorListener errorListener) {
+    public void sendChannel(final ChannelMessage channelMessage, final Listener<Integer> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
             if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
             return;
         }
+
         final TokenCallback callback = new TokenCallback() {
             @Override
             public void onTokenReceived(String token) {
-                if (mInFlightHandshakeRequest != null) {
-                    mInFlightHandshakeRequest.cancel();
-                    mInFlightHandshakeRequest = null;
+                if (mInFlightChannelRequest != null) {
+                    mInFlightChannelRequest.cancel();
+                    mInFlightChannelRequest = null;
                 }
-                mInFlightHandshakeRequest = mRequestQueue.add(new SetHandshakeRequest(CMIDUtils.getUniqueDeviceId(mContext), token, command, secret,
+
+                mInFlightChannelRequest = mRequestQueue.add(new SendChannelRequest(token, channelMessage,
                         new Listener<Integer>() {
                             @Override
                             public void onResponse(Integer integer) {
-                                mInFlightHandshakeRequest = null;
+                                mInFlightChannelRequest = null;
                                 if (listener != null) {
                                     listener.onResponse(integer);
                                 }
@@ -300,21 +292,22 @@ public class AuthClient {
                         new ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError volleyError) {
-                                mInFlightHandshakeRequest = null;
+                                mInFlightChannelRequest = null;
                                 if (volleyError.networkResponse == null) {
-                                    if (CMID.DEBUG) Log.d(TAG, "sendHandshakeSecret() onErrorResponse no response");
+                                    if (CMID.DEBUG) Log.d(TAG, "sendChannel() onErrorResponse no response");
                                     volleyError.printStackTrace();
                                     errorListener.onErrorResponse(volleyError);
                                     return;
                                 }
                                 int statusCode = volleyError.networkResponse.statusCode;
-                                if (CMID.DEBUG) Log.d(TAG, "sendHandshakeSecret onErrorResponse() : " + statusCode);
+                                if (CMID.DEBUG) Log.d(TAG, "sendChannel onErrorResponse() : " + statusCode);
                                 if (statusCode == 401) {
                                     expireToken(mAccountManager, account);
-                                    sendHandshakeSecret(command, secret, listener, errorListener);
+                                    sendChannel(channelMessage, listener, errorListener);
                                 }
                             }
-                        }));
+                        }
+                ));
             }
 
             @Override
@@ -598,6 +591,10 @@ public class AuthClient {
         values.put(CMIDProvider.HandshakeStoreColumns.SECRET, secret);
         values.put(CMIDProvider.HandshakeStoreColumns.METHOD, method);
         mContext.getContentResolver().insert(CMIDProvider.CONTENT_URI, values);
+    }
+
+    public void storeSymmetricKey(String symmetricKey, String sessionId) {
+        if (CMID.DEBUG) Log.d(TAG, "Storing symmetricKey:" + symmetricKey +" for sessionId:" + sessionId);
     }
 
     public static class HandshakeTokenItem {

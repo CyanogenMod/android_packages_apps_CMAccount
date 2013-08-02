@@ -1,7 +1,11 @@
 package com.cyanogenmod.id.gcm;
 
+import com.cyanogenmod.id.encryption.EncryptionUtils;
+import com.cyanogenmod.id.gcm.model.ChannelMessage;
+import com.cyanogenmod.id.gcm.model.PublicKeyMessage;
+import com.cyanogenmod.id.gcm.model.Message;
+import com.cyanogenmod.id.gcm.model.SymmetricKeyMessage;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import com.android.volley.Response;
@@ -57,7 +61,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         String data = intent.getExtras().getString("data");
         if (CMID.DEBUG) Log.d(TAG, "message data = " + data);
         try {
-            GCMessage message = new Gson().fromJson(data, GCMessage.class);
+            GCMessage message = GCMessage.fromJson(data);
             handleMessage(context, message);
         } catch (JsonSyntaxException e) {
             Log.e(TAG, "Error parsing GCM message", e);
@@ -65,29 +69,11 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
     }
 
     private void handleMessage(final Context context, final GCMessage message) {
-        if (GCMUtil.COMMAND_START_HANDSHAKE.equals(message.getCommand())) {
-            setHandshakeSecret(message.getArgs().getCommand());
-        }
-        if (GCMUtil.COMMAND_LOCATE.equals(message.getCommand())) {
-            AuthClient.HandshakeTokenItem item = mAuthClient.getHandshakeToken(message.getToken(), message.getCommand());
-            if (item != null) {
-                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is good!");
-                GCMUtil.reportLocation(context);
-                mAuthClient.cleanupHandshakeTokenByType(message.getCommand());
-            } else {
-                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is bad!");
-                setHandshakeSecret(message.getCommand());
-            }
-        } else  if (GCMUtil.COMMAND_WIPE.equals(message.getCommand())) {
-            AuthClient.HandshakeTokenItem item = mAuthClient.getHandshakeToken(message.getToken(), message.getCommand());
-            if (item != null) {
-                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is good!");
-                mAuthClient.destroyDevice(context);
-                mAuthClient.cleanupHandshakeTokenByType(message.getCommand());
-            } else {
-                if (CMID.DEBUG) Log.d(TAG, message.getCommand() + " handshake token is bad!");
-                setHandshakeSecret(message.getCommand());
-            }
+        if (CMID.DEBUG) Log.d(TAG, "gson parsed message = " + message.toJson());
+        String deviceId = CMIDUtils.getUniqueDeviceId(context);
+
+        if (GCMUtil.COMMAND_KEY_EXCHANGE.equals(message.getCommand())) {
+            handleKeyExchange(deviceId, message.getMessage());
         }
     }
 
@@ -98,12 +84,51 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
 
     @Override
     public void onResponse(Integer integer) {
-        if (CMID.DEBUG) Log.d(TAG, "sendHandshakeSecret response="+integer);
+        if (CMID.DEBUG) Log.d(TAG, "sendChannel response="+integer);
     }
 
-    private void setHandshakeSecret(final String command) {
-        String uuid = UUID.randomUUID().toString();
-        mAuthClient.generateHandshakeToken(mAccountManager, mAccount, uuid, command);
-        mAuthClient.sendHandshakeSecret(command, uuid, GCMReceiver.this, GCMReceiver.this);
+    private void handleKeyExchange(String deviceId, Message message) {
+        if (!(message instanceof PublicKeyMessage)) {
+            Log.w(TAG, "Expected PublicKeyMessage, but got " + message.getClass().toString());
+            return;
+        }
+
+        // Cast the message to the correct type
+        PublicKeyMessage publicKeyMessage = (PublicKeyMessage) message;
+
+        // Obtain the user's hashed password.
+        String passwordHash = mAccountManager.getPassword(mAccount);
+
+        // Verify the public key hash
+        String publicKeyHashVerify = CMIDUtils.digest("SHA512", publicKeyMessage.getPublicKey() + passwordHash);
+        if (!publicKeyHashVerify.equals(publicKeyMessage.getPublicKeyHash())) {
+            if (CMID.DEBUG) Log.d(TAG, "Unable to verify public key hash");
+
+            // TODO: Listen for some type of invalid message, for now, just send some bogus hash.
+            SymmetricKeyMessage symmetricKeyMessage = new SymmetricKeyMessage("QkFDT04=", "1683867bccd35381e3c8b99c6a59095b");
+            ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, "sessionId", symmetricKeyMessage);
+            mAuthClient.sendChannel(channelMessage, GCMReceiver.this, GCMReceiver.this);
+            return;
+        }
+
+        // Generate the symmetric key, symmetric key verification, and session id.
+        String symmetricKey = EncryptionUtils.AES.generateAesKey();
+        String symmetricKeyVerify = CMIDUtils.digest("SHA512", symmetricKey + passwordHash);
+        String sessionId = UUID.randomUUID().toString();
+
+        // Persist it
+        mAuthClient.storeSymmetricKey(symmetricKey, sessionId);
+
+        // Encrypt the symmetric key
+        String encryptedSymmetricKey = EncryptionUtils.RSA.encrypt(publicKeyMessage.getPublicKey(), symmetricKey);
+
+        // Build the symmetric key message
+        SymmetricKeyMessage symmetricKeyMessage = new SymmetricKeyMessage(encryptedSymmetricKey, symmetricKeyVerify);
+
+        // Build the channel message, passing in symmetric key message
+        ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, sessionId, symmetricKeyMessage);
+
+        // Send the channel message
+        mAuthClient.sendChannel(channelMessage, GCMReceiver.this, GCMReceiver.this);
     }
 }

@@ -35,9 +35,7 @@ public class GCMUtil {
     // 1 day
     private static final long RE_REGISTRATION_INTERVAL = 1000 * 3600 * 24;
 
-    public static final String COMMAND_LOCATE = "begin_locate";
-    public static final String COMMAND_WIPE = "wipe_device";
-    public static final String COMMAND_START_HANDSHAKE = "start_handshake";
+    public static final String COMMAND_KEY_EXCHANGE = "key_exchange";
 
 
     static void reportLocation(Context context) {
