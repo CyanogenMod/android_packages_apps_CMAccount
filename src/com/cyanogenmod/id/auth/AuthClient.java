@@ -209,61 +209,6 @@ public class AuthClient {
         doTokenRequest(account, callback);
     }
 
-    public void reportLocation(final double latitude, final double longitude, final float accuracy, final Listener<Integer> listener, final ErrorListener errorListener) {
-        final Account account = CMIDUtils.getCMIDAccount(mContext);
-        if (account == null) {
-            if (CMID.DEBUG) Log.d(TAG, "No CMID Configured!");
-            return;
-        }
-
-        final TokenCallback callback = new TokenCallback() {
-            @Override
-            public void onTokenReceived(final String token) {
-                if (mInFlightLocationRequest != null) {
-                    mInFlightLocationRequest.cancel();
-                    mInFlightLocationRequest = null;
-                }
-                mInFlightLocationRequest = mRequestQueue.add(new ReportLocationRequest(CMIDUtils.getUniqueDeviceId(mContext), token, latitude, longitude, accuracy,
-                        new Listener<Integer>() {
-                            @Override
-                            public void onResponse(Integer integer) {
-                                mInFlightLocationRequest = null;
-                                if (listener != null) {
-                                    listener.onResponse(integer);
-                                }
-                            }
-                        },
-                        new ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError volleyError) {
-                                mInFlightLocationRequest = null;
-                                if (volleyError.networkResponse == null) {
-                                    if (CMID.DEBUG) Log.d(TAG, "reportLocation onErrorResponse() no response");
-                                    volleyError.printStackTrace();
-                                    errorListener.onErrorResponse(volleyError);
-                                    return;
-                                }
-                                int statusCode = volleyError.networkResponse.statusCode;
-                                if (CMID.DEBUG) Log.d(TAG, "reportLocation onErrorResponse() : " + statusCode);
-                                if (statusCode == 401) {
-                                    expireToken(mAccountManager, account);
-                                    reportLocation(latitude, longitude, accuracy, listener, errorListener);
-                                }
-                            }
-                        }));
-            }
-
-            @Override
-            public void onError(VolleyError error) {
-                if (errorListener != null) {
-                    errorListener.onErrorResponse(error);
-                }
-            }
-        };
-
-        doTokenRequest(account, callback);
-    }
-
     public void sendChannel(final ChannelMessage channelMessage, final Listener<Integer> listener, final ErrorListener errorListener) {
         final Account account = CMIDUtils.getCMIDAccount(mContext);
         if (account == null) {
