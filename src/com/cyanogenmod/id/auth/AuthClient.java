@@ -271,6 +271,9 @@ public class AuthClient {
             return;
         }
 
+        // Since we are sending a message, bump the remote sequence.
+        incrSessionRemoteSequence(channelMessage.getSessionId());
+
         final TokenCallback callback = new TokenCallback() {
             @Override
             public void onTokenReceived(String token) {
@@ -561,6 +564,17 @@ public class AuthClient {
         values.put(CMIDProvider.SymmetricKeyStoreColumns.SESSION_ID, sessionId);
         mContext.getContentResolver().insert(CMIDProvider.CONTENT_URI, values);
     }
+
+    public void incrSessionRemoteSequence(String sessionId) {
+        if (CMID.DEBUG) Log.d(TAG, "Incrementing remote sequence for sessionId:" + sessionId);
+        CMIDProvider.incrementSequence(mContext, CMIDProvider.SymmetricKeyStoreColumns.REMOTE_SEQUENCE, sessionId);
+    }
+
+    public void incrSessionLocalSequence(String sessionId) {
+        if (CMID.DEBUG) Log.d(TAG, "Incrementing local sequence for sessionId:" + sessionId);
+        CMIDProvider.incrementSequence(mContext, CMIDProvider.SymmetricKeyStoreColumns.LOCAL_SEQUENCE, sessionId);
+    }
+
 
     public String getSymmetricKey(String sessionId) {
         // TODO: keys should expire

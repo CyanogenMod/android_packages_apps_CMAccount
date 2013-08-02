@@ -50,7 +50,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     private static String sDeviceId;
 
     private int mUpdateCount = 0;
-    private int mLocalSequence = 0;
+    private int mLocalSequence = 1;
 
     private boolean mIsRunning = false;
 
@@ -93,7 +93,7 @@ public class DeviceFinderService extends Service implements LocationListener,
         // Reset the session
         Bundle extras = intent.getExtras();
         if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
-        mLocalSequence = 0;
+        mLocalSequence = 1;
         mUpdateCount = 0;
 
         return START_NOT_STICKY;

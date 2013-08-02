@@ -30,17 +30,19 @@ public class CMIDProvider extends ContentProvider {
     private static final int SYMMETRIC_KEY = 1;
     private static final int SYMMETRIC_KEY_ID = 2;
 
-    private static HashMap<String, String> sSecretProjectionMap;
+    private static HashMap<String, String> sSymmetricKeyProjectionMap;
 
     static {
         URI_MATCHER.addURI(AUTHORITY, SYMMETRIC_KEY_PATH, SYMMETRIC_KEY);
         URI_MATCHER.addURI(AUTHORITY, SYMMETRIC_KEY_PATH + "/#", SYMMETRIC_KEY_ID);
 
-        sSecretProjectionMap = new HashMap<String, String>();
-        sSecretProjectionMap.put(SymmetricKeyStoreColumns._ID, SymmetricKeyStoreColumns._ID);
-        sSecretProjectionMap.put(SymmetricKeyStoreColumns.KEY, SymmetricKeyStoreColumns.KEY);
-        sSecretProjectionMap.put(SymmetricKeyStoreColumns.EXPIRATION, SymmetricKeyStoreColumns.EXPIRATION);
-        sSecretProjectionMap.put(SymmetricKeyStoreColumns.SESSION_ID, SymmetricKeyStoreColumns.SESSION_ID);
+        sSymmetricKeyProjectionMap = new HashMap<String, String>();
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns._ID, SymmetricKeyStoreColumns._ID);
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.KEY, SymmetricKeyStoreColumns.KEY);
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.LOCAL_SEQUENCE, SymmetricKeyStoreColumns.LOCAL_SEQUENCE);
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.REMOTE_SEQUENCE, SymmetricKeyStoreColumns.REMOTE_SEQUENCE);
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.EXPIRATION, SymmetricKeyStoreColumns.EXPIRATION);
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.SESSION_ID, SymmetricKeyStoreColumns.SESSION_ID);
     }
     private SQLiteOpenHelper mOpenHelper;
 
@@ -67,11 +69,11 @@ public class CMIDProvider extends ContentProvider {
         switch (URI_MATCHER.match(uri)) {
             case SYMMETRIC_KEY:
                 qb.setTables(TABLE_SYMMETRIC_KEYS);
-                qb.setProjectionMap(sSecretProjectionMap);
+                qb.setProjectionMap(sSymmetricKeyProjectionMap);
                 break;
             case SYMMETRIC_KEY_ID:
                 qb.setTables(TABLE_SYMMETRIC_KEYS);
-                qb.setProjectionMap(sSecretProjectionMap);
+                qb.setProjectionMap(sSymmetricKeyProjectionMap);
                 qb.appendWhere(SymmetricKeyStoreColumns._ID + "=" + uri.getPathSegments().get(1));
                 break;
             default:
@@ -150,6 +152,13 @@ public class CMIDProvider extends ContentProvider {
         }
     }
 
+    public static void incrementSequence(Context context, String column, String sessionId) {
+        SQLiteOpenHelper openHelper = new DatabaseHelper(context.getApplicationContext());
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE_SYMMETRIC_KEYS + " SET " + column + " = " + column + " + 1 WHERE " + SymmetricKeyStoreColumns.SESSION_ID + " = ?;", new String[]{ sessionId });
+        openHelper.close();
+    }
+
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
         private static final String DATABASE_NAME = "cmid.db";
@@ -165,6 +174,8 @@ public class CMIDProvider extends ContentProvider {
                     + " ("
                     + SymmetricKeyStoreColumns._ID + " INTEGER PRIMARY KEY, "
                     + SymmetricKeyStoreColumns.KEY + " TEXT NOT NULL, "
+                    + SymmetricKeyStoreColumns.LOCAL_SEQUENCE + " INTEGER NOT NULL DEFAULT 0, "
+                    + SymmetricKeyStoreColumns.REMOTE_SEQUENCE + " INTEGER NOT NULL DEFAULT 0, "
                     + SymmetricKeyStoreColumns.EXPIRATION + " DATETIME DEFAULT 0, "
                     + SymmetricKeyStoreColumns.SESSION_ID + " TEXT NOT NULL UNIQUE);");
 
@@ -186,6 +197,8 @@ public class CMIDProvider extends ContentProvider {
         public static final String KEY = "symmetric_key";
         public static final String EXPIRATION = "expiration";
         public static final String SESSION_ID = "session_id";
+        public static final String LOCAL_SEQUENCE = "local_sequence";
+        public static final String REMOTE_SEQUENCE = "remote_sequence";
         public static final String CONTENT_TYPE = "vnd.cyanogenmod.cursor.dir/symmetricKey";
         public static final String CONTENT_ITEM_TYPE = "vnd.cyanogenmod.cursor.item/symmetricKey";
     }

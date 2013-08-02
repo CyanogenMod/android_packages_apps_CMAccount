@@ -146,6 +146,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         SecureMessage secureMessage = (SecureMessage) message.getMessage();
 
         // Pull the AES key from the database
+        // TODO: Also grab pair.
         String symmetricKey = mAuthClient.getSymmetricKey(message.getSessionId());
         if (symmetricKey == null) {
             Log.w(TAG, "Unable to find symmetric key for session=" + message.getSessionId());
@@ -159,6 +160,9 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (plaintext != null) {
             if (CMID.DEBUG) Log.d(TAG, "plaintext message = " + plaintext);
             PlaintextMessage plaintextMessage = PlaintextMessage.fromJson(plaintext);
+
+            // Increment the local sequence
+            mAuthClient.incrSessionLocalSequence(message.getSessionId());
 
             handlePlaintextMessage(context, plaintextMessage, message.getSessionId());
         }

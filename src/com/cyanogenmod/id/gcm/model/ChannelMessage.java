@@ -27,4 +27,8 @@ public class ChannelMessage {
         Gson gson = new Gson();
         return gson.toJson(this);
     }
+
+    public String getSessionId() {
+        return session_id;
+    }
 }
