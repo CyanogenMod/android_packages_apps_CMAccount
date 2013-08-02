@@ -90,7 +90,7 @@ public class DeviceFinderService extends Service implements LocationListener,
             restartLocationUpdates();
         }
 
-        return START_NOT_STICKY;
+        return START_STICKY;
     }
 
     private LocationRequest getLocationRequest() {
