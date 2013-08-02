@@ -77,7 +77,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (GCMUtil.COMMAND_KEY_EXCHANGE.equals(message.getCommand())) {
             handleKeyExchange(deviceId, message.getMessage());
         } else if (GCMUtil.COMMAND_SECURE_MESSAGE.equals(message.getCommand())) {
-            handleSecureMessage(deviceId, message);
+            handleSecureMessage(context, message);
         }
     }
 
@@ -91,7 +91,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (CMID.DEBUG) Log.d(TAG, "sendChannel response="+integer);
     }
 
-    private void handleKeyExchange(String deviceId, Message message) {
+    private void handleKeyExchange(String deviceId, final Message message) {
         if (!(message instanceof PublicKeyMessage)) {
             Log.w(TAG, "Expected PublicKeyMessage, but got " + message.getClass().toString());
             return;
@@ -136,7 +136,7 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         mAuthClient.sendChannel(channelMessage, GCMReceiver.this, GCMReceiver.this);
     }
 
-    private void handleSecureMessage(String deviceId, GCMessage message) {
+    private void handleSecureMessage(final Context context, final GCMessage message) {
         if (!(message.getMessage() instanceof SecureMessage)) {
             Log.w(TAG, "Expected SecureMessage, but got " + message.getClass().toString());
             return;
@@ -158,7 +158,15 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         String plaintext = EncryptionUtils.AES.decrypt(secureMessage.getCiphertext(), symmetricKey, secureMessage.getIV());
         if (plaintext != null) {
             if (CMID.DEBUG) Log.d(TAG, "plaintext message = " + plaintext);
-            // TODO: Handle the message here.
+            PlaintextMessage plaintextMessage = PlaintextMessage.fromJson(plaintext);
+
+            handlePlaintextMessage(context, plaintextMessage, message.getSessionId());
+        }
+    }
+
+    private void handlePlaintextMessage(final Context context, final PlaintextMessage message, final String sessionId) {
+        if (GCMUtil.COMMAND_LOCATE.equals(message.getCommand())) {
+            GCMUtil.reportLocation(context, sessionId);
         }
     }
 }

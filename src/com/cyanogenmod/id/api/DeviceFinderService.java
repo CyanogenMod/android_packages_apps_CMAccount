@@ -1,5 +1,10 @@
 package com.cyanogenmod.id.api;
 
+import com.cyanogenmod.id.gcm.GCMUtil;
+import com.cyanogenmod.id.gcm.model.ChannelMessage;
+import com.cyanogenmod.id.gcm.model.LocationMessage;
+import com.cyanogenmod.id.gcm.model.SecureMessage;
+import com.cyanogenmod.id.util.CMIDUtils;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
@@ -31,6 +36,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     private static PowerManager.WakeLock sWakeLock;
 
     private static final String EXTRA_ACCOUNT = "account";
+    private static final String EXTRA_SESSION_ID = "session_id";
 
     private static final int LOCATION_UPDATE_INTERVAL = 5000;
     private static final int MAX_LOCATION_UPDATES = 10;
@@ -40,12 +46,16 @@ public class DeviceFinderService extends Service implements LocationListener,
     private LocationRequest mLocationRequest;
     private Location mLastLocationUpdate;
     private AuthClient mAuthClient;
+    private String mSessionId;
+    private static String sDeviceId;
 
     private int mUpdateCount = 0;
+    private int mLocalSequence = 0;
 
     private boolean mIsRunning = false;
 
-    public static void reportLocation(Context context, Account account) {
+    public static void reportLocation(Context context, Account account, final String sessionId) {
+        sDeviceId = CMIDUtils.getUniqueDeviceId(context);
         if (sWakeLock == null) {
             PowerManager pm = (PowerManager)
                     context.getSystemService(Context.POWER_SERVICE);
@@ -57,6 +67,7 @@ public class DeviceFinderService extends Service implements LocationListener,
         }
         Intent intent = new Intent(context, DeviceFinderService.class);
         intent.putExtra(EXTRA_ACCOUNT, account);
+        intent.putExtra(EXTRA_SESSION_ID, sessionId);
         context.startService(intent);
     }
 
@@ -78,6 +89,13 @@ public class DeviceFinderService extends Service implements LocationListener,
                     .setNumUpdates(MAX_LOCATION_UPDATES);
             mLocationClient.connect();
         }
+
+        // Reset the session
+        Bundle extras = intent.getExtras();
+        if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
+        mLocalSequence = 0;
+        mUpdateCount = 0;
+
         return START_NOT_STICKY;
     }
 
@@ -100,7 +118,18 @@ public class DeviceFinderService extends Service implements LocationListener,
         if (CMID.DEBUG) Log.v(TAG, "onLocationChanged() " + location.toString());
         mLastLocationUpdate = location;
 
-        mAuthClient.reportLocation(location.getLatitude(), location.getLongitude(), location.getAccuracy(), this, this);
+        // TODO: Should probably store the sequence in the database.
+        mLocalSequence += 1;
+
+        // Create an encrypted LocationMessage
+        SecureMessage locationMessage = LocationMessage.getEncrypted(location, mAuthClient, mSessionId, mLocalSequence);
+
+        // Create the ChannelMessage
+        ChannelMessage channelMessage = new ChannelMessage(GCMUtil.COMMAND_SECURE_MESSAGE, sDeviceId, mSessionId, locationMessage);
+
+        // Send it
+        if (CMID.DEBUG) Log.d(TAG, "Sending secure location message = " + channelMessage.toJson());
+        mAuthClient.sendChannel(channelMessage, this, this);
         if (!fromLastLocation) mUpdateCount++;
 
         mLastLocationUpdate = location;

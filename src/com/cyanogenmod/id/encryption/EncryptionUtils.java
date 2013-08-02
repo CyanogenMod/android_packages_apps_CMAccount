@@ -58,6 +58,49 @@ public class EncryptionUtils {
 
             return null;
         }
+
+        public static CiphertextIvPair encrypt(String plaintext, String _key) {
+            byte[] key = Base64.decode(_key, Base64.DEFAULT);
+
+            SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
+
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+                byte[] iv = cipher.getIV();
+                byte[] ciphertext = cipher.doFinal(plaintext.getBytes());
+                return new CiphertextIvPair(ciphertext, iv);
+            } catch (NoSuchAlgorithmException e) {
+                Log.e(TAG, "NoSuchAlgorithimException", e);
+            } catch (NoSuchPaddingException e) {
+                Log.e(TAG, "NoSuchPaddingException", e);
+            } catch (InvalidKeyException e) {
+                Log.e(TAG, "InvalidKeyException", e);
+            } catch (IllegalBlockSizeException e) {
+                Log.e(TAG, "IllegalBlockSizeException", e);
+            } catch (BadPaddingException e) {
+                Log.e(TAG, "BadPaddingException", e);
+            }
+            return null;
+        }
+
+        public static class CiphertextIvPair {
+            private byte[] ciphertext;
+            private byte[] iv;
+
+            public CiphertextIvPair(byte[] ciphertext, byte[] iv) {
+                this.ciphertext = ciphertext;
+                this.iv = iv;
+            }
+
+            public String getCiphertext() {
+                return Base64.encodeToString(ciphertext, Base64.DEFAULT).replace("\n", "");
+            }
+
+            public String getIV() {
+                return Base64.encodeToString(iv, Base64.DEFAULT).replace("\n", "");
+            }
+        }
     }
 
     public static class RSA {

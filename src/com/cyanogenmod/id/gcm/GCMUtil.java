@@ -38,11 +38,13 @@ public class GCMUtil {
     public static final String COMMAND_KEY_EXCHANGE = "key_exchange";
     public static final String COMMAND_SECURE_MESSAGE = "secure_message";
 
+    public static final String COMMAND_LOCATE = "begin_locate";
 
-    static void reportLocation(Context context) {
+
+    static void reportLocation(Context context, String sessionId) {
         Account account = CMIDUtils.getCMIDAccount(context);
         if (account != null) {
-            DeviceFinderService.reportLocation(context, account);
+            DeviceFinderService.reportLocation(context, account, sessionId);
         }
     }
 
