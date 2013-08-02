@@ -44,12 +44,7 @@ public class LocationMessage {
 
         // Encrypt the JSON version of the LocationMessage
         String json = locationMessage.toJson();
-        EncryptionUtils.AES.CiphertextIvPair result = EncryptionUtils.AES.encrypt(json, pair.getSymmetricKey());
-        EncryptedMessage encryptedMessage = null;
-        if (result != null) {
-            encryptedMessage = new EncryptedMessage(result.getCiphertext(), result.getIV());
-        }
-        return encryptedMessage;
+        return EncryptionUtils.AES.encrypt(json, pair.getSymmetricKey());
     }
 
     public String toJson() {

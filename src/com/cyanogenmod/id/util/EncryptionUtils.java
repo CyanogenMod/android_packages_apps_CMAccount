@@ -3,6 +3,7 @@ package com.cyanogenmod.id.util;
 import android.util.Base64;
 import android.util.Log;
 import com.cyanogenmod.id.CMID;
+import com.cyanogenmod.id.gcm.model.EncryptedMessage;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
@@ -59,7 +60,7 @@ public class EncryptionUtils {
             return null;
         }
 
-        public static CiphertextIvPair encrypt(String plaintext, String _key) {
+        public static EncryptedMessage encrypt(String plaintext, String _key) {
             byte[] key = Base64.decode(_key, Base64.DEFAULT);
 
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
@@ -69,7 +70,11 @@ public class EncryptionUtils {
                 cipher.init(Cipher.ENCRYPT_MODE, keySpec);
                 byte[] iv = cipher.getIV();
                 byte[] ciphertext = cipher.doFinal(plaintext.getBytes());
-                return new CiphertextIvPair(ciphertext, iv);
+
+                String encodedCiphertext = Base64.encodeToString(ciphertext, Base64.DEFAULT).replace("\n", "");
+                String encodedIv = Base64.encodeToString(iv, Base64.DEFAULT).replace("\n", "");
+
+                return new EncryptedMessage(encodedCiphertext, encodedIv);
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
             } catch (NoSuchPaddingException e) {
@@ -82,24 +87,6 @@ public class EncryptionUtils {
                 Log.e(TAG, "BadPaddingException", e);
             }
             return null;
-        }
-
-        public static class CiphertextIvPair {
-            private byte[] ciphertext;
-            private byte[] iv;
-
-            public CiphertextIvPair(byte[] ciphertext, byte[] iv) {
-                this.ciphertext = ciphertext;
-                this.iv = iv;
-            }
-
-            public String getCiphertext() {
-                return Base64.encodeToString(ciphertext, Base64.DEFAULT).replace("\n", "");
-            }
-
-            public String getIV() {
-                return Base64.encodeToString(iv, Base64.DEFAULT).replace("\n", "");
-            }
         }
     }
 
