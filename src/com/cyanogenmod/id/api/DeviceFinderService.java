@@ -41,7 +41,6 @@ public class DeviceFinderService extends Service implements LocationListener,
     private static final int LOCATION_ACCURACY_THRESHOLD = 5; //meters
 
     private LocationClient mLocationClient;
-    private LocationRequest mLocationRequest;
     private Location mLastLocationUpdate;
     private AuthClient mAuthClient;
     private String mSessionId;
@@ -80,19 +79,36 @@ public class DeviceFinderService extends Service implements LocationListener,
             mIsRunning = true;
             mAuthClient = AuthClient.getInstance(context);
             mLocationClient = new LocationClient(context, this, this);
-            mLocationRequest = LocationRequest.create()
-                    .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                    .setInterval(LOCATION_UPDATE_INTERVAL)
-                    .setNumUpdates(MAX_LOCATION_UPDATES);
             mLocationClient.connect();
         }
 
         // Reset the session
         Bundle extras = intent.getExtras();
         if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
-        mUpdateCount = 0;
+
+        if (mLocationClient.isConnected()) {
+            restartLocationUpdates();
+        }
 
         return START_NOT_STICKY;
+    }
+
+    private LocationRequest getLocationRequest() {
+        return LocationRequest.create()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(LOCATION_UPDATE_INTERVAL)
+                .setNumUpdates(MAX_LOCATION_UPDATES);
+    }
+
+    private void restartLocationUpdates() {
+        mUpdateCount = 0;
+        if (CMID.DEBUG) Log.d(TAG, "Starting new LocationRequest");
+
+        Location lastLocation = mLocationClient.getLastLocation();
+        if (lastLocation != null) {
+            onLocationChanged(lastLocation, true);
+        }
+        mLocationClient.requestLocationUpdates(getLocationRequest(), this);
     }
 
     @Override
@@ -121,12 +137,7 @@ public class DeviceFinderService extends Service implements LocationListener,
 
     @Override
     public void onConnected(Bundle bundle) {
-        mUpdateCount = 0;
-        Location lastLocation = mLocationClient.getLastLocation();
-        if (lastLocation != null) {
-            onLocationChanged(lastLocation, true);
-        }
-        mLocationClient.requestLocationUpdates(mLocationRequest, this);
+        restartLocationUpdates();
     }
 
     @Override
