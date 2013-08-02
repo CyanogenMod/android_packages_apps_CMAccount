@@ -36,6 +36,7 @@ public class GCMUtil {
     private static final long RE_REGISTRATION_INTERVAL = 1000 * 3600 * 24;
 
     public static final String COMMAND_KEY_EXCHANGE = "key_exchange";
+    public static final String COMMAND_SECURE_MESSAGE = "secure_message";
 
 
     static void reportLocation(Context context) {

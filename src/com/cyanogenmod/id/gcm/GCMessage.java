@@ -9,7 +9,7 @@ import com.google.gson.GsonBuilder;
 public class GCMessage {
 
     private Account account;
-    private String sessionId;
+    private String session_id;
     private String command;
     private Message message;
 
@@ -33,7 +33,7 @@ public class GCMessage {
     }
 
     public String getSessionId() {
-        return sessionId;
+        return session_id;
     }
 
     public String getCommand() {

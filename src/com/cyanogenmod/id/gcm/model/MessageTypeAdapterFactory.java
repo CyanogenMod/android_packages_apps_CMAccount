@@ -28,6 +28,7 @@ public class MessageTypeAdapterFactory implements TypeAdapterFactory {
         final TypeAdapter<Message> rootAdapter = gson.getDelegateAdapter(this, TypeToken.get(Message.class));
         final TypeAdapter<PublicKeyMessage> keyExchangeAdapter = gson.getDelegateAdapter(this, TypeToken.get(PublicKeyMessage.class));
         final TypeAdapter<SymmetricKeyMessage> symmetricKeyAdapter = gson.getDelegateAdapter(this, TypeToken.get(SymmetricKeyMessage.class));
+        final TypeAdapter<SecureMessage> secureMessageAdapter = gson.getDelegateAdapter(this, TypeToken.get(SecureMessage.class));
         final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
 
         TypeAdapter<Message> result = new TypeAdapter<Message>() {
@@ -37,6 +38,8 @@ public class MessageTypeAdapterFactory implements TypeAdapterFactory {
                     keyExchangeAdapter.write(out, (PublicKeyMessage) value);
                 } else if (value instanceof SymmetricKeyMessage) {
                     symmetricKeyAdapter.write(out, (SymmetricKeyMessage) value);
+                } else if (value instanceof SecureMessage) {
+                    secureMessageAdapter.write(out, (SecureMessage) value);
                 } else {
                     JsonObject object = rootAdapter.toJsonTree(value).getAsJsonObject();
                     elementAdapter.write(out, object);
@@ -50,6 +53,8 @@ public class MessageTypeAdapterFactory implements TypeAdapterFactory {
                     return keyExchangeAdapter.fromJsonTree(object);
                 } else if (object.has("symmetric_key")) {
                     return symmetricKeyAdapter.fromJsonTree(object);
+                } else if (object.has("ciphertext")) {
+                    return secureMessageAdapter.fromJsonTree(object);
                 } else {
                     return rootAdapter.fromJsonTree(object);
                 }

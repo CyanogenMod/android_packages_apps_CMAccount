@@ -1,10 +1,7 @@
 package com.cyanogenmod.id.gcm;
 
 import com.cyanogenmod.id.encryption.EncryptionUtils;
-import com.cyanogenmod.id.gcm.model.ChannelMessage;
-import com.cyanogenmod.id.gcm.model.PublicKeyMessage;
-import com.cyanogenmod.id.gcm.model.Message;
-import com.cyanogenmod.id.gcm.model.SymmetricKeyMessage;
+import com.cyanogenmod.id.gcm.model.*;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.gson.JsonSyntaxException;
 
@@ -65,6 +62,10 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
             handleMessage(context, message);
         } catch (JsonSyntaxException e) {
             Log.e(TAG, "Error parsing GCM message", e);
+        } catch (RuntimeException e) {
+            // Since Message doesn't have a constructor, if a message comes through that we don't have a
+            // type adapter for, we will get a RuntimeException.
+            Log.e(TAG, "Received unknown message type", e);
         }
     }
 
@@ -72,8 +73,11 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (CMID.DEBUG) Log.d(TAG, "gson parsed message = " + message.toJson());
         String deviceId = CMIDUtils.getUniqueDeviceId(context);
 
+        // TODO: We could just look at instanceof message.getMessage()
         if (GCMUtil.COMMAND_KEY_EXCHANGE.equals(message.getCommand())) {
             handleKeyExchange(deviceId, message.getMessage());
+        } else if (GCMUtil.COMMAND_SECURE_MESSAGE.equals(message.getCommand())) {
+            handleSecureMessage(deviceId, message);
         }
     }
 
@@ -130,5 +134,31 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
 
         // Send the channel message
         mAuthClient.sendChannel(channelMessage, GCMReceiver.this, GCMReceiver.this);
+    }
+
+    private void handleSecureMessage(String deviceId, GCMessage message) {
+        if (!(message.getMessage() instanceof SecureMessage)) {
+            Log.w(TAG, "Expected SecureMessage, but got " + message.getClass().toString());
+            return;
+        }
+
+        // Cast the message to the correct type
+        SecureMessage secureMessage = (SecureMessage) message.getMessage();
+
+        // Pull the AES key from the database
+        String symmetricKey = mAuthClient.getSymmetricKey(message.getSessionId());
+        if (symmetricKey == null) {
+            Log.w(TAG, "Unable to find symmetric key for session=" + message.getSessionId());
+            return;
+        }
+
+        if (CMID.DEBUG) Log.d(TAG, "Attempting to decrypt secure message with key:" + symmetricKey + " for session_id:" + message.getSessionId());
+
+        // Attempt to decrypt the message.
+        String plaintext = EncryptionUtils.AES.decrypt(secureMessage.getCiphertext(), symmetricKey, secureMessage.getIV());
+        if (plaintext != null) {
+            if (CMID.DEBUG) Log.d(TAG, "plaintext message = " + plaintext);
+            // TODO: Handle the message here.
+        }
     }
 }
