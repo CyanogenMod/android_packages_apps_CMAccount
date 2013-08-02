@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Binder;
 import android.text.TextUtils;
 import android.util.Log;
+import com.cyanogenmod.id.CMID;
 
 import java.util.HashMap;
 
@@ -20,26 +21,26 @@ public class CMIDProvider extends ContentProvider {
 
     private static String TAG = CMIDProvider.class.getSimpleName();
     public static final String AUTHORITY = "com.cyanogenmod.id.store";
-    private static final String HANDSHAKE_TOKEN_PATH = "token";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY).buildUpon().appendPath(HANDSHAKE_TOKEN_PATH).build();
+    private static final String SYMMETRIC_KEY_PATH = "symmetric_key";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY).buildUpon().appendPath(SYMMETRIC_KEY_PATH).build();
 
-    private static final String TABLE_HANDSHAKE_TOKEN = "handshake_token";
+    private static final String TABLE_SYMMETRIC_KEYS = "symmetric_keys";
     private static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
-    private static final int HANDSHAKE_TOKEN = 1;
-    private static final int HANDSHAKE_TOKEN_ID = 2;
+    private static final int SYMMETRIC_KEY = 1;
+    private static final int SYMMETRIC_KEY_ID = 2;
 
     private static HashMap<String, String> sSecretProjectionMap;
 
     static {
-        URI_MATCHER.addURI(AUTHORITY, HANDSHAKE_TOKEN_PATH, HANDSHAKE_TOKEN);
-        URI_MATCHER.addURI(AUTHORITY, HANDSHAKE_TOKEN_PATH + "/#", HANDSHAKE_TOKEN_ID);
+        URI_MATCHER.addURI(AUTHORITY, SYMMETRIC_KEY_PATH, SYMMETRIC_KEY);
+        URI_MATCHER.addURI(AUTHORITY, SYMMETRIC_KEY_PATH + "/#", SYMMETRIC_KEY_ID);
 
         sSecretProjectionMap = new HashMap<String, String>();
-        sSecretProjectionMap.put(HandshakeStoreColumns._ID, HandshakeStoreColumns._ID);
-        sSecretProjectionMap.put(HandshakeStoreColumns.SECRET, HandshakeStoreColumns.SECRET);
-        sSecretProjectionMap.put(HandshakeStoreColumns.EXPIRATION, HandshakeStoreColumns.EXPIRATION);
-        sSecretProjectionMap.put(HandshakeStoreColumns.METHOD, HandshakeStoreColumns.METHOD);
+        sSecretProjectionMap.put(SymmetricKeyStoreColumns._ID, SymmetricKeyStoreColumns._ID);
+        sSecretProjectionMap.put(SymmetricKeyStoreColumns.KEY, SymmetricKeyStoreColumns.KEY);
+        sSecretProjectionMap.put(SymmetricKeyStoreColumns.EXPIRATION, SymmetricKeyStoreColumns.EXPIRATION);
+        sSecretProjectionMap.put(SymmetricKeyStoreColumns.SESSION_ID, SymmetricKeyStoreColumns.SESSION_ID);
     }
     private SQLiteOpenHelper mOpenHelper;
 
@@ -47,13 +48,14 @@ public class CMIDProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mOpenHelper = new DatabaseHelper(getContext());
-        cleanUpExpiredTokens();
+        cleanUpExpiredSymmetricKeys();
         return true;
     }
 
-    private void cleanUpExpiredTokens() {
+    private void cleanUpExpiredSymmetricKeys() {
+        if (CMID.DEBUG) Log.d(TAG, "Cleaning up expired symmetric keys");
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
-        db.execSQL("delete from " + TABLE_HANDSHAKE_TOKEN + " where " + HandshakeStoreColumns.EXPIRATION + " < datetime('now', 'localtime')");
+        db.execSQL("delete from " + TABLE_SYMMETRIC_KEYS + " where " + SymmetricKeyStoreColumns.EXPIRATION + " < datetime('now', 'localtime')");
     }
 
     @Override
@@ -63,14 +65,14 @@ public class CMIDProvider extends ContentProvider {
         }
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         switch (URI_MATCHER.match(uri)) {
-            case HANDSHAKE_TOKEN:
-                qb.setTables(TABLE_HANDSHAKE_TOKEN);
+            case SYMMETRIC_KEY:
+                qb.setTables(TABLE_SYMMETRIC_KEYS);
                 qb.setProjectionMap(sSecretProjectionMap);
                 break;
-            case HANDSHAKE_TOKEN_ID:
-                qb.setTables(TABLE_HANDSHAKE_TOKEN);
+            case SYMMETRIC_KEY_ID:
+                qb.setTables(TABLE_SYMMETRIC_KEYS);
                 qb.setProjectionMap(sSecretProjectionMap);
-                qb.appendWhere(HandshakeStoreColumns._ID + "=" + uri.getPathSegments().get(1));
+                qb.appendWhere(SymmetricKeyStoreColumns._ID + "=" + uri.getPathSegments().get(1));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
@@ -85,10 +87,10 @@ public class CMIDProvider extends ContentProvider {
     public String getType(Uri uri) {
         int type = URI_MATCHER.match(uri);
         switch (type) {
-            case HANDSHAKE_TOKEN:
-                return HandshakeStoreColumns.CONTENT_TYPE;
-            case HANDSHAKE_TOKEN_ID:
-                return HandshakeStoreColumns.CONTENT_ITEM_TYPE;
+            case SYMMETRIC_KEY:
+                return SymmetricKeyStoreColumns.CONTENT_TYPE;
+            case SYMMETRIC_KEY_ID:
+                return SymmetricKeyStoreColumns.CONTENT_ITEM_TYPE;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
@@ -101,8 +103,8 @@ public class CMIDProvider extends ContentProvider {
         }
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         switch (URI_MATCHER.match(uri)) {
-            case HANDSHAKE_TOKEN:
-                long rowId = db.insert(TABLE_HANDSHAKE_TOKEN, null, values);
+            case SYMMETRIC_KEY:
+                long rowId = db.insert(TABLE_SYMMETRIC_KEYS, null, values);
                 if (rowId != -1) {
                     Uri newUri = ContentUris.withAppendedId(uri, rowId);
                     getContext().getContentResolver().notifyChange(newUri, null);
@@ -123,11 +125,11 @@ public class CMIDProvider extends ContentProvider {
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         int count = 0;
         switch (URI_MATCHER.match(uri)) {
-            case HANDSHAKE_TOKEN:
-                count = db.delete(TABLE_HANDSHAKE_TOKEN, selection, selectionArgs);
+            case SYMMETRIC_KEY:
+                count = db.delete(TABLE_SYMMETRIC_KEYS, selection, selectionArgs);
                 break;
-            case HANDSHAKE_TOKEN_ID:
-                count = db.delete(TABLE_HANDSHAKE_TOKEN, HandshakeStoreColumns._ID + "=" + ContentUris.parseId(uri)
+            case SYMMETRIC_KEY_ID:
+                count = db.delete(TABLE_SYMMETRIC_KEYS, SymmetricKeyStoreColumns._ID + "=" + ContentUris.parseId(uri)
                         + (!TextUtils.isEmpty(selection) ? " AND (" + selection + ")" : ""), selectionArgs);
                 break;
             default:
@@ -151,7 +153,7 @@ public class CMIDProvider extends ContentProvider {
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
         private static final String DATABASE_NAME = "cmid.db";
-        private static final int DATABASE_VERSION = 4;
+        private static final int DATABASE_VERSION = 5;
 
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -159,32 +161,32 @@ public class CMIDProvider extends ContentProvider {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE " + TABLE_HANDSHAKE_TOKEN
+            db.execSQL("CREATE TABLE " + TABLE_SYMMETRIC_KEYS
                     + " ("
-                    + HandshakeStoreColumns._ID + " INTEGER PRIMARY KEY, "
-                    + HandshakeStoreColumns.SECRET + " TEXT NOT NULL UNIQUE, "
-                    + HandshakeStoreColumns.EXPIRATION + " DATETIME DEFAULT 0, "
-                    + HandshakeStoreColumns.METHOD + " TEXT NOT NULL);");
+                    + SymmetricKeyStoreColumns._ID + " INTEGER PRIMARY KEY, "
+                    + SymmetricKeyStoreColumns.KEY + " TEXT NOT NULL, "
+                    + SymmetricKeyStoreColumns.EXPIRATION + " DATETIME DEFAULT 0, "
+                    + SymmetricKeyStoreColumns.SESSION_ID + " TEXT NOT NULL UNIQUE);");
 
-            db.execSQL("create trigger update_expiration after insert on " + TABLE_HANDSHAKE_TOKEN +
-                    " begin update " + TABLE_HANDSHAKE_TOKEN + " set " + HandshakeStoreColumns.EXPIRATION +
-                    "= datetime('now', '+10 minutes', 'localtime') where expiration = 0" +
+            db.execSQL("create trigger update_expiration after insert on " + TABLE_SYMMETRIC_KEYS +
+                    " begin update " + TABLE_SYMMETRIC_KEYS + " set " + SymmetricKeyStoreColumns.EXPIRATION +
+                    "= datetime('now', '+60 minutes', 'localtime') where expiration = 0" +
                     "; end");
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_HANDSHAKE_TOKEN);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SYMMETRIC_KEYS);
             onCreate(db);
         }
     }
 
-    public static interface HandshakeStoreColumns {
+    public static interface SymmetricKeyStoreColumns {
         public static final String _ID = "_id";
-        public static final String SECRET = "secret";
+        public static final String KEY = "symmetric_key";
         public static final String EXPIRATION = "expiration";
-        public static final String METHOD = "method";
-        public static final String CONTENT_TYPE = "vnd.cyanogenmod.cursor.dir/secret";
-        public static final String CONTENT_ITEM_TYPE = "vnd.cyanogenmod.cursor.item/secret";
+        public static final String SESSION_ID = "session_id";
+        public static final String CONTENT_TYPE = "vnd.cyanogenmod.cursor.dir/symmetricKey";
+        public static final String CONTENT_ITEM_TYPE = "vnd.cyanogenmod.cursor.item/symmetricKey";
     }
 }

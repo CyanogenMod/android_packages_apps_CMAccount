@@ -552,79 +552,36 @@ public class AuthClient {
         }
     }
 
-    public HandshakeTokenItem getHandshakeToken(String secretToken, String command) {
-        if (secretToken == null || command == null) {
+    public void storeSymmetricKey(String symmetricKey, String sessionId) {
+        // TODO: keys should expire
+        if (CMID.DEBUG) Log.d(TAG, "Storing symmetricKey:" + symmetricKey +" for sessionId:" + sessionId);
+
+        ContentValues values = new ContentValues();
+        values.put(CMIDProvider.SymmetricKeyStoreColumns.KEY, symmetricKey);
+        values.put(CMIDProvider.SymmetricKeyStoreColumns.SESSION_ID, sessionId);
+        mContext.getContentResolver().insert(CMIDProvider.CONTENT_URI, values);
+    }
+
+    public String getSymmetricKey(String sessionId) {
+        // TODO: keys should expire
+        if (sessionId == null) {
             return null;
         }
         Cursor c = null;
         try {
-            c = mContext.getContentResolver().query(CMIDProvider.CONTENT_URI, null,
-                    CMIDProvider.HandshakeStoreColumns.SECRET + " = ? AND "
-                    + CMIDProvider.HandshakeStoreColumns.METHOD + " = ?", new String[]{secretToken, command}, null);
+            c = mContext.getContentResolver().query(CMIDProvider.CONTENT_URI, null, CMIDProvider.SymmetricKeyStoreColumns.SESSION_ID + " = ?", new String[]{sessionId}, null);
             if (c != null && c.getCount() > 0) {
                 c.moveToFirst();
-                long id = c.getLong(c.getColumnIndex(CMIDProvider.HandshakeStoreColumns._ID));
-                String token = c.getString(c.getColumnIndex(CMIDProvider.HandshakeStoreColumns.SECRET));
-                long expiration = c.getLong(c.getColumnIndex(CMIDProvider.HandshakeStoreColumns.EXPIRATION));
-                String method = c.getString(c.getColumnIndex(CMIDProvider.HandshakeStoreColumns.METHOD));
-                return new HandshakeTokenItem(id, token, method, expiration);
+                String symmetricKey = c.getString(c.getColumnIndex(CMIDProvider.SymmetricKeyStoreColumns.KEY));
+                return symmetricKey;
             }
         } finally {
             if (c != null) {
                 c.close();
             }
         }
+
         return null;
-    }
-
-    public void cleanupHandshakeTokenByType(String command) {
-        mContext.getContentResolver().delete(CMIDProvider.CONTENT_URI, CMIDProvider.HandshakeStoreColumns.METHOD + " = ?", new String[]{command});
-    }
-
-    public void generateHandshakeToken(AccountManager am, Account account, String uuid, String method) {
-        ContentValues values = new ContentValues();
-        String myToken = am.getPassword(account);
-        String secret = CMIDUtils.digest("SHA512", (myToken+uuid));
-        if (CMID.DEBUG) {
-            Log.d(TAG, "Caching handshake token: " + secret);
-        }
-        values.put(CMIDProvider.HandshakeStoreColumns.SECRET, secret);
-        values.put(CMIDProvider.HandshakeStoreColumns.METHOD, method);
-        mContext.getContentResolver().insert(CMIDProvider.CONTENT_URI, values);
-    }
-
-    public void storeSymmetricKey(String symmetricKey, String sessionId) {
-        if (CMID.DEBUG) Log.d(TAG, "Storing symmetricKey:" + symmetricKey +" for sessionId:" + sessionId);
-    }
-
-    public static class HandshakeTokenItem {
-        private long mId;
-        private String mSecret;
-        private long mExpiration;
-        private String mMethod;
-
-        public HandshakeTokenItem(long id, String secret, String method, long expiration) {
-            mMethod = method;
-            mId = id;
-            mSecret = secret;
-            mExpiration = expiration;
-        }
-
-        public long getId() {
-            return mId;
-        }
-
-        public String getSecret() {
-            return mSecret;
-        }
-
-        public long getExpiration() {
-            return mExpiration;
-        }
-
-        public String getMethod() {
-            return mMethod;
-        }
     }
 
     private static interface TokenCallback {
