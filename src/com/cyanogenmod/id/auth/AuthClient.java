@@ -213,7 +213,9 @@ public class AuthClient {
         }
 
         // Since we are sending a message, bump the remote sequence.
-        incrementSessionRemoteSequence(sendChannelRequestBody.getSessionId());
+        if (sendChannelRequestBody.getSessionId() != null) {
+            incrementSessionRemoteSequence(sendChannelRequestBody.getSessionId());
+        }
 
         if (CMID.DEBUG) Log.d(TAG, "Sending secure message, plaintext content = " + sendChannelRequestBody.toJsonPlaintext());
 

@@ -4,10 +4,7 @@ import android.location.Location;
 import android.util.Log;
 import com.cyanogenmod.id.auth.AuthClient;
 import com.cyanogenmod.id.gcm.GCMUtil;
-import com.cyanogenmod.id.gcm.model.LocationMessage;
-import com.cyanogenmod.id.gcm.model.Message;
-import com.cyanogenmod.id.gcm.model.MessageTypeAdapterFactory;
-import com.cyanogenmod.id.gcm.model.WipeStartedMessage;
+import com.cyanogenmod.id.gcm.model.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
@@ -74,7 +71,11 @@ public class SendChannelRequestBody {
     }
 
     public String toJson() {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        if (!(message instanceof PlaintextMessage)) {
+            gsonBuilder.excludeFieldsWithoutExposeAnnotation();
+        }
+        Gson gson = gsonBuilder.create();
         return gson.toJson(this);
     }
 

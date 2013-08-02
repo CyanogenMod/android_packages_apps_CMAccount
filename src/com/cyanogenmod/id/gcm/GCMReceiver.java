@@ -109,9 +109,12 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (!publicKeyHashVerify.equals(publicKeyMessage.getPublicKeyHash())) {
             if (CMID.DEBUG) Log.d(TAG, "Unable to verify public key hash");
 
-            // TODO: Listen for some type of invalid message, for now, just send some bogus hash.
-            SymmetricKeyMessage symmetricKeyMessage = new SymmetricKeyMessage("QkFDT04=", "1683867bccd35381e3c8b99c6a59095b");
-            SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, "sessionId", symmetricKeyMessage);
+            // It would be nice if we could just ignore the message at this point, however, when the public key hash
+            // is incorrect it means either the public key was tampered with or the user entered the wrong password.
+            // Sending a key_exchange_failed message will cause the browser to prompt the user for their password again.
+
+            PlaintextMessage keyExchangeFailedMessage = new PlaintextMessage(GCMUtil.COMMAND_KEY_EXCHANGE_FAILED, 0);
+            SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_KEY_EXCHANGE_FAILED, deviceId, null, keyExchangeFailedMessage);
             mAuthClient.sendChannel(sendChannelRequestBody, GCMReceiver.this, GCMReceiver.this);
             return;
         }

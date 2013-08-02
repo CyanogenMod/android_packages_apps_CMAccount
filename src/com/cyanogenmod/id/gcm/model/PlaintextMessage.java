@@ -3,7 +3,7 @@ package com.cyanogenmod.id.gcm.model;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class PlaintextMessage {
+public class PlaintextMessage extends Message {
     private String command;
     private int sequence;
 
