@@ -11,6 +11,7 @@ import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.api.*;
 import com.cyanogenmod.id.gcm.GCMUtil;
 import com.cyanogenmod.id.api.request.SendChannelRequestBody;
+import com.cyanogenmod.id.gcm.model.WipeStartedMessage;
 import com.cyanogenmod.id.provider.CMIDProvider;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -452,24 +453,28 @@ public class AuthClient {
         return !skipWipe;
     }
 
-    public void destroyDevice(Context context) {
+    public void destroyDevice(Context context, String sessionId) {
         final PowerManager pm = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         final PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         wakeLock.acquire(1000 * 60);
         final DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+
+        // Send a message back to the browser to indicate that the wipe has started.
+        final SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(new WipeStartedMessage(), this, sessionId);
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                setWipeStartedCommand(new Listener<Integer>() {
+                sendChannel(sendChannelRequestBody,
+                new Listener<Integer>() {
                     @Override
                     public void onResponse(Integer integer) {
-                        if (CMID.DEBUG) Log.d(TAG, "setWipeStartedCommand onResponse="+integer);
+                        if (CMID.DEBUG) Log.d(TAG, "wipeStarted onResponse="+integer);
                     }
                 },
                 new ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        if (CMID.DEBUG) Log.d(TAG, "setWipeStartedCommand onErrorResponse:");
+                        if (CMID.DEBUG) Log.d(TAG, "wipeStarted onErrorResponse:");
                         volleyError.printStackTrace();
                     }
                 });

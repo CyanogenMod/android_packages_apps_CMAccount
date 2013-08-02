@@ -184,5 +184,9 @@ public class GCMReceiver extends BroadcastReceiver implements Response.Listener<
         if (GCMUtil.COMMAND_LOCATE.equals(message.getCommand())) {
             GCMUtil.reportLocation(context, sessionId);
         }
+
+        if (GCMUtil.COMMAND_WIPE.equals(message.getCommand())) {
+            mAuthClient.destroyDevice(context, sessionId);
+        }
     }
 }

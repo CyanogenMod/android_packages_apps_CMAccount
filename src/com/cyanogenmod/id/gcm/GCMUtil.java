@@ -39,6 +39,7 @@ public class GCMUtil {
     public static final String COMMAND_SECURE_MESSAGE = "secure_message";
 
     public static final String COMMAND_LOCATE = "begin_locate";
+    public static final String COMMAND_WIPE = "begin_wipe";
 
 
     static void reportLocation(Context context, String sessionId) {

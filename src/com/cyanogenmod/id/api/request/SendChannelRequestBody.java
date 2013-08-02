@@ -7,6 +7,7 @@ import com.cyanogenmod.id.gcm.GCMUtil;
 import com.cyanogenmod.id.gcm.model.LocationMessage;
 import com.cyanogenmod.id.gcm.model.Message;
 import com.cyanogenmod.id.gcm.model.MessageTypeAdapterFactory;
+import com.cyanogenmod.id.gcm.model.WipeStartedMessage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
@@ -46,6 +47,23 @@ public class SendChannelRequestBody {
         LocationMessage locationMessage = new LocationMessage(location, keyPair.getRemoteSequence());
         locationMessage.encrypt(keyPair.getSymmetricKey());
         this.message = locationMessage;
+    }
+
+    // WipeStartedMessage constructor
+    public SendChannelRequestBody(WipeStartedMessage message, AuthClient authClient, String sessionId) {
+        this.command = GCMUtil.COMMAND_SECURE_MESSAGE;
+        this.device_id = authClient.getUniqueDeviceId();
+        this.session_id = sessionId;
+
+        // Try to load the symmetric key from the database.
+        AuthClient.SymmetricKeySequencePair keyPair = authClient.getSymmetricKey(sessionId);
+        if (keyPair == null) {
+            return;
+        }
+
+        message.setSequence(keyPair.getRemoteSequence());
+        message.encrypt(keyPair.getSymmetricKey());
+        this.message = message;
     }
 
     public static SendChannelRequestBody fromJson(String json) {
