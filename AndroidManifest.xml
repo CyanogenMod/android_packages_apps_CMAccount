@@ -91,6 +91,10 @@
                 android:exported="false" />
 
         <service
+                android:name=".gcm.GCMIntentService"
+                android:exported="false" />
+
+        <service
                 android:name=".api.DeviceFinderService"
                 android:exported="false" />
 
