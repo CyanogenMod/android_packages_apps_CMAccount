@@ -28,7 +28,7 @@ import java.util.UUID;
 public class GCMIntentService extends IntentService implements Response.Listener<Integer>, Response.ErrorListener {
 
     private static final String TAG = GCMIntentService.class.getSimpleName();
-    private static final String ACTION_RECEIVE = "com.cyanogenmod.id.gcm.RECEIVE";
+    protected static final String ACTION_RECEIVE = "com.cyanogenmod.id.gcm.RECEIVE";
 
     private static PowerManager.WakeLock sWakeLock;
     private static final int WAKE_LOCK_TIMEOUT = 1000 * 60 * 5;
@@ -210,9 +210,5 @@ public class GCMIntentService extends IntentService implements Response.Listener
     @Override
     public void onResponse(Integer integer) {
         if (CMID.DEBUG) Log.d(TAG, "sendChannel response="+integer);
-    }
-
-    protected static Intent getIntent(Context context) {
-        return new Intent(ACTION_RECEIVE, null, context, GCMIntentService.class);
     }
 }
