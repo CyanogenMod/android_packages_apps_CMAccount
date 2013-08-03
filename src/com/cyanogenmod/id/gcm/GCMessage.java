@@ -13,13 +13,6 @@ public class GCMessage {
     private String command;
     private Message message;
 
-    public static GCMessage fromJson(String json) {
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(MessageTypeAdapterFactory.getInstance())
-                .create();
-        return gson.fromJson(json, GCMessage.class);
-    }
-
     public String toJson() {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(MessageTypeAdapterFactory.getInstance())

@@ -12,9 +12,9 @@ public class SendChannelRequest extends CMIDJsonRequest<Integer> {
 
     private static final String TAG = SendChannelRequest.class.getSimpleName();
 
-    public SendChannelRequest(String authToken, SendChannelRequestBody message, Response.Listener<Integer> listener,
+    public SendChannelRequest(String authToken, String message, Response.Listener<Integer> listener,
             Response.ErrorListener errorListener) {
-        super(AuthClient.SEND_CHANNEL_URI, message.toJson(), listener, errorListener);
+        super(AuthClient.SEND_CHANNEL_URI, message, listener, errorListener);
         addHeader(PARAM_AUTHORIZATION, "OAuth " + authToken);
     }
 

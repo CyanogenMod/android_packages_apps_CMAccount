@@ -63,20 +63,8 @@ public class SendChannelRequestBody {
         this.message = message;
     }
 
-    public static SendChannelRequestBody fromJson(String json) {
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(MessageTypeAdapterFactory.getInstance())
-                .create();
-        return gson.fromJson(json, SendChannelRequestBody.class);
-    }
-
-    public String toJson() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        if (!(message instanceof PlaintextMessage)) {
-            gsonBuilder.excludeFieldsWithoutExposeAnnotation();
-        }
-        Gson gson = gsonBuilder.create();
-        return gson.toJson(this);
+    public Message getMessage() {
+        return message;
     }
 
     public String toJsonPlaintext() {

@@ -11,6 +11,7 @@ import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.api.*;
 import com.cyanogenmod.id.gcm.GCMUtil;
 import com.cyanogenmod.id.api.request.SendChannelRequestBody;
+import com.cyanogenmod.id.gcm.model.PlaintextMessage;
 import com.cyanogenmod.id.gcm.model.WipeStartedMessage;
 import com.cyanogenmod.id.provider.CMIDProvider;
 import com.cyanogenmod.id.util.CMIDUtils;
@@ -35,6 +36,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -79,10 +82,15 @@ public class AuthClient {
 
     private OnAccountsUpdateListener mAccountsUpdateListener;
 
+    private Gson mExcludingGson;
+    private Gson mGson;
+
     private AuthClient(Context context) {
         mContext = context.getApplicationContext();
         mAccountManager = AccountManager.get(mContext);
         mRequestQueue = Volley.newRequestQueue(mContext);
+        mExcludingGson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        mGson = new Gson();
     }
 
     public static final AuthClient getInstance(Context context) {
@@ -217,6 +225,9 @@ public class AuthClient {
             incrementSessionRemoteSequence(sendChannelRequestBody.getSessionId());
         }
 
+        // Convert the message to JSON using the appropriate Gson instance
+        final String sendChannelRequestBodyJson = convertSendChannelRequestBodyToJson(sendChannelRequestBody);
+
         if (CMID.DEBUG) Log.d(TAG, "Sending secure message, plaintext content = " + sendChannelRequestBody.toJsonPlaintext());
 
         final TokenCallback callback = new TokenCallback() {
@@ -227,7 +238,7 @@ public class AuthClient {
                     mInFlightChannelRequest = null;
                 }
 
-                mInFlightChannelRequest = mRequestQueue.add(new SendChannelRequest(token, sendChannelRequestBody,
+                mInFlightChannelRequest = mRequestQueue.add(new SendChannelRequest(token, sendChannelRequestBodyJson,
                         new Listener<Integer>() {
                             @Override
                             public void onResponse(Integer integer) {
@@ -526,6 +537,14 @@ public class AuthClient {
 
         public int getRemoteSequence() {
             return remoteSequence;
+        }
+    }
+
+    private String convertSendChannelRequestBodyToJson(SendChannelRequestBody sendChannelRequestBody) {
+        if (!(sendChannelRequestBody.getMessage() instanceof PlaintextMessage)) {
+            return mExcludingGson.toJson(sendChannelRequestBody);
+        } else {
+            return mGson.toJson(sendChannelRequestBody);
         }
     }
 

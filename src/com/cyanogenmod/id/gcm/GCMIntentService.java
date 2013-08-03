@@ -16,6 +16,8 @@ import com.cyanogenmod.id.gcm.model.*;
 import com.cyanogenmod.id.util.CMIDUtils;
 import com.cyanogenmod.id.util.EncryptionUtils;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import java.util.UUID;
@@ -36,9 +38,12 @@ public class GCMIntentService extends IntentService implements Response.Listener
     private AccountManager mAccountManager;
     private Account mAccount;
     private AuthClient mAuthClient;
+    private Gson mGson;
 
     public GCMIntentService() {
         super(TAG);
+
+        mGson = new GsonBuilder().registerTypeAdapterFactory(MessageTypeAdapterFactory.getInstance()).create();
     }
 
     @Override
@@ -74,7 +79,7 @@ public class GCMIntentService extends IntentService implements Response.Listener
         String data = intent.getExtras().getString("data");
         if (CMID.DEBUG) Log.d(TAG, "message data = " + data);
         try {
-            GCMessage message = GCMessage.fromJson(data);
+            GCMessage message = mGson.fromJson(data, GCMessage.class);
             handleMessage(mContext, message);
         } catch (JsonSyntaxException e) {
             Log.e(TAG, "Error parsing GCM message", e);
