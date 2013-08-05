@@ -18,7 +18,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     play
 
 # Include res dir from chips
-google_play_dir := ../../../../external/google/google_play_services/libproject/google-play-services_lib/res
+google_play_dir := ../../../external/google/google_play_services/libproject/google-play-services_lib/res
 res_dir := $(google_play_dir) res
 
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dir))
@@ -28,9 +28,8 @@ LOCAL_AAPT_FLAGS += --extra-packages com.google.android.gms
 include $(BUILD_PACKAGE)
 
 LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := \
-    gson:../../../../external/google/gson/gson-2.2.4.jar \
     volley-v14:libs/volley.jar \
-    play:../../../../external/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar
+    play:../../../external/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar
 
 include $(BUILD_MULTI_PREBUILT)
 
