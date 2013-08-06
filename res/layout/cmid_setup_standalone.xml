@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/SetupWizardPageContainer">
+              android:orientation="vertical"
+              style="@style/RootLayout">
 
     <include layout="@layout/cmid_account"/>
 

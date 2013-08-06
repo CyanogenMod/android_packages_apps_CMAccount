@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_height="match_parent"
-            android:layout_width="match_parent">
-    <LinearLayout style="@style/SetupWizardPageContainer">
+            android:layout_width="match_parent"
+            style="@style/RootLayout">
+    <LinearLayout
+            android:orientation="vertical"
+            style="@style/SetupWizardPageContainer">
 
         <TextView style="@style/SetupWizardPageTitle" />
 
@@ -61,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
             <Button
                     android:id="@+id/cancel_button"

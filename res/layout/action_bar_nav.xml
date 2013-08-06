@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:minHeight="@dimen/actionbar_min_height"
+              android:orientation="horizontal">
+
+    <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="@dimen/actionbar_icon_size"
+            android:layout_height="@dimen/actionbar_icon_size"
+            android:layout_gravity="top|left"
+            android:minHeight="@dimen/actionbar_min_height"
+            android:minWidth="@dimen/actionbar_min_height"
+            android:scaleType="fitStart"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/cmid_action_icon"
+            android:layout_toRightOf="@+id/up"/>
+
+    <TextView
+            android:id="@android:id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/product_name"
+            style="@style/ActionTitle"/>
+</LinearLayout>
