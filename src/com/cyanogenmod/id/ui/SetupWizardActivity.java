@@ -23,6 +23,10 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -60,6 +64,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         mSetupData.registerListener(this);
         mPagerAdapter = new CMPagerAdapter(getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setPageTransformer(true, new DepthPageTransformer());
         mViewPager.setAdapter(mPagerAdapter);
 
         mNextButton = (Button) findViewById(R.id.next_button);
@@ -85,13 +90,13 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             }
         });
         onPageTreeChanged();
+        removeUnNeededPages();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         onPageTreeChanged();
-        removeUnNeededPages();
         if (!CMIDUtils.isNetworkConnected(this)) {
             CMIDUtils.tryEnablingWifi(this);
         }
@@ -101,6 +106,22 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     protected void onDestroy() {
         super.onDestroy();
         mSetupData.unregisterListener(this);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.setup, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_next:
+                doNext();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -115,31 +136,41 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     public void doNext() {
-        final int currentItem = mViewPager.getCurrentItem();
-        final Page currentPage = mPageList.get(currentItem);
-        if (currentPage.getId() == R.string.setup_sim_missing) {
-            removeSetupPage(currentPage, true);
-        } else if (currentPage.getId() == R.string.setup_complete) {
-            finishSetup();
-        } else {
-            mViewPager.setCurrentItem(currentItem + 1, true);
-        }
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                final int currentItem = mViewPager.getCurrentItem();
+                final Page currentPage = mPageList.get(currentItem);
+                if (currentPage.getId() == R.string.setup_sim_missing) {
+                    removeSetupPage(currentPage, true);
+                } else if (currentPage.getId() == R.string.setup_complete) {
+                    finishSetup();
+                } else {
+                    mViewPager.setCurrentItem(currentItem + 1, true);
+                }
+            }
+        });
     }
 
     public void doPrevious() {
-        final int currentItem = mViewPager.getCurrentItem();
-        if (currentItem > 0 ) {
-            mViewPager.setCurrentItem(currentItem - 1, true);
-        }
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                final int currentItem = mViewPager.getCurrentItem();
+                if (currentItem > 0) {
+                    mViewPager.setCurrentItem(currentItem - 1, true);
+                }
+            }
+        });
     }
 
     private void removeSetupPage(final Page page, boolean animate) {
-        if (page == null || getPage(page.getKey()) == null) return;
+        if (page == null || getPage(page.getKey()) == null || page.getId() == R.string.setup_complete) return;
         if (animate) {
             final int position = mViewPager.getCurrentItem();
             mViewPager.setCurrentItem(0);
             mSetupData.removePage(page);
-            mViewPager.setCurrentItem(position);
+            mViewPager.setCurrentItem(position, true);
         } else {
             mSetupData.removePage(page);
         }
@@ -182,11 +213,15 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             public void run() {
                 switch (page.getId()) {
                     case R.string.setup_cmid:
-                        removeSetupPage(page, true);
+                        if (CMIDUtils.getCMIDAccount(SetupWizardActivity.this) != null) {
+                            removeSetupPage(page, false);
+                        } else {
+                            doNext();
+                        }
                         break;
                     case R.string.setup_google_account:
                         if (accountExists(CMID.ACCOUNT_TYPE_GOOGLE)) {
-                            removeSetupPage(page, true);
+                            removeSetupPage(page, false);
                         } else {
                             doNext();
                         }
@@ -300,6 +335,44 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
         public int getCutOffPage() {
             return mCutOffPage;
+        }
+    }
+
+
+
+    public static class DepthPageTransformer implements ViewPager.PageTransformer {
+        private static float MIN_SCALE = 0.5f;
+
+        public void transformPage(View view, float position) {
+            int pageWidth = view.getWidth();
+
+            if (position < -1) {
+                view.setAlpha(0);
+
+            } else if (position <= 0) { // [-1,0]
+                // Use the default slide transition when moving to the left page
+                view.setAlpha(1);
+                view.setTranslationX(0);
+                view.setScaleX(1);
+                view.setScaleY(1);
+
+            } else if (position <= 1) { // (0,1]
+                // Fade the page out.
+                view.setAlpha(1 - position);
+
+                // Counteract the default slide transition
+                view.setTranslationX(pageWidth * -position);
+
+                // Scale the page down (between MIN_SCALE and 1)
+                float scaleFactor = MIN_SCALE
+                        + (1 - MIN_SCALE) * (1 - Math.abs(position));
+                view.setScaleX(scaleFactor);
+                view.setScaleY(scaleFactor);
+
+            } else { // (1,+Infinity]
+                // This page is way off-screen to the right.
+                view.setAlpha(0);
+            }
         }
     }
 }
