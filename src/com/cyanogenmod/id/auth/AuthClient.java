@@ -461,6 +461,13 @@ public class AuthClient {
         }
     }
 
+    public void expireRefreshToken(AccountManager am, Account account) {
+        final String token = am.getUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH);
+        if (!TextUtils.isEmpty(token)) {
+            mAccountManager.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_REFRESH, token);
+        }
+    }
+
     public void storeSymmetricKey(String symmetricKey, String sessionId) {
         // TODO: keys should expire
         if (CMID.DEBUG) Log.d(TAG, "Storing symmetricKey:" + symmetricKey +" for sessionId:" + sessionId);
