@@ -286,6 +286,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
         @Override
         public int getCount() {
+            if (mPageList == null)
+                return 0;
             return Math.min(mCutOffPage, mPageList.size());
         }
 

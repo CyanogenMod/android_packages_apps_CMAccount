@@ -44,7 +44,7 @@
     <string name="cmid_setup_password_mismatch_label">Passwords don\'t match!</string>
     <string name="cmid_setup_password_invalid_label">Password must be at least 8 characters!</string>
     <string name="cmid_setup_confirm_password_label">Confirm password</string>
-    <string name="cmid_setup_tos_label">I agree to the terms of service?</string>
+    <string name="cmid_setup_tos_label">I agree to the terms of service</string>
     <string name="cmid_add_title">Add a CMID Account</string>
     <string name="cmid_add_create_label">Do you want to add an existing CMID or create a new one?</string>
 
