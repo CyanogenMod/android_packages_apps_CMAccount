@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     style="@style/SetupWizardPageContainer">
 
     <TextView style="@style/SetupWizardPageTitle" />

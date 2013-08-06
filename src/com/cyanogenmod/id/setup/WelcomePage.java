@@ -86,7 +86,7 @@ public class WelcomePage extends Page {
 
         @Override
         protected int getLayoutResource() {
-            return R.layout.fragment_welcome_page;
+            return R.layout.setup_welcome_page;
         }
 
     }
