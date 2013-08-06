@@ -39,6 +39,7 @@ public class GCMUtil {
     public static final String COMMAND_KEY_EXCHANGE_FAILED = "key_exchange_failed";
     public static final String COMMAND_SECURE_MESSAGE = "secure_message";
 
+    public static final String COMMAND_PASSWORD_RESET = "password_reset";
     public static final String COMMAND_LOCATE = "begin_locate";
     public static final String COMMAND_WIPE = "begin_wipe";
 

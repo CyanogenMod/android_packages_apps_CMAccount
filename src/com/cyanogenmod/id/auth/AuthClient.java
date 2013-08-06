@@ -1,5 +1,6 @@
 package com.cyanogenmod.id.auth;
 
+import android.content.Intent;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
@@ -326,6 +327,11 @@ public class AuthClient {
                 mInFlightTokenRequest.cancel();
                 mInFlightTokenRequest = null;
             }
+
+            if (refreshToken == null) {
+                tokenCallback.onError(new VolleyError("Missing refresh token"));
+            }
+
             mInFlightTokenRequest = refreshAccessToken(refreshToken,
                     new Listener<AuthTokenResponse>() {
                         @Override
@@ -464,8 +470,18 @@ public class AuthClient {
     public void expireRefreshToken(AccountManager am, Account account) {
         final String token = am.getUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH);
         if (!TextUtils.isEmpty(token)) {
-            mAccountManager.invalidateAuthToken(CMID.AUTHTOKEN_TYPE_REFRESH, token);
+            mAccountManager.setUserData(account, CMID.AUTHTOKEN_TYPE_REFRESH, null);
         }
+    }
+
+    public void clearPassword(Account account) {
+        mAccountManager.clearPassword(account);
+    }
+
+    public void notifyPasswordChange(Account account) {
+        // This seeems hacky, we can probably use AccountManager.updateCredentials, but I can't figure out how to get
+        // the intent back from the AccountManagerFuture.  The callback never seems to get fired.
+        mAccountManager.getAuthToken(account, CMID.ACCOUNT_TYPE_CMID, null, true, null, null);
     }
 
     public void storeSymmetricKey(String symmetricKey, String sessionId) {

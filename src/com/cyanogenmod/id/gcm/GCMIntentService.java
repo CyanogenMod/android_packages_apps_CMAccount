@@ -99,6 +99,8 @@ public class GCMIntentService extends IntentService implements Response.Listener
             handleKeyExchange(deviceId, message.getMessage());
         } else if (GCMUtil.COMMAND_SECURE_MESSAGE.equals(message.getCommand())) {
             handleSecureMessage(context, message);
+        } else if (GCMUtil.COMMAND_PASSWORD_RESET.equals(message.getCommand())) {
+            handlePasswordReset();
         }
     }
 
@@ -200,6 +202,14 @@ public class GCMIntentService extends IntentService implements Response.Listener
         if (GCMUtil.COMMAND_WIPE.equals(message.getCommand())) {
             mAuthClient.destroyDevice(context, sessionId);
         }
+    }
+
+    private void handlePasswordReset() {
+        if (CMID.DEBUG) Log.d(TAG, "Got password reset message, expiring access and refresh tokens");
+        mAuthClient.expireToken(mAccountManager, mAccount);
+        mAuthClient.expireRefreshToken(mAccountManager, mAccount);
+        mAuthClient.clearPassword(mAccount);
+        mAuthClient.notifyPasswordChange(mAccount);
     }
 
     @Override
