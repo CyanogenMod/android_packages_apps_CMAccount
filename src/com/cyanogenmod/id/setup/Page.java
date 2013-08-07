@@ -15,18 +15,12 @@ public abstract class Page implements PageNode {
     private Bundle mData = new Bundle();
     private String mTitle;
     private int mTitleResourceId;
-    private int mImageResourceId = -1;
     private boolean mRequired = false;
     private boolean mCompleted = false;
 
     protected Page(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
-        this(context, callbacks, titleResourceId, -1);
-    }
-
-    protected Page(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResourceId) {
         mCallbacks = callbacks;
         mTitleResourceId = titleResourceId;
-        mImageResourceId = imageResourceId;
         mTitle = context.getString(mTitleResourceId);
     }
 
@@ -84,15 +78,6 @@ public abstract class Page implements PageNode {
     public Page setRequired(boolean required) {
         mRequired = required;
         return this;
-    }
-
-    public Page setImageResourceId(int imageResourceId) {
-        mImageResourceId = imageResourceId;
-        return this;
-    }
-
-    public int getImageResourceId() {
-        return mImageResourceId;
     }
 
 }

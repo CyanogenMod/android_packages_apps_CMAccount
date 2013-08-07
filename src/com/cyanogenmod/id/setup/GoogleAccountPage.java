@@ -17,8 +17,8 @@ public class GoogleAccountPage extends Page {
 
     private static final String TAG = GoogleAccountPage.class.getSimpleName();
 
-    public GoogleAccountPage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResId) {
-        super(context, callbacks, titleResourceId, imageResId);
+    public GoogleAccountPage(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
+        super(context, callbacks, titleResourceId);
     }
 
     @Override

@@ -96,10 +96,6 @@ public class LocationSettingsPage extends Page {
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             mPage = mCallbacks.getPage(mKey);
-            int imageId = mPage.getImageResourceId();
-            if (imageId != -1) {
-                ((ImageView) mRootView.findViewById(R.id.setup_img)).setImageResource(imageId);
-            }
         }
 
         @Override

@@ -18,8 +18,8 @@ import java.util.Locale;
 
 public class WelcomePage extends Page {
 
-    public WelcomePage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResourceId) {
-        super(context, callbacks, titleResourceId, imageResourceId);
+    public WelcomePage(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
+        super(context, callbacks, titleResourceId);
     }
 
     @Override

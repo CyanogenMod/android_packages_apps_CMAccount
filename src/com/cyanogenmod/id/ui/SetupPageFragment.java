@@ -1,17 +1,14 @@
 package com.cyanogenmod.id.ui;
 
-import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.setup.Page;
 import com.cyanogenmod.id.setup.SetupDataCallbacks;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public abstract class SetupPageFragment extends Fragment {
@@ -44,10 +41,6 @@ public abstract class SetupPageFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mPage = mCallbacks.getPage(mKey);
-        int imageId = mPage.getImageResourceId();
-        if (imageId != -1) {
-            ((ImageView) mRootView.findViewById(R.id.setup_img)).setImageResource(imageId);
-        }
         setUpPage();
     }
 

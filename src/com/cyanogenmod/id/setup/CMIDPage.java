@@ -3,23 +3,19 @@ package com.cyanogenmod.id.setup;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.auth.AuthActivity;
-import com.cyanogenmod.id.gcm.GCMService;
 import com.cyanogenmod.id.ui.SetupPageFragment;
-import com.cyanogenmod.id.util.CMIDUtils;
 
-import android.accounts.Account;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 public class CMIDPage extends Page {
 
-    public CMIDPage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResourceId) {
-        super(context, callbacks, titleResourceId, imageResourceId);
+    public CMIDPage(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
+        super(context, callbacks, titleResourceId);
     }
 
     @Override

@@ -9,8 +9,8 @@ import android.os.Bundle;
 
 public class FinishPage extends Page {
 
-    public FinishPage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResId) {
-        super(context, callbacks, titleResourceId, imageResId);
+    public FinishPage(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
+        super(context, callbacks, titleResourceId);
     }
 
     @Override

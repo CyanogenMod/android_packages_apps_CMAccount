@@ -51,8 +51,8 @@ public class DateTimePage extends Page {
     private static final int HOURS_1 = 60 * 60000;
 
 
-    public DateTimePage(Context context, SetupDataCallbacks callbacks, int titleResourceId, int imageResourceId) {
-        super(context, callbacks, titleResourceId, imageResourceId);
+    public DateTimePage(Context context, SetupDataCallbacks callbacks, int titleResourceId) {
+        super(context, callbacks, titleResourceId);
     }
 
     @Override
