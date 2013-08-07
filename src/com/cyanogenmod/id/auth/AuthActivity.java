@@ -134,6 +134,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         setContentView(R.layout.cmid_auth);
         mAccountManager = AccountManager.get(this);
         mAuthClient = AuthClient.getInstance(getApplicationContext());
+        CMIDUtils.hideNotification(this, CMID.NOTIFICATION_ID_PASSWORD_RESET);
         mTitle = (TextView) findViewById(android.R.id.title);
         mFirstNameEdit = (EditText) findViewById(R.id.cmid_firstname);
         mFirstNameEdit.addTextChangedListener(new TextWatcher() {

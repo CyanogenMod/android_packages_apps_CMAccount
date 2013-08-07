@@ -111,7 +111,11 @@ public class Authenticator extends AbstractAccountAuthenticator {
 
     @Override
     public Bundle updateCredentials(AccountAuthenticatorResponse response, Account account, String authTokenType, Bundle loginOptions) throws NetworkErrorException {
-        return null;
+        final Bundle result = new Bundle();
+        final Intent intent = new Intent(mContext, AuthActivity.class);
+        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+        result.putParcelable(AccountManager.KEY_INTENT, intent);
+        return result;
     }
 
     @Override

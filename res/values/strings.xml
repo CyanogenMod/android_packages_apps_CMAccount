@@ -49,6 +49,9 @@
     <string name="cmid_add_title">Add a CMID Account</string>
     <string name="cmid_add_create_label">Do you want to add an existing CMID or create a new one?</string>
 
+    <string name="cmid_password_changed_title">Password Changed</string>
+    <string name="cmid_password_changed_message">Please login to your CMID account</string>
+
     <string name="cmid_login_message">Logging in to CMID</string>
     <string name="cmid_creating_profile_message">Creating your CMID profile</string>
 

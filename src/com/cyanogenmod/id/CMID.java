@@ -1,5 +1,7 @@
 package com.cyanogenmod.id;
 
+import com.cyanogenmod.id.auth.AuthClient;
+
 import android.app.Application;
 import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
@@ -40,6 +42,8 @@ public class CMID extends Application {
     public static final int REQUEST_CODE_SETUP_WIFI = 0;
     public static final int REQUEST_CODE_SETUP_CMID = 1;
 
+    public static final int NOTIFICATION_ID_PASSWORD_RESET = 666;
+
 
     @Override
     public void onCreate() {
@@ -47,6 +51,8 @@ public class CMID extends Application {
         final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), CMIDAdminReceiver.class);
         dpm.setActiveAdmin(deviceAdmin, true);
+        //Warm the auth client instance
+        AuthClient.getInstance(getApplicationContext());
     }
 
     public static class CMIDAdminReceiver extends DeviceAdminReceiver {}

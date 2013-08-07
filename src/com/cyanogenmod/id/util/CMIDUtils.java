@@ -7,6 +7,8 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -70,6 +72,16 @@ public class CMIDUtils {
         final AccountManager am = AccountManager.get(context);
         Account[] accounts = am.getAccountsByType(CMID.ACCOUNT_TYPE_CMID);
         return accounts.length > 0 ? accounts[0] : null;
+    }
+
+    public static void showNotification(Context context, int id, Notification notification) {
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(id, notification);
+    }
+
+    public static void hideNotification(Context context, int id) {
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(id);
     }
 
     public static void tryEnablingWifi(Context context) {

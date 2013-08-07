@@ -1,6 +1,8 @@
 package com.cyanogenmod.id.auth;
 
-import android.content.Intent;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response.ErrorListener;
@@ -9,9 +11,19 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
 import com.cyanogenmod.id.CMID;
-import com.cyanogenmod.id.api.*;
-import com.cyanogenmod.id.gcm.GCMUtil;
+import com.cyanogenmod.id.R;
+import com.cyanogenmod.id.api.AuthTokenRequest;
+import com.cyanogenmod.id.api.AuthTokenResponse;
+import com.cyanogenmod.id.api.CreateProfileRequest;
+import com.cyanogenmod.id.api.CreateProfileResponse;
+import com.cyanogenmod.id.api.PingRequest;
+import com.cyanogenmod.id.api.PingResponse;
+import com.cyanogenmod.id.api.PingService;
+import com.cyanogenmod.id.api.ProfileAvailableRequest;
+import com.cyanogenmod.id.api.ProfileAvailableResponse;
+import com.cyanogenmod.id.api.SendChannelRequest;
 import com.cyanogenmod.id.api.request.SendChannelRequestBody;
+import com.cyanogenmod.id.gcm.GCMUtil;
 import com.cyanogenmod.id.gcm.model.PlaintextMessage;
 import com.cyanogenmod.id.gcm.model.WipeStartedMessage;
 import com.cyanogenmod.id.provider.CMIDProvider;
@@ -24,11 +36,15 @@ import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OnAccountsUpdateListener;
 import android.accounts.OperationCanceledException;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -37,8 +53,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -85,6 +99,8 @@ public class AuthClient {
 
     private Gson mExcludingGson;
     private Gson mGson;
+
+    private final Handler mHandler = new Handler();
 
     private AuthClient(Context context) {
         mContext = context.getApplicationContext();
@@ -374,7 +390,7 @@ public class AuthClient {
             @Override
             public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
                 try {
-                    Bundle bundle =  bundleAccountManagerFuture.getResult();
+                    Bundle bundle = bundleAccountManagerFuture.getResult();
                     String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
                     if (!TextUtils.isEmpty(token)) {
                         tokenCallback.onTokenReceived(token);
@@ -392,7 +408,7 @@ public class AuthClient {
                     tokenCallback.onError(new VolleyError(e));
                 }
             }
-        }, new Handler());
+        }, mHandler);
     }
 
     private String getCarrierName() {
@@ -479,9 +495,31 @@ public class AuthClient {
     }
 
     public void notifyPasswordChange(Account account) {
-        // This seeems hacky, we can probably use AccountManager.updateCredentials, but I can't figure out how to get
-        // the intent back from the AccountManagerFuture.  The callback never seems to get fired.
-        mAccountManager.getAuthToken(account, CMID.ACCOUNT_TYPE_CMID, null, true, null, null);
+        mAccountManager.updateCredentials(account, CMID.ACCOUNT_TYPE_CMID, null, null, new AccountManagerCallback<Bundle>() {
+            @Override
+            public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
+                try {
+                    Bundle bundle = bundleAccountManagerFuture.getResult();
+                    Intent intent = bundle.getParcelable(AccountManager.KEY_INTENT);
+                    PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0,
+                            intent, 0);
+                    Notification notification = new Notification.Builder(mContext)
+                            .setContentTitle(mContext.getText(R.string.cmid_password_changed_title))
+                            .setContentText(mContext.getText(R.string.cmid_password_changed_message))
+                            .setSmallIcon(R.drawable.ic_dialog_alert)
+                            .setLargeIcon(((BitmapDrawable) mContext.getResources().getDrawable(R.drawable.icon)).getBitmap())
+                            .setContentIntent(contentIntent)
+                            .build();
+                    CMIDUtils.showNotification(mContext, CMID.NOTIFICATION_ID_PASSWORD_RESET, notification);
+                } catch (OperationCanceledException e) {
+                    Log.e(TAG, e.toString(), e);
+                } catch (IOException e) {
+                    Log.e(TAG, e.toString(), e);
+                } catch (AuthenticatorException e) {
+                    Log.e(TAG, e.toString(), e);
+                }
+            }
+        }, mHandler);
     }
 
     public void storeSymmetricKey(String symmetricKey, String sessionId) {
