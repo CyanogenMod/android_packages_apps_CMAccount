@@ -237,6 +237,13 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             mConfirmPasswordEdit.setVisibility(View.GONE);
             mTitle.setText(R.string.cmid_setup_login_title);
             mSubmitButton.setText(R.string.login);
+
+            // Prefill the email field if an account already exists, useful in password reset process.
+            Account account = CMIDUtils.getCMIDAccount(this);
+            if (account != null) {
+                mEmailEdit.setText(account.name);
+                mPasswordEdit.requestFocus();
+            }
         }
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
