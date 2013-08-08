@@ -83,8 +83,10 @@ public class DeviceFinderService extends Service implements LocationListener,
         }
 
         // Reset the session
-        Bundle extras = intent.getExtras();
-        if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
+        if (intent != null) {
+            Bundle extras = intent.getExtras();
+            if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
+        }
 
         if (mLocationClient.isConnected()) {
             restartLocationUpdates();
