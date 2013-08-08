@@ -6,6 +6,7 @@
     <string name="app_test">CMID Test Auth</string>
 
     <string name="next">Next</string>
+    <string name="continue_label">Continue</string>
     <string name="prev">Previous</string>
     <string name="skip">Skip</string>
     <string name="finish">Finish</string>
@@ -14,8 +15,8 @@
     <string name="create">Create</string>
     <string name="login">Login</string>
     <string name="ok">Okay</string>
-    <string name="existing">Existing</string>
-    <string name="new_account">New</string>
+    <string name="existing">Log in to existing account</string>
+    <string name="new_account">Create a new account</string>
     <string name="skip_anyway">Skip anyway</string>
     <string name="dont_skip">Don\'t skip</string>
 
@@ -23,8 +24,10 @@
     <string name="account_settings_find_device_summary">Find your device via the CMID website</string>
 
     <string name="setup_complete">Setup is complete</string>
+    <string name="setup_complete_summary">Congratulations! Your device is ready to rumble.</string>
     <string name="setup_welcome">Welcome to Cyanogenmod</string>
-    <string name="setup_cmid">Set up your CMID</string>
+    <string name="setup_welcome_summary">To get started setting up your device, select your language and continue.</string>
+    <string name="setup_cmid">Set up your Cyanogenmod Account</string>
     <string name="setup_sim_missing">Insert SIM card</string>
     <string name="setup_google_account">Google Account</string>
     <string name="setup_location">Location Settings</string>
@@ -33,8 +36,8 @@
     <string name="setup_current_time">Current time</string>
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
 
-    <string name="cmid_setup_create_title">Create a CMID</string>
-    <string name="cmid_setup_login_title">Log in to CMID</string>
+    <string name="cmid_setup_create_title">Create a Cyanogenmod Account</string>
+    <string name="cmid_setup_login_title">Log in to your Cyanogenmod Account</string>
     <string name="cmid_setup_firstname_label">First Name</string>
     <string name="cmid_setup_lastname_label">Last Name</string>
     <string name="cmid_setup_email_label">Email</string>
@@ -47,7 +50,8 @@
     <string name="cmid_setup_confirm_password_label">Confirm password</string>
     <string name="cmid_setup_tos_label">I agree to the terms of service</string>
     <string name="cmid_add_title">Add a CMID Account</string>
-    <string name="cmid_add_create_label">Do you want to add an existing CMID or create a new one?</string>
+    <string name="cmid_add_create_label">A Cyanogenmod Account provides access to value-added services and functionality for your mobile device running Cyanogenmod.</string>
+    <string name="cmid_learn_more">Learn more...</string>
 
     <string name="cmid_password_changed_title">Password Changed</string>
     <string name="cmid_password_changed_message">Please login to your CMID account</string>

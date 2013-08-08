@@ -29,7 +29,7 @@
               android:minHeight="16dip"
               android:layout_marginStart="10dip"
               android:textAppearance="?android:attr/textAppearanceMedium"
-              />
+              style="@style/SetupWizardSpinnerItem"/>
 
     <TextView android:id="@android:id/text2"
               android:layout_width="match_parent"
@@ -38,6 +38,6 @@
               android:layout_below="@android:id/text1"
               android:layout_alignStart="@android:id/text1"
               android:textAppearance="?android:attr/textAppearanceSmall"
-              />
+              style="@style/SetupWizardSpinnerItem"/>
 
 </TwoLineListItem>

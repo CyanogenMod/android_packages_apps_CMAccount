@@ -2,10 +2,12 @@ package com.cyanogenmod.id.setup;
 
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.ui.SetupPageFragment;
+import com.cyanogenmod.id.ui.SetupWizardActivity;
 
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 public class FinishPage extends Page {
 
@@ -32,7 +34,14 @@ public class FinishPage extends Page {
     public static class FinishFragment extends SetupPageFragment {
 
         @Override
-        protected void setUpPage() {}
+        protected void setUpPage() {
+            mRootView.findViewById(R.id.btn_finish).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((SetupWizardActivity)getActivity()).doNext();
+                }
+            });
+        }
 
         @Override
         protected int getLayoutResource() {

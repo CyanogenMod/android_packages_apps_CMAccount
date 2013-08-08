@@ -30,7 +30,6 @@ public class CMIDActivity extends Activity {
 
             }
         });
-        ((ImageView) findViewById(R.id.setup_img)).setImageResource(R.drawable.cid_cmid);
     }
 
     @Override

@@ -5,7 +5,9 @@
             android:title="@string/location_access_title"
             android:summary="@string/location_access_summary"
             android:key="location_toggle"
-            android:defaultValue="false"/>
+            android:defaultValue="false"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"/>
 
     <PreferenceCategory
             android:key="location_sources"

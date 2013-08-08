@@ -1,22 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              style="@style/SetupWizardPageContainer">
+              style="@style/SetupWizardCard.Composite">
 
     <TextView style="@style/SetupWizardPageTitle" />
 
-    <ImageView android:id="@+id/setup_img"
+    <ImageView android:id="@+id/divider"
+               android:src="@drawable/mod_divider_trans"
+               android:layout_height="72dp"
                android:layout_width="match_parent"
-               android:layout_height="0px"
-               android:layout_weight="1"
-               android:scaleType="fitCenter"
-               android:padding="10dp"/>
+               android:scaleType="fitCenter"/>
+
 
     <TextView style="@style/SetupWizardPageSummary" />
 
+    <View android:layout_height="1px"
+          android:layout_width="match_parent"
+          android:layout_weight="1"/>
+
     <Button android:id="@+id/google_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            style="@style/ActionButton"
             android:text="@string/btn_google_account"/>
+
+    <View android:layout_height="1px"
+          android:layout_width="match_parent"
+          android:layout_weight="1"/>
+
 </LinearLayout>

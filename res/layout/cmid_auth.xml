@@ -5,9 +5,15 @@
             style="@style/RootLayout">
     <LinearLayout
             android:orientation="vertical"
-            style="@style/SetupWizardPageContainer">
+            style="@style/SetupWizardCard.Composite">
 
         <TextView style="@style/SetupWizardPageTitle" />
+
+        <ImageView android:id="@+id/divider"
+                   android:src="@drawable/mod_divider_trans"
+                   android:layout_height="72dp"
+                   android:layout_width="match_parent"
+                   android:scaleType="fitCenter"/>
 
         <EditText
                 android:id="@+id/cmid_firstname"
@@ -16,7 +22,8 @@
                 android:contentDescription="@string/cmid_setup_firstname_label"
                 android:inputType="textPersonName"
                 android:imeOptions="actionNext"
-                android:hint="@string/cmid_setup_firstname_label"/>
+                android:hint="@string/cmid_setup_firstname_label"
+                style="@style/EditText"/>
 
         <EditText
                 android:id="@+id/cmid_lastname"
@@ -25,7 +32,8 @@
                 android:contentDescription="@string/cmid_setup_lastname_label"
                 android:inputType="textPersonName"
                 android:imeOptions="actionNext"
-                android:hint="@string/cmid_setup_lastname_label"/>
+                android:hint="@string/cmid_setup_lastname_label"
+                style="@style/EditText"/>
 
         <EditText
                 android:id="@+id/cmid_email"
@@ -34,7 +42,8 @@
                 android:contentDescription="@string/cmid_setup_email_label"
                 android:inputType="textEmailAddress"
                 android:imeOptions="actionNext"
-                android:hint="@string/cmid_setup_email_label"/>
+                android:hint="@string/cmid_setup_email_label"
+                style="@style/EditText"/>
 
         <EditText
                 android:id="@+id/cmid_password"
@@ -42,14 +51,16 @@
                 android:layout_width="match_parent"
                 android:contentDescription="@string/cmid_setup_password_label"
                 android:inputType="textPassword"
-                android:hint="@string/cmid_setup_password_label"/>
+                android:hint="@string/cmid_setup_password_label"
+                style="@style/EditText"/>
         <EditText
                 android:id="@+id/cmid_confirm_password"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:contentDescription="@string/cmid_setup_confirm_password_label"
                 android:inputType="textPassword"
-                android:hint="@string/cmid_setup_confirm_password_label"/>
+                android:hint="@string/cmid_setup_confirm_password_label"
+                style="@style/EditText"/>
 
         <CheckBox
                 android:id="@+id/cmid_tos"
@@ -57,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?android:attr/textColorPrimary" />
+                style="@style/EditText"/>
 
         <LinearLayout
                 android:id="@+id/back_button"
@@ -68,17 +79,27 @@
 
             <Button
                     android:id="@+id/cancel_button"
-                    android:layout_width="150dip"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dip"
-                    android:text="@string/cancel"/>
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="left"
+                    android:text="@string/cancel"
+                    style="@style/ActionButton"/>
+
+            <View android:layout_height="1px"
+                  android:layout_width="match_parent"
+                  android:layout_weight="1"/>
 
             <Button
                     android:id="@+id/submit_button"
-                    android:layout_width="150dip"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dip"
-                    android:text="@string/login" />
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="right"
+                    android:text="@string/login"
+                    style="@style/ActionButton"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -5,4 +5,6 @@
     <dimen name="actionbar_icon_size">50dp</dimen>
     <dimen name="actionbar_title_text_size">22sp</dimen>
     <dimen name="actionbar_title_top_margin">5dp</dimen>
+    <dimen name="page_top_margin">50dp</dimen>
+    <dimen name="title_top_margin">10dp</dimen>
 </resources>

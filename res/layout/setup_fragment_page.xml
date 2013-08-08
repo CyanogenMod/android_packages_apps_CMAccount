@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              style="@style/SetupWizardPageContainer">
+              style="@style/SetupWizardCard.Composite">
 
     <TextView style="@style/SetupWizardPageTitle" />
 

@@ -1,75 +1,101 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              style="@style/SetupWizardPageContainer">
+              style="@style/SetupWizardCard.Composite">
 
     <TextView style="@style/SetupWizardPageTitle" />
 
-    <ImageView android:id="@+id/setup_img"
+    <ImageView android:id="@+id/divider"
+               android:src="@drawable/mod_divider_trans"
+               android:layout_height="72dp"
                android:layout_width="match_parent"
-               android:layout_height="0px"
-               android:layout_weight="1"
-               android:scaleType="fitCenter"
-               android:padding="10dp"/>
+               android:scaleType="fitCenter"/>
 
-    <Spinner android:id="@+id/timezone_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:saveEnabled="false"/>
-
-    <TwoLineListItem android:id="@+id/date_item"
-                     android:layout_width="match_parent"
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_weight="1"
+            android:fillViewport="true">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Spinner android:id="@+id/timezone_list"
+                     android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:minHeight="?android:attr/listPreferredItemHeight"
-                     android:mode="twoLine"
-                     android:clickable="true"
-                     android:gravity="center_vertical">
+                     android:layout_marginTop="20dp"
+                     android:layout_marginBottom="20dp"
+                     android:saveEnabled="false"/>
 
-        <TextView android:id="@+id/date_title"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:minHeight="16dip"
-                  android:layout_marginStart="10dip"
-                  android:textAppearance="?android:attr/textAppearanceMedium"
-                  android:text="@string/setup_current_date"/>
+            <TwoLineListItem android:id="@+id/date_item"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:minHeight="?android:attr/listPreferredItemHeight"
+                             android:mode="twoLine"
+                             android:clickable="true"
+                             android:background="?android:attr/actionBarItemBackground"
+                             android:gravity="center_vertical">
 
-        <TextView android:id="@+id/date_text"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:minHeight="10dip"
-                  android:layout_below="@id/date_title"
-                  android:layout_alignStart="@id/date_title"
-                  android:textAppearance="?android:attr/textAppearanceSmall"
-                />
+                <TextView android:id="@+id/date_title"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="16dip"
+                          android:layout_marginStart="10dip"
+                          android:textAppearance="?android:attr/textAppearanceMedium"
+                          android:text="@string/setup_current_date"
+                          style="@style/SetupWizardSpinnerItem"/>
 
-    </TwoLineListItem>
+                <TextView android:id="@+id/date_text"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="10dip"
+                          android:layout_below="@id/date_title"
+                          android:layout_alignStart="@id/date_title"
+                          android:textAppearance="?android:attr/textAppearanceSmall"
+                          style="@style/SetupWizardSpinnerItem"/>
 
-    <TwoLineListItem android:id="@+id/time_item"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:minHeight="?android:attr/listPreferredItemHeight"
-                     android:mode="twoLine"
-                     android:clickable="true"
-                     android:gravity="center_vertical">
+            </TwoLineListItem>
 
-        <TextView android:id="@+id/time_title"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:minHeight="16dip"
-                  android:layout_marginStart="10dip"
-                  android:textAppearance="?android:attr/textAppearanceMedium"
-                  android:text="@string/setup_current_time"/>
+            <View android:id="@+id/divider"
+                  android:background="?android:attr/dividerHorizontal"
+                  android:layout_marginTop="3dp"
+                  android:layout_height="1dp"
+                  android:layout_width="match_parent" />
 
-        <TextView android:id="@+id/time_text"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:minHeight="10dip"
-                  android:layout_below="@id/time_title"
-                  android:layout_alignStart="@id/time_title"
-                  android:textAppearance="?android:attr/textAppearanceSmall"
-                />
+            <TwoLineListItem android:id="@+id/time_item"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:minHeight="?android:attr/listPreferredItemHeight"
+                             android:mode="twoLine"
+                             android:clickable="true"
+                             android:background="?android:attr/actionBarItemBackground"
+                             android:gravity="center_vertical">
 
-    </TwoLineListItem>
+                <TextView android:id="@+id/time_title"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="16dip"
+                          android:layout_marginStart="10dip"
+                          android:textAppearance="?android:attr/textAppearanceMedium"
+                          android:text="@string/setup_current_time"
+                          style="@style/SetupWizardSpinnerItem"/>
+
+                <TextView android:id="@+id/time_text"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="10dip"
+                          android:layout_below="@id/time_title"
+                          android:layout_alignStart="@id/time_title"
+                          android:textAppearance="?android:attr/textAppearanceSmall"
+                          style="@style/SetupWizardSpinnerItem"/>
+
+            </TwoLineListItem>
+
+            <View android:id="@+id/divider"
+                  android:background="?android:attr/dividerHorizontal"
+                  android:layout_marginTop="3dp"
+                  android:layout_height="1dp"
+                  android:layout_width="match_parent" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

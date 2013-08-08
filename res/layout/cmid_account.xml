@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              style="@style/SetupWizardPageContainer">
+              style="@style/SetupWizardCard.Composite">
 
     <TextView style="@style/SetupWizardPageTitle"
               android:text="@string/cmid_add_title"/>
 
-    <TextView android:id="@+id/cmid_add_create"
-              android:text="@string/cmid_add_create_label"
-              android:layout_height="wrap_content"
-              android:layout_width="match_parent"
-              android:layout_margin="5dip"
-              android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-    <ImageView android:id="@+id/setup_img"
+    <ImageView android:id="@+id/divider"
+               android:src="@drawable/mod_divider_trans"
+               android:layout_height="72dp"
                android:layout_width="match_parent"
-               android:layout_height="0px"
-               android:layout_weight="1"
-               android:scaleType="fitCenter"
-               android:padding="10dp"/>
+               android:scaleType="fitCenter"/>
 
+    <TextView style="@style/SetupWizardPageSummary"
+              android:text="@string/cmid_add_create_label"/>
+
+    <Button style="@style/SetupWizardPageLink"
+              android:text="@string/cmid_learn_more"/>
+
+    <View android:id="@+id/divider"
+          android:background="?android:attr/dividerHorizontal"
+          android:layout_marginTop="3dp"
+          android:layout_marginBottom="5dp"
+          android:layout_height="1dp"
+          android:layout_width="match_parent" />
+
+    <View android:layout_height="1px"
+          android:layout_width="match_parent"
+          android:layout_weight="1"/>
 
     <Button android:id="@+id/existing_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dip"
-            android:text="@string/existing"/>
+            android:text="@string/existing"
+            style="@style/ActionButton"/>
 
     <Button android:id="@+id/new_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dip"
-            android:layout_marginBottom="20dp"
-            android:text="@string/new_account"/>
+            android:layout_marginTop="8dp"
+            android:text="@string/new_account"
+            style="@style/ActionButton"/>
+
+    <View android:layout_height="1px"
+          android:layout_width="match_parent"
+          android:layout_weight="1"/>
 
 </LinearLayout>

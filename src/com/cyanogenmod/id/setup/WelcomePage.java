@@ -4,6 +4,7 @@ package com.cyanogenmod.id.setup;
 import com.android.internal.app.LocalePicker;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.ui.SetupPageFragment;
+import com.cyanogenmod.id.ui.SetupWizardActivity;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -34,7 +35,7 @@ public class WelcomePage extends Page {
 
     @Override
     public int getNextButtonResId() {
-        return R.string.next;
+        return -1;
     }
 
     public static class WelcomeFragment extends SetupPageFragment {
@@ -80,6 +81,12 @@ public class WelcomePage extends Page {
                         public void onNothingSelected(AdapterView<?> adapterView) {
                         }
                     });
+                }
+            });
+            mRootView.findViewById(R.id.btn_continue).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((SetupWizardActivity)getActivity()).doNext();
                 }
             });
         }

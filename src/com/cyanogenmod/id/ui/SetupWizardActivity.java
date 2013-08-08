@@ -164,8 +164,17 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private void updateNextPreviousState() {
         final int position = mViewPager.getCurrentItem();
         final Page currentPage = mPageList.get(position);
+        final int nextButtonResId = currentPage.getNextButtonResId();
         // onCreateOptionsMenu happens post create/resume. So this could initially be null;
-        if (mNextMenuItem != null) mNextMenuItem.setTitle(currentPage.getNextButtonResId());
+        if (mNextMenuItem != null) {
+            if (nextButtonResId != -1) {
+                mNextMenuItem.setEnabled(true);
+                mNextMenuItem.setTitle(nextButtonResId);
+            } else {
+                mNextMenuItem.setEnabled(false);
+                mNextMenuItem.setTitle("");
+            }
+        }
     }
 
     @Override
