@@ -316,7 +316,12 @@ public class AuthClient {
             }
         };
         mAccountManager.addOnAccountsUpdatedListener(mAccountsUpdateListener, new Handler(), false);
-        accountManager.addAccountExplicitly(account, password, null);
+        Boolean newAccount = accountManager.addAccountExplicitly(account, password, null);
+
+        // If we ended up not actually adding an account, we can assume the user changed their password, so save it.
+        if (!newAccount) {
+            accountManager.setPassword(account, password);
+        }
         updateLocalAccount(accountManager, account, response);
     }
 
