@@ -160,8 +160,12 @@ public class DeviceFinderService extends Service implements LocationListener,
 
     @Override
     public void onErrorResponse(VolleyError volleyError) {
-        int statusCode = volleyError.networkResponse.statusCode;
-        if (CMID.DEBUG) Log.v(TAG, "Location post error status = "+ statusCode);
+        if (volleyError.networkResponse != null) {
+            int statusCode = volleyError.networkResponse.statusCode;
+            if (CMID.DEBUG) Log.v(TAG, "Location post error status = "+ statusCode);
+        } else {
+            if (CMID.DEBUG) Log.v(TAG, "Location post error, no network response");
+        }
         volleyError.printStackTrace();
         mLocationClient.disconnect();
         stopSelf();
