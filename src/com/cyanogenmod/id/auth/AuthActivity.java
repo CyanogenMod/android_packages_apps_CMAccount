@@ -1,15 +1,13 @@
 package com.cyanogenmod.id.auth;
 
-import com.google.gson.Gson;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.api.AuthTokenResponse;
-import com.cyanogenmod.id.api.CheckProfileResponse;
 import com.cyanogenmod.id.api.CreateProfileResponse;
+import com.cyanogenmod.id.api.ErrorResponse;
 import com.cyanogenmod.id.api.ProfileAvailableResponse;
 import com.cyanogenmod.id.util.CMIDUtils;
 
@@ -20,16 +18,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -47,6 +41,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private static final int DIALOG_CREATE_ACCOUNT = 1;
     private static final int DIALOG_SERVER_ERROR = 2;
     private static final int DIALOG_NO_NETWORK_WARNING = 3;
+    private static final int DIALOG_ERROR_CREATING_ACCOUNT = 4;
+    private static final int DIALOG_ERROR_LOGIN = 5;
 
     private static final int MIN_PASSWORD_LENGTH = 8;
 
@@ -81,7 +77,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private String mEmailUnavailableText;
 
     private Dialog mDialog;
-    private AuthServerError mAuthServerError;
 
     private Request<?> mInFlightRequest;
 
@@ -106,7 +101,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private Response.Listener<ProfileAvailableResponse> mProfileAvailableResponseListener = new Response.Listener<ProfileAvailableResponse>() {
         @Override
         public void onResponse(ProfileAvailableResponse profileAvailableResponse) {
-            handleCheckProfileResponse(profileAvailableResponse);
+            mEmailAvailable = profileAvailableResponse.emailAvailable();
+            validateFields();
             mInFlightRequest = null;
         }
     };
@@ -297,18 +293,15 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     @Override
     public void onErrorResponse(VolleyError error) {
         hideProgress();
-        if (error.networkResponse != null && error.networkResponse.statusCode != 500) {
+        if (error.networkResponse != null && error.networkResponse.statusCode < 404) {
             String errorJson = new String(error.networkResponse.data);
             if (CMID.DEBUG) Log.d(TAG, errorJson);
-            final Gson gson = new Gson();
-            mAuthServerError = gson.fromJson(errorJson, AuthServerError.class);
+            showDialog(mCreateNewAccount ? DIALOG_ERROR_CREATING_ACCOUNT : DIALOG_ERROR_LOGIN);
         } else {
-            if (CMID.DEBUG) Log.e(TAG, "Error Authorizing CMID", error.fillInStackTrace());
-            final String errorMessage = error.getMessage();
-            mAuthServerError = new AuthServerError(getString(R.string.cmid_server_error_title), errorMessage == null ? getString(R.string.cmid_server_error_message) : error.getMessage());
+            if (CMID.DEBUG) Log.e(TAG, "CMID Server Error: ", error.fillInStackTrace());
+            showDialog(DIALOG_SERVER_ERROR);
         }
         mInFlightRequest = null;
-        showDialog(DIALOG_SERVER_ERROR);
     }
 
     @Override
@@ -322,8 +315,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         switch (id) {
             case DIALOG_SERVER_ERROR:
                 mDialog = new AlertDialog.Builder(this)
-                        .setTitle(R.string.cmid_login_error_title)
-                        .setMessage(mAuthServerError.getErrorDescription())
+                        .setTitle(R.string.cmid_server_error_title)
+                        .setMessage(R.string.cmid_server_error_message)
                         .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -374,6 +367,30 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                 });
                 mDialog = dialog;
                 return dialog;
+            case DIALOG_ERROR_CREATING_ACCOUNT:
+                mDialog = new AlertDialog.Builder(this)
+                        .setTitle(R.string.cmid_create_account_error_title)
+                        .setMessage(R.string.cmid_server_error_message)
+                        .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .create();
+                return mDialog;
+            case DIALOG_ERROR_LOGIN:
+                mDialog = new AlertDialog.Builder(this)
+                        .setTitle(R.string.cmid_login_error_title)
+                        .setMessage(R.string.cmid_login_error_message)
+                        .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .create();
+                return mDialog;
             default:
                 return super.onCreateDialog(id, args);
         }
@@ -429,7 +446,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     }
 
     private boolean validEmail(String email) {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        return CMIDUtils.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     private void trimFields() {
@@ -473,14 +490,21 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         }
     }
 
-    private void handleCheckProfileResponse(CheckProfileResponse checkProfileResponse) {
-        mEmailAvailable = checkProfileResponse.emailAvailable();
-        validateFields();
-    }
-
     private void handleProfileCreation(CreateProfileResponse response) {
         if (response.hasErrors()) {
-            handleCheckProfileResponse(response.getErrors());
+            for (ErrorResponse errorResponse : response.getErrors()) {
+                if (ErrorResponse.ERROR_CODE_INVALID_EMAIL_FORMAT == errorResponse.getCode()) {
+                    mEmailInvalid = true;
+                    validateFields();
+                    mEmailEdit.requestFocus();
+                } else if (ErrorResponse.ERROR_CODE_EMAIL_IN_USE == errorResponse.getCode()) {
+                    mEmailAvailable = false;
+                    validateFields();
+                    mEmailEdit.requestFocus();
+                } else {
+                   showDialog(DIALOG_ERROR_CREATING_ACCOUNT);
+                }
+            }
         } else {
             login();
         }

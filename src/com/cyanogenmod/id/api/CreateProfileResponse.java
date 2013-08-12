@@ -1,9 +1,7 @@
 package com.cyanogenmod.id.api;
 
-import com.cyanogenmod.id.api.CheckProfileResponse;
-
 public class CreateProfileResponse {
-    private Errors errors;
+    private ErrorResponse[] errors;
     private String first_name;
     private String last_name;
     private String id;
@@ -26,24 +24,11 @@ public class CreateProfileResponse {
     }
 
     public boolean hasErrors() {
-        return errors != null;
+        return errors != null && errors.length > 0;
     }
 
-    public Errors getErrors() {
+    public ErrorResponse[] getErrors() {
         return errors;
     }
 
-    public static class Errors implements CheckProfileResponse {
-        private static final String NA = "not_available";
-        private String email;
-
-        public String getEmail() {
-            return email;
-        }
-
-        @Override
-        public boolean emailAvailable() {
-            return !NA.equals(email);
-        }
-    }
 }

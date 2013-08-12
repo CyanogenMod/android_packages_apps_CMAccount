@@ -29,11 +29,23 @@ import java.security.MessageDigest;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 public class CMIDUtils {
 
     private static final String TAG = CMIDUtils.class.getSimpleName();
     private static final Random sRandom = new Random();
+
+    public static final Pattern EMAIL_ADDRESS
+            = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[A-Za-z]{2,6}" +
+                    ")+"
+    );
 
     private static final String KEY_UDID = "udid";
 

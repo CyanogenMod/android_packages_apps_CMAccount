@@ -63,8 +63,10 @@
     <string name="cmid_account_pref_summary">Change your cmid settings</string>
 
     <string name="cmid_login_error_title">Login Failed</string>
+    <string name="cmid_login_error_message">Invalid email or password.</string>
     <string name="cmid_server_error_title">Server Error</string>
-    <string name="cmid_server_error_message">An error has occurred</string>
+    <string name="cmid_create_account_error_title">Error creating account</string>
+    <string name="cmid_server_error_message">An error has occurred communicating with the server. Please try again later.</string>
 
     <string name="cmid_error_multiple_accounts">Only one CMID allowed on a device</string>
 
