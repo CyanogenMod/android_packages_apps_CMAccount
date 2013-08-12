@@ -3,7 +3,10 @@ package com.cyanogenmod.id.setup;
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
 import com.cyanogenmod.id.auth.AuthActivity;
+import com.cyanogenmod.id.auth.AuthClient;
+import com.cyanogenmod.id.ui.WebViewDialogFragment;
 import com.cyanogenmod.id.ui.SetupPageFragment;
+import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -39,6 +42,8 @@ public class CMIDPage extends Page {
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
             if (requestCode == CMID.REQUEST_CODE_SETUP_CMID && resultCode == Activity.RESULT_OK) {
                 mCallbacks.onPageFinished(mPage);
+            } else if (requestCode == CMID.REQUEST_CODE_SETUP_WIFI && resultCode == Activity.RESULT_OK) {
+                showLearnMoreDialog();
             }
         }
 
@@ -56,6 +61,16 @@ public class CMIDPage extends Page {
                     createCMID();
                 }
             });
+            mRootView.findViewById(R.id.learn_more_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!CMIDUtils.isNetworkConnected(getActivity())) {
+                        CMIDUtils.launchWifiSetup(CMIDFragment.this);
+                    } else {
+                        showLearnMoreDialog();
+                    }
+                }
+            });
         }
 
         private void createCMID() {
@@ -66,6 +81,10 @@ public class CMIDPage extends Page {
 
         private void loginCMID() {
             startActivityForResult(new Intent(getActivity(), AuthActivity.class), CMID.REQUEST_CODE_SETUP_CMID);
+        }
+
+        private void showLearnMoreDialog() {
+            WebViewDialogFragment.newInstance().setUri(AuthClient.CMID_LEARN_MORE_URI).show(getFragmentManager(), WebViewDialogFragment.TAG);
         }
 
         @Override

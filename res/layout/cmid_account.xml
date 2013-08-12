@@ -15,7 +15,8 @@
     <TextView style="@style/SetupWizardPageSummary"
               android:text="@string/cmid_add_create_label"/>
 
-    <Button style="@style/SetupWizardPageLink"
+    <Button android:id="@+id/learn_more_button"
+            style="@style/SetupWizardPageLink"
               android:text="@string/cmid_learn_more"/>
 
     <View android:id="@+id/divider"

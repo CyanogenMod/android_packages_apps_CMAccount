@@ -69,6 +69,9 @@ public class AuthClient {
     private static final String PING_METHOD = "/ping";
     private static final String SECMSG_METHOD = "/secmsg";
     private static final String SEND_CHANNEL_METHOD = "/send_channel";
+    private static final String HELP_PATH = "/help";
+    private static final String PRIVACY_POLICY_PATH = "/privacy_policy";
+    private static final String TOS_PATH = "/terms_of_service";
     private static final String CMID_URI = "https://cmid-devel.appspot.com";
     private static final String SERVER_URI = getServerURI();
 
@@ -77,6 +80,9 @@ public class AuthClient {
     public static final String PROFILE_AVAILABLE_URI = SERVER_URI + API_ROOT + ACCOUNT_METHOD + AVAILABLE_METHOD;
     public static final String PING_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + PING_METHOD;
     public static final String SEND_CHANNEL_URI = SERVER_URI + API_ROOT + SECMSG_METHOD + SEND_CHANNEL_METHOD;
+    public static final String CMID_LEARN_MORE_URI = SERVER_URI + HELP_PATH;
+    public static final String TOS_URI = SERVER_URI + HELP_PATH + TOS_PATH;
+    public static final String PRIVACY_POLICY_URI = SERVER_URI + HELP_PATH + PRIVACY_POLICY_PATH;
 
     private static final String CLIENT_ID = "8001";
     private static final String SECRET = "b93bb90299bb46f3bafdd6ca630c8f3c";
