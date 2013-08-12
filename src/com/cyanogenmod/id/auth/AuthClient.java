@@ -62,7 +62,7 @@ public class AuthClient {
     private static final String TAG = AuthClient.class.getSimpleName();
     private static final int API_VERSION = 1;
     private static final String API_ROOT = "/api/v" + API_VERSION;
-    private static final String ACCOUNT_METHOD = "/profile";
+    private static final String ACCOUNT_METHOD = "/account";
     private static final String REGISTER_METHOD = "/register";
     private static final String AVAILABLE_METHOD = "/available";
     private static final String DEVICE_METHOD = "/device";
