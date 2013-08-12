@@ -7,6 +7,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Fragment;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -103,8 +104,7 @@ public class CMIDUtils {
         }
     }
 
-    public static void launchWifiSetup(Activity context) {
-        CMIDUtils.tryEnablingWifi(context);
+    private static Intent getWifiSetupIntent(Context context) {
         Intent intent = new Intent(CMID.ACTION_SETUP_WIFI);
         intent.putExtra(CMID.EXTRA_FIRST_RUN, true);
         intent.putExtra(CMID.EXTRA_ALLOW_SKIP, true);
@@ -113,7 +113,20 @@ public class CMIDUtils {
         intent.putExtra(CMID.EXTRA_SHOW_SKIP, true);
         intent.putExtra(CMID.EXTRA_AUTO_FINISH, true);
         intent.putExtra(CMID.EXTRA_PREF_BACK_TEXT, context.getString(R.string.skip));
+        return intent;
+    }
+
+    public static void launchWifiSetup(Activity context) {
+        CMIDUtils.tryEnablingWifi(context);
+        Intent intent = getWifiSetupIntent(context);
         context.startActivityForResult(intent, CMID.REQUEST_CODE_SETUP_WIFI);
+    }
+
+    public static void launchWifiSetup(Fragment fragment) {
+        final Context context = fragment.getActivity();
+        CMIDUtils.tryEnablingWifi(context);
+        Intent intent = getWifiSetupIntent(context);
+        fragment.startActivityForResult(intent, CMID.REQUEST_CODE_SETUP_WIFI);
     }
 
     public static boolean isNetworkConnected(Context context) {
