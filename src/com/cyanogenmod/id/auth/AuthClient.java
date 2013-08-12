@@ -62,7 +62,7 @@ public class AuthClient {
     private static final String TAG = AuthClient.class.getSimpleName();
     private static final int API_VERSION = 1;
     private static final String API_ROOT = "/api/v" + API_VERSION;
-    private static final String PROFILE_METHOD = "/profile";
+    private static final String ACCOUNT_METHOD = "/profile";
     private static final String REGISTER_METHOD = "/register";
     private static final String AVAILABLE_METHOD = "/available";
     private static final String DEVICE_METHOD = "/device";
@@ -73,8 +73,8 @@ public class AuthClient {
     private static final String SERVER_URI = getServerURI();
 
     public static final String AUTH_URI = SERVER_URI + "/oauth2/token";
-    public static final String REGISTER_PROFILE_URI = SERVER_URI + API_ROOT + PROFILE_METHOD + REGISTER_METHOD;
-    public static final String PROFILE_AVAILABLE_URI = SERVER_URI + API_ROOT + PROFILE_METHOD + AVAILABLE_METHOD;
+    public static final String REGISTER_PROFILE_URI = SERVER_URI + API_ROOT + ACCOUNT_METHOD + REGISTER_METHOD;
+    public static final String PROFILE_AVAILABLE_URI = SERVER_URI + API_ROOT + ACCOUNT_METHOD + AVAILABLE_METHOD;
     public static final String PING_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + PING_METHOD;
     public static final String SEND_CHANNEL_URI = SERVER_URI + API_ROOT + SECMSG_METHOD + SEND_CHANNEL_METHOD;
 
