@@ -64,7 +64,6 @@
 
         <CheckBox
                 android:id="@+id/cmid_tos"
-                android:text="@string/cmid_setup_tos_label"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textAppearance="?android:attr/textAppearanceMedium"

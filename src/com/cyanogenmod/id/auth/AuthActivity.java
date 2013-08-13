@@ -9,6 +9,7 @@ import com.cyanogenmod.id.api.AuthTokenResponse;
 import com.cyanogenmod.id.api.CreateProfileResponse;
 import com.cyanogenmod.id.api.ErrorResponse;
 import com.cyanogenmod.id.api.ProfileAvailableResponse;
+import com.cyanogenmod.id.ui.WebViewDialogFragment;
 import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.Account;
@@ -22,7 +23,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -207,6 +213,9 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         mCancelButton = (Button) findViewById(R.id.cancel_button);
         mSubmitButton = (Button) findViewById(R.id.submit_button);
         mCheckBox = (CheckBox) findViewById(R.id.cmid_tos);
+        mCheckBox.setText(buildTermsLabel());
+        mCheckBox.setLinksClickable(true);
+        mCheckBox.setMovementMethod(LinkMovementMethod.getInstance());
         mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -527,6 +536,25 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         intent.putExtras(result);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    private SpannableStringBuilder buildTermsLabel() {
+        String s = getString(R.string.cmid_setup_tos_label, "<u>", "</u>");
+        CharSequence label = Html.fromHtml(s);
+        SpannableStringBuilder builder = new SpannableStringBuilder(label);
+        UnderlineSpan[] underlines = builder.getSpans(0, label.length(), UnderlineSpan.class);
+        for(UnderlineSpan span : underlines) {
+            int start = builder.getSpanStart(span);
+            int end = builder.getSpanEnd(span);
+            int flags = builder.getSpanFlags(span);
+            ClickableSpan termsLauncher = new ClickableSpan() {
+                public void onClick(View view) {
+                    WebViewDialogFragment.newInstance().setUri(AuthClient.TOS_URI).show(getFragmentManager(), WebViewDialogFragment.TAG);
+                }
+            };
+            builder.setSpan(termsLauncher, start, end, flags);
+        }
+        return builder;
     }
 
 }
