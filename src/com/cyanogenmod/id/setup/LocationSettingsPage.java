@@ -1,10 +1,9 @@
 package com.cyanogenmod.id.setup;
 
 
-import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
+import com.cyanogenmod.id.ui.SetupPageFragment;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.ContentQueryMap;
 import android.content.ContentResolver;
@@ -12,26 +11,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.CheckBox;
+import android.widget.Switch;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public class LocationSettingsPage extends Page {
-
-    private static final String KEY_LOCATION_TOGGLE = "location_toggle";
-    private static final String KEY_LOCATION_NETWORK = "location_network";
-    private static final String KEY_LOCATION_GPS = "location_gps";
 
     private static final String TAG = LocationSettingsPage.class.getSimpleName();
 
@@ -54,74 +42,75 @@ public class LocationSettingsPage extends Page {
         return R.string.next;
     }
 
-    // Logic kanged from settings app
-    public static class LocationSettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
+    public static class LocationSettingsFragment extends SetupPageFragment {
 
-        private CheckBoxPreference mNetwork;
-        private CheckBoxPreference mGps;
-        private SwitchPreference mLocationAccess;
+        private View mLocationRow;
+        private View mGpsRow;
+        private View mNetworkRow;
+        private CheckBox mNetwork;
+        private CheckBox mGps;
+        private Switch mLocationAccess;
 
-        private SetupDataCallbacks mCallbacks;
-        private String mKey;
-        private Page mPage;
-        private View mRootView;
+        private ContentResolver mContentResolver;
 
         // These provide support for receiving notification when Location Manager settings change.
         // This is necessary because the Network Location Provider can change settings
         // if the user does not confirm enabling the provider.
         private ContentQueryMap mContentQueryMap;
-
         private Observer mSettingsObserver;
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            Bundle args = getArguments();
-            mKey = args.getString(Page.KEY_PAGE_ARGUMENT);
-            if (mKey == null) {
-                throw new IllegalArgumentException("No KEY_PAGE_ARGUMENT given");
-            }
-        }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            mRootView = inflater.inflate(R.layout.setup_preference_page, container, false);
-            TextView titleView = (TextView) mRootView.findViewById(android.R.id.title);
-            titleView.setText(mKey);
-            return mRootView;
-        }
+        private View.OnClickListener mLocationClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onToggleLocationAccess(!mLocationAccess.isChecked());
+            }
+        };
+
+        private View.OnClickListener mGpsClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Settings.Secure.setLocationProviderEnabled(mContentResolver,
+                        LocationManager.GPS_PROVIDER, !mGps.isChecked());
+            }
+        };
+
+        private View.OnClickListener mNetworkClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Settings.Secure.setLocationProviderEnabled(mContentResolver,
+                        LocationManager.NETWORK_PROVIDER, !mNetwork.isChecked());
+            }
+        };
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            mPage = mCallbacks.getPage(mKey);
+            mContentResolver = getActivity().getContentResolver();
         }
 
         @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            if (!(activity instanceof SetupDataCallbacks)) {
-                throw new ClassCastException("Activity implement SetupDataCallbacks");
-            }
-            mCallbacks = (SetupDataCallbacks) activity;
+        protected void setUpPage() {
+            mLocationRow = mRootView.findViewById(R.id.location);
+            mLocationRow.setOnClickListener(mLocationClickListener);
+            mLocationAccess = (Switch) mRootView.findViewById(R.id.location_switch);
+            mGpsRow = mRootView.findViewById(R.id.gps);
+            mGpsRow.setOnClickListener(mGpsClickListener);
+            mGps = (CheckBox) mRootView.findViewById(R.id.gps_checkbox);
+            mNetworkRow = mRootView.findViewById(R.id.network);
+            mNetworkRow.setOnClickListener(mNetworkClickListener);
+            mNetwork = (CheckBox) mRootView.findViewById(R.id.network_checkbox);
         }
 
         @Override
-        public void onDetach() {
-            super.onDetach();
-            mCallbacks = null;
+        protected int getLayoutResource() {
+            return R.layout.location_settings;
         }
 
         @Override
         public void onResume() {
             super.onResume();
-
-            // Make sure we reload the preference hierarchy since some of these settings
-            // depend on others...
-            createPreferenceHierarchy();
             updateLocationToggles();
-
             if (mSettingsObserver == null) {
                 mSettingsObserver = new Observer() {
                     public void update(Observable o, Object arg) {
@@ -153,64 +142,26 @@ public class LocationSettingsPage extends Page {
             mContentQueryMap.close();
         }
 
-        @Override
-        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-            final ContentResolver cr = getActivity().getContentResolver();
-            if (preference == mNetwork) {
-                Settings.Secure.setLocationProviderEnabled(cr,
-                        LocationManager.NETWORK_PROVIDER, mNetwork.isChecked());
-            } else if (preference == mGps) {
-                boolean enabled = mGps.isChecked();
-                Settings.Secure.setLocationProviderEnabled(cr,
-                        LocationManager.GPS_PROVIDER, enabled);
-            } else {
-                // If we didn't handle it, let preferences handle it.
-                return super.onPreferenceTreeClick(preferenceScreen, preference);
-            }
-            return true;
-        }
-
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object value) {
-            if (preference.getKey().equals(CMID.KEY_FIND_DEVICE_PREF)) {
-                onToggleLocationAccess((Boolean) value);
-            }
-            return true;
-        }
-
-        private PreferenceScreen createPreferenceHierarchy() {
-            PreferenceScreen root = getPreferenceScreen();
-            if (root != null) {
-                root.removeAll();
-            }
-            addPreferencesFromResource(R.xml.location_settings_preferences);
-            root = getPreferenceScreen();
-            mLocationAccess = (SwitchPreference)root.findPreference(KEY_LOCATION_TOGGLE);
-            mNetwork = (CheckBoxPreference) root.findPreference(KEY_LOCATION_NETWORK);
-            mGps = (CheckBoxPreference) root.findPreference(KEY_LOCATION_GPS);
-
-            mLocationAccess.setOnPreferenceChangeListener(this);
-            return root;
-        }
-
 
         private void updateLocationToggles() {
-            ContentResolver res = getActivity().getContentResolver();
             boolean gpsEnabled = Settings.Secure.isLocationProviderEnabled(
-                    res, LocationManager.GPS_PROVIDER);
+                    mContentResolver, LocationManager.GPS_PROVIDER);
             boolean networkEnabled = Settings.Secure.isLocationProviderEnabled(
-                    res, LocationManager.NETWORK_PROVIDER);
+                    mContentResolver, LocationManager.NETWORK_PROVIDER);
             mGps.setChecked(gpsEnabled);
             mNetwork.setChecked(networkEnabled);
             mLocationAccess.setChecked(gpsEnabled || networkEnabled);
         }
 
         private void onToggleLocationAccess(boolean checked) {
-            final ContentResolver cr = getActivity().getContentResolver();
-            Settings.Secure.setLocationProviderEnabled(cr,
+            Settings.Secure.setLocationProviderEnabled(mContentResolver,
                     LocationManager.GPS_PROVIDER, checked);
-            Settings.Secure.setLocationProviderEnabled(cr,
+            mGps.setEnabled(checked);
+            mGpsRow.setEnabled(checked);
+            Settings.Secure.setLocationProviderEnabled(mContentResolver,
                     LocationManager.NETWORK_PROVIDER, checked);
+            mNetwork.setEnabled(checked);
+            mNetworkRow.setEnabled(checked);
             updateLocationToggles();
         }
 

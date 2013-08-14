@@ -118,4 +118,16 @@
     <style name="EditText">
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
+
+    <style name="LocationTextTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="LocationTextSummary">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
 </resources>
