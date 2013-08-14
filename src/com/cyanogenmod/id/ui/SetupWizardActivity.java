@@ -12,12 +12,16 @@ import com.cyanogenmod.id.util.CMIDUtils;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.StatusBarManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
@@ -38,6 +42,9 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private static final String TAG = SetupWizardActivity.class.getSimpleName();
 
     private static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
+    private static final String KEY_SIM_MISSING_SHOWN = "sim-missing-shown";
+
+    private static final int DIALOG_SIM_MISSING = 0;
 
     private ViewPager mViewPager;
     private CMPagerAdapter mPagerAdapter;
@@ -51,6 +58,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private final Handler mHandler = new Handler();
 
     private StatusBarManager mStatusBarManager;
+    private SharedPreferences mSharedPreferences;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +67,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         mStatusBarManager.disable(StatusBarManager.DISABLE_EXPAND | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
                 | StatusBarManager.DISABLE_NOTIFICATION_TICKER | StatusBarManager.DISABLE_RECENT | StatusBarManager.DISABLE_HOME
                 | StatusBarManager.DISABLE_SEARCH);
+        mSharedPreferences = getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         mSetupData = (AbstractSetupData)getLastNonConfigurationInstance();
         if (mSetupData == null) {
             mSetupData = new CMSetupWizardData(this);
@@ -66,6 +75,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
         if (savedInstanceState != null) {
             mSetupData.load(savedInstanceState.getBundle("data"));
+        } else {
+            mSharedPreferences.edit().putBoolean(KEY_SIM_MISSING_SHOWN, false).commit();
         }
         mSetupData.registerListener(this);
         mPagerAdapter = new CMPagerAdapter(getFragmentManager());
@@ -129,6 +140,26 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     @Override
+    protected Dialog onCreateDialog(int id, Bundle args) {
+        switch (id) {
+            case DIALOG_SIM_MISSING:
+                return new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.cid_confused)
+                        .setTitle(R.string.setup_sim_missing)
+                        .setMessage(R.string.sim_missing_summary)
+                        .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .create();
+            default:
+                return super.onCreateDialog(id, args);
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         doPrevious();
     }
@@ -139,9 +170,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             public void run() {
                 final int currentItem = mViewPager.getCurrentItem();
                 final Page currentPage = mPageList.get(currentItem);
-                if (currentPage.getId() == R.string.setup_sim_missing) {
-                    removeSetupPage(currentPage, true);
-                } else if (currentPage.getId() == R.string.setup_complete) {
+                if (currentPage.getId() == R.string.setup_complete) {
                     finishSetup();
                 } else {
                     mViewPager.setCurrentItem(currentItem + 1, true);
@@ -196,6 +225,9 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             if (recalculateCutOffPage()) {
                 mPagerAdapter.notifyDataSetChanged();
             }
+        }
+        if (page.getId() == R.string.setup_cmid) {
+            doSimCheck();
         }
         updateNextPreviousState();
     }
@@ -270,15 +302,24 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMID.ACCOUNT_TYPE_GOOGLE))) {
                     removeSetupPage(page, false);
                 }
-                if (!CMIDUtils.isGSMPhone(SetupWizardActivity.this) || !CMIDUtils.isSimMissing(SetupWizardActivity.this)) {
-                    page = mPageList.findPage(R.string.setup_sim_missing);
-                    if (page != null) {
-                        removeSetupPage(page, false);
-                    }
-                }
                 onPageTreeChanged();
             }
         });
+    }
+
+    private void doSimCheck() {
+        if (!mSharedPreferences.getBoolean(KEY_SIM_MISSING_SHOWN, false)) {
+            if (CMIDUtils.isGSMPhone(SetupWizardActivity.this) && CMIDUtils.isSimMissing(SetupWizardActivity.this)) {
+                //Delay the dialog so the animation can finish
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        showDialog(DIALOG_SIM_MISSING);
+                    }
+                }, 500);
+            }
+            mSharedPreferences.edit().putBoolean(KEY_SIM_MISSING_SHOWN, true).commit();
+        }
     }
 
     private void disableSetupWizards(Intent intent) {
