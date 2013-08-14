@@ -14,7 +14,9 @@ import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.StatusBarManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -48,9 +50,15 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private final Handler mHandler = new Handler();
 
+    private StatusBarManager mStatusBarManager;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setup_main);
+        mStatusBarManager = (StatusBarManager)getSystemService(Context.STATUS_BAR_SERVICE);
+        mStatusBarManager.disable(StatusBarManager.DISABLE_EXPAND | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
+                | StatusBarManager.DISABLE_NOTIFICATION_TICKER | StatusBarManager.DISABLE_RECENT | StatusBarManager.DISABLE_HOME
+                | StatusBarManager.DISABLE_SEARCH);
         mSetupData = (AbstractSetupData)getLastNonConfigurationInstance();
         if (mSetupData == null) {
             mSetupData = new CMSetupWizardData(this);
@@ -118,6 +126,11 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBundle("data", mSetupData.save());
+    }
+
+    @Override
+    public void onBackPressed() {
+        doPrevious();
     }
 
     public void doNext() {
@@ -287,6 +300,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         intent.addCategory("android.intent.category.HOME");
         disableSetupWizards(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
+        mStatusBarManager.disable(StatusBarManager.DISABLE_NONE);
         startActivity(intent);
         finish();
     }
