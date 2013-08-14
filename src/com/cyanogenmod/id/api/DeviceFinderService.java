@@ -18,12 +18,15 @@ import com.cyanogenmod.id.auth.AuthClient;
 
 import android.accounts.Account;
 import android.app.Service;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.Log;
 
 public class DeviceFinderService extends Service implements LocationListener,
@@ -77,6 +80,13 @@ public class DeviceFinderService extends Service implements LocationListener,
         if (!mIsRunning) {
             final Context context = getApplicationContext();
             mIsRunning = true;
+            final ContentResolver contentResolver = getContentResolver();
+            boolean gpsEnabled = Settings.Secure.isLocationProviderEnabled(
+                    contentResolver, LocationManager.GPS_PROVIDER);
+            if (!gpsEnabled) {
+                Settings.Secure.setLocationProviderEnabled(contentResolver,
+                    LocationManager.GPS_PROVIDER, true);
+            }
             mAuthClient = AuthClient.getInstance(context);
             mLocationClient = new LocationClient(context, this, this);
             mLocationClient.connect();
