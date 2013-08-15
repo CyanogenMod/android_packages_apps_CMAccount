@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CMID</string>
+    <string name="app_name">CyanogenMod Account</string>
     <string name="product_name">cyanogenmod</string>
-
-    <string name="app_test">CMID Test Auth</string>
 
     <string name="next">Next</string>
     <string name="continue_label">Continue</string>
@@ -19,9 +17,6 @@
     <string name="new_account">Create a new account</string>
     <string name="skip_anyway">Skip anyway</string>
     <string name="dont_skip">Don\'t skip</string>
-
-    <string name="account_settings_find_device_title">Find My Device</string>
-    <string name="account_settings_find_device_summary">Find your device via the CMID website</string>
 
     <string name="setup_complete">Setup is complete</string>
     <string name="setup_complete_summary">Congratulations! Your device is ready to rumble.</string>
@@ -49,18 +44,15 @@
     <string name="cmid_setup_password_invalid_label">Password must be at least 8 characters!</string>
     <string name="cmid_setup_confirm_password_label">Confirm password</string>
     <string name="cmid_setup_tos_label">I agree to the %1$sterms%2$s of service</string>
-    <string name="cmid_add_title">Add a CMID Account</string>
-    <string name="cmid_add_create_label">A CyanogenMod Account provides access to value-added services and functionality for your mobile device running Cyanogenmod.</string>
+    <string name="cmid_add_title">Add a CyanogenMod Account</string>
+    <string name="cmid_add_create_label">A CyanogenMod Account provides access to value-added services and functionality for your mobile device running CyanogenMod.</string>
     <string name="cmid_learn_more">Learn more...</string>
 
     <string name="cmid_password_changed_title">Password Changed</string>
-    <string name="cmid_password_changed_message">Please login to your CMID account</string>
+    <string name="cmid_password_changed_message">Please login to your CyanogenMod account</string>
 
-    <string name="cmid_login_message">Logging in to CMID</string>
-    <string name="cmid_creating_profile_message">Creating your CMID profile</string>
-
-    <string name="cmid_account_pref_title">Account Settings</string>
-    <string name="cmid_account_pref_summary">Change your cmid settings</string>
+    <string name="cmid_login_message">Logging in to CyanogenMod</string>
+    <string name="cmid_creating_profile_message">Creating your CyanogenMod profile</string>
 
     <string name="cmid_login_error_title">Login Failed</string>
     <string name="cmid_login_error_message">Invalid email or password.</string>
@@ -68,7 +60,7 @@
     <string name="cmid_create_account_error_title">Error creating account</string>
     <string name="cmid_server_error_message">An error has occurred communicating with the server. Please try again later.</string>
 
-    <string name="cmid_error_multiple_accounts">Only one CMID allowed on a device</string>
+    <string name="cmid_error_multiple_accounts">Only one CyanogenMod allowed on a device</string>
 
     <string name="sim_missing_summary">You need to refer to the SIM card instructions that came with your device.</string>
     <string name="google_account_summary">Do you want to set up a Google account?</string>
@@ -82,7 +74,4 @@
     <string name="location_street_level" product="default">Let apps use GPS on your phone to pinpoint your location</string>
     <string name="location_network_based">Wi-Fi &amp; mobile network location</string>
     <string name="location_neighborhood_level">Let apps use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
-
-    <string name="device_admin">CMID Device Administration</string>
-    <string name="device_admin_description">Use the CMID website to remote wipe your device.</string>
 </resources>
