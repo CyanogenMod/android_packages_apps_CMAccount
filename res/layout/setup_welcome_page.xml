@@ -12,44 +12,49 @@
             android:orientation="vertical"
             style="@style/SetupWizardPageContent">
 
-        <View android:layout_height="1px"
-              android:layout_width="match_parent"
-              android:layout_weight="1"/>
-
         <TextView style="@style/SetupWizardPageTitle" />
 
-        <ImageView android:id="@+id/divider"
-                   android:src="@drawable/mod_divider_trans"
-                   android:layout_height="72dp"
-                   android:layout_width="match_parent"
-                   android:scaleType="fitCenter"/>
+        <ImageView style="@style/SetupWizardModDivider"/>
 
-        <TextView style="@style/SetupWizardPageSummary"
-                  android:text="@string/setup_welcome_summary"/>
-
-        <Spinner android:id="@+id/locale_list"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="5dp"
-                 android:layout_marginBottom="8dp"
-                 android:layout_gravity="center"
-                 android:saveEnabled="false"/>
-
-        <View android:layout_height="1px"
-              android:layout_width="match_parent"
-              android:layout_weight="1"/>
-
-        <Button android:id="@+id/btn_continue"
-                android:layout_width="wrap_content"
+        <ScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:text="@string/continue_label"
-                style="@style/ActionButton"/>
+                android:fillViewport="true">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <View android:layout_height="1px"
-              android:layout_width="match_parent"
-              android:layout_weight="1"/>
+                <TextView style="@style/SetupWizardPageSummary"
+                          android:text="@string/setup_welcome_summary"/>
 
+                <Spinner android:id="@+id/locale_list"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="5dp"
+                         android:layout_marginBottom="8dp"
+                         android:layout_marginLeft="6dp"
+                         android:layout_marginRight="6dp"
+                         android:layout_gravity="center"
+                         android:saveEnabled="false"/>
 
+                <View android:id="@+id/divider"
+                      android:background="?android:attr/dividerHorizontal"
+                      android:layout_marginTop="3dp"
+                      android:layout_marginBottom="8dp"
+                      android:layout_marginLeft="8dp"
+                      android:layout_marginRight="8dp"
+                      android:layout_height="1dp"
+                      android:layout_width="match_parent" />
+
+                <Button android:id="@+id/btn_continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right"
+                        android:text="@string/continue_label"
+                        style="@style/ActionButton"/>
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </FrameLayout>

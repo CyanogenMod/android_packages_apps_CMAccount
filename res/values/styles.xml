@@ -38,7 +38,8 @@
 
     <style name="SetupWizardPageContent">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
     </style>
@@ -77,10 +78,11 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="android:padding">0dp</item>
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textStyle">italic</item>
         <item name="android:textColor">@android:color/holo_blue_light</item>
     </style>
 
@@ -95,6 +97,14 @@
         <item name="android:textColor">@color/dark_gray</item>
     </style>
 
+    <style name="SetupWizardModDivider">
+        <item name="android:id">@+id/divider</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/mod_divider</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
     <style name="ActionButton" parent="@android:style/Widget.ActionButton">
         <item name="android:layout_height">15dp</item>
         <item name="android:layout_gravity">right</item>
@@ -103,6 +113,7 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:paddingTop">3dp</item>
         <item name="android:paddingBottom">3dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:minHeight">15dp</item>
         <item name="android:textColor">@color/btn_action</item>
     </style>
