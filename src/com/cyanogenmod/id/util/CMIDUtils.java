@@ -2,6 +2,8 @@ package com.cyanogenmod.id.util;
 
 import com.cyanogenmod.id.CMID;
 import com.cyanogenmod.id.R;
+import com.cyanogenmod.id.auth.AuthClient;
+import com.cyanogenmod.id.ui.WebViewDialogFragment;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -95,6 +97,10 @@ public class CMIDUtils {
     public static void hideNotification(Context context, int id) {
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(id);
+    }
+
+    public static void showLearnMoreDialog(Activity context) {
+        WebViewDialogFragment.newInstance().setUri(AuthClient.CMID_LEARN_MORE_URI).show(context.getFragmentManager(), WebViewDialogFragment.TAG);
     }
 
     public static void tryEnablingWifi(Context context) {
