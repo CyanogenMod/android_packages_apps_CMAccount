@@ -94,6 +94,13 @@ public class GCMIntentService extends IntentService implements Response.Listener
         if (CMID.DEBUG) Log.d(TAG, "gson parsed message = " + message.toJson());
         String deviceId = CMIDUtils.getUniqueDeviceId(context);
 
+        // Match account on email, drop if this message is for a different account.
+        String messageEmail = message.getAccount().getEmail();
+        if (!mAccount.name.equals(messageEmail)) {
+            if (CMID.DEBUG) Log.d(TAG, "Message was for " + messageEmail + ", current user is " + mAccount.name + ".  Dropping message.");
+            return;
+        }
+
         // TODO: We could just look at instanceof message.getMessage()
         if (GCMUtil.COMMAND_KEY_EXCHANGE.equals(message.getCommand())) {
             handleKeyExchange(deviceId, message.getMessage());
