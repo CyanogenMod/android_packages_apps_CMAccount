@@ -45,18 +45,8 @@ public class CMID extends Application {
 
     private StatusBarManager mStatusBarManager;
 
-    private static CMID sInstance;
-
-    public static CMID getInstance() {
-        if (sInstance == null) {
-            throw new AssertionError("This should not be possible");
-        }
-        return sInstance;
-    }
-
     @Override
     public void onCreate() {
-        sInstance = this;
         super.onCreate();
         mStatusBarManager = (StatusBarManager)getSystemService(Context.STATUS_BAR_SERVICE);
         final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);

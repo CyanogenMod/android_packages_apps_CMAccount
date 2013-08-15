@@ -13,6 +13,7 @@ import com.cyanogenmod.id.util.CMIDUtils;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AppGlobals;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -62,7 +63,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setup_main);
-        CMID.getInstance().disableStatusBar();
+        ((CMID)AppGlobals.getInitialApplication()).disableStatusBar();
         mSharedPreferences = getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         mSetupData = (AbstractSetupData)getLastNonConfigurationInstance();
         if (mSetupData == null) {
@@ -333,7 +334,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private void finishSetup() {
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
-        CMID.getInstance().enableStatusBar();
+        ((CMID)AppGlobals.getInitialApplication()).enableStatusBar();
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.HOME");
         disableSetupWizards(intent);
