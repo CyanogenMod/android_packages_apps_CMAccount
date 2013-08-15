@@ -57,16 +57,12 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private final Handler mHandler = new Handler();
 
-    private StatusBarManager mStatusBarManager;
     private SharedPreferences mSharedPreferences;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setup_main);
-        mStatusBarManager = (StatusBarManager)getSystemService(Context.STATUS_BAR_SERVICE);
-        mStatusBarManager.disable(StatusBarManager.DISABLE_EXPAND | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
-                | StatusBarManager.DISABLE_NOTIFICATION_TICKER | StatusBarManager.DISABLE_RECENT | StatusBarManager.DISABLE_HOME
-                | StatusBarManager.DISABLE_SEARCH);
+        CMID.getInstance().disableStatusBar();
         mSharedPreferences = getSharedPreferences(CMID.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         mSetupData = (AbstractSetupData)getLastNonConfigurationInstance();
         if (mSetupData == null) {
@@ -337,11 +333,11 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private void finishSetup() {
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
+        CMID.getInstance().enableStatusBar();
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.HOME");
         disableSetupWizards(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | intent.getFlags());
-        mStatusBarManager.disable(StatusBarManager.DISABLE_NONE);
         startActivity(intent);
         finish();
     }

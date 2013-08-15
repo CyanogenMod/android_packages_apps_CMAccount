@@ -3,6 +3,7 @@ package com.cyanogenmod.id;
 import com.cyanogenmod.id.auth.AuthClient;
 
 import android.app.Application;
+import android.app.StatusBarManager;
 import android.app.admin.DeviceAdminReceiver;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
@@ -42,15 +43,37 @@ public class CMID extends Application {
 
     public static final int NOTIFICATION_ID_PASSWORD_RESET = 666;
 
+    private StatusBarManager mStatusBarManager;
+
+    private static CMID sInstance;
+
+    public static CMID getInstance() {
+        if (sInstance == null) {
+            throw new AssertionError("This should not be possible");
+        }
+        return sInstance;
+    }
 
     @Override
     public void onCreate() {
+        sInstance = this;
         super.onCreate();
+        mStatusBarManager = (StatusBarManager)getSystemService(Context.STATUS_BAR_SERVICE);
         final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), CMIDAdminReceiver.class);
         dpm.setActiveAdmin(deviceAdmin, true);
         //Warm the auth client instance
         AuthClient.getInstance(getApplicationContext());
+    }
+
+    public void disableStatusBar() {
+        mStatusBarManager.disable(StatusBarManager.DISABLE_EXPAND | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
+                | StatusBarManager.DISABLE_NOTIFICATION_TICKER | StatusBarManager.DISABLE_RECENT | StatusBarManager.DISABLE_HOME
+                | StatusBarManager.DISABLE_SEARCH);
+    }
+
+    public void enableStatusBar() {
+        mStatusBarManager.disable(StatusBarManager.DISABLE_NONE);
     }
 
     public static class CMIDAdminReceiver extends DeviceAdminReceiver {}
