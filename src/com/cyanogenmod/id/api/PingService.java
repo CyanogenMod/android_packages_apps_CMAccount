@@ -40,7 +40,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
     private AuthClient mAuthClient;
 
     public static void pingServer(Context context) {
-        Intent intent = new Intent(context, PingService.class);
+        Intent intent = getPingIntent(context);
         context.startService(intent);
     }
 
@@ -60,6 +60,10 @@ public class PingService extends Service implements Response.ErrorListener, Resp
         if (!sWakeLock.isHeld()) {
             if (CMID.DEBUG) Log.v(TAG, "Acquiring wakelock");
             sWakeLock.acquire();
+        }
+        if (CMIDUtils.getCMIDAccount(context) == null) {
+            CMIDUtils.cancelCMIDPing(context, intent);
+            stopSelf();
         }
         mAuthClient = AuthClient.getInstance(context);
         boolean retry = intent.getBooleanExtra(EXTRA_RETRY, false);
@@ -89,6 +93,8 @@ public class PingService extends Service implements Response.ErrorListener, Resp
     public void onResponse(PingResponse pingResponse) {
         if (pingResponse.getStatusCode() == 200) {
             CMIDUtils.resetBackoff(mAuthClient.getAuthPreferences());
+            final Context context = getApplicationContext();
+            CMIDUtils.scheduleCMIDPing(context, getPingIntent(context));
             stopSelf();
         } else {
             handleError();
@@ -100,5 +106,9 @@ public class PingService extends Service implements Response.ErrorListener, Resp
         intent.putExtra(EXTRA_RETRY, true);
         CMIDUtils.scheduleRetry(getApplicationContext(), mAuthClient.getAuthPreferences(), intent);
         stopSelf();
+    }
+
+    private static Intent getPingIntent(Context context) {
+        return new Intent(context, PingService.class);
     }
 }
