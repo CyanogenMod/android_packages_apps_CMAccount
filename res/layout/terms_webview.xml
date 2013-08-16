@@ -13,7 +13,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
-<WebView xmlns:android="http://schemas.android.com/apk/res/android"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"/>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <View android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:layout_weight="1"/>
+    </LinearLayout>
+    <WebView android:id="@+id/webview"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"/>
+</FrameLayout>

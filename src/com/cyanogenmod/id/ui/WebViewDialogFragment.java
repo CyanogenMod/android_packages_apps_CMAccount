@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.id.ui;
 
+import android.view.View;
 import com.cyanogenmod.id.R;
 
 import android.app.AlertDialog;
@@ -27,27 +28,43 @@ import android.webkit.WebView;
 
 public class WebViewDialogFragment extends DialogFragment {
 
-        public static String TAG = WebViewDialogFragment.class.getSimpleName();
+    public static String TAG = WebViewDialogFragment.class.getSimpleName();
 
-        private String mUri;
+    private View mRootView;
+    private WebView mWebView;
+    private String mUri;
+    private Dialog mDialog;
 
-        public static WebViewDialogFragment newInstance() {
-            return new WebViewDialogFragment();
-        }
+    public static WebViewDialogFragment newInstance() {
+        return new WebViewDialogFragment();
+    }
 
-        public WebViewDialogFragment setUri(String uri) {
-            mUri = uri;
-            return this;
-        }
+    public WebViewDialogFragment() {
 
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            WebView webView = (WebView)getActivity().getLayoutInflater().inflate(R.layout.terms_webview, null, false);
-            webView.getSettings().setJavaScriptEnabled(true);
-            webView.getSettings().setUseWideViewPort(true);
-            webView.loadUrl(mUri);
-            return new AlertDialog.Builder(getActivity())
-                    .setView(webView)
+    }
+
+    public WebViewDialogFragment setUri(String uri) {
+        mUri = uri;
+        return this;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        mRootView = getActivity().getLayoutInflater().inflate(R.layout.terms_webview, null, false);
+        mWebView = (WebView)mRootView.findViewById(R.id.webview);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setUseWideViewPort(true);
+        mWebView.loadUrl(mUri);
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        if (mDialog == null) {
+            mDialog =new AlertDialog.Builder(getActivity())
+                    .setView(mRootView)
+                    .setCancelable(false)
                     .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -56,5 +73,7 @@ public class WebViewDialogFragment extends DialogFragment {
                     })
                     .create();
         }
+        return mDialog;
     }
+}
 
