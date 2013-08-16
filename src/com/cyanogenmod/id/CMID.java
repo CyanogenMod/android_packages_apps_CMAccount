@@ -59,11 +59,14 @@ public class CMID extends Application {
 
     public static final int NOTIFICATION_ID_PASSWORD_RESET = 666;
 
+    private String mCmidUri;
+
     private StatusBarManager mStatusBarManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mCmidUri = getString(R.string.cmid_uri);
         mStatusBarManager = (StatusBarManager)getSystemService(Context.STATUS_BAR_SERVICE);
         final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
         final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), CMIDAdminReceiver.class);
@@ -80,6 +83,10 @@ public class CMID extends Application {
 
     public void enableStatusBar() {
         mStatusBarManager.disable(StatusBarManager.DISABLE_NONE);
+    }
+
+    public String getCmidUri() {
+        return mCmidUri;
     }
 
     public static class CMIDAdminReceiver extends DeviceAdminReceiver {}

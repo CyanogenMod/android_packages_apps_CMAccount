@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.id.auth;
 
+import android.app.AppGlobals;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -88,7 +89,6 @@ public class AuthClient {
     private static final String HELP_PATH = "/help";
     private static final String PRIVACY_POLICY_PATH = "/privacy_policy";
     private static final String TOS_PATH = "/terms_of_service";
-    private static final String CMID_URI = "https://cmid-devel.appspot.com";
     private static final String SERVER_URI = getServerURI();
 
     public static final String AUTH_URI = SERVER_URI + "/oauth2/token";
@@ -444,10 +444,11 @@ public class AuthClient {
     }
 
     private static String getServerURI() {
-        String uri = CMID.DEBUG ? SystemProperties.get("cmid.uri") : CMID_URI;
-        String cmidUri = (uri == null || uri.length() == 0) ? CMID_URI : uri;
-        if (CMID.DEBUG) Log.d(TAG, "Using cmid uri:  " + cmidUri);
-        return cmidUri;
+        String cmidUri = ((CMID)AppGlobals.getInitialApplication()).getCmidUri();
+        String uri = CMID.DEBUG ? SystemProperties.get("cmid.uri") : cmidUri;
+        String serverUri = (uri == null || uri.length() == 0) ? cmidUri : uri;
+        if (CMID.DEBUG) Log.d(TAG, "Using cmid uri:  " + serverUri);
+        return serverUri;
     }
 
     private boolean okToDestroy() {
