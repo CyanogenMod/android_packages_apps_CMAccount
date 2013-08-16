@@ -15,7 +15,7 @@ limitations under the License.
 -->
 
 <resources>
-    <string name="app_test">CMID Test Auth</string>
+    <string name="app_test">CMAccount Test Auth</string>
     <string name="get_token">Get Token</string>
     <string name="invalidate_token">Invalidate Token</string>
     <string name="expire_token">Expire Token</string>

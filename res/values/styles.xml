@@ -16,15 +16,15 @@
 
 <resources>
 
-    <style name="Theme.CMID" parent="@android:style/Theme.Holo.Light">
+    <style name="Theme.CMAccount" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
         <item name="android:actionMenuTextColor">@android:color/holo_blue_light</item>
         <item name="android:actionMenuTextAppearance">@style/ActionButton</item>
     </style>
 
-    <style name="Theme.CMID.ActionBar"/>
+    <style name="Theme.CMAccount.ActionBar"/>
 
-    <style name="Theme.CMID.ActionBar.Overlay">
+    <style name="Theme.CMAccount.ActionBar.Overlay">
         <item name="android:windowActionBarOverlay">true</item>
     </style>
 

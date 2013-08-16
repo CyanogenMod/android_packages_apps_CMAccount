@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.cyanogenmod.id"
+          package="com.cyanogenmod.account"
           android:versionCode="1">
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.STATUS_BAR"/>
@@ -22,16 +22,16 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="com.cyanogenmod.id.permission.C2D_MESSAGE"
+    <permission android:name="com.cyanogenmod.account.permission.C2D_MESSAGE"
                 android:protectionLevel="signature" />
-    <uses-permission android:name="com.cyanogenmod.id.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.cyanogenmod.account.permission.C2D_MESSAGE" />
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="17" />
     <application android:label="@string/app_name"
                  android:icon="@drawable/icon"
-                 android:theme="@style/Theme.CMID"
-                 android:name=".CMID">
+                 android:theme="@style/Theme.CMAccount"
+                 android:name=".CMAccount">
         <service
-                android:name="com.cyanogenmod.id.auth.AuthService"
+                android:name="com.cyanogenmod.account.auth.AuthService"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
@@ -42,7 +42,7 @@
         </service>
         <activity android:name=".ui.SetupWizardActivity"
                   android:label="@string/product_name"
-                  android:theme="@style/Theme.CMID.ActionBar.Overlay"
+                  android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
                   android:launchMode="singleTop"
                   android:excludeFromRecents="true"
                   android:immersive="true">
@@ -53,23 +53,23 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.CMIDActivity"
+        <activity android:name=".ui.CMAccountActivity"
                   android:label="@string/product_name"
-                  android:theme="@style/Theme.CMID.ActionBar.Overlay"
+                  android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
                   android:launchMode="singleTop"
                   android:excludeFromRecents="true"/>
 
         <activity android:name=".auth.AuthActivity"
                   android:label="@string/product_name"
                   android:launchMode="singleTop"
-                  android:theme="@style/Theme.CMID.ActionBar.Overlay"/>
+                  android:theme="@style/Theme.CMAccount.ActionBar.Overlay"/>
 
         <receiver
                 android:name=".gcm.GCMReceiver" android:exported="true"
                 android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.cyanogenmod.id" />
+                <category android:name="com.cyanogenmod.account" />
             </intent-filter>
         </receiver>
 
@@ -81,7 +81,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".CMID$CMIDAdminReceiver"
+        <receiver android:name=".CMAccount$CMAccountAdminReceiver"
                   android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data android:name="android.app.device_admin"
                        android:resource="@xml/device_admin"/>
@@ -104,7 +104,7 @@
                 android:exported="false" />
 
         <provider
-                android:name=".provider.CMIDProvider"
-                android:authorities="com.cyanogenmod.id.store"/>
+                android:name=".provider.CMAccountProvider"
+                android:authorities="com.cyanogenmod.account.store"/>
     </application>
 </manifest> 

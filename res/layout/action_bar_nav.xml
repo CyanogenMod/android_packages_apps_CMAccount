@@ -30,7 +30,7 @@
             android:scaleType="fitStart"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="5dp"
-            android:src="@drawable/cmid_action_icon"
+            android:src="@drawable/cmaccount_action_icon"
             android:layout_toRightOf="@+id/up"/>
 
     <TextView

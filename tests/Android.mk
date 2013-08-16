@@ -9,9 +9,9 @@ LOCAL_JAVA_LIBRARIES := android.test.runner
 # Include all test java files.
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_PACKAGE_NAME := CMIDTests
+LOCAL_PACKAGE_NAME := CMAccountTests
 LOCAL_CERTIFICATE := platform
 
-LOCAL_INSTRUMENTATION_FOR := CMID
+LOCAL_INSTRUMENTATION_FOR := CMAccount
 
 include $(BUILD_PACKAGE)
