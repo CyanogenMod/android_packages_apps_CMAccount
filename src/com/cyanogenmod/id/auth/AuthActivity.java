@@ -247,6 +247,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             Account account = CMIDUtils.getCMIDAccount(this);
             if (account != null) {
                 mEmailEdit.setText(account.name);
+                //Don't allow editing this field if we have an account.
+                mEmailEdit.setEnabled(false);
                 mPasswordEdit.requestFocus();
             }
         }
