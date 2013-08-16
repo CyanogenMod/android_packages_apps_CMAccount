@@ -56,9 +56,6 @@ public class CMIDUtils {
     private static final String TAG = CMIDUtils.class.getSimpleName();
     private static final Random sRandom = new Random();
 
-    // 24 hours
-    private static final long PING_INTERVAL = 1000 * 3600 * 24;
-
     public static final Pattern EMAIL_ADDRESS
             = Pattern.compile(
             "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
@@ -105,11 +102,11 @@ public class CMIDUtils {
 
     public static void scheduleCMIDPing(Context context, Intent intent) {
         if (CMID.DEBUG) Log.d(TAG, "Scheduling cmid ping, starting = " +
-                new Timestamp(SystemClock.elapsedRealtime() + PING_INTERVAL) + " interval (" + PING_INTERVAL + ")");
+                new Timestamp(SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_DAY) + " interval (" + AlarmManager.INTERVAL_DAY + ")");
         PendingIntent reRegisterPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,
-                SystemClock.elapsedRealtime() + PING_INTERVAL, PING_INTERVAL,
+                SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY,
                 reRegisterPendingIntent);
     }
 
