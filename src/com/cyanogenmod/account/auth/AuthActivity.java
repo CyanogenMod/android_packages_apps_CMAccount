@@ -132,7 +132,11 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private Response.ErrorListener mProfileAvailableErrorListener = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError volleyError) {
-            Log.e(TAG, String.valueOf(volleyError.networkResponse.data), volleyError);
+            if (volleyError.networkResponse != null) {
+                Log.e(TAG, String.valueOf(volleyError.networkResponse.data), volleyError);
+            } else {
+                Log.e(TAG, "No response from server", volleyError);
+            }
         }
     };
 
