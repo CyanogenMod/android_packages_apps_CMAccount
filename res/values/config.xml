@@ -16,6 +16,6 @@ limitations under the License.
 
 <resources>
     <!-- CMAccount server url [DO NOT TRANSLATE] -->
-    <string name="cmaccount_uri" translatable="false">https://account.cyanogenmod.org/</string>
+    <string name="cmaccount_uri" translatable="false">https://account.cyanogenmod.org</string>
 </resources>
 
