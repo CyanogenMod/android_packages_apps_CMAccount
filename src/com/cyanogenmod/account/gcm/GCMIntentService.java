@@ -140,6 +140,7 @@ public class GCMIntentService extends IntentService implements Response.Listener
         String passwordHash = mAccountManager.getPassword(mAccount);
 
         // Verify the public key hash
+        // TODO: koush/ctso, we MUST use HMAC here. No nightlies until this is fixed.
         String publicKeyHashVerify = CMAccountUtils.digest("SHA512", publicKeyMessage.getPublicKey() + passwordHash);
         if (!publicKeyHashVerify.equals(publicKeyMessage.getPublicKeyHash())) {
             if (CMAccount.DEBUG) Log.d(TAG, "Unable to verify public key hash");
