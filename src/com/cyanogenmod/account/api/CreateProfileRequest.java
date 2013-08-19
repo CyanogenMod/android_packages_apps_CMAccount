@@ -31,12 +31,10 @@ public class CreateProfileRequest extends CMAccountRequest<CreateProfileResponse
 
     private static final String TAG = CreateProfileRequest.class.getSimpleName();
 
-    public CreateProfileRequest(String firstName, String lastName, String email, String password, boolean termsOfService,
+    public CreateProfileRequest(String email, String password, boolean termsOfService,
             Response.Listener<CreateProfileResponse> listener, Response.ErrorListener errorListener) {
         super(AuthClient.REGISTER_PROFILE_URI, listener, errorListener);
         addParameter(PARAM_PASSWORD, password);
-        addParameter(PARAM_FIRST_NAME, firstName);
-        addParameter(PARAM_LAST_NAME, lastName);
         addParameter(PARAM_EMAIL, email);
         addParameter(PARAM_TERMS, String.valueOf(termsOfService));
     }

@@ -36,26 +36,6 @@
                 <ImageView style="@style/SetupWizardModDivider"/>
 
                 <EditText
-                        android:id="@+id/cmaccount_firstname"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:contentDescription="@string/cmaccount_setup_firstname_label"
-                        android:inputType="textPersonName"
-                        android:imeOptions="actionNext"
-                        android:hint="@string/cmaccount_setup_firstname_label"
-                        style="@style/EditText"/>
-
-                <EditText
-                        android:id="@+id/cmaccount_lastname"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:contentDescription="@string/cmaccount_setup_lastname_label"
-                        android:inputType="textPersonName"
-                        android:imeOptions="actionNext"
-                        android:hint="@string/cmaccount_setup_lastname_label"
-                        style="@style/EditText"/>
-
-                <EditText
                         android:id="@+id/cmaccount_email"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"

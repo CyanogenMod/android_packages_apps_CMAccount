@@ -72,8 +72,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private AuthClient mAuthClient;
 
     private TextView mTitle;
-    private EditText mFirstNameEdit;
-    private EditText mLastNameEdit;
     private EditText mEmailEdit;
     private EditText mPasswordEdit;
     private EditText mConfirmPasswordEdit;
@@ -87,8 +85,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private boolean mEmailAvailable = true;
     private boolean mEmailInvalid = false;
 
-    private String mFirstName;
-    private String mLastName;
     private String mEmail;
     private String mPassword;
     private String mPasswordHash;
@@ -158,32 +154,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         mAuthClient = AuthClient.getInstance(getApplicationContext());
         CMAccountUtils.hideNotification(this, CMAccount.NOTIFICATION_ID_PASSWORD_RESET);
         mTitle = (TextView) findViewById(android.R.id.title);
-        mFirstNameEdit = (EditText) findViewById(R.id.cmaccount_firstname);
-        mFirstNameEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence text, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence text, int start, int before, int count) {
-                validateFields();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
-        mLastNameEdit = (EditText) findViewById(R.id.cmaccount_lastname);
-        mLastNameEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence text, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence text, int start, int before, int count) {
-                validateFields();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
         mEmailEdit = (EditText) findViewById(R.id.cmaccount_email);
         mEmailEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -248,16 +218,12 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         mEmailUnavailableText = getString(R.string.cmaccount_setup_email_unavailable_label);
         mEmailInvalidText = getString(R.string.cmaccount_setup_email_invalid_label);
         if (mCreateNewAccount) {
-            mFirstNameEdit.setVisibility(View.VISIBLE);
-            mLastNameEdit.setVisibility(View.VISIBLE);
             mEmailEdit.setVisibility(View.VISIBLE);
             mCheckBox.setVisibility(View.VISIBLE);
             mTitle.setText(R.string.cmaccount_setup_create_title);
             mPasswordEdit.setHint(R.string.cmaccount_setup_password_create_label);
             mSubmitButton.setText(R.string.create);
         }  else {
-            mFirstNameEdit.setVisibility(View.GONE);
-            mLastNameEdit.setVisibility(View.GONE);
             mCheckBox.setVisibility(View.GONE);
             mConfirmPasswordEdit.setVisibility(View.GONE);
             mTitle.setText(R.string.cmaccount_setup_login_title);
@@ -429,15 +395,11 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 
     private void validateFields() {
         boolean valid = false;
-        mFirstName = mFirstNameEdit.getText().toString();
-        mLastName = mLastNameEdit.getText().toString();
         mEmail = mEmailEdit.getText().toString();
         mPassword = mPasswordEdit.getText().toString();
         boolean terms = mCheckBox.isChecked();
         if (mCreateNewAccount) {
-            valid = mFirstName.length() > 0 &&
-                    mLastName.length() > 0 &&
-                    mEmail.length() > 0 &&
+            valid = mEmail.length() > 0 &&
                     mPassword.length() > 0 &&
                     mConfirmPasswordEdit.getText().toString().length() > 0 &&
                     mEmailAvailable &&
@@ -481,8 +443,6 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     }
 
     private void trimFields() {
-        mFirstName =  mFirstName != null ? mFirstName.trim() : "";
-        mLastName =  mLastName != null ? mLastName.trim() : "";
         mPassword =  mPassword != null ? mPassword.trim() : "";
         mPasswordHash = CMAccountUtils.digest("SHA512", mPassword);
         mEmail =  mEmail != null ? mEmail.trim() : "";
@@ -517,7 +477,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         } else {
             showDialog(DIALOG_CREATE_ACCOUNT);
             trimFields();
-            mInFlightRequest = mAuthClient.createProfile(mFirstName, mLastName, mEmail, CMAccountUtils.digest("SHA512", mPasswordHash), mCheckBox.isChecked(), mCreateProfileResponseListener, this);
+            mInFlightRequest = mAuthClient.createProfile(mEmail, CMAccountUtils.digest("SHA512", mPasswordHash), mCheckBox.isChecked(), mCreateProfileResponseListener, this);
         }
     }
 

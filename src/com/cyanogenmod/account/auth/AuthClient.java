@@ -181,9 +181,9 @@ public class AuthClient {
         return mRequestQueue.add(new AuthTokenRequest(refreshToken, listener, errorListener));
     }
 
-    public Request<?> createProfile(String firstName, String lastName, String email, String password, boolean termsOfService,
+    public Request<?> createProfile(String email, String password, boolean termsOfService,
             Listener<CreateProfileResponse> listener, ErrorListener errorListener) {
-        return mRequestQueue.add(new CreateProfileRequest(firstName, lastName, email, password, termsOfService, listener, errorListener));
+        return mRequestQueue.add(new CreateProfileRequest(email, password, termsOfService, listener, errorListener));
     }
 
     public Request<?> checkProfile(String email, Listener<ProfileAvailableResponse> listener, ErrorListener errorListener) {

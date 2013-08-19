@@ -48,8 +48,6 @@
 
     <string name="cmaccount_setup_create_title">Create a CyanogenMod Account</string>
     <string name="cmaccount_setup_login_title">Log in to your CyanogenMod Account</string>
-    <string name="cmaccount_setup_firstname_label">First Name</string>
-    <string name="cmaccount_setup_lastname_label">Last Name</string>
     <string name="cmaccount_setup_email_label">Email</string>
     <string name="cmaccount_setup_email_unavailable_label">Email already registered</string>
     <string name="cmaccount_setup_email_invalid_label">Not a valid Email address</string>
