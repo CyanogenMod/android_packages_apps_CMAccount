@@ -26,8 +26,6 @@ import java.util.Map;
 public abstract class CMAccountRequest<T> extends Request<T> {
 
     public static final String PARAM_AUTHORIZATION = "Authorization";
-    public static final String PARAM_FIRST_NAME = "first_name";
-    public static final String PARAM_LAST_NAME = "last_name";
     public static final String PARAM_EMAIL = "email";
     public static final String PARAM_PASSWORD = "password";
     public static final String PARAM_TERMS = "terms_of_service";
@@ -40,11 +38,6 @@ public abstract class CMAccountRequest<T> extends Request<T> {
     public static final String PARAM_ANDROID_VERSION = "android_version";
     public static final String PARAM_CM_VERSION = "cm_version";
     public static final String PARAM_CARRIER= "carrier";
-    public static final String PARAM_LATITUDE= "latitude";
-    public static final String PARAM_LONGITUDE= "longitude";
-    public static final String PARAM_ACCURACY= "accuracy";
-    public static final String PARAM_COMMAND= "command";
-    public static final String PARAM_SECRET= "secret";
 
     private final Response.Listener<T> mListener;
     private HashMap<String, String> mParams = new HashMap<String, String>();
