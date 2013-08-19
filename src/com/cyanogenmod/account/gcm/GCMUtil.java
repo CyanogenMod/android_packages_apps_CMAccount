@@ -45,7 +45,6 @@ public class GCMUtil {
 
     private static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
-    private static final String PROPERTY_ON_SERVER_EXPIRATION_TIME = "onServerExpirationTimeMs";
 
     public static final String COMMAND_KEY_EXCHANGE = "key_exchange";
     public static final String COMMAND_KEY_EXCHANGE_FAILED = "key_exchange_failed";
@@ -66,13 +65,6 @@ public class GCMUtil {
     public static void registerForGCM(Context context) {
         CMAccountUtils.resetBackoff(GCMUtil.getGCMPreferences(context));
         GCMService.registerClient(context);
-    }
-
-    public static boolean isRegistrationExpired(Context context) {
-        final SharedPreferences prefs = getGCMPreferences(context);
-        long expirationTime =
-                prefs.getLong(PROPERTY_ON_SERVER_EXPIRATION_TIME, 0);
-        return System.currentTimeMillis() > expirationTime;
     }
 
      public static String getRegistrationId(Context context) {
@@ -98,9 +90,6 @@ public class GCMUtil {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PROPERTY_REG_ID, regId);
         editor.putInt(PROPERTY_APP_VERSION, appVersion);
-        long expirationTime = System.currentTimeMillis() + (regId.length() == 0 ? 0 : AlarmManager.INTERVAL_DAY);
-        if (CMAccount.DEBUG) Log.d(TAG, "Setting registration expiry time to " + new Timestamp(expirationTime));
-        editor.putLong(PROPERTY_ON_SERVER_EXPIRATION_TIME, expirationTime);
         editor.commit();
     }
 
