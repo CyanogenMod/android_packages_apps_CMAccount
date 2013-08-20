@@ -30,6 +30,24 @@ import java.security.spec.X509EncodedKeySpec;
 public class EncryptionUtils {
     private static final String TAG = EncryptionUtils.class.getSimpleName();
 
+    public static class HMAC {
+        public static String getSignature(String key, String message) {
+            try {
+                Mac hmac = Mac.getInstance("HmacSHA512");
+                Key secretKey = new SecretKeySpec(key.getBytes(), "HmacSHA512");
+                hmac.init(secretKey);
+                hmac.update(message.getBytes());
+                return Base64.encodeToString(hmac.doFinal(), Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.e(TAG, "NoSuchAlgorithmException", e);
+                throw new AssertionError(e);
+            } catch (InvalidKeyException e) {
+                Log.e(TAG, "InvalidKeyException", e);
+                throw new AssertionError(e);
+            }
+        }
+    }
+
     public static class AES {
         public static String generateAesKey() {
             try {

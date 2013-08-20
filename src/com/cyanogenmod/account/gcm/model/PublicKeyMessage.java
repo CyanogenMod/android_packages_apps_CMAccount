@@ -18,13 +18,13 @@ package com.cyanogenmod.account.gcm.model;
 
 public class PublicKeyMessage extends Message {
     private String public_key;
-    private String public_key_hash;
+    private String signature;
 
     public String getPublicKey() {
         return public_key;
     }
 
-    public String getPublicKeyHash() {
-        return public_key_hash;
+    public String getSignature() {
+        return signature;
     }
 }

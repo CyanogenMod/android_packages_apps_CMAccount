@@ -22,6 +22,7 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.util.Base64;
 import android.util.Log;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -36,6 +37,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
 /**
@@ -140,9 +146,8 @@ public class GCMIntentService extends IntentService implements Response.Listener
         String passwordHash = mAccountManager.getPassword(mAccount);
 
         // Verify the public key hash
-        // TODO: koush/ctso, we MUST use HMAC here. No nightlies until this is fixed.
-        String publicKeyHashVerify = CMAccountUtils.digest("SHA512", publicKeyMessage.getPublicKey() + passwordHash);
-        if (!publicKeyHashVerify.equals(publicKeyMessage.getPublicKeyHash())) {
+        String localPublicKeySignature = EncryptionUtils.HMAC.getSignature(passwordHash, publicKeyMessage.getPublicKey());
+        if (!localPublicKeySignature.equals(publicKeyMessage.getSignature())) {
             if (CMAccount.DEBUG) Log.d(TAG, "Unable to verify public key hash");
 
             // It would be nice if we could just ignore the message at this point, however, when the public key hash
