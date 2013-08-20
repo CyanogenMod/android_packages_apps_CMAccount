@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Compte CyanogenMod</string>
+    <string name="next">Suivant</string>
+    <string name="continue_label">Continuer</string>
+    <string name="prev">Précédent</string>
+    <string name="skip">Ignorer</string>
+    <string name="finish">Terminer</string>
+    <string name="bacon">Bacon\u00A0!</string>
+    <string name="cancel">Annuler</string>
+    <string name="create">Créer</string>
+    <string name="login">Identifiant</string>
+    <string name="ok">OK</string>
+    <string name="existing">Se connecter à un compte existant</string>
+    <string name="new_account">Créer un nouveau compte</string>
+    <string name="skip_anyway">Toujours ignorer</string>
+    <string name="dont_skip">Ne pas ignorer</string>
+    <string name="setup_complete">Paramétrage terminé</string>
+    <string name="setup_complete_summary">Félicitations\u00A0! Votre appareil est prêt pour la bagarre.</string>
+    <string name="setup_welcome">Bienvenue dans CyanogenMod</string>
+    <string name="setup_welcome_summary">Pour commencer la configuration de votre appareil, sélectionnez votre langue et continuez.</string>
+    <string name="setup_cmaccount">Configurez votre compte CyanogenMod</string>
+    <string name="setup_sim_missing">Insérer une carte SIM</string>
+    <string name="setup_google_account">Compte Google</string>
+    <string name="setup_location">Paramètres de localisation</string>
+    <string name="setup_datetime">Paramètres de Date &amp; Heure</string>
+    <string name="setup_current_date">Date actuelle</string>
+    <string name="setup_current_time">Heure actuelle</string>
+    <string name="setup_msg_no_network">ATTENTION\u00A0: Vous ne serez pas en mesure de configurer votre compte</string>
+    <string name="cmaccount_setup_create_title">Créer un compte CyanogenMod</string>
+    <string name="cmaccount_setup_login_title">Se connecter à son compte CyanogenMod</string>
+    <string name="cmaccount_setup_email_label">E-mail</string>
+    <string name="cmaccount_setup_email_unavailable_label">E-mail déjà enregistré</string>
+    <string name="cmaccount_setup_email_invalid_label">Adresse e-mail non valide</string>
+    <string name="cmaccount_setup_password_label">Mot de passe</string>
+    <string name="cmaccount_setup_password_create_label">Mot de passe (Min 8 caractères)</string>
+    <string name="cmaccount_setup_password_mismatch_label">Le mot de passe ne correspond pas\u00A0!</string>
+    <string name="cmaccount_setup_password_invalid_label">Le mot de passe doit comporter au moins 8 caractères\u00A0!</string>
+    <string name="cmaccount_setup_confirm_password_label">Confirmer le mot de passe</string>
+    <string name="cmaccount_setup_tos_label">Je suis d\'accord avec les %1$stermes%2$s du service</string>
+    <string name="cmaccount_add_title">Ajouter un compte CyanogenMod</string>
+    <string name="cmaccount_add_create_label">Un compte CyanogenMod permet d\'accéder à des services et des fonctionnalités avancés pour votre appareil fonctionnant sous CyanogenMod.</string>
+    <string name="cmaccount_learn_more">Lire plus\u2026</string>
+    <string name="cmaccount_password_changed_title">Mot de passe modifié</string>
+    <string name="cmaccount_password_changed_message">Connectez-vous à votre compte CyanogenMod</string>
+    <string name="cmaccount_login_message">Connexion à CyanogenMod</string>
+    <string name="cmaccount_creating_profile_message">Création du profil CyanogenMod</string>
+    <string name="cmaccount_login_error_title">Connexion échouée</string>
+    <string name="cmaccount_login_error_message">E-mail ou mot de passe non valide</string>
+    <string name="cmaccount_server_error_title">Erreur serveur</string>
+    <string name="cmaccount_create_account_error_title">Erreur lors de la création du compte</string>
+    <string name="cmaccount_server_error_message">Une erreur de communication a été rencontrée avec le serveur. Réessayez ultérieurement.</string>
+    <string name="cmaccount_error_multiple_accounts">Seul un compte CyanogenMod est autorisé par appareil</string>
+    <string name="sim_missing_summary">Vous devez vous référer aux instructions fournies avec la carte SIM de votre appareil.</string>
+    <string name="google_account_summary">Voulez-vous configurer un compte Google\u00A0?</string>
+    <string name="btn_google_account">Configurer un compte Google</string>
+    <string name="location_access_title">Accéder à ma localisation</string>
+    <string name="location_access_summary">Permettre aux applications ayant demandé l\'autorisation d\'accéder aux données de localisation</string>
+    <string name="location_sources_heading">Sources de localisation</string>
+    <string name="location_gps">Satellites GPS</string>
+    <string name="location_street_level" product="tablet">Permettre aux applications utilisant le GPS de votre tablette à localiser votre emplacement</string>
+    <string name="location_street_level" product="default">Permettre aux applications utilisant le GPS de votre smartphone à localiser votre emplacement</string>
+    <string name="location_network_based">Localisation Wi-Fi &amp; réseau mobile</string>
+    <string name="location_neighborhood_level">Permettre aux applications d\'utiliser le service de localisation de Google pour définir votre emplacement plus rapidement. Des données de localisation anonymes seront collectées et envoyées à Google.</string>
+</resources>
