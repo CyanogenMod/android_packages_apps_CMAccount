@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,8 +13,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
+-->
 <resources>
     <string name="app_name">CyanogenMod Account</string>
     <string name="product_name" translatable="false">cyanogenmod</string>
@@ -28,7 +28,7 @@
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
     <string name="login">Login</string>
-    <string name="ok">Okay</string>
+    <string name="ok">OK</string>
     <string name="existing">Log in to existing account</string>
     <string name="new_account">Create a new account</string>
     <string name="skip_anyway">Skip anyway</string>
@@ -38,54 +38,54 @@
     <string name="setup_complete_summary">Congratulations! Your device is ready to rumble.</string>
     <string name="setup_welcome">Welcome to CyanogenMod</string>
     <string name="setup_welcome_summary">To get started setting up your device, select your language and continue.</string>
-    <string name="setup_cmaccount">Set up your CyanogenMod Account</string>
+    <string name="setup_cmaccount">Set up your CyanogenMod account</string>
     <string name="setup_sim_missing">Insert SIM card</string>
-    <string name="setup_google_account">Google Account</string>
-    <string name="setup_location">Location Settings</string>
-    <string name="setup_datetime">Date &amp; Time Settings</string>
+    <string name="setup_google_account">Google account</string>
+    <string name="setup_location">Location settings</string>
+    <string name="setup_datetime">Date &amp; time settings</string>
     <string name="setup_current_date">Current date</string>
     <string name="setup_current_time">Current time</string>
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
 
-    <string name="cmaccount_setup_create_title">Create a CyanogenMod Account</string>
-    <string name="cmaccount_setup_login_title">Log in to your CyanogenMod Account</string>
+    <string name="cmaccount_setup_create_title">Create a CyanogenMod account</string>
+    <string name="cmaccount_setup_login_title">Log in to your CyanogenMod account</string>
     <string name="cmaccount_setup_email_label">Email</string>
     <string name="cmaccount_setup_email_unavailable_label">Email already registered</string>
-    <string name="cmaccount_setup_email_invalid_label">Not a valid Email address</string>
+    <string name="cmaccount_setup_email_invalid_label">Not a valid email address</string>
     <string name="cmaccount_setup_password_label">Password</string>
-    <string name="cmaccount_setup_password_create_label">Password (Min 8 chars)</string>
+    <string name="cmaccount_setup_password_create_label">Password (min. 8 chars)</string>
     <string name="cmaccount_setup_password_mismatch_label">Passwords don\'t match!</string>
     <string name="cmaccount_setup_password_invalid_label">Password must be at least 8 characters!</string>
     <string name="cmaccount_setup_confirm_password_label">Confirm password</string>
     <string name="cmaccount_setup_tos_label">I agree to the %1$sterms%2$s of service</string>
-    <string name="cmaccount_add_title">Add a CyanogenMod Account</string>
-    <string name="cmaccount_add_create_label">A CyanogenMod Account provides access to value-added services and functionality for your mobile device running CyanogenMod.</string>
-    <string name="cmaccount_learn_more">Learn more...</string>
+    <string name="cmaccount_add_title">Add a CyanogenMod account</string>
+    <string name="cmaccount_add_create_label">A CyanogenMod account provides access to value-added services and functionality for your mobile device running CyanogenMod.</string>
+    <string name="cmaccount_learn_more">Learn more\u2026</string>
 
-    <string name="cmaccount_password_changed_title">Password Changed</string>
+    <string name="cmaccount_password_changed_title">Password changed</string>
     <string name="cmaccount_password_changed_message">Please login to your CyanogenMod account</string>
 
     <string name="cmaccount_login_message">Logging in to CyanogenMod</string>
     <string name="cmaccount_creating_profile_message">Creating your CyanogenMod profile</string>
 
-    <string name="cmaccount_login_error_title">Login Failed</string>
+    <string name="cmaccount_login_error_title">Login failed</string>
     <string name="cmaccount_login_error_message">Invalid email or password.</string>
-    <string name="cmaccount_server_error_title">Server Error</string>
+    <string name="cmaccount_server_error_title">Server error</string>
     <string name="cmaccount_create_account_error_title">Error creating account</string>
-    <string name="cmaccount_server_error_message">An error has occurred communicating with the server. Please try again later.</string>
+    <string name="cmaccount_server_error_message">An error has occurred while communicating with the server. Please try again later.</string>
 
-    <string name="cmaccount_error_multiple_accounts">Only one CyanogenMod allowed on a device</string>
+    <string name="cmaccount_error_multiple_accounts">Only one CyanogenMod account is allowed per device</string>
 
     <string name="sim_missing_summary">You need to refer to the SIM card instructions that came with your device.</string>
     <string name="google_account_summary">Do you want to set up a Google account?</string>
     <string name="btn_google_account">Set up Google account</string>
 
     <string name="location_access_title">Access to my location</string>
-    <string name="location_access_summary">Let apps that have asked your permission use your location information</string>
+    <string name="location_access_summary">Allow apps that have asked your permission to use your location information</string>
     <string name="location_sources_heading">Location sources</string>
     <string name="location_gps">GPS satellites</string>
-    <string name="location_street_level" product="tablet">Let apps use GPS on your tablet to pinpoint your location</string>
-    <string name="location_street_level" product="default">Let apps use GPS on your phone to pinpoint your location</string>
+    <string name="location_street_level" product="tablet">Allow apps to use GPS on your tablet to pinpoint your location</string>
+    <string name="location_street_level" product="default">Allow apps to use GPS on your phone to pinpoint your location</string>
     <string name="location_network_based">Wi-Fi &amp; mobile network location</string>
-    <string name="location_neighborhood_level">Let apps use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
+    <string name="location_neighborhood_level">Allow apps to use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
 </resources>

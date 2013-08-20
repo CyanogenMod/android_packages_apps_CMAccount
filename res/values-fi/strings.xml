@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,11 +13,9 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
+-->
 <resources>
     <string name="app_name">CyanogenMod-tili</string>
-
     <string name="next">Seuraava</string>
     <string name="continue_label">Jatka</string>
     <string name="prev">Edellinen</string>
@@ -31,7 +30,6 @@
     <string name="new_account">Luo uusi tili</string>
     <string name="skip_anyway">Ohita silti</string>
     <string name="dont_skip">Älä ohita</string>
-
     <string name="setup_complete">Asennus on valmis</string>
     <string name="setup_complete_summary">Onnittelut! Laitteesi on valmis käyttöön.</string>
     <string name="setup_welcome">Tervetuloa CyanogenModiin</string>
@@ -44,7 +42,6 @@
     <string name="setup_current_date">Aseta päivämäärä</string>
     <string name="setup_current_time">Aseta aila</string>
     <string name="setup_msg_no_network">VAROITUS: Et pysty asettamaan käyttäjätilejäsi</string>
-
     <string name="cmaccount_setup_create_title">Luo CyanogenMod-tili</string>
     <string name="cmaccount_setup_login_title">Kirjaudu CyanogenMod-tilillesi</string>
     <string name="cmaccount_setup_email_label">Sähköposti</string>
@@ -59,25 +56,19 @@
     <string name="cmaccount_add_title">Lisää CyanogenMod-tili</string>
     <string name="cmaccount_add_create_label">CyanogenMod-tili sallii pääsyn uusiin palveluihin ja toimintoihin mobiililaittellasi jossa on CyanogenMod.</string>
     <string name="cmaccount_learn_more">Lue lisää\u2026</string>
-
     <string name="cmaccount_password_changed_title">Salasana vaihdettu</string>
     <string name="cmaccount_password_changed_message">Kirjaudu CyanogenMod-tilillesi</string>
-
     <string name="cmaccount_login_message">Kirjaudutaan CyanogenModiin</string>
     <string name="cmaccount_creating_profile_message">Luodaan CyanogenMod-profiiliasi</string>
-
     <string name="cmaccount_login_error_title">Kirjautuminen epäonnistui</string>
     <string name="cmaccount_login_error_message">Virheellinen sähköposti tai salasana.</string>
     <string name="cmaccount_server_error_title">Palvelinvirhe</string>
     <string name="cmaccount_create_account_error_title">Virhe luodessa tiliä</string>
     <string name="cmaccount_server_error_message">Virhe tapahtui yhdistettäessä palvelimeen. Yritä myöhemmin uudestaan.</string>
-
     <string name="cmaccount_error_multiple_accounts">Vain yksi CyanogenMod-tili per laite</string>
-
     <string name="sim_missing_summary">Sinun pitää tutustua laitteen mukana tulleisiin ohjeisiin SIM-kortin asettamiseksi.</string>
     <string name="google_account_summary">Haluatko asettaa Google-tilin?</string>
     <string name="btn_google_account">Aseta Google-tili</string>
-
     <string name="location_access_title">Salli pääsy sijaintiin</string>
     <string name="location_access_summary">Salli sijainnin haku sovelluksille jotka ovat kysyneet luvan</string>
     <string name="location_sources_heading">Sijainnin lähteet</string>

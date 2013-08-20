@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.cyanogenmod.account"
-          android:versionCode="1">
+        package="com.cyanogenmod.account"
+        android:versionCode="1">
+
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <uses-permission android:name="android.permission.STATUS_BAR" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.SET_TIME_ZONE" />
     <uses-permission android:name="android.permission.SET_TIME" />
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> >
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> >
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
@@ -23,95 +39,100 @@
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <permission android:name="com.cyanogenmod.account.permission.C2D_MESSAGE"
-                android:protectionLevel="signature" />
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="com.cyanogenmod.account.permission.C2D_MESSAGE" />
+
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="17" />
+
     <application android:label="@string/app_name"
-                 android:icon="@drawable/icon"
-                 android:theme="@style/Theme.CMAccount"
-                 android:name=".CMAccount">
-        <service
-                android:name="com.cyanogenmod.account.auth.AuthService"
-                android:exported="true">
+        android:icon="@drawable/icon"
+        android:theme="@style/Theme.CMAccount"
+        android:name=".CMAccount">
+
+        <service android:name="com.cyanogenmod.account.auth.AuthService"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
-            <meta-data
-                    android:name="android.accounts.AccountAuthenticator"
-                    android:resource="@xml/authenticator" />
+
+            <meta-data android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
         </service>
+
         <activity android:name=".ui.SetupWizardActivity"
-                  android:label="@string/product_name"
-                  android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
-                  android:launchMode="singleTop"
-                  android:excludeFromRecents="true"
-                  android:immersive="true">
+            android:label="@string/product_name"
+            android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true"
+            android:immersive="true">
+
                 <intent-filter android:priority="9">
-                <action android:name="android.intent.action.MAIN"/>
-                <action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD"/>
-                <category android:name="android.intent.category.HOME"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD" />
+
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.CMAccountActivity"
-                  android:label="@string/product_name"
-                  android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
-                  android:launchMode="singleTop"
-                  android:excludeFromRecents="true"/>
+            android:label="@string/product_name"
+            android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true" />
 
         <activity android:name=".auth.AuthActivity"
-                  android:label="@string/product_name"
-                  android:launchMode="singleTop"
-                  android:theme="@style/Theme.CMAccount.ActionBar.Overlay"/>
+            android:label="@string/product_name"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.CMAccount.ActionBar.Overlay" />
 
-        <receiver
-                android:name=".gcm.GCMReceiver" android:exported="true"
-                android:permission="com.google.android.c2dm.permission.SEND" >
+        <receiver android:name=".gcm.GCMReceiver" android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="com.cyanogenmod.account" />
             </intent-filter>
         </receiver>
 
-        <receiver
-                android:name=".gcm.GCMPackageReceiver" android:exported="true">
+        <receiver android:name=".gcm.GCMPackageReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <data android:scheme="package"/>
+                <data android:scheme="package" />
             </intent-filter>
         </receiver>
 
         <receiver android:name=".CMAccount$CMAccountAdminReceiver"
-                  android:permission="android.permission.BIND_DEVICE_ADMIN">
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data android:name="android.app.device_admin"
-                       android:resource="@xml/device_admin"/>
+                android:resource="@xml/device_admin" />
         </receiver>
 
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <service
-                android:name=".gcm.GCMService"
-                android:exported="false" />
+        <service android:name=".gcm.GCMService"
+            android:exported="false" />
 
         <service
                 android:name=".gcm.GCMIntentService"
                 android:exported="false" />
 
-        <service
-                android:name=".api.DeviceFinderService"
-                android:exported="false" />
+        <service android:name=".api.DeviceFinderService"
+            android:exported="false" />
 
-        <service
-                android:name=".api.PingService"
-                android:exported="false" />
+        <service android:name=".api.PingService"
+            android:exported="false" />
 
-        <provider
-                android:name=".provider.CMAccountProvider"
-                android:authorities="com.cyanogenmod.account.store"/>
+        <provider android:name=".provider.CMAccountProvider"
+            android:authorities="com.cyanogenmod.account.store" />
     </application>
-</manifest> 
+</manifest>

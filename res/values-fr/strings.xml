@@ -13,8 +13,8 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+-->
+<resources>
     <string name="app_name">Compte CyanogenMod</string>
     <string name="next">Suivant</string>
     <string name="continue_label">Continuer</string>
