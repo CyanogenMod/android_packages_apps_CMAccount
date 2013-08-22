@@ -142,11 +142,15 @@ public class GCMIntentService extends IntentService implements Response.Listener
         // Cast the message to the correct type
         PublicKeyMessage publicKeyMessage = (PublicKeyMessage) message;
 
-        // Obtain the user's hashed password.
+        // Obtain the user's hashed password and device salt.
         String passwordHash = mAccountManager.getPassword(mAccount);
+        String deviceSalt = CMAccountUtils.getDeviceSalt(mContext);
 
-        // Verify the public key hash
-        String localPublicKeySignature = EncryptionUtils.HMAC.getSignature(passwordHash, publicKeyMessage.getPublicKey());
+        // Derive HMAC secret from the hashed password and device salt using PBKDF2.
+        String hmacSecret = EncryptionUtils.PBKDF2.getDerivedKey(passwordHash, deviceSalt);
+
+        // Verify the public key signature using HMAC-SHA512.
+        String localPublicKeySignature = EncryptionUtils.HMAC.getSignature(hmacSecret, publicKeyMessage.getPublicKey());
         if (!localPublicKeySignature.equals(publicKeyMessage.getSignature())) {
             if (CMAccount.DEBUG) Log.d(TAG, "Unable to verify public key hash");
 

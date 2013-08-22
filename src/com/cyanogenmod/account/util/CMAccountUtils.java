@@ -241,4 +241,22 @@ public class CMAccountUtils {
             return null;
         }
     }
+
+    public static String getDeviceSalt(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(CMAccount.AUTH_PREFERENCES, Context.MODE_PRIVATE);
+        String deviceSalt = prefs.getString(CMAccount.DEVICE_SALT, null);
+        if (deviceSalt == null) {
+            deviceSalt = EncryptionUtils.generateSalt();
+            setDeviceSalt(context, deviceSalt);
+        }
+        return deviceSalt;
+    }
+
+    public static void setDeviceSalt(Context context, String salt) {
+        SharedPreferences prefs = context.getSharedPreferences(CMAccount.AUTH_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(CMAccount.DEVICE_SALT, salt);
+        editor.commit();
+
+    }
 }

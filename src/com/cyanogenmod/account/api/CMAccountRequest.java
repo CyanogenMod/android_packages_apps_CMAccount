@@ -38,6 +38,7 @@ public abstract class CMAccountRequest<T> extends Request<T> {
     public static final String PARAM_ANDROID_VERSION = "android_version";
     public static final String PARAM_CM_VERSION = "cm_version";
     public static final String PARAM_CARRIER= "carrier";
+    public static final String PARAM_SALT = "salt";
 
     private final Response.Listener<T> mListener;
     private HashMap<String, String> mParams = new HashMap<String, String>();

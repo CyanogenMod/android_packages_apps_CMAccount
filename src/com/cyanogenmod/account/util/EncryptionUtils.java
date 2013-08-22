@@ -22,13 +22,35 @@ import com.cyanogenmod.account.CMAccount;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 public class EncryptionUtils {
     private static final String TAG = EncryptionUtils.class.getSimpleName();
+
+    public static class PBKDF2 {
+        public static String getDerivedKey(String password, String salt) {
+            char[] passwordChars = password.toCharArray();
+            byte[] saltBytes = Base64.decode(salt, Base64.NO_WRAP);
+
+            try {
+                SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                KeySpec keySpec = new PBEKeySpec(passwordChars, saltBytes, 1024, 128);
+                SecretKey secretKey = keyFactory.generateSecret(keySpec);
+                return Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.e(TAG, "NoSuchAlgorithmException", e);
+                throw new AssertionError(e);
+            } catch (InvalidKeySpecException e) {
+                Log.e(TAG, "InvalidKeySpecException", e);
+                throw new AssertionError(e);
+            }
+        }
+    }
 
     public static class HMAC {
         public static String getSignature(String key, String message) {
@@ -190,5 +212,12 @@ public class EncryptionUtils {
                 throw new AssertionError(e);
             }
         }
+    }
+
+    public static String generateSalt() {
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] salt = new byte[128];
+        secureRandom.nextBytes(salt);
+        return Base64.encodeToString(salt, Base64.NO_WRAP);
     }
 }
