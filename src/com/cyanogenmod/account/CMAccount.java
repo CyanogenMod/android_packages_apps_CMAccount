@@ -51,6 +51,8 @@ public class CMAccount extends Application {
     public static final String AUTH_PREFERENCES = "com.cyanogenmod.account.auth";
     public static final String SETTINGS_PREFERENCES = "com.cyanogenmod.account_preferences";
 
+    public static final String DEVICE_SALT = "device_salt";
+
     public static final String BACKOFF_MS = "backoff_ms";
     public static final int DEFAULT_BACKOFF_MS = 3000;
     public static final int MAX_BACKOFF_MS = 1000 * 60 * 60 * 6; // 6 hours
