@@ -166,7 +166,7 @@ public class GCMIntentService extends IntentService implements Response.Listener
 
         // Generate the symmetric key, symmetric key verification, and session id.
         String symmetricKey = EncryptionUtils.AES.generateAesKey();
-        String symmetricKeyVerify = CMAccountUtils.digest("SHA512", symmetricKey + passwordHash);
+        String symmetricKeyVerify = EncryptionUtils.HMAC.getSignature(hmacSecret, symmetricKey);
         String sessionId = UUID.randomUUID().toString();
 
         // Persist it
