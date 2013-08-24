@@ -18,30 +18,92 @@ package com.cyanogenmod.account.util;
 
 import android.util.Base64;
 import android.util.Log;
-import com.cyanogenmod.account.CMAccount;
+import com.cyanogenmod.account.encryption.ECKeyPair;
 
-import javax.crypto.*;
+import org.spongycastle.crypto.AsymmetricCipherKeyPair;
+import org.spongycastle.crypto.agreement.ECDHBasicAgreement;
+import org.spongycastle.crypto.generators.ECKeyPairGenerator;
+import org.spongycastle.crypto.params.ECDomainParameters;
+import org.spongycastle.crypto.params.ECKeyGenerationParameters;
+import org.spongycastle.crypto.params.ECPrivateKeyParameters;
+import org.spongycastle.crypto.params.ECPublicKeyParameters;
+import org.spongycastle.math.ec.ECCurve;
+import org.spongycastle.math.ec.ECFieldElement;
+import org.spongycastle.math.ec.ECPoint;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.Mac;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.security.*;
+import java.math.BigInteger;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.security.spec.X509EncodedKeySpec;
 
 public class EncryptionUtils {
     private static final String TAG = EncryptionUtils.class.getSimpleName();
+    private static final SecureRandom secureRandom = new SecureRandom();
+
+    public static class ECDH {
+        private static final BigInteger q = new BigInteger("FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF", 16);
+        private static final BigInteger a = new BigInteger("FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC", 16);
+        private static final BigInteger b = new BigInteger("5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B", 16);
+        private static final BigInteger n = new BigInteger("FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551", 16);
+
+        private static final ECFieldElement x = new ECFieldElement.Fp(q, new BigInteger("6B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C296", 16));
+        private static final ECFieldElement y = new ECFieldElement.Fp(q, new BigInteger("4FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5", 16));
+
+        private static final ECCurve curve = new ECCurve.Fp(q, a, b);
+        private static final ECPoint g = new ECPoint.Fp(curve, x, y, true);
+
+        public static final ECDomainParameters DOMAIN_PARAMETERS = new ECDomainParameters(curve, g, n);
+
+        public static ECKeyPair generateKeyPair() {
+            ECKeyGenerationParameters keyParams = new ECKeyGenerationParameters(DOMAIN_PARAMETERS, secureRandom);
+            ECKeyPairGenerator ecKeyPairGenerator = new ECKeyPairGenerator();
+            ecKeyPairGenerator.init(keyParams);
+            AsymmetricCipherKeyPair keyPair = ecKeyPairGenerator.generateKeyPair();
+            return new ECKeyPair(keyPair);
+        }
+
+        public static ECPublicKeyParameters getPublicKey(byte[] publicKeyBytes) {
+            ECPoint keyPoint = curve.decodePoint(publicKeyBytes);
+            return new ECPublicKeyParameters(keyPoint, DOMAIN_PARAMETERS);
+        }
+
+        public static ECPublicKeyParameters getPublicKey(String publicKeyHex) {
+            return getPublicKey(CMAccountUtils.decodeHex(publicKeyHex));
+        }
+
+        public static byte[] calculateSecret(ECPrivateKeyParameters privateKey, ECPublicKeyParameters publicKey) {
+            ECDHBasicAgreement keyAgreement = new ECDHBasicAgreement();
+            keyAgreement.init(privateKey);
+            byte[] secretBytes = keyAgreement.calculateAgreement(publicKey).toByteArray();
+            // Hash secret with SHA-256 to obtain AES key
+            return CMAccountUtils.digestBytes("SHA-256", secretBytes);
+        }
+    }
 
     public static class PBKDF2 {
-        public static String getDerivedKey(String password, String salt) {
+        public static byte[] getDerivedKey(String password, String salt) {
             char[] passwordChars = password.toCharArray();
             byte[] saltBytes = Base64.decode(salt, Base64.NO_WRAP);
 
             try {
                 SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                KeySpec keySpec = new PBEKeySpec(passwordChars, saltBytes, 1024, 128);
+                KeySpec keySpec = new PBEKeySpec(passwordChars, saltBytes, 1024, 256);
                 SecretKey secretKey = keyFactory.generateSecret(keySpec);
-                return Base64.encodeToString(secretKey.getEncoded(), Base64.NO_WRAP);
+                return secretKey.getEncoded();
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithmException", e);
                 throw new AssertionError(e);
@@ -53,13 +115,13 @@ public class EncryptionUtils {
     }
 
     public static class HMAC {
-        public static String getSignature(String key, String message) {
+        public static String getSignature(byte[] key, String message) {
             try {
-                Mac hmac = Mac.getInstance("HmacSHA512");
-                Key secretKey = new SecretKeySpec(key.getBytes(), "HmacSHA512");
+                Mac hmac = Mac.getInstance("HmacSHA256");
+                Key secretKey = new SecretKeySpec(key, "HmacSHA256");
                 hmac.init(secretKey);
                 hmac.update(message.getBytes());
-                return Base64.encodeToString(hmac.doFinal(), Base64.NO_WRAP);
+                return CMAccountUtils.encodeHex(hmac.doFinal());
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithmException", e);
                 throw new AssertionError(e);
@@ -71,31 +133,13 @@ public class EncryptionUtils {
     }
 
     public static class AES {
-        public static String generateAesKey() {
-            try {
-                KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-                SecureRandom secureRandom = new SecureRandom();
-                keyGenerator.init(128, secureRandom);
-                byte[] symmetricKey = keyGenerator.generateKey().getEncoded();
-                return Base64.encodeToString(symmetricKey, Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.e(TAG, "NoSuchAlgorithimException", e);
-                throw new AssertionError(e);
-            }
-        }
-
-        public static String decrypt(String _ciphertext, String _key, String _initializationVector) {
-            byte[] key = Base64.decode(_key, Base64.DEFAULT);
-            byte[] initializationVector = Base64.decode(_initializationVector, Base64.DEFAULT);
-            byte[] ciphertext = Base64.decode(_ciphertext, Base64.DEFAULT);
-
-            SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
-            IvParameterSpec ivSpec = new IvParameterSpec(initializationVector);
-
+        public static String decrypt(byte[] ciphertext, byte[] key) {
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
+                IvParameterSpec ivSpec = new IvParameterSpec(ciphertext, 0, cipher.getBlockSize());
                 cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
-                byte[] plaintext = cipher.doFinal(ciphertext);
+                byte[] plaintext = cipher.doFinal(ciphertext, cipher.getBlockSize(), ciphertext.length - cipher.getBlockSize());
 
                 return new String(plaintext);
             } catch (NoSuchAlgorithmException e) {
@@ -119,21 +163,19 @@ public class EncryptionUtils {
             }
         }
 
-        public static CipherResult encrypt(String plaintext, String _key) {
-            byte[] key = Base64.decode(_key, Base64.DEFAULT);
-
+        public static byte[] encrypt(String plaintext, byte[] key) {
             SecretKeySpec keySpec = new SecretKeySpec(key, "AES");
-
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(Cipher.ENCRYPT_MODE, keySpec);
-                byte[] initializationVector = cipher.getIV();
+                cipher.init(Cipher.ENCRYPT_MODE, keySpec, getRandomIV());
                 byte[] ciphertext = cipher.doFinal(plaintext.getBytes());
+                byte[] initializationVector = cipher.getIV();
 
-                String encodedCiphertext = Base64.encodeToString(ciphertext, Base64.NO_WRAP);
-                String encodedInitializationVector = Base64.encodeToString(initializationVector, Base64.NO_WRAP);
-
-                return new CipherResult(encodedCiphertext, encodedInitializationVector);
+                // Combine IV and Ciphertext
+                byte[] combined = new byte[initializationVector.length + ciphertext.length];
+                System.arraycopy(initializationVector, 0, combined, 0, initializationVector.length);
+                System.arraycopy(ciphertext, 0, combined, initializationVector.length, ciphertext.length);
+                return combined;
             } catch (NoSuchAlgorithmException e) {
                 Log.e(TAG, "NoSuchAlgorithimException", e);
                 throw new AssertionError(e);
@@ -149,73 +191,21 @@ public class EncryptionUtils {
             } catch (BadPaddingException e) {
                 Log.e(TAG, "BadPaddingException", e);
                 throw new AssertionError(e);
-            }
-        }
-
-        public static class CipherResult {
-            private String ciphertext;
-            private String initializationVector;
-
-            private CipherResult(String ciphertext, String initializationVector) {
-                this.ciphertext = ciphertext;
-                this.initializationVector = initializationVector;
-            }
-
-            public String getCiphertext() {
-                return ciphertext;
-            }
-
-            public String getInitializationVector() {
-                return initializationVector;
-            }
-        }
-    }
-
-    public static class RSA {
-
-        private static PublicKey getPublicKey(String publicKey) {
-            try {
-                if (CMAccount.DEBUG) Log.d(TAG, "Building public key from PEM = " + publicKey.toString());
-                KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-                return keyFactory.generatePublic(new X509EncodedKeySpec(Base64.decode(publicKey.toString(), Base64.DEFAULT)));
-            } catch (NoSuchAlgorithmException e) {
-                Log.e(TAG, "NoSuchAlgorithimException", e);
-                throw new AssertionError(e);
-            } catch (InvalidKeySpecException e) {
-                Log.e(TAG, "InvalidKeySpecException", e);
+            } catch (InvalidAlgorithmParameterException e) {
+                Log.e(TAG, "InvalidAlgorithmParameterException");
                 throw new AssertionError(e);
             }
         }
 
-        public static String encrypt(String _publicKey, String data) {
-            PublicKey publicKey = getPublicKey(_publicKey);
-
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-                byte[] result = cipher.doFinal(data.getBytes());
-                return Base64.encodeToString(result, Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.e(TAG, "NoSuchAlgorithimException", e);
-                throw new AssertionError(e);
-            } catch (NoSuchPaddingException e) {
-                Log.e(TAG, "NoSuchPaddingException", e);
-                throw new AssertionError(e);
-            } catch (InvalidKeyException e) {
-                Log.e(TAG, "InvalidKeyException", e);
-                throw new AssertionError(e);
-            } catch (IllegalBlockSizeException e) {
-                Log.e(TAG, "IllegalBlockSizeException", e);
-                throw new AssertionError(e);
-            } catch (BadPaddingException e) {
-                Log.e(TAG, "BadPaddingException");
-                throw new AssertionError(e);
-            }
+        private static IvParameterSpec getRandomIV() {
+            byte[] ivBytes = new byte[16];
+            secureRandom.nextBytes(ivBytes);
+            IvParameterSpec ivSpec = new IvParameterSpec(ivBytes);
+            return ivSpec;
         }
     }
 
     public static String generateSalt() {
-        SecureRandom secureRandom = new SecureRandom();
         byte[] salt = new byte[128];
         secureRandom.nextBytes(salt);
         return Base64.encodeToString(salt, Base64.NO_WRAP);

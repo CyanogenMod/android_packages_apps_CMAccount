@@ -19,30 +19,32 @@ package com.cyanogenmod.account.gcm;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.IntentService;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.PowerManager;
-import android.util.Base64;
 import android.util.Log;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.cyanogenmod.account.CMAccount;
+import com.cyanogenmod.account.api.DeviceFinderService;
 import com.cyanogenmod.account.api.request.SendChannelRequestBody;
 import com.cyanogenmod.account.auth.AuthClient;
-import com.cyanogenmod.account.gcm.model.*;
+import com.cyanogenmod.account.encryption.ECDHKeyService;
+import com.cyanogenmod.account.gcm.model.EncryptedMessage;
+import com.cyanogenmod.account.gcm.model.GCMessage;
+import com.cyanogenmod.account.gcm.model.PlaintextMessage;
+import com.cyanogenmod.account.provider.CMAccountProvider;
 import com.cyanogenmod.account.util.CMAccountUtils;
 import com.cyanogenmod.account.util.EncryptionUtils;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
+import com.google.gson.JsonParseException;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.util.UUID;
+import org.spongycastle.crypto.params.ECPrivateKeyParameters;
+import org.spongycastle.crypto.params.ECPublicKeyParameters;
+
+import java.math.BigInteger;
 
 /**
  * Created by ctso on 8/3/13.
@@ -56,27 +58,42 @@ public class GCMIntentService extends IntentService implements Response.Listener
     private static final int WAKE_LOCK_TIMEOUT = 1000 * 60 * 5;
 
     private Context mContext;
-    private GoogleCloudMessaging mGoogleCloudMessaging;
-    private AccountManager mAccountManager;
     private Account mAccount;
     private AuthClient mAuthClient;
     private Gson mGson;
+    private byte[] mHmacSecret;
 
     public GCMIntentService() {
         super(TAG);
-
-        mGson = new GsonBuilder().registerTypeAdapterFactory(MessageTypeAdapterFactory.getInstance()).create();
+        mGson = new Gson();
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         mContext = getApplicationContext();
+        mAuthClient = AuthClient.getInstance(mContext);
+        mAccount = CMAccountUtils.getCMAccountAccount(mContext);
+        mHmacSecret = CMAccountUtils.getHmacSecret(mContext);
+        acquireWakeLock();
 
         // Drop the intent if it isn't a GCM message.
         if (!ACTION_RECEIVE.equals(intent.getAction())) {
             return;
         }
 
+        if (mAccount == null) {
+            if (CMAccount.DEBUG) Log.d(TAG, "No CMAccount Configured!");
+            return;
+        }
+
+        String messageData = intent.getExtras().getString("data");
+        if (CMAccount.DEBUG) Log.d(TAG, "message data = " + messageData);
+
+        GCMessage message = mGson.fromJson(messageData, GCMessage.class);
+        handleMessage(message);
+    }
+
+    private void acquireWakeLock() {
         if (sWakeLock == null) {
             PowerManager pm = (PowerManager)
                     mContext.getSystemService(Context.POWER_SERVICE);
@@ -86,161 +103,159 @@ public class GCMIntentService extends IntentService implements Response.Listener
             if (CMAccount.DEBUG) Log.v(TAG, "Acquiring " + WAKE_LOCK_TIMEOUT + " ms wakelock");
             sWakeLock.acquire(WAKE_LOCK_TIMEOUT);
         }
-        mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(mContext);
-        mAccountManager = AccountManager.get(mContext);
-        mAccount = CMAccountUtils.getCMAccountAccount(mContext);
-        if (mAccount == null) {
-            if (CMAccount.DEBUG) Log.d(TAG, "No CMAccount Configured!");
-            return;
-        }
-        mAuthClient = AuthClient.getInstance(mContext);
-
-        String messageType = mGoogleCloudMessaging.getMessageType(intent);
-
-        if (CMAccount.DEBUG) Log.d(TAG, "messageType = " + messageType);
-        String data = intent.getExtras().getString("data");
-        if (CMAccount.DEBUG) Log.d(TAG, "message data = " + data);
-        try {
-            GCMessage message = mGson.fromJson(data, GCMessage.class);
-            handleMessage(mContext, message);
-        } catch (JsonSyntaxException e) {
-            Log.e(TAG, "Error parsing GCM message", e);
-        } catch (RuntimeException e) {
-            // Since Message doesn't have a constructor, if a message comes through that we don't have a
-            // type adapter for, we will get a RuntimeException.
-            Log.e(TAG, "Received unknown message type", e);
-        }
     }
 
-    private void handleMessage(final Context context, final GCMessage message) {
+    private void handleMessage(final GCMessage message) {
         if (CMAccount.DEBUG) Log.d(TAG, "gson parsed message = " + message.toJson());
-        String deviceId = CMAccountUtils.getUniqueDeviceId(context);
 
-        // Match account on email, drop if this message is for a different account.
-        String messageEmail = message.getAccount().getEmail();
-        if (!mAccount.name.equals(messageEmail)) {
-            if (CMAccount.DEBUG) Log.d(TAG, "Message was for " + messageEmail + ", current user is " + mAccount.name + ".  Dropping message.");
+        /**
+         * Because we allow one device to be tied to multiple users, we need to verify that the
+         * message is intended for the current user.  The server adds the account parameter so that
+         * it cannot be tampered with.  This is primarily to protect against password reset messages
+         * being processed for the wrong account.
+         */
+        String account = message.getAccount();
+        if (account != null && !account.equals(mAccount.name)) {
+            Log.w(TAG, "Received message for " + account  + " but current user is " + mAccount.name);
             return;
         }
 
-        // TODO: We could just look at instanceof message.getMessage()
-        if (GCMUtil.COMMAND_KEY_EXCHANGE.equals(message.getCommand())) {
-            handleKeyExchange(deviceId, message.getMessage());
-        } else if (GCMUtil.COMMAND_SECURE_MESSAGE.equals(message.getCommand())) {
-            handleSecureMessage(context, message);
-        } else if (GCMUtil.COMMAND_PASSWORD_RESET.equals(message.getCommand())) {
+        if (GCMessage.COMMAND_SECURE_MESSAGE.equals(message.getCommand())) {
+            handleSecureMessage(message);
+        } else if (PlaintextMessage.COMMAND_PASSWORD_RESET.equals(message.getCommand())) {
             handlePasswordReset();
         }
     }
 
-    private void handleKeyExchange(String deviceId, final Message message) {
-        if (!(message instanceof PublicKeyMessage)) {
-            Log.w(TAG, "Expected PublicKeyMessage, but got " + message.getClass().toString());
+    private void handleSecureMessage(final GCMessage message) {
+        EncryptedMessage encryptedMessage;
+        try {
+            encryptedMessage = EncryptedMessage.fromJson(message.getPayload());
+        } catch (JsonParseException e) {
+            Log.e(TAG, "JsonParseException while parsing payload", e);
+            throw new AssertionError(e);
+        }
+
+        String keyId = encryptedMessage.getKeyId();
+
+        // Verify payload signature and sequence
+        if (!validateMessage(message, keyId)) {
+            sendFailureMessage();
+            deletePublicKey(keyId);
+            Log.w(TAG, "Unable to verify message");
             return;
         }
 
-        // Cast the message to the correct type
-        PublicKeyMessage publicKeyMessage = (PublicKeyMessage) message;
-
-        // Obtain the user's hashed password and device salt.
-        String passwordHash = mAccountManager.getPassword(mAccount);
-        String deviceSalt = CMAccountUtils.getDeviceSalt(mContext);
-
-        // Derive HMAC secret from the hashed password and device salt using PBKDF2.
-        String hmacSecret = EncryptionUtils.PBKDF2.getDerivedKey(passwordHash, deviceSalt);
-
-        // Verify the public key signature using HMAC-SHA512.
-        String localPublicKeySignature = EncryptionUtils.HMAC.getSignature(hmacSecret, publicKeyMessage.getPublicKey());
-        if (!localPublicKeySignature.equals(publicKeyMessage.getSignature())) {
-            if (CMAccount.DEBUG) Log.d(TAG, "Unable to verify public key hash");
-
-            // It would be nice if we could just ignore the message at this point, however, when the public key hash
-            // is incorrect it means either the public key was tampered with or the user entered the wrong password.
-            // Sending a key_exchange_failed message will cause the browser to prompt the user for their password again.
-
-            PlaintextMessage keyExchangeFailedMessage = new PlaintextMessage(GCMUtil.COMMAND_KEY_EXCHANGE_FAILED, 0);
-            SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_KEY_EXCHANGE_FAILED, deviceId, null, keyExchangeFailedMessage);
-            mAuthClient.sendChannel(sendChannelRequestBody, GCMIntentService.this, GCMIntentService.this);
+        // Derive symmetric key from our private key and remote public key.
+        // Note: Because we only expect one message, there is no need to handle the case where only a key_id
+        // is provided.  In the future, if we expect additional encrypted messages from the browser we should
+        // look up the symmetric key if a public key is not provided.
+        ECPublicKeyParameters remotePublicKey = encryptedMessage.getPublicKey();
+        ECPrivateKeyParameters privateKey = getPrivateKey(keyId);
+        if (privateKey == null) {
+            sendFailureMessage();
             return;
         }
+        byte[] symmetricKey = EncryptionUtils.ECDH.calculateSecret(privateKey, remotePublicKey);
+        storeSymmetricKey(keyId, symmetricKey);
+        deletePublicKey(keyId);
 
-        // Generate the symmetric key, symmetric key verification, and session id.
-        String symmetricKey = EncryptionUtils.AES.generateAesKey();
-        String symmetricKeyVerify = EncryptionUtils.HMAC.getSignature(hmacSecret, symmetricKey);
-        String sessionId = UUID.randomUUID().toString();
+        // Decrypt the message
+        String plaintextMessageJson = EncryptionUtils.AES.decrypt(encryptedMessage.getCiphertext(), symmetricKey);
+        PlaintextMessage plaintextMessage = mGson.fromJson(plaintextMessageJson, PlaintextMessage.class);
 
-        // Persist it
-        mAuthClient.storeSymmetricKey(symmetricKey, sessionId);
-
-        // Encrypt the symmetric key
-        String encryptedSymmetricKey = EncryptionUtils.RSA.encrypt(publicKeyMessage.getPublicKey(), symmetricKey);
-
-        // Build the symmetric key message
-        SymmetricKeyMessage symmetricKeyMessage = new SymmetricKeyMessage(encryptedSymmetricKey, symmetricKeyVerify);
-
-        // Build the channel message, passing in symmetric key message
-        SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(GCMUtil.COMMAND_KEY_EXCHANGE, deviceId, sessionId, symmetricKeyMessage);
-
-        // Send the channel message
-        mAuthClient.sendChannel(sendChannelRequestBody, GCMIntentService.this, GCMIntentService.this);
-    }
-
-    private void handleSecureMessage(final Context context, final GCMessage message) {
-        if (!(message.getMessage() instanceof EncryptedMessage)) {
-            Log.w(TAG, "Expected EncryptedMessage, but got " + message.getClass().toString());
-            return;
-        }
-
-        // Cast the message to the correct type
-        EncryptedMessage encryptedMessage = (EncryptedMessage) message.getMessage();
-
-        // Pull the AES key from the database
-        AuthClient.SymmetricKeySequencePair pair = mAuthClient.getSymmetricKey(message.getSessionId());
-        if (pair == null) {
-            Log.w(TAG, "Unable to find symmetric key for session=" + message.getSessionId());
-            return;
-        }
-
-        if (CMAccount.DEBUG) Log.d(TAG, "Attempting to decrypt secure message with key:" + pair.getSymmetricKey() + " for session_id:" + message.getSessionId());
-
-        // Attempt to decrypt the message.
-        String plaintext = EncryptionUtils.AES.decrypt(encryptedMessage.getCiphertext(), pair.getSymmetricKey(), encryptedMessage.getIV());
-        if (plaintext != null) {
-            if (CMAccount.DEBUG) Log.d(TAG, "plaintext message = " + plaintext);
-            PlaintextMessage plaintextMessage = PlaintextMessage.fromJson(plaintext);
-
-            // Verify the sequence
-            int messageSequence = plaintextMessage.getSequence();
-            int localSequence = pair.getLocalSequence();
-            Log.d(TAG, "messageSequence=" + messageSequence + ", localSequence="+ localSequence);
-            if (localSequence >= messageSequence) {
-                Log.w(TAG, "Sequence " + plaintextMessage.getSequence() + " is invalid for session " + message.getSessionId());
-                return;
-            }
-
-            if (CMAccount.DEBUG) Log.d(TAG, "Sequence " + plaintextMessage.getSequence() + " is valid for session " + message.getSessionId());
-            // Increment the local sequence, messages are responsible for loading the sequence from the DB, which is now
-            // the correct sequence, before being sent.  See LocationMessage.
-            mAuthClient.incrementSessionLocalSequence(message.getSessionId());
-
-            handlePlaintextMessage(context, plaintextMessage, message.getSessionId());
+        if (PlaintextMessage.COMMAND_BEGIN_LOCATE.equals(plaintextMessage.getCommand())) {
+            handleBeginLocate(keyId);
+        } else if (PlaintextMessage.COMMAND_BEGIN_WIPE.equals(plaintextMessage.getCommand())) {
+            handleBeginWipe(keyId);
         }
     }
 
-    private void handlePlaintextMessage(final Context context, final PlaintextMessage message, final String sessionId) {
-        if (GCMUtil.COMMAND_LOCATE.equals(message.getCommand())) {
-            GCMUtil.reportLocation(context, sessionId);
+    private boolean validateSignature(GCMessage message) {
+        String signatureBody = message.getSequence() + ":" + message.getPayload();
+        String localSignature = EncryptionUtils.HMAC.getSignature(mHmacSecret, signatureBody);
+        if (message.getSignature().equals(localSignature)) {
+            return true;
+        } else {
+            Log.w(TAG, "Local signature " + localSignature + " does not match remote signature " + message.getSignature());
+            return false;
+        }
+    }
+
+    private boolean validateSequence(GCMessage message, String keyId) {
+        AuthClient.SymmetricKeySequencePair keySequencePair = mAuthClient.getSymmetricKey(keyId);
+        if (keySequencePair != null && keySequencePair.getLocalSequence() >= message.getSequence()) {
+            Log.w(TAG, "Local sequence " + keySequencePair.getLocalSequence() + " is invalid for keyId: " + keyId);
+            return false;
+        } else if (keySequencePair == null && message.getSequence() >= 0) {
+            return true;
+        } else {
+            mAuthClient.incrementSessionLocalSequence(keyId);
+            return true;
+        }
+    }
+
+    private boolean validateMessage(GCMessage message, String keyId) {
+        return validateSignature(message) && validateSequence(message, keyId);
+    }
+
+    private ECPrivateKeyParameters getPrivateKey(String keyId) {
+        String[] projection = new String[] { CMAccountProvider.ECDHKeyStoreColumns.PRIVATE };
+        String selection = CMAccountProvider.ECDHKeyStoreColumns.KEY_ID + " = ?";
+        String[] selectionArgs = new String[] { keyId };
+        Cursor cursor = mContext.getContentResolver().query(CMAccountProvider.ECDH_CONTENT_URI, projection, selection, selectionArgs, null);
+        if (cursor.getCount() != 1) {
+            return null;
         }
 
-        if (GCMUtil.COMMAND_WIPE.equals(message.getCommand())) {
-            mAuthClient.destroyDevice(context, sessionId);
-        }
+        cursor.moveToFirst();
+        String privateKeyString = cursor.getString(cursor.getColumnIndex(CMAccountProvider.ECDHKeyStoreColumns.PRIVATE));
+        cursor.close();
+
+        BigInteger privateKeyBigInteger = new BigInteger(CMAccountUtils.decodeHex(privateKeyString));
+        return new ECPrivateKeyParameters(privateKeyBigInteger, EncryptionUtils.ECDH.DOMAIN_PARAMETERS);
+    }
+
+    private void deletePublicKey(String keyId) {
+        String selection = CMAccountProvider.ECDHKeyStoreColumns.KEY_ID + " = ?";
+        String[] selectionArgs = new String[] { keyId };
+        mContext.getContentResolver().delete(CMAccountProvider.ECDH_CONTENT_URI, selection, selectionArgs);
+
+        // Generate more public keys.
+        ECDHKeyService.startGenerate(mContext);
+    }
+
+    private void storeSymmetricKey(String keyId, byte[] symmetricKey) {
+        String symmetricKeyHex = CMAccountUtils.encodeHex(symmetricKey);
+        if (CMAccount.DEBUG) Log.v(TAG, "Storing symmetric key " + symmetricKeyHex + " for keyId " + keyId);
+        ContentValues values = new ContentValues();
+        values.put(CMAccountProvider.SymmetricKeyStoreColumns.KEY_ID, keyId);
+        values.put(CMAccountProvider.SymmetricKeyStoreColumns.KEY, symmetricKeyHex);
+        mContext.getContentResolver().insert(CMAccountProvider.SYMMETRIC_KEY_CONTENT_URI, values);
+    }
+
+    private void sendFailureMessage() {
+        PlaintextMessage keyExchangeFailedMessage = new PlaintextMessage(PlaintextMessage.COMMAND_KEY_EXCHANGE_FAILED);
+        String deviceId = CMAccountUtils.getUniqueDeviceId(mContext);
+        SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(PlaintextMessage.COMMAND_KEY_EXCHANGE_FAILED, deviceId, keyExchangeFailedMessage);
+        mAuthClient.sendChannel(sendChannelRequestBody, this, this);
+    }
+
+    private void handleBeginLocate(String keyId) {
+        if (CMAccount.DEBUG) Log.d(TAG, "Handling begin_locate command");
+        DeviceFinderService.reportLocation(mContext, mAccount, keyId);
+    }
+
+    private void handleBeginWipe(String keyId) {
+        if (CMAccount.DEBUG) Log.d(TAG, "Handling begin_wipe command");
+        mAuthClient.destroyDevice(mContext, keyId);
     }
 
     private void handlePasswordReset() {
+        AccountManager accountManager = (AccountManager) mContext.getSystemService(ACCOUNT_SERVICE);
         if (CMAccount.DEBUG) Log.d(TAG, "Got password reset message, expiring access and refresh tokens");
-        mAuthClient.expireToken(mAccountManager, mAccount);
-        mAuthClient.expireRefreshToken(mAccountManager, mAccount);
+        mAuthClient.expireToken(accountManager, mAccount);
+        mAuthClient.expireRefreshToken(accountManager, mAccount);
         mAuthClient.clearPassword(mAccount);
         mAuthClient.notifyPasswordChange(mAccount);
     }

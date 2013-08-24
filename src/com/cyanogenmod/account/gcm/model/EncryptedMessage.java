@@ -16,46 +16,55 @@
 
 package com.cyanogenmod.account.gcm.model;
 
-import android.util.Log;
+import com.cyanogenmod.account.util.CMAccountUtils;
+import com.cyanogenmod.account.util.EncryptionUtils;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 
-import static com.cyanogenmod.account.util.EncryptionUtils.AES;
+import org.spongycastle.crypto.params.ECPublicKeyParameters;
 
-public class EncryptedMessage extends Message {
+public class EncryptedMessage implements Message {
     @Expose
     private String ciphertext;
 
     @Expose
-    private String initializationVector;
+    protected String key_id;
 
-    public EncryptedMessage() {
+    private String public_key;
+
+    public byte[] getCiphertext() {
+        return CMAccountUtils.decodeHex(ciphertext);
     }
 
-    public EncryptedMessage(String ciphertext, String initializationVector) {
-        this.ciphertext = ciphertext;
-        this.initializationVector = initializationVector;
+    public String getKeyId() {
+        return key_id;
     }
 
-    public String getCiphertext() {
-        return ciphertext;
-    }
-
-    public String getIV() {
-        return initializationVector;
+    public ECPublicKeyParameters getPublicKey() {
+        return EncryptionUtils.ECDH.getPublicKey(public_key);
     }
 
     public String toJson() {
-        Gson gson = new Gson();
-        return gson.toJson(this);
+        return new Gson().toJson(this);
+    }
+
+    public String toExcludingJson() {
+        return new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .create()
+                .toJson(this);
     }
 
     public void encrypt(String symmetricKey) {
+        byte[] symmetricKeyBytes = CMAccountUtils.decodeHex(symmetricKey);
         String json = toJson();
 
-        AES.CipherResult result = AES.encrypt(json, symmetricKey);
-        ciphertext = result.getCiphertext();
-        initializationVector = result.getInitializationVector();
+        byte[] result = EncryptionUtils.AES.encrypt(json, symmetricKeyBytes);
+        ciphertext = CMAccountUtils.encodeHex(result);
     }
 
+    public static EncryptedMessage fromJson(String json) {
+        return new Gson().fromJson(json, EncryptedMessage.class);
+    }
 }

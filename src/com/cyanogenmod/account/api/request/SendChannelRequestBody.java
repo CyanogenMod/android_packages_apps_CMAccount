@@ -16,79 +16,84 @@
 
 package com.cyanogenmod.account.api.request;
 
+import android.content.Context;
 import android.location.Location;
 import android.util.Log;
 import com.cyanogenmod.account.auth.AuthClient;
 import com.cyanogenmod.account.gcm.GCMUtil;
 import com.cyanogenmod.account.gcm.model.*;
+import com.cyanogenmod.account.util.CMAccountUtils;
+import com.cyanogenmod.account.util.EncryptionUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 
 public class SendChannelRequestBody {
-    @Expose
+    private transient AuthClient mAuthClient;
+    private transient byte[] mHmacSecret;
+    private transient String mKeyId;
+    private transient AuthClient.SymmetricKeySequencePair mKeyPair;
+
     private String command;
-
-    @Expose
     private String device_id;
+    private String payload;
+    private String signature;
+    private int sequence;
 
-    @Expose
-    private String session_id;
-
-    @Expose
-    private Message message;
-
-    public SendChannelRequestBody(String command, String device_id, String session_id, Message message) {
+    // PlaintextMessage constructor
+    public SendChannelRequestBody(String command, String device_id, PlaintextMessage payload) {
         this.command = command;
         this.device_id = device_id;
-        this.session_id = session_id;
-        this.message = message;
+        this.payload = payload.toJson();
     }
 
     // LocationMessage constructor
-    public SendChannelRequestBody(Location location, AuthClient authClient, String sessionId) {
+    public SendChannelRequestBody(Context context, String keyId, Location location) {
+        setup(context, keyId);
         this.command = GCMUtil.COMMAND_SECURE_MESSAGE;
-        this.device_id = authClient.getUniqueDeviceId();
-        this.session_id = sessionId;
+        this.sequence = mKeyPair.getRemoteSequence();
 
-        // Try to load the symmetric key from the database.
-        AuthClient.SymmetricKeySequencePair keyPair = authClient.getSymmetricKey(sessionId);
-        if (keyPair == null) {
-            return;
-        }
-
-        LocationMessage locationMessage = new LocationMessage(location, keyPair.getRemoteSequence());
-        locationMessage.encrypt(keyPair.getSymmetricKey());
-        this.message = locationMessage;
+        LocationMessage locationMessage = new LocationMessage(location, keyId);
+        locationMessage.encrypt(mKeyPair.getSymmetricKey());
+        this.payload = locationMessage.toExcludingJson();
+        signPayload();
     }
 
     // WipeStartedMessage constructor
-    public SendChannelRequestBody(WipeStartedMessage message, AuthClient authClient, String sessionId) {
+    public SendChannelRequestBody(Context context, String keyId, WipeStartedMessage payload) {
+        setup(context, keyId);
         this.command = GCMUtil.COMMAND_SECURE_MESSAGE;
-        this.device_id = authClient.getUniqueDeviceId();
-        this.session_id = sessionId;
-
-        // Try to load the symmetric key from the database.
-        AuthClient.SymmetricKeySequencePair keyPair = authClient.getSymmetricKey(sessionId);
-        if (keyPair == null) {
-            return;
-        }
-
-        message.setSequence(keyPair.getRemoteSequence());
-        message.encrypt(keyPair.getSymmetricKey());
-        this.message = message;
+        this.sequence = mKeyPair.getRemoteSequence();
+        payload.setKeyId(keyId);
+        payload.encrypt(mKeyPair.getSymmetricKey());
+        this.payload = payload.toExcludingJson();
+        signPayload();
     }
 
-    public Message getMessage() {
-        return message;
+    private void setup(Context context, String keyId) {
+        mAuthClient = AuthClient.getInstance(context);
+        mHmacSecret = CMAccountUtils.getHmacSecret(context);
+        mKeyPair = mAuthClient.getSymmetricKey(keyId);
+        mKeyId = keyId;
+        device_id = mAuthClient.getUniqueDeviceId();
     }
 
-    public String toJsonPlaintext() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(this);
+    private void signPayload() {
+        this.signature = EncryptionUtils.HMAC.getSignature(mHmacSecret, payload);
     }
 
-    public String getSessionId() {
-        return session_id;
+    public String getKeyId() {
+        return mKeyId;
+    }
+
+    public String toJson() {
+        return new Gson().toJson(this);
+    }
+
+    public String toJsonPretty() {
+        return new GsonBuilder()
+                .setPrettyPrinting()
+                .create()
+                .toJson(this);
     }
 }

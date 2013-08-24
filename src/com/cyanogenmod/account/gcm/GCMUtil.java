@@ -46,21 +46,7 @@ public class GCMUtil {
     private static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
 
-    public static final String COMMAND_KEY_EXCHANGE = "key_exchange";
-    public static final String COMMAND_KEY_EXCHANGE_FAILED = "key_exchange_failed";
     public static final String COMMAND_SECURE_MESSAGE = "secure_message";
-
-    public static final String COMMAND_PASSWORD_RESET = "password_reset";
-    public static final String COMMAND_LOCATE = "begin_locate";
-    public static final String COMMAND_WIPE = "begin_wipe";
-
-
-    static void reportLocation(Context context, String sessionId) {
-        Account account = CMAccountUtils.getCMAccountAccount(context);
-        if (account != null) {
-            DeviceFinderService.reportLocation(context, account, sessionId);
-        }
-    }
 
     public static void registerForGCM(Context context) {
         CMAccountUtils.resetBackoff(GCMUtil.getGCMPreferences(context));

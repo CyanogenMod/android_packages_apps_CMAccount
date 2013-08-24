@@ -14,42 +14,44 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.account.gcm;
+package com.cyanogenmod.account.gcm.model;
 
-import com.cyanogenmod.account.gcm.model.Account;
-import com.cyanogenmod.account.gcm.model.Message;
-import com.cyanogenmod.account.gcm.model.MessageTypeAdapterFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.spongycastle.crypto.params.ECPublicKeyParameters;
+import org.spongycastle.math.ec.ECPoint;
+
 public class GCMessage {
+    public static final String COMMAND_SECURE_MESSAGE = "secure_message";
 
-    private Account account;
-    private String session_id;
     private String command;
-    private Message message;
-
-    public String toJson() {
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(MessageTypeAdapterFactory.getInstance())
-                .setPrettyPrinting()
-                .create();
-        return gson.toJson(this);
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public String getSessionId() {
-        return session_id;
-    }
+    private String account;
+    private String payload;
+    private String signature;
+    private int sequence;
 
     public String getCommand() {
         return command;
     }
 
-    public Message getMessage() {
-        return message;
+    public String getAccount() {
+        return account;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public int getSequence() {
+        return sequence;
+    }
+
+    public String toJson() {
+        return new GsonBuilder().setPrettyPrinting().create().toJson(this);
     }
 }

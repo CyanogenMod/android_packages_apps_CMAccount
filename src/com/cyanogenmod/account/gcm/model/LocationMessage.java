@@ -17,11 +17,7 @@
 package com.cyanogenmod.account.gcm.model;
 
 import android.location.Location;
-import android.util.Log;
-import com.cyanogenmod.account.CMAccount;
-import com.cyanogenmod.account.auth.AuthClient;
-import com.cyanogenmod.account.util.EncryptionUtils;
-import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
 
 public class LocationMessage extends EncryptedMessage {
     private final String command = "device_location";
@@ -31,17 +27,16 @@ public class LocationMessage extends EncryptedMessage {
         private double latitude;
         private double longitude;
         private float accuracy;
-        private int sequence;
 
-        public Params(final Location location, int sequence) {
+        public Params(final Location location) {
             this.latitude = location.getLatitude();
             this.longitude = location.getLongitude();
             this.accuracy = location.getAccuracy();
-            this.sequence = sequence;
         }
     }
 
-    public LocationMessage(final Location location, int sequence) {
-        this.params = new Params(location, sequence);
+    public LocationMessage(final Location location, String keyId) {
+        this.key_id = keyId;
+        this.params = new Params(location);
     }
 }

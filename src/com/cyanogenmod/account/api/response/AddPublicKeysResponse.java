@@ -13,33 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.cyanogenmod.account.api.response;
 
-package com.cyanogenmod.account.gcm.model;
+import java.util.List;
 
-public class Account {
-    private String id;
-    private String username;
-    private String first_name;
-    private String last_name;
-    private String email;
+public class AddPublicKeysResponse {
+    public int statusCode;
+    private List<String> success;
 
-    public String getId() {
-        return id;
+    public int getStatusCode() {
+        return statusCode;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getFirstName() {
-        return first_name;
-    }
-
-    public String getLastName() {
-        return last_name;
+    public List<String> getKeyIds() {
+        return success;
     }
 }

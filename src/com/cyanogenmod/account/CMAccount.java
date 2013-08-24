@@ -25,6 +25,9 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 
+import com.cyanogenmod.account.encryption.ECDHKeyService;
+import com.cyanogenmod.account.util.PRNGFixes;
+
 public class CMAccount extends Application {
 
     public static final String TAG = "CMAccount";
@@ -50,6 +53,7 @@ public class CMAccount extends Application {
     public static final String GCM_PREFERENCES = "com.cyanogenmod.account.gcm";
     public static final String AUTH_PREFERENCES = "com.cyanogenmod.account.auth";
     public static final String SETTINGS_PREFERENCES = "com.cyanogenmod.account_preferences";
+    public static final String ENCRYPTION_PREFERENCES = "com.cyanogenmod.account.encryption";
 
     public static final String DEVICE_SALT = "device_salt";
 
@@ -69,6 +73,9 @@ public class CMAccount extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // Apply PRNG fixes
+        PRNGFixes.apply();
+
         mCMAccountUri = getString(R.string.cmaccount_uri);
         mStatusBarManager = (StatusBarManager)getSystemService(Context.STATUS_BAR_SERVICE);
         final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
@@ -76,6 +83,8 @@ public class CMAccount extends Application {
         dpm.setActiveAdmin(deviceAdmin, true);
         //Warm the auth client instance
         AuthClient.getInstance(getApplicationContext());
+        // Warm ECDH public keys
+        ECDHKeyService.startGenerate(getApplicationContext());
     }
 
     public void disableStatusBar() {

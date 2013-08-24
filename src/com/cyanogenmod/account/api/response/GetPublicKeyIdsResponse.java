@@ -13,21 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.cyanogenmod.account.api.response;
 
-package com.cyanogenmod.account.gcm.model;
+import java.util.List;
 
-import com.google.gson.annotations.Expose;
+public class GetPublicKeyIdsResponse {
+    private int statusCode;
+    private List<String> public_key_ids;
 
-public class SymmetricKeyMessage extends Message {
+    public List<String> getPublicKeyIds() {
+        return public_key_ids;
+    }
 
-    @Expose
-    private String symmetric_key;
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
 
-    @Expose
-    private String symmetric_key_verification;
-
-    public SymmetricKeyMessage(String symmetric_key, String symmetric_key_verification) {
-        this.symmetric_key = symmetric_key;
-        this.symmetric_key_verification = symmetric_key_verification;
+    public int getStatusCode() {
+        return statusCode;
     }
 }

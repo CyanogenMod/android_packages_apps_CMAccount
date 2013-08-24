@@ -38,27 +38,42 @@ public class CMAccountProvider extends ContentProvider {
     private static String TAG = CMAccountProvider.class.getSimpleName();
     public static final String AUTHORITY = "com.cyanogenmod.account.store";
     private static final String SYMMETRIC_KEY_PATH = "symmetric_key";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY).buildUpon().appendPath(SYMMETRIC_KEY_PATH).build();
+    private static final String ECDH_KEY_PATH = "ecdh_key";
+    public static final Uri SYMMETRIC_KEY_CONTENT_URI = Uri.parse("content://" + AUTHORITY).buildUpon().appendPath(SYMMETRIC_KEY_PATH).build();
+    public static final Uri ECDH_CONTENT_URI = Uri.parse("content://" + AUTHORITY).buildUpon().appendPath(ECDH_KEY_PATH).build();
 
     private static final String TABLE_SYMMETRIC_KEYS = "symmetric_keys";
+    private static final String TABLE_ECDH_KEYS = "ecdh_keys";
     private static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
     private static final int SYMMETRIC_KEY = 1;
     private static final int SYMMETRIC_KEY_ID = 2;
+    private static final int ECDH_KEY = 3;
+    public static final int ECDH_KEY_ID = 4;
 
     private static HashMap<String, String> sSymmetricKeyProjectionMap;
+    private static HashMap<String, String> sECDHKeyProjectionMap;
 
     static {
         URI_MATCHER.addURI(AUTHORITY, SYMMETRIC_KEY_PATH, SYMMETRIC_KEY);
         URI_MATCHER.addURI(AUTHORITY, SYMMETRIC_KEY_PATH + "/#", SYMMETRIC_KEY_ID);
+        URI_MATCHER.addURI(AUTHORITY, ECDH_KEY_PATH, ECDH_KEY);
+        URI_MATCHER.addURI(AUTHORITY, ECDH_KEY_PATH + "/#", ECDH_KEY_ID);
 
         sSymmetricKeyProjectionMap = new HashMap<String, String>();
         sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns._ID, SymmetricKeyStoreColumns._ID);
+        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.KEY_ID, SymmetricKeyStoreColumns.KEY_ID);
         sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.KEY, SymmetricKeyStoreColumns.KEY);
         sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.LOCAL_SEQUENCE, SymmetricKeyStoreColumns.LOCAL_SEQUENCE);
         sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.REMOTE_SEQUENCE, SymmetricKeyStoreColumns.REMOTE_SEQUENCE);
         sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.EXPIRATION, SymmetricKeyStoreColumns.EXPIRATION);
-        sSymmetricKeyProjectionMap.put(SymmetricKeyStoreColumns.SESSION_ID, SymmetricKeyStoreColumns.SESSION_ID);
+
+        sECDHKeyProjectionMap = new HashMap<String, String>();
+        sECDHKeyProjectionMap.put(ECDHKeyStoreColumns._ID, ECDHKeyStoreColumns._ID);
+        sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.KEY_ID, ECDHKeyStoreColumns.KEY_ID);
+        sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.PRIVATE, ECDHKeyStoreColumns.PRIVATE);
+        sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.PUBLIC, ECDHKeyStoreColumns.PUBLIC);
+        sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.UPLOADED, ECDHKeyStoreColumns.UPLOADED);
     }
     private SQLiteOpenHelper mOpenHelper;
 
@@ -92,6 +107,15 @@ public class CMAccountProvider extends ContentProvider {
                 qb.setProjectionMap(sSymmetricKeyProjectionMap);
                 qb.appendWhere(SymmetricKeyStoreColumns._ID + "=" + uri.getPathSegments().get(1));
                 break;
+            case ECDH_KEY:
+                qb.setTables(TABLE_ECDH_KEYS);
+                qb.setProjectionMap(sECDHKeyProjectionMap);
+                break;
+            case ECDH_KEY_ID:
+                qb.setTables(TABLE_ECDH_KEYS);
+                qb.setProjectionMap(sECDHKeyProjectionMap);
+                qb.appendWhere(ECDHKeyStoreColumns._ID + "=" + uri.getPathSegments().get(1));
+                break;
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
@@ -109,6 +133,10 @@ public class CMAccountProvider extends ContentProvider {
                 return SymmetricKeyStoreColumns.CONTENT_TYPE;
             case SYMMETRIC_KEY_ID:
                 return SymmetricKeyStoreColumns.CONTENT_ITEM_TYPE;
+            case ECDH_KEY:
+                return ECDHKeyStoreColumns.CONTENT_TYPE;
+            case ECDH_KEY_ID:
+                return ECDHKeyStoreColumns.CONTENT_TYPE_ITEM;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
@@ -129,6 +157,13 @@ public class CMAccountProvider extends ContentProvider {
                     return newUri;
                 }
                 break;
+            case ECDH_KEY:
+                rowId = db.insert(TABLE_ECDH_KEYS, null, values);
+                if (rowId != -1) {
+                    Uri newUri = ContentUris.withAppendedId(uri, rowId);
+                    getContext().getContentResolver().notifyChange(newUri, null);
+                    return newUri;
+                }
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
@@ -150,6 +185,13 @@ public class CMAccountProvider extends ContentProvider {
                 count = db.delete(TABLE_SYMMETRIC_KEYS, SymmetricKeyStoreColumns._ID + "=" + ContentUris.parseId(uri)
                         + (!TextUtils.isEmpty(selection) ? " AND (" + selection + ")" : ""), selectionArgs);
                 break;
+            case ECDH_KEY:
+                count = db.delete(TABLE_ECDH_KEYS, selection, selectionArgs);
+                break;
+            case ECDH_KEY_ID:
+                count = db.delete(TABLE_ECDH_KEYS, ECDHKeyStoreColumns._ID + "=" + ContentUris.parseId(uri)
+                        + (!TextUtils.isEmpty(selection) ? " AND (" + selection + ")" : ""), selectionArgs);
+                break;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
@@ -168,17 +210,24 @@ public class CMAccountProvider extends ContentProvider {
         }
     }
 
-    public static void incrementSequence(Context context, String column, String sessionId) {
+    public static void incrementSequence(Context context, String column, String keyId) {
         SQLiteOpenHelper openHelper = new DatabaseHelper(context.getApplicationContext());
         SQLiteDatabase db = openHelper.getWritableDatabase();
-        db.execSQL("UPDATE " + TABLE_SYMMETRIC_KEYS + " SET " + column + " = " + column + " + 1 WHERE " + SymmetricKeyStoreColumns.SESSION_ID + " = ?;", new String[]{ sessionId });
+        db.execSQL("UPDATE " + TABLE_SYMMETRIC_KEYS + " SET " + column + " = " + column + " + 1 WHERE " + SymmetricKeyStoreColumns.KEY_ID + " = ?;", new String[]{ keyId });
+        openHelper.close();
+    }
+
+    public static void setKeyUploaded(Context context, String keyId) {
+        SQLiteOpenHelper openHelper = new DatabaseHelper(context.getApplicationContext());
+        SQLiteDatabase db = openHelper.getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE_ECDH_KEYS + " SET uploaded=1 WHERE " + ECDHKeyStoreColumns.KEY_ID + " = ?;", new String[]{ keyId });
         openHelper.close();
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
         private static final String DATABASE_NAME = "cmaccount.db";
-        private static final int DATABASE_VERSION = 5;
+        private static final int DATABASE_VERSION = 6;
 
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -190,32 +239,51 @@ public class CMAccountProvider extends ContentProvider {
                     + " ("
                     + SymmetricKeyStoreColumns._ID + " INTEGER PRIMARY KEY, "
                     + SymmetricKeyStoreColumns.KEY + " TEXT NOT NULL, "
-                    + SymmetricKeyStoreColumns.LOCAL_SEQUENCE + " INTEGER NOT NULL DEFAULT 0, "
-                    + SymmetricKeyStoreColumns.REMOTE_SEQUENCE + " INTEGER NOT NULL DEFAULT 0, "
+                    + SymmetricKeyStoreColumns.LOCAL_SEQUENCE + " INTEGER NOT NULL DEFAULT 1, "
+                    + SymmetricKeyStoreColumns.REMOTE_SEQUENCE + " INTEGER NOT NULL DEFAULT 1, "
                     + SymmetricKeyStoreColumns.EXPIRATION + " DATETIME DEFAULT 0, "
-                    + SymmetricKeyStoreColumns.SESSION_ID + " TEXT NOT NULL UNIQUE);");
+                    + SymmetricKeyStoreColumns.KEY_ID + " TEXT NOT NULL UNIQUE);");
 
             db.execSQL("create trigger update_expiration after insert on " + TABLE_SYMMETRIC_KEYS +
                     " begin update " + TABLE_SYMMETRIC_KEYS + " set " + SymmetricKeyStoreColumns.EXPIRATION +
                     "= datetime('now', '+60 minutes', 'localtime') where expiration = 0" +
                     "; end");
+
+            db.execSQL("CREATE TABLE " + TABLE_ECDH_KEYS
+                    + " ("
+                    + ECDHKeyStoreColumns._ID + " INTEGER PRIMARY KEY, "
+                    + ECDHKeyStoreColumns.KEY_ID + " TEXT NOT NULL UNIQUE, "
+                    + ECDHKeyStoreColumns.PRIVATE + " TEXT NOT NULL, "
+                    + ECDHKeyStoreColumns.PUBLIC + " TEXT NOT NULL, "
+                    + ECDHKeyStoreColumns.UPLOADED + " INTEGER NOT NULL DEFAULT 0);");
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_SYMMETRIC_KEYS);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_ECDH_KEYS);
             onCreate(db);
         }
     }
 
     public static interface SymmetricKeyStoreColumns {
         public static final String _ID = "_id";
+        public static final String KEY_ID = "key_id";
         public static final String KEY = "symmetric_key";
         public static final String EXPIRATION = "expiration";
-        public static final String SESSION_ID = "session_id";
         public static final String LOCAL_SEQUENCE = "local_sequence";
         public static final String REMOTE_SEQUENCE = "remote_sequence";
         public static final String CONTENT_TYPE = "vnd.cyanogenmod.cursor.dir/symmetricKey";
         public static final String CONTENT_ITEM_TYPE = "vnd.cyanogenmod.cursor.item/symmetricKey";
+    }
+
+    public static interface ECDHKeyStoreColumns {
+        public static final String _ID = "_id";
+        public static final String KEY_ID = "key_id";
+        public static final String PRIVATE = "private";
+        public static final String PUBLIC = "public";
+        public static final String UPLOADED = "uploaded";
+        public static final String CONTENT_TYPE = "vnd.cyanogenmod.cursor.dir/publicKey";
+        public static final String CONTENT_TYPE_ITEM = "vnd.cyanogenmod.cursor.item/publicKey";
     }
 }

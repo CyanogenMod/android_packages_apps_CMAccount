@@ -32,6 +32,7 @@ public abstract class CMAccountRequest<T> extends Request<T> {
     public static final String PARAM_GRANT_TYPE = "grant_type";
     public static final String PARAM_REFRESH_TOKEN= "refresh_token";
     public static final String PARAM_DID= "did";
+    public static final String PARAM_DEVICE_ID = "device_id";
     public static final String PARAM_PUSH_ID= "push_id";
     public static final String PARAM_MAKE= "make";
     public static final String PARAM_MODEL= "model";

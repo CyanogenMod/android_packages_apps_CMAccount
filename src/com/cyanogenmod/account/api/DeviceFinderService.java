@@ -17,9 +17,6 @@
 package com.cyanogenmod.account.api;
 
 import com.cyanogenmod.account.api.request.SendChannelRequestBody;
-import com.cyanogenmod.account.gcm.GCMUtil;
-import com.cyanogenmod.account.gcm.model.EncryptedMessage;
-import com.cyanogenmod.account.gcm.model.LocationMessage;
 import com.cyanogenmod.account.util.CMAccountUtils;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -53,7 +50,7 @@ public class DeviceFinderService extends Service implements LocationListener,
     private static PowerManager.WakeLock sWakeLock;
 
     private static final String EXTRA_ACCOUNT = "account";
-    private static final String EXTRA_SESSION_ID = "session_id";
+    private static final String EXTRA_KEY_ID = "key_id";
 
     private static final int LOCATION_UPDATE_INTERVAL = 5000;
     private static final int MAX_LOCATION_UPDATES = 10;
@@ -62,15 +59,13 @@ public class DeviceFinderService extends Service implements LocationListener,
     private LocationClient mLocationClient;
     private Location mLastLocationUpdate;
     private AuthClient mAuthClient;
-    private String mSessionId;
-    private static String sDeviceId;
+    private String mKeyId;
 
     private int mUpdateCount = 0;
 
     private boolean mIsRunning = false;
 
-    public static void reportLocation(Context context, Account account, final String sessionId) {
-        sDeviceId = CMAccountUtils.getUniqueDeviceId(context);
+    public static void reportLocation(Context context, Account account, final String keyId) {
         if (sWakeLock == null) {
             PowerManager pm = (PowerManager)
                     context.getSystemService(Context.POWER_SERVICE);
@@ -82,7 +77,7 @@ public class DeviceFinderService extends Service implements LocationListener,
         }
         Intent intent = new Intent(context, DeviceFinderService.class);
         intent.putExtra(EXTRA_ACCOUNT, account);
-        intent.putExtra(EXTRA_SESSION_ID, sessionId);
+        intent.putExtra(EXTRA_KEY_ID, keyId);
         context.startService(intent);
     }
 
@@ -111,7 +106,7 @@ public class DeviceFinderService extends Service implements LocationListener,
         // Reset the session
         if (intent != null) {
             Bundle extras = intent.getExtras();
-            if (extras != null) mSessionId = extras.getString(EXTRA_SESSION_ID);
+            if (extras != null) mKeyId = extras.getString(EXTRA_KEY_ID);
         }
 
         if (mLocationClient.isConnected()) {
@@ -159,7 +154,7 @@ public class DeviceFinderService extends Service implements LocationListener,
         mLastLocationUpdate = location;
         if (!fromLastLocation) mUpdateCount++;
 
-        SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(location, mAuthClient, mSessionId);
+        SendChannelRequestBody sendChannelRequestBody = new SendChannelRequestBody(getApplicationContext(), mKeyId, location);
         mAuthClient.sendChannel(sendChannelRequestBody, this, this);
     }
 

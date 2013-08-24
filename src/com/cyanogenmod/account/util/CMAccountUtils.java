@@ -40,7 +40,11 @@ import android.os.SystemProperties;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+import org.spongycastle.math.ec.ECFieldElement;
 
+import java.math.BigInteger;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.MessageDigest;
@@ -56,6 +60,7 @@ public class CMAccountUtils {
 
     private static final String TAG = CMAccountUtils.class.getSimpleName();
     private static final Random sRandom = new Random();
+    private static final Long INTERVAL_WEEK = 604800000L;
 
     public static final Pattern EMAIL_ADDRESS
             = Pattern.compile(
@@ -73,6 +78,7 @@ public class CMAccountUtils {
     private CMAccountUtils(){}
 
     public static void resetBackoff(SharedPreferences prefs) {
+        if (CMAccount.DEBUG) Log.d(TAG, "Resetting backoff");
         setBackoff(prefs, CMAccount.DEFAULT_BACKOFF_MS);
     }
 
@@ -116,6 +122,15 @@ public class CMAccountUtils {
         PendingIntent reRegisterPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         am.cancel(reRegisterPendingIntent);
+    }
+
+    public static void scheduleSyncPublicKeys(Context context, Intent intent) {
+        if (CMAccount.DEBUG) Log.d(TAG, "Scheduling public key sync, starting = " +
+                new Timestamp(SystemClock.elapsedRealtime() + INTERVAL_WEEK) + " interval (" + INTERVAL_WEEK + ")");
+        PendingIntent publicKeySyncPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + INTERVAL_WEEK, INTERVAL_WEEK,
+                publicKeySyncPendingIntent);
     }
 
     public static Account getCMAccountAccount(Context context) {
@@ -233,14 +248,19 @@ public class CMAccountUtils {
         }
     }
 
-    public static String digest(String algorithm, String id) {
+    public static byte[] digestBytes(String algorithm, byte[] bytes) {
         try {
             MessageDigest md = MessageDigest.getInstance(algorithm);
-            String hash = new String(Hex.encodeHex(md.digest(id.getBytes()))).toLowerCase().trim();
-            return hash;
+            byte[] digest = md.digest(bytes);
+            return digest;
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static String digest(String algorithm, String id) {
+        byte[] digestBytes = digestBytes(algorithm, id.getBytes());
+        return encodeHex(digestBytes).toLowerCase().trim();
     }
 
     public static String getDeviceSalt(Context context) {
@@ -258,6 +278,34 @@ public class CMAccountUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(CMAccount.DEVICE_SALT, salt);
         editor.commit();
+    }
 
+    public static String encodeHex(byte[] bytes) {
+        return new String(Hex.encodeHex(bytes));
+    }
+
+    public static String encodeHex(BigInteger integer) {
+        return encodeHex(integer.toByteArray());
+    }
+
+    public static byte[] decodeHex(String hex) {
+        try {
+            return Hex.decodeHex(hex.toCharArray());
+        } catch (DecoderException e) {
+            Log.e(TAG, "Unable to decode hex string", e);
+            throw new AssertionError(e);
+        }
+    }
+
+    public static byte[] getHmacSecret(Context context) {
+        AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+        Account account = getCMAccountAccount(context);
+        if (account == null) {
+            if (CMAccount.DEBUG) Log.d(TAG, "No CMAccount configured!");
+            return null;
+        }
+        String passwordHash = accountManager.getPassword(account);
+        String deviceSalt = CMAccountUtils.getDeviceSalt(context);
+        return EncryptionUtils.PBKDF2.getDerivedKey(passwordHash, deviceSalt);
     }
 }
