@@ -108,7 +108,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
         stopSelf();
     }
 
-    private static Intent getPingIntent(Context context) {
+    public static Intent getPingIntent(Context context) {
         return new Intent(context, PingService.class);
     }
 }
