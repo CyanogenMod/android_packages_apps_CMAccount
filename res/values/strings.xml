@@ -16,7 +16,8 @@
 
 <resources>
     <string name="app_name">CyanogenMod Account</string>
-    <string name="product_name">cyanogenmod</string>
+    <string name="product_name" translatable="false">cyanogenmod</string>
+    <string name="account_name" translatable="false">CyanogenMod</string>
 
     <string name="next">Next</string>
     <string name="continue_label">Continue</string>
