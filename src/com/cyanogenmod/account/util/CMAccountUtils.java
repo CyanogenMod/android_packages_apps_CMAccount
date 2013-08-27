@@ -41,7 +41,6 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import java.math.BigInteger;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.MessageDigest;
@@ -50,6 +49,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
+
+import org.apache.commons.codec.binary.Hex;
 
 public class CMAccountUtils {
 
@@ -235,7 +236,7 @@ public class CMAccountUtils {
     public static String digest(String algorithm, String id) {
         try {
             MessageDigest md = MessageDigest.getInstance(algorithm);
-            String hash = new BigInteger(1, md.digest(id.getBytes())).toString(16);
+            String hash = new String(Hex.encodeHex(md.digest(id.getBytes()))).toLowerCase().trim();
             return hash;
         } catch (Exception e) {
             return null;
