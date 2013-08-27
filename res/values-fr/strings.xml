@@ -33,14 +33,14 @@
     <string name="setup_complete">Paramétrage terminé</string>
     <string name="setup_complete_summary">Félicitations\u00A0! Votre appareil est prêt pour la bagarre.</string>
     <string name="setup_welcome">Bienvenue dans CyanogenMod</string>
-    <string name="setup_welcome_summary">Pour commencer la configuration de votre appareil, sélectionnez votre langue et continuez.</string>
-    <string name="setup_cmaccount">Configurez votre compte CyanogenMod</string>
+    <string name="setup_welcome_summary">Pour commencer la configuration de votre appareil, sélectionnez votre langue.</string>
+    <string name="setup_cmaccount">Configurer votre compte CyanogenMod</string>
     <string name="setup_sim_missing">Insérer une carte SIM</string>
     <string name="setup_google_account">Compte Google</string>
     <string name="setup_location">Paramètres de localisation</string>
-    <string name="setup_datetime">Paramètres de Date &amp; Heure</string>
-    <string name="setup_current_date">Date actuelle</string>
-    <string name="setup_current_time">Heure actuelle</string>
+    <string name="setup_datetime">Définir la date et l\'heure</string>
+    <string name="setup_current_date">Date :</string>
+    <string name="setup_current_time">Heure :</string>
     <string name="setup_msg_no_network">ATTENTION\u00A0: Vous ne serez pas en mesure de configurer votre compte</string>
     <string name="cmaccount_setup_create_title">Créer un compte CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Se connecter à son compte CyanogenMod</string>
@@ -52,7 +52,7 @@
     <string name="cmaccount_setup_password_mismatch_label">Le mot de passe ne correspond pas\u00A0!</string>
     <string name="cmaccount_setup_password_invalid_label">Le mot de passe doit comporter au moins 8 caractères\u00A0!</string>
     <string name="cmaccount_setup_confirm_password_label">Confirmer le mot de passe</string>
-    <string name="cmaccount_setup_tos_label">Je suis d\'accord avec les %1$stermes%2$s du service</string>
+    <string name="cmaccount_setup_tos_label">J\'accepte les %1$stermes%2$s du service</string>
     <string name="cmaccount_add_title">Ajouter un compte CyanogenMod</string>
     <string name="cmaccount_add_create_label">Un compte CyanogenMod permet d\'accéder à des services et des fonctionnalités avancés pour votre appareil fonctionnant sous CyanogenMod.</string>
     <string name="cmaccount_learn_more">Lire plus\u2026</string>
@@ -65,7 +65,7 @@
     <string name="cmaccount_server_error_title">Erreur serveur</string>
     <string name="cmaccount_create_account_error_title">Erreur lors de la création du compte</string>
     <string name="cmaccount_server_error_message">Une erreur de communication a été rencontrée avec le serveur. Réessayez ultérieurement.</string>
-    <string name="cmaccount_error_multiple_accounts">Seul un compte CyanogenMod est autorisé par appareil</string>
+    <string name="cmaccount_error_multiple_accounts">Un seul compte CyanogenMod est autorisé par appareil</string>
     <string name="sim_missing_summary">Vous devez vous référer aux instructions fournies avec la carte SIM de votre appareil.</string>
     <string name="google_account_summary">Voulez-vous configurer un compte Google\u00A0?</string>
     <string name="btn_google_account">Configurer un compte Google</string>
