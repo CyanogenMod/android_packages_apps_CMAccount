@@ -43,7 +43,7 @@ public class FinishPage extends Page {
 
     @Override
     public int getNextButtonResId() {
-        return R.string.bacon;
+        return -1;
     }
 
 

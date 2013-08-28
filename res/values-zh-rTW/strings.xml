@@ -16,14 +16,11 @@
 
 <resources>
     <string name="app_name">CyanogenMod 帳戶</string>
-    <string name="product_name">cyanogenmod</string>
-
     <string name="next">下一頁</string>
     <string name="continue_label">繼續</string>
     <string name="prev">上一步</string>
     <string name="skip">略過</string>
     <string name="finish">完成</string>
-    <string name="bacon">Bacon!</string>
     <string name="cancel">取消</string>
     <string name="create">建立</string>
     <string name="login">登入</string>
@@ -32,7 +29,6 @@
     <string name="new_account">建立一個新帳戶</string>
     <string name="skip_anyway">略過</string>
     <string name="dont_skip">不要略過</string>
-
     <string name="setup_complete">設定已完成</string>
     <string name="setup_complete_summary">恭喜！您的裝置已準備翻滾一番。</string>
     <string name="setup_welcome">歡迎加入 CyanogenMod</string>
@@ -45,7 +41,6 @@
     <string name="setup_current_date">目前日期</string>
     <string name="setup_current_time">目前時間</string>
     <string name="setup_msg_no_network">警告：您將無法設定您的帳戶</string>
-
     <string name="cmaccount_setup_create_title">建立一個 CyanogenMod 帳戶</string>
     <string name="cmaccount_setup_login_title">登入至 CyanogenMod 帳戶</string>
     <string name="cmaccount_setup_email_label">電子郵件</string>
@@ -59,26 +54,20 @@
     <string name="cmaccount_setup_tos_label">我同意 %1$服務條款%2$</string>
     <string name="cmaccount_add_title">新增一個 CyanogenMod 帳戶</string>
     <string name="cmaccount_add_create_label">CyanogenMod 帳戶為您的 CyanogenMod 行動裝置提供增值服務和功能。</string>
-    <string name="cmaccount_learn_more">了解更多...</string>
-
+    <string name="cmaccount_learn_more">了解更多\u2026</string>
     <string name="cmaccount_password_changed_title">密碼已被更改</string>
     <string name="cmaccount_password_changed_message">請登入至 CyanogenMod 帳戶</string>
-
     <string name="cmaccount_login_message">正在登入至 CyanogenMod 帳戶</string>
     <string name="cmaccount_creating_profile_message">正在建立您的 CyanogenMod 設定檔</string>
-
     <string name="cmaccount_login_error_title">登入失敗</string>
     <string name="cmaccount_login_error_message">無效的電子郵件或密碼。</string>
     <string name="cmaccount_server_error_title">伺服器錯誤</string>
     <string name="cmaccount_create_account_error_title">CyanogenMod 帳戶建立錯誤</string>
     <string name="cmaccount_server_error_message">與伺服器通信時發生錯誤。請稍後再試。</string>
-
     <string name="cmaccount_error_multiple_accounts">一個行動裝置只允許存在一個 CyanogenMod 帳戶</string>
-
     <string name="sim_missing_summary">您需要參照裝置附帶的 SIM 卡說明。</string>
     <string name="google_account_summary">您是否希望設定一個 Google 帳戶？</string>
     <string name="btn_google_account">設定 Google 帳戶</string>
-
     <string name="location_access_title">存取我的位置資訊</string>
     <string name="location_access_summary">允許獲得您許可的應用程式使用您的位置資訊</string>
     <string name="location_sources_heading">位置資訊來源</string>
