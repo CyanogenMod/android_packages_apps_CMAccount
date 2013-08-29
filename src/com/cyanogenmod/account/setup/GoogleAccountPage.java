@@ -16,18 +16,14 @@
 
 package com.cyanogenmod.account.setup;
 
-import com.cyanogenmod.account.CMAccount;
-import com.cyanogenmod.account.R;
-import com.cyanogenmod.account.ui.SetupPageFragment;
-
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import com.cyanogenmod.account.R;
+import com.cyanogenmod.account.ui.SetupPageFragment;
+import com.cyanogenmod.account.ui.SetupWizardActivity;
 
 public class GoogleAccountPage extends Page {
 
@@ -61,23 +57,9 @@ public class GoogleAccountPage extends Page {
             mRootView.findViewById(R.id.google_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    launchGoogleAccountSetup();
+                    ((SetupWizardActivity) getActivity()).launchGoogleAccountSetup();
                 }
             });
-        }
-
-        private void launchGoogleAccountSetup() {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean(CMAccount.EXTRA_FIRST_RUN, true);
-            bundle.putBoolean(CMAccount.EXTRA_ALLOW_SKIP, true);
-            AccountManager.get(getActivity()).addAccount(CMAccount.ACCOUNT_TYPE_GOOGLE, null, null, bundle, getActivity(), new AccountManagerCallback<Bundle>() {
-                @Override
-                public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
-                    if (mCallbacks != null) {
-                        mCallbacks.onPageFinished(mPage);
-                    }
-                }
-            }, null);
         }
 
         @Override

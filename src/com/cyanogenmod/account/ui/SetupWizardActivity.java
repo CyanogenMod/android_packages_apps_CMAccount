@@ -16,6 +16,9 @@
 
 package com.cyanogenmod.account.ui;
 
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.util.Log;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.R;
 import com.cyanogenmod.account.gcm.GCMUtil;
@@ -206,14 +209,15 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private void removeSetupPage(final Page page, boolean animate) {
         if (page == null || getPage(page.getKey()) == null || page.getId() == R.string.setup_complete) return;
+        final int position = mViewPager.getCurrentItem();
         if (animate) {
-            final int position = mViewPager.getCurrentItem();
             mViewPager.setCurrentItem(0);
             mSetupData.removePage(page);
             mViewPager.setCurrentItem(position, true);
         } else {
             mSetupData.removePage(page);
         }
+        onPageLoaded(mPageList.get(position));
     }
 
     private void updateNextPreviousState() {
@@ -241,6 +245,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         }
         if (page.getId() == R.string.setup_cmaccount) {
             doSimCheck();
+        } else if (page.getId() == R.string.setup_google_account) {
+            launchGoogleAccountSetup();
         }
         updateNextPreviousState();
     }
@@ -272,11 +278,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                         }
                         break;
                     case R.string.setup_google_account:
-                        if (accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE)) {
-                            removeSetupPage(page, false);
-                        } else {
-                            doNext();
-                        }
+                        removeSetupPage(page, false);
                         break;
                 }
                 onPageTreeChanged();
@@ -345,6 +347,21 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             }
         }
         pm.setComponentEnabledSetting(getComponentName(), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+    }
+
+    public void launchGoogleAccountSetup() {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(CMAccount.EXTRA_FIRST_RUN, true);
+        bundle.putBoolean(CMAccount.EXTRA_ALLOW_SKIP, true);
+        AccountManager.get(this).addAccount(CMAccount.ACCOUNT_TYPE_GOOGLE, null, null, bundle, this, new AccountManagerCallback<Bundle>() {
+            @Override
+            public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
+                Page page = mPageList.findPage(R.string.setup_google_account);
+                if (page != null) {
+                    onPageFinished(page);
+                }
+            }
+        }, null);
     }
 
     private void finishSetup() {
