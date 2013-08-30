@@ -112,6 +112,10 @@ public class EncryptionUtils {
                 throw new AssertionError(e);
             }
         }
+
+        public static String getDerivedKeyBase64(String password, String salt) {
+            return Base64.encodeToString(getDerivedKey(password, salt), Base64.NO_WRAP);
+        }
     }
 
     public static class HMAC {
@@ -198,16 +202,19 @@ public class EncryptionUtils {
         }
 
         private static IvParameterSpec getRandomIV() {
-            byte[] ivBytes = new byte[16];
-            secureRandom.nextBytes(ivBytes);
-            IvParameterSpec ivSpec = new IvParameterSpec(ivBytes);
+            IvParameterSpec ivSpec = new IvParameterSpec(generateSalt(16));
             return ivSpec;
         }
     }
 
-    public static String generateSalt() {
-        byte[] salt = new byte[128];
+    public static byte[] generateSalt(int size) {
+        byte[] salt = new byte[size];
         secureRandom.nextBytes(salt);
+        return salt;
+    }
+
+    public static String generateSaltBase64(int size) {
+        byte[] salt = generateSalt(size);
         return Base64.encodeToString(salt, Base64.NO_WRAP);
     }
 }

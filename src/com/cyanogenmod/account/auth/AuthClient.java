@@ -27,7 +27,6 @@ import android.app.AppGlobals;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -66,10 +65,12 @@ import com.cyanogenmod.account.api.request.GetPublicKeyIdsRequest;
 import com.cyanogenmod.account.api.request.SendChannelRequestBody;
 import com.cyanogenmod.account.api.response.AddPublicKeysResponse;
 import com.cyanogenmod.account.api.response.GetPublicKeyIdsResponse;
+import com.cyanogenmod.account.encryption.ECDHKeyService;
 import com.cyanogenmod.account.gcm.GCMUtil;
 import com.cyanogenmod.account.gcm.model.WipeStartedMessage;
 import com.cyanogenmod.account.provider.CMAccountProvider;
 import com.cyanogenmod.account.util.CMAccountUtils;
+import com.cyanogenmod.account.util.EncryptionUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -459,21 +460,15 @@ public class AuthClient {
             }
         };
         mAccountManager.addOnAccountsUpdatedListener(mAccountsUpdateListener, new Handler(), false);
-        Boolean newAccount = accountManager.addAccountExplicitly(account, password, null);
-
-        // If we ended up not actually adding an account, we can assume the user changed their password, so save it.
-        if (!newAccount) {
-            accountManager.setPassword(account, password);
-        }
+        accountManager.addAccountExplicitly(account, response.getRefreshToken(), null);
         updateLocalAccount(accountManager, account, response);
+        generateEncryptionExtras(account, password);
+        CMAccountUtils.hideNotification(mContext, CMAccount.NOTIFICATION_ID_PASSWORD_RESET);
     }
 
     public void updateLocalAccount(AccountManager accountManager, Account account, AuthTokenResponse response) {
         accountManager.setUserData(account, CMAccount.AUTHTOKEN_TYPE_ACCESS, response.getAccessToken());
         accountManager.setAuthToken(account, CMAccount.AUTHTOKEN_TYPE_ACCESS, response.getAccessToken());
-        if (!TextUtils.isEmpty(response.getRefreshToken())) {
-            accountManager.setUserData(account, CMAccount.AUTHTOKEN_TYPE_REFRESH, response.getRefreshToken());
-        }
         accountManager.setUserData(account, CMAccount.AUTHTOKEN_EXPIRES_IN, String.valueOf(System.currentTimeMillis() + (Long.valueOf(response.getExpiresIn()) * 1000)));
         if (CMAccount.DEBUG) {
             Log.d(TAG, "Access token Expires in = " + (Long.valueOf(response.getExpiresIn()) * 1000) + "ms");
@@ -486,14 +481,22 @@ public class AuthClient {
         if (isTokenExpired(mAccountManager, account) || currentToken == null) {
             if (CMAccount.DEBUG) Log.d(TAG, "doTokenRequest() isTokenExpired:  " + "true");
             mAccountManager.invalidateAuthToken(CMAccount.ACCOUNT_TYPE_CMAccount, currentToken);
-            final String refreshToken = mAccountManager.getUserData(account, CMAccount.AUTHTOKEN_TYPE_REFRESH);
+            final String refreshToken = getRefreshToken(account);
             if (mInFlightTokenRequest != null) {
                 mInFlightTokenRequest.cancel();
                 mInFlightTokenRequest = null;
             }
 
             if (refreshToken == null) {
-                tokenCallback.onError(new VolleyError("Missing refresh token"));
+                // Drop the request, we shouldn't even bother retrying if we don't have a refresh
+                // token.
+                // TODO(ctso): If we don't drop the request, a bunch of NPEs get thrown by Volley.
+                // TODO(ctso): Need to track this down, ideally we send a MissingRefreshToken exception
+                // TODO(ctso): so we can cancel the network request.  Services like DeviceFinderService
+                // TODO(ctso): will continue to run unless we pass an error back to it.
+                Log.w(TAG, "Missing refresh token, dropping request.");
+                notifyPasswordChange(account);
+                return;
             }
 
             mInFlightTokenRequest = refreshAccessToken(refreshToken,
@@ -520,8 +523,9 @@ public class AuthClient {
 
                             if (CMAccount.DEBUG) Log.d(TAG, "refreshAccessToken() onErrorResponse:  " + status);
                             if (status == 400 || status == 401) {
-                                mAccountManager.setUserData(account, CMAccount.AUTHTOKEN_TYPE_REFRESH, null);
-                                reAuthenticate(account, tokenCallback, volleyError);
+                                notifyPasswordChange(account);
+                                expireRefreshToken(mAccountManager, account);
+                                return;
                             } else {
                                 tokenCallback.onError(volleyError);
                             }
@@ -531,32 +535,6 @@ public class AuthClient {
             if (CMAccount.DEBUG) Log.d(TAG, "doTokenRequest() returning cached token : " + currentToken);
             tokenCallback.onTokenReceived(currentToken);
         }
-    }
-
-    private void reAuthenticate(final Account account, final TokenCallback tokenCallback, final VolleyError originalError) {
-        mAccountManager.getAuthToken(account, CMAccount.ACCOUNT_TYPE_CMAccount, null, true, new AccountManagerCallback<Bundle>() {
-            @Override
-            public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
-                try {
-                    Bundle bundle = bundleAccountManagerFuture.getResult();
-                    String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-                    if (!TextUtils.isEmpty(token)) {
-                        tokenCallback.onTokenReceived(token);
-                    } else {
-                        tokenCallback.onError(originalError);
-                    }
-                } catch (OperationCanceledException e) {
-                    Log.e(TAG, "Unable to get AuthToken", e);
-                    tokenCallback.onError(new VolleyError(e));
-                } catch (IOException e) {
-                    Log.e(TAG, "Unable to get AuthToken", e);
-                    tokenCallback.onError(new VolleyError(e));
-                } catch (AuthenticatorException e) {
-                    Log.e(TAG, "Unable to get AuthToken", e);
-                    tokenCallback.onError(new VolleyError(e));
-                }
-            }
-        }, mHandler);
     }
 
     private String getCarrierName() {
@@ -636,15 +614,8 @@ public class AuthClient {
         }
     }
 
-    public void expireRefreshToken(AccountManager am, Account account) {
-        final String token = am.getUserData(account, CMAccount.AUTHTOKEN_TYPE_REFRESH);
-        if (!TextUtils.isEmpty(token)) {
-            mAccountManager.setUserData(account, CMAccount.AUTHTOKEN_TYPE_REFRESH, null);
-        }
-    }
-
-    public void clearPassword(Account account) {
-        mAccountManager.clearPassword(account);
+    public void expireRefreshToken(AccountManager accountManager, Account account) {
+        accountManager.clearPassword(account);
     }
 
     public void notifyPasswordChange(Account account) {
@@ -742,5 +713,28 @@ public class AuthClient {
         public int getRemoteSequence() {
             return remoteSequence;
         }
+    }
+
+    protected String getRefreshToken(Account account) {
+        return mAccountManager.getPassword(account);
+    }
+
+    private String generateDeviceSalt(Account account) {
+        String salt = EncryptionUtils.generateSaltBase64(16);
+        if (CMAccount.DEBUG) Log.v(TAG, "Saving device salt: " + salt);
+        mAccountManager.setUserData(account, CMAccount.ACCOUNT_EXTRA_DEVICE_SALT, salt);
+        return salt;
+    }
+
+    private void generateHmacSecret(Account account, String password, String salt) {
+        String hmacSecret = EncryptionUtils.PBKDF2.getDerivedKeyBase64(password, salt);
+        if (CMAccount.DEBUG) Log.v(TAG, "Saving hmac secret: " + hmacSecret);
+        mAccountManager.setUserData(account, CMAccount.ACCOUNT_EXTRA_HMAC_SECRET, hmacSecret);
+    }
+
+    private void generateEncryptionExtras(Account account, String password) {
+        String deviceSalt = generateDeviceSalt(account);
+        generateHmacSecret(account, password, deviceSalt);
+        ECDHKeyService.startGenerateUpdateSignatures(mContext);
     }
 }

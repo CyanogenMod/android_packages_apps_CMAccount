@@ -256,7 +256,6 @@ public class GCMIntentService extends IntentService implements Response.Listener
         if (CMAccount.DEBUG) Log.d(TAG, "Got password reset message, expiring access and refresh tokens");
         mAuthClient.expireToken(accountManager, mAccount);
         mAuthClient.expireRefreshToken(accountManager, mAccount);
-        mAuthClient.clearPassword(mAccount);
         mAuthClient.notifyPasswordChange(mAccount);
     }
 

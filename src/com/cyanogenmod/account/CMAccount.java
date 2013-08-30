@@ -37,8 +37,9 @@ public class CMAccount extends Application {
     public static final String ACCOUNT_TYPE_CMAccount = "com.cyanogenmod.account";
     public static final String ACCOUNT_TYPE_GOOGLE = "com.google";
     public static final String AUTHTOKEN_TYPE_ACCESS = "com.cyanogenmod.account";
-    public static final String AUTHTOKEN_TYPE_REFRESH = "com.cyanogenmod.account.auth.refresh_token";
     public static final String AUTHTOKEN_EXPIRES_IN= "com.cyanogenmod.account.auth.expires_in";
+    public static final String ACCOUNT_EXTRA_DEVICE_SALT = "com.cyanogenmod.account.auth.device_salt";
+    public static final String ACCOUNT_EXTRA_HMAC_SECRET = "com.cyanogenmod.account.auth.hmac_secret";
 
     public static final String ACTION_SETUP_WIFI = "com.android.net.wifi.SETUP_WIFI_NETWORK";
 
@@ -54,8 +55,6 @@ public class CMAccount extends Application {
     public static final String AUTH_PREFERENCES = "com.cyanogenmod.account.auth";
     public static final String SETTINGS_PREFERENCES = "com.cyanogenmod.account_preferences";
     public static final String ENCRYPTION_PREFERENCES = "com.cyanogenmod.account.encryption";
-
-    public static final String DEVICE_SALT = "device_salt";
 
     public static final String BACKOFF_MS = "backoff_ms";
     public static final int DEFAULT_BACKOFF_MS = 3000;
@@ -84,7 +83,7 @@ public class CMAccount extends Application {
         //Warm the auth client instance
         AuthClient.getInstance(getApplicationContext());
         // Warm ECDH public keys
-        ECDHKeyService.startGenerate(getApplicationContext());
+        ECDHKeyService.startGenerateNoUpload(getApplicationContext());
     }
 
     public void disableStatusBar() {

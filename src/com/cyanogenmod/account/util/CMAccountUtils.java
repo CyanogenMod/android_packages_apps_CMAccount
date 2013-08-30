@@ -39,6 +39,7 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import android.util.Base64;
 import android.util.Log;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -263,23 +264,6 @@ public class CMAccountUtils {
         return encodeHex(digestBytes).toLowerCase().trim();
     }
 
-    public static String getDeviceSalt(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(CMAccount.AUTH_PREFERENCES, Context.MODE_PRIVATE);
-        String deviceSalt = prefs.getString(CMAccount.DEVICE_SALT, null);
-        if (deviceSalt == null) {
-            deviceSalt = EncryptionUtils.generateSalt();
-            setDeviceSalt(context, deviceSalt);
-        }
-        return deviceSalt;
-    }
-
-    public static void setDeviceSalt(Context context, String salt) {
-        SharedPreferences prefs = context.getSharedPreferences(CMAccount.AUTH_PREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(CMAccount.DEVICE_SALT, salt);
-        editor.commit();
-    }
-
     public static String encodeHex(byte[] bytes) {
         return new String(Hex.encodeHex(bytes));
     }
@@ -297,15 +281,32 @@ public class CMAccountUtils {
         }
     }
 
-    public static byte[] getHmacSecret(Context context) {
-        AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
-        Account account = getCMAccountAccount(context);
+    public static String getDeviceSalt(AccountManager accountManager, Account account) {
         if (account == null) {
             if (CMAccount.DEBUG) Log.d(TAG, "No CMAccount configured!");
             return null;
         }
-        String passwordHash = accountManager.getPassword(account);
-        String deviceSalt = CMAccountUtils.getDeviceSalt(context);
-        return EncryptionUtils.PBKDF2.getDerivedKey(passwordHash, deviceSalt);
+        return accountManager.getUserData(account, CMAccount.ACCOUNT_EXTRA_DEVICE_SALT);
+    }
+
+    public static String getDeviceSalt(Context context) {
+        AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+        Account account = getCMAccountAccount(context);
+        return getDeviceSalt(accountManager, account);
+    }
+
+    public static byte[] getHmacSecret(AccountManager accountManager, Account account) {
+        if (account == null) {
+            if (CMAccount.DEBUG) Log.d(TAG, "No CMAccount configured!");
+            return null;
+        }
+        return Base64.decode(accountManager.getUserData(account,
+                CMAccount.ACCOUNT_EXTRA_HMAC_SECRET), Base64.NO_WRAP);
+    }
+
+    public static byte[] getHmacSecret(Context context) {
+        AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
+        Account account = getCMAccountAccount(context);
+        return getHmacSecret(accountManager, account);
     }
 }

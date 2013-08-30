@@ -95,7 +95,6 @@ public class PingService extends Service implements Response.ErrorListener, Resp
         if (pingResponse.getStatusCode() == 200) {
             CMAccountUtils.resetBackoff(mAuthClient.getAuthPreferences());
             final Context context = getApplicationContext();
-            ECDHKeyService.startGenerate(context);
             CMAccountUtils.scheduleSyncPublicKeys(context, getPublicKeySyncIntent(context));
             CMAccountUtils.scheduleCMAccountPing(context, getPingIntent(context));
             stopSelf();

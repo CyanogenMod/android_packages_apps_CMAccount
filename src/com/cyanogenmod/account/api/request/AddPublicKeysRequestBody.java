@@ -22,7 +22,6 @@ import com.cyanogenmod.account.util.EncryptionUtils;
 import com.google.gson.Gson;
 
 import org.spongycastle.crypto.params.ECPublicKeyParameters;
-import org.spongycastle.math.ec.ECPoint;
 
 import java.util.ArrayList;
 import java.util.List;
