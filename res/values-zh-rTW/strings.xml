@@ -15,7 +15,7 @@
  -->
 
 <resources>
-    <string name="app_name">CyanogenMod 帳戶/string>
+    <string name="app_name">CyanogenMod 帳戶</string>
     <string name="product_name">cyanogenmod</string>
 
     <string name="next">下一頁</string>
