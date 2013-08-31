@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources>
+    <string name="app_name">Účet CyanogenMod</string>
+    <string name="next">Ďalej</string>
+    <string name="continue_label">Pokračovať</string>
+    <string name="prev">Naspäť</string>
+    <string name="skip">Preskočiť</string>
+    <string name="finish">Dokončiť</string>
+    <string name="bacon">Slanina!</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="create">Vytvoriť</string>
+    <string name="login">Prihlásiť sa</string>
+    <string name="ok">OK</string>
+    <string name="existing">Prihlásiť sa do existujúceho účtu</string>
+    <string name="new_account">Vytvoriť nový účet</string>
+    <string name="skip_anyway">Preskočiť</string>
+    <string name="dont_skip">Nepreskakovať</string>
+    <string name="setup_complete">Nastavenie je dokončené</string>
+    <string name="setup_complete_summary">Gratulujeme! Nastavenie Vášho zariadenia je dokončené.</string>
+    <string name="setup_welcome">Vitajte v CyanogenMode</string>
+    <string name="setup_welcome_summary">Ak chcete začať nastavovanie tohto zariadenia, vyberte Váš jazyk a pokračujte ďalej.</string>
+    <string name="setup_cmaccount">Nastavte Váš účet CyanogenMod</string>
+    <string name="setup_sim_missing">Vložte SIM kartu</string>
+    <string name="setup_google_account">Účet Google</string>
+    <string name="setup_location">Nastavenia polohy</string>
+    <string name="setup_datetime">Nastavenia dátumu a času</string>
+    <string name="setup_current_date">Aktuálny dátum</string>
+    <string name="setup_current_time">Presný čas</string>
+    <string name="setup_msg_no_network">VAROVANIE: Nebudete môcť nastaviť Vaše účty</string>
+    <string name="cmaccount_setup_create_title">Vytvorte si účet CyanogenMod</string>
+    <string name="cmaccount_setup_login_title">Prihláste sa do Vášho účtu CyanogenMod</string>
+    <string name="cmaccount_setup_email_label">E-mail</string>
+    <string name="cmaccount_setup_email_unavailable_label">E-mail je už zaregistrovaný</string>
+    <string name="cmaccount_setup_email_invalid_label">Neplatná e-mail adresa</string>
+    <string name="cmaccount_setup_password_label">Heslo</string>
+    <string name="cmaccount_setup_password_create_label">Heslo (minimálne 8 znakov)</string>
+    <string name="cmaccount_setup_password_mismatch_label">Heslá sa nezhodujú!</string>
+    <string name="cmaccount_setup_password_invalid_label">Heslo musí mať najmenej 8 znakov!</string>
+    <string name="cmaccount_setup_confirm_password_label">Potvrdiť heslo</string>
+    <string name="cmaccount_setup_tos_label">Súhlasím s %1$spodmienkami%2$s služby</string>
+    <string name="cmaccount_add_title">Pridať účet CyanogenMod</string>
+    <string name="cmaccount_add_create_label">Účet CyanogenMod poskytuje prístup k pridanej hodnote vo forme služieb a funkcií pre mobilné zariadenia so systémom CyanogenMod.</string>
+    <string name="cmaccount_learn_more">Dozvedieť sa viac\u2026</string>
+    <string name="cmaccount_password_changed_title">Zmenené heslo</string>
+    <string name="cmaccount_password_changed_message">Prosím prihláste sa do Vášho účtu CyanogenMod</string>
+    <string name="cmaccount_login_message">Prihlasovanie sa do CyanogenMod</string>
+    <string name="cmaccount_creating_profile_message">Vytváranie Vášho profilu CyanogenMod</string>
+    <string name="cmaccount_login_error_title">Prihlásenie zlyhalo</string>
+    <string name="cmaccount_login_error_message">Neplatný e-mail alebo heslo.</string>
+    <string name="cmaccount_server_error_title">Chyba servera</string>
+    <string name="cmaccount_create_account_error_title">Chyba pri vytváraní účtu</string>
+    <string name="cmaccount_server_error_message">Došlo k chybe pri komunikácii so serverom. Skúste to znova neskôr.</string>
+    <string name="cmaccount_error_multiple_accounts">Je povolené mať iba jeden účet CyanogenMod na zariadení</string>
+    <string name="sim_missing_summary">Musíte nasledovať pokyny pre SIM kartu, ktoré boli dodané s Vašim zariadením.</string>
+    <string name="google_account_summary">Chcete nastaviť účet Google?</string>
+    <string name="btn_google_account">Nastaviť účet Google</string>
+    <string name="location_access_title">Prístup k polohe</string>
+    <string name="location_access_summary">Povoliť aplikáciám, ktoré žiadali o povolenie, používať informácie o Vašej polohe</string>
+    <string name="location_sources_heading">Zdroje polohy</string>
+    <string name="location_gps">GPS satelity</string>
+    <string name="location_street_level" product="tablet">Povoliť aplikáciám používať GPS na Vašom tablete pre určenie Vašej polohy</string>
+    <string name="location_street_level" product="default">Povoliť aplikáciám používať GPS na Vašom telefóne pre určenie Vašej polohy</string>
+    <string name="location_network_based">Poloha založená na Wi-Fi a mobilnej sieti</string>
+    <string name="location_neighborhood_level">Povoliť aplikáciám používať lokalizačnú službu od spoločnosti Google na rýchlejšie zistenie Vašej polohy. Anonymné údaje o polohe budú zhromaždené a odosielané do spoločnosti Google.</string>
+</resources>
