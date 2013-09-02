@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,44 +13,46 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             style="@style/SetupWizardCard">
-    <LinearLayout android:orientation="vertical"
-                  style="@style/SetupWizardPageContent">
+        style="@style/SetupWizardCard">
 
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/SetupWizardPageContent">
 
         <TextView style="@style/SetupWizardPageTitle" />
 
         <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="true">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageView style="@style/SetupWizardModDivider"/>
 
                 <TextView style="@style/SetupWizardPageSummary" />
 
-                <View android:id="@+id/divider"
-                      android:background="?android:attr/dividerHorizontal"
-                      android:layout_marginTop="20dp"
-                      android:layout_marginBottom="12dp"
-                      android:layout_marginLeft="8dp"
-                      android:layout_marginRight="8dp"
-                      android:layout_height="1dp"
-                      android:layout_width="match_parent" />
+                <View
+                    android:id="@+id/divider"
+                    android:background="?android:attr/dividerHorizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent" />
 
-                <Button android:id="@+id/google_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/ActionButton"
-                        android:text="@string/btn_google_account"/>
-
+                <Button
+                    android:id="@+id/google_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ActionButton"
+                    android:text="@string/btn_google_account" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

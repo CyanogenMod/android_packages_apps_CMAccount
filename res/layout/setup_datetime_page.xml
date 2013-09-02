@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,98 +13,107 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             style="@style/SetupWizardCard">
-    <LinearLayout android:orientation="vertical"
-                  style="@style/SetupWizardPageContent">
+        style="@style/SetupWizardCard">
+
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/SetupWizardPageContent">
 
         <TextView style="@style/SetupWizardPageTitle" />
 
         <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="true">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
             <LinearLayout
-                    android:orientation="vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView style="@style/SetupWizardModDivider" />
+
+                <Spinner
+                    android:id="@+id/timezone_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:saveEnabled="false" />
+
+                <TwoLineListItem
+                    android:id="@+id/date_item"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:mode="twoLine"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center_vertical">
 
-                <ImageView style="@style/SetupWizardModDivider"/>
+                    <TextView
+                        android:id="@+id/date_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dip"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/setup_current_date"
+                        style="@style/SetupWizardSpinnerItem" />
 
-                <Spinner android:id="@+id/timezone_list"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginTop="10dp"
-                         android:layout_marginBottom="10dp"
-                         android:saveEnabled="false"/>
-
-                <TwoLineListItem android:id="@+id/date_item"
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:minHeight="?android:attr/listPreferredItemHeight"
-                                 android:mode="twoLine"
-                                 android:clickable="true"
-                                 android:background="?android:attr/selectableItemBackground"
-                                 android:gravity="center_vertical">
-
-                    <TextView android:id="@+id/date_title"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_marginStart="10dip"
-                              android:textAppearance="?android:attr/textAppearanceMedium"
-                              android:text="@string/setup_current_date"
-                              style="@style/SetupWizardSpinnerItem"/>
-
-                    <TextView android:id="@+id/date_text"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_below="@id/date_title"
-                              android:layout_alignStart="@id/date_title"
-                              android:textAppearance="?android:attr/textAppearanceSmall"
-                              style="@style/SetupWizardSpinnerItem"/>
-
+                    <TextView
+                        android:id="@+id/date_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/date_title"
+                        android:layout_alignStart="@id/date_title"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        style="@style/SetupWizardSpinnerItem" />
                 </TwoLineListItem>
 
-                <View android:id="@+id/divider"
-                      android:background="?android:attr/dividerHorizontal"
-                      android:layout_marginTop="3dp"
-                      android:layout_height="1dp"
-                      android:layout_width="match_parent" />
+                <View
+                    android:id="@+id/divider"
+                    android:background="?android:attr/dividerHorizontal"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent" />
 
-                <TwoLineListItem android:id="@+id/time_item"
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:minHeight="?android:attr/listPreferredItemHeight"
-                                 android:mode="twoLine"
-                                 android:clickable="true"
-                                 android:background="?android:attr/selectableItemBackground"
-                                 android:gravity="center_vertical">
+                <TwoLineListItem
+                    android:id="@+id/time_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="?android:attr/listPreferredItemHeight"
+                    android:mode="twoLine"
+                    android:clickable="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:gravity="center_vertical">
 
-                    <TextView android:id="@+id/time_title"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_marginStart="10dip"
-                              android:textAppearance="?android:attr/textAppearanceMedium"
-                              android:text="@string/setup_current_time"
-                              style="@style/SetupWizardSpinnerItem"/>
+                    <TextView
+                        android:id="@+id/time_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dip"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/setup_current_time"
+                        style="@style/SetupWizardSpinnerItem" />
 
-                    <TextView android:id="@+id/time_text"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_below="@id/time_title"
-                              android:layout_alignStart="@id/time_title"
-                              android:textAppearance="?android:attr/textAppearanceSmall"
-                              style="@style/SetupWizardSpinnerItem"/>
-
+                    <TextView
+                        android:id="@+id/time_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/time_title"
+                        android:layout_alignStart="@id/time_title"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        style="@style/SetupWizardSpinnerItem" />
                 </TwoLineListItem>
 
-                <View android:id="@+id/divider"
-                      android:background="?android:attr/dividerHorizontal"
-                      android:layout_marginTop="3dp"
-                      android:layout_height="1dp"
-                      android:layout_width="match_parent" />
+                <View
+                    android:id="@+id/divider"
+                    android:background="?android:attr/dividerHorizontal"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

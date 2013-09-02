@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,64 +13,69 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             style="@style/SetupWizardCard">
+        style="@style/SetupWizardCard">
+
     <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom|right"
-            android:src="@drawable/cid_welcome"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:scaleType="fitEnd"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/cid_welcome"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:scaleType="fitEnd" />
+
     <LinearLayout
-            android:orientation="vertical"
-            style="@style/SetupWizardPageContent">
+        android:orientation="vertical"
+        style="@style/SetupWizardPageContent">
 
         <TextView style="@style/SetupWizardPageTitle" />
 
         <ImageView style="@style/SetupWizardModDivider"/>
 
         <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="true">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
             <LinearLayout
-                    android:orientation="vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SetupWizardPageSummary"
+                    android:text="@string/setup_welcome_summary" />
+
+                <Spinner
+                    android:id="@+id/locale_list"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_gravity="center"
+                    android:saveEnabled="false" />
 
-                <TextView style="@style/SetupWizardPageSummary"
-                          android:text="@string/setup_welcome_summary"/>
+                <View
+                    android:id="@+id/divider"
+                    android:background="?android:attr/dividerHorizontal"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent" />
 
-                <Spinner android:id="@+id/locale_list"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_marginTop="5dp"
-                         android:layout_marginBottom="8dp"
-                         android:layout_marginLeft="6dp"
-                         android:layout_marginRight="6dp"
-                         android:layout_gravity="center"
-                         android:saveEnabled="false"/>
-
-                <View android:id="@+id/divider"
-                      android:background="?android:attr/dividerHorizontal"
-                      android:layout_marginTop="3dp"
-                      android:layout_marginBottom="8dp"
-                      android:layout_marginLeft="8dp"
-                      android:layout_marginRight="8dp"
-                      android:layout_height="1dp"
-                      android:layout_width="match_parent" />
-
-                <Button android:id="@+id/btn_continue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|right"
-                        android:text="@string/continue_label"
-                        style="@style/ActionButton"/>
-
+                <Button
+                    android:id="@+id/btn_continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:text="@string/continue_label"
+                    style="@style/ActionButton" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
