@@ -23,7 +23,7 @@
     <string name="finish">Terminer</string>
     <string name="cancel">Annuler</string>
     <string name="create">Créer</string>
-    <string name="login">Identifiant</string>
+    <string name="login">S\'identifier</string>
     <string name="ok">OK</string>
     <string name="existing">Se connecter à un compte existant</string>
     <string name="new_account">Créer un nouveau compte</string>
