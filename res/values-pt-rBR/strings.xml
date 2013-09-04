@@ -37,12 +37,12 @@
     <string name="setup_sim_missing">Insira o cartão SIM</string>
     <string name="setup_google_account">Conta Google</string>
     <string name="setup_location">Configurações de localização</string>
-    <string name="setup_datetime">Configurações de Data e Hora</string>
+    <string name="setup_datetime">Configurações de data e hora</string>
     <string name="setup_current_date">Data atual</string>
     <string name="setup_current_time">Hora atual</string>
     <string name="setup_msg_no_network">Aviso: Você não poderá configurar suas contas</string>
-    <string name="cmaccount_setup_create_title">Criar uma Conta CyanogenMod</string>
-    <string name="cmaccount_setup_login_title">Entrar na sua Conta CyanogenMod</string>
+    <string name="cmaccount_setup_create_title">Criar uma conta CyanogenMod</string>
+    <string name="cmaccount_setup_login_title">Entrar na sua conta CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Email</string>
     <string name="cmaccount_setup_email_unavailable_label">Email já registrado</string>
     <string name="cmaccount_setup_email_invalid_label">Endereço de email inválido</string>
