@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.util.Log;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.api.PingService;
-import com.cyanogenmod.account.encryption.SyncPublicKeysTask;
 import com.cyanogenmod.account.util.CMAccountUtils;
 
 public class BootReceiver extends BroadcastReceiver {
@@ -40,8 +39,5 @@ public class BootReceiver extends BroadcastReceiver {
     private void handleBootCompleted(Context context) {
         if (CMAccount.DEBUG) Log.d(TAG, "Boot completed, scheduling ping");
         CMAccountUtils.scheduleCMAccountPing(context, PingService.getPingIntent(context));
-
-        if (CMAccount.DEBUG) Log.d(TAG, "Boot completed, scheduling public key sync");
-        CMAccountUtils.scheduleSyncPublicKeys(context, SyncPublicKeysTask.getIntent(context));
     }
 }

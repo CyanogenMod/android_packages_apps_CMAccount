@@ -125,15 +125,6 @@ public class CMAccountUtils {
         am.cancel(reRegisterPendingIntent);
     }
 
-    public static void scheduleSyncPublicKeys(Context context, Intent intent) {
-        if (CMAccount.DEBUG) Log.d(TAG, "Scheduling public key sync, starting = " +
-                new Timestamp(SystemClock.elapsedRealtime() + INTERVAL_WEEK) + " interval (" + INTERVAL_WEEK + ")");
-        PendingIntent publicKeySyncPendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime() + INTERVAL_WEEK, INTERVAL_WEEK,
-                publicKeySyncPendingIntent);
-    }
-
     public static Account getCMAccountAccount(Context context) {
         final AccountManager am = AccountManager.get(context);
         Account[] accounts = am.getAccountsByType(CMAccount.ACCOUNT_TYPE_CMAccount);

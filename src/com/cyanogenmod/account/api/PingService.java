@@ -20,8 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.auth.AuthClient;
-import com.cyanogenmod.account.encryption.ECDHKeyService;
-import com.cyanogenmod.account.encryption.SyncPublicKeysTask;
 import com.cyanogenmod.account.util.CMAccountUtils;
 
 import android.app.Service;
@@ -95,7 +93,6 @@ public class PingService extends Service implements Response.ErrorListener, Resp
         if (pingResponse.getStatusCode() == 200) {
             CMAccountUtils.resetBackoff(mAuthClient.getAuthPreferences());
             final Context context = getApplicationContext();
-            CMAccountUtils.scheduleSyncPublicKeys(context, getPublicKeySyncIntent(context));
             CMAccountUtils.scheduleCMAccountPing(context, getPingIntent(context));
             stopSelf();
         } else {
@@ -112,9 +109,5 @@ public class PingService extends Service implements Response.ErrorListener, Resp
 
     public static Intent getPingIntent(Context context) {
         return new Intent(context, PingService.class);
-    }
-
-    private static Intent getPublicKeySyncIntent(Context context) {
-        return SyncPublicKeysTask.getIntent(context);
     }
 }

@@ -73,7 +73,6 @@ public class CMAccountProvider extends ContentProvider {
         sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.KEY_ID, ECDHKeyStoreColumns.KEY_ID);
         sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.PRIVATE, ECDHKeyStoreColumns.PRIVATE);
         sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.PUBLIC, ECDHKeyStoreColumns.PUBLIC);
-        sECDHKeyProjectionMap.put(ECDHKeyStoreColumns.UPLOADED, ECDHKeyStoreColumns.UPLOADED);
     }
     private SQLiteOpenHelper mOpenHelper;
 
@@ -217,17 +216,10 @@ public class CMAccountProvider extends ContentProvider {
         openHelper.close();
     }
 
-    public static void setKeyUploaded(Context context, String keyId) {
-        SQLiteOpenHelper openHelper = new DatabaseHelper(context.getApplicationContext());
-        SQLiteDatabase db = openHelper.getWritableDatabase();
-        db.execSQL("UPDATE " + TABLE_ECDH_KEYS + " SET uploaded=1 WHERE " + ECDHKeyStoreColumns.KEY_ID + " = ?;", new String[]{ keyId });
-        openHelper.close();
-    }
-
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
         private static final String DATABASE_NAME = "cmaccount.db";
-        private static final int DATABASE_VERSION = 6;
+        private static final int DATABASE_VERSION = 7;
 
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -254,8 +246,7 @@ public class CMAccountProvider extends ContentProvider {
                     + ECDHKeyStoreColumns._ID + " INTEGER PRIMARY KEY, "
                     + ECDHKeyStoreColumns.KEY_ID + " TEXT NOT NULL UNIQUE, "
                     + ECDHKeyStoreColumns.PRIVATE + " TEXT NOT NULL, "
-                    + ECDHKeyStoreColumns.PUBLIC + " TEXT NOT NULL, "
-                    + ECDHKeyStoreColumns.UPLOADED + " INTEGER NOT NULL DEFAULT 0);");
+                    + ECDHKeyStoreColumns.PUBLIC + " TEXT NOT NULL);");
         }
 
         @Override
@@ -282,7 +273,6 @@ public class CMAccountProvider extends ContentProvider {
         public static final String KEY_ID = "key_id";
         public static final String PRIVATE = "private";
         public static final String PUBLIC = "public";
-        public static final String UPLOADED = "uploaded";
         public static final String CONTENT_TYPE = "vnd.cyanogenmod.cursor.dir/publicKey";
         public static final String CONTENT_TYPE_ITEM = "vnd.cyanogenmod.cursor.item/publicKey";
     }

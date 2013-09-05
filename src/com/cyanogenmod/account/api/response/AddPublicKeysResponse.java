@@ -19,13 +19,13 @@ import java.util.List;
 
 public class AddPublicKeysResponse {
     public int statusCode;
-    private List<String> success;
+    private List<String> updated;
 
     public int getStatusCode() {
         return statusCode;
     }
 
     public List<String> getKeyIds() {
-        return success;
+        return updated;
     }
 }

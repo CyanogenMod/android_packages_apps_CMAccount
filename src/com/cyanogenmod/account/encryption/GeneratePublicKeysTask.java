@@ -44,7 +44,6 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
 
     private final Context mContext;
     private final AuthClient mAuthClient;
-    private boolean mUpdateSignatures;
     private Intent mIntent;
 
     public GeneratePublicKeysTask(Context context) {
@@ -57,9 +56,6 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
         boolean retry = intent.getBooleanExtra(ECDHKeyService.EXTRA_RETRY, false);
         if (retry && CMAccount.DEBUG) Log.d(TAG, "Scheduled retry");
 
-        mUpdateSignatures = intent.getBooleanExtra(ECDHKeyService.EXTRA_UPDATE_SIGNATURE, false);
-        if (mUpdateSignatures && CMAccount.DEBUG) Log.d(TAG, "Updating signatures");
-
         boolean upload = intent.getBooleanExtra(ECDHKeyService.EXTRA_UPLOAD, true);
 
         int keyCount = getKeyCount();
@@ -67,7 +63,7 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
             generateKeyPairs(MINIMUM_KEYS - keyCount);
         }
 
-        if (upload) uploadKeyPairs(getKeyPairs());
+        if (upload) uploadKeyPairs();
     }
 
     private int getKeyCount() {
@@ -115,13 +111,7 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
 
     private List<ECKeyPair> getKeyPairs() {
         List<ECKeyPair> keyPairs = new ArrayList<ECKeyPair>();
-        String selection = null;
-        String[] selectionArgs = null;
-        if (!mUpdateSignatures) {
-            selection = CMAccountProvider.ECDHKeyStoreColumns.UPLOADED + " = ?";
-            selectionArgs = new String[] {"0"};
-        }
-        Cursor cursor = mContext.getContentResolver().query(CMAccountProvider.ECDH_CONTENT_URI, null, selection, selectionArgs, null);
+        Cursor cursor = mContext.getContentResolver().query(CMAccountProvider.ECDH_CONTENT_URI, null, null, null, null);
         while (cursor.moveToNext()) {
             String publicKeyHex = cursor.getString(cursor.getColumnIndex(CMAccountProvider.ECDHKeyStoreColumns.PUBLIC));
             String keyId = cursor.getString(cursor.getColumnIndex(CMAccountProvider.ECDHKeyStoreColumns.KEY_ID));
@@ -134,13 +124,8 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
         return keyPairs;
     }
 
-    private void updateUploadedStatus(List<String> keyIds) {
-        for (String keyId : keyIds) {
-            CMAccountProvider.setKeyUploaded(mContext, keyId);
-        }
-    }
-
-    private void uploadKeyPairs(List<ECKeyPair> keyPairs) {
+    private void uploadKeyPairs() {
+        List<ECKeyPair> keyPairs = getKeyPairs();
         if (keyPairs.size() == 0) {
             CMAccountUtils.resetBackoff(mAuthClient.getEncryptionPreferences());
             if (CMAccount.DEBUG) Log.d(TAG, "No keys to upload.");
@@ -165,6 +150,25 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
         mAuthClient.addPublicKeys(requestBody, this, this);
     }
 
+    private void removePublicKeys(AddPublicKeysResponse response) {
+        List<ECKeyPair> keyPairs = getKeyPairs();
+        for (ECKeyPair keyPair : keyPairs) {
+            String keyId = keyPair.getKeyId();
+            if (!response.getKeyIds().contains(keyId)) {
+                if (CMAccount.DEBUG) Log.d(TAG, "Removing public key_id " + keyId);
+                String selection = CMAccountProvider.ECDHKeyStoreColumns.KEY_ID + " = ?";
+                String[] selectionArgs = new String[] { keyId };
+                mContext.getContentResolver().delete(CMAccountProvider.ECDH_CONTENT_URI, selection, selectionArgs);
+            }
+        }
+
+        // If after removing public keys, we are left with no keys, generate some more.
+        if (getKeyCount() < MINIMUM_KEYS) {
+            if (CMAccount.DEBUG) Log.d(TAG, "Left without enough keys after removing stale keys, generating more.");
+            start(mIntent);
+        }
+    }
+
     @Override
     public void onErrorResponse(VolleyError volleyError) {
         synchronized (mNetworkRequestLock) {
@@ -177,7 +181,7 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
     @Override
     public void onResponse(AddPublicKeysResponse response) {
         if (response.statusCode == 200) {
-            updateUploadedStatus(response.getKeyIds());
+            removePublicKeys(response);
             synchronized (mNetworkRequestLock) {
                 mNetworkRequestInProgress = false;
             }

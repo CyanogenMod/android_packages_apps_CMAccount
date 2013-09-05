@@ -735,6 +735,6 @@ public class AuthClient {
     private void generateEncryptionExtras(Account account, String password) {
         String deviceSalt = generateDeviceSalt(account);
         generateHmacSecret(account, password, deviceSalt);
-        ECDHKeyService.startGenerateUpdateSignatures(mContext);
+        ECDHKeyService.startGenerate(mContext);
     }
 }

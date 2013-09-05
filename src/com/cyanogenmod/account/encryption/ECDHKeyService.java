@@ -29,8 +29,6 @@ public class ECDHKeyService extends IntentService {
     protected static final String EXTRA_RETRY = "retry";
 
     protected static final String ACTION_GENERATE = "com.cyanogenmod.account.encryption.GENERATE";
-    protected static final String ACTION_SYNC = "com.cyanogenmod.account.encryption.SYNC";
-    protected static final String EXTRA_UPDATE_SIGNATURE = "update_signature";
     protected static final String EXTRA_UPLOAD = "upload";
 
     private static PowerManager.WakeLock sWakeLock;
@@ -51,12 +49,6 @@ public class ECDHKeyService extends IntentService {
     public static void startGenerateNoUpload(Context context) {
         Intent intent = getIntent(context, ACTION_GENERATE);
         intent.putExtra(EXTRA_UPLOAD, false);
-        context.startService(intent);
-    }
-
-    public static void startGenerateUpdateSignatures(Context context) {
-        Intent intent = getIntent(context, ACTION_GENERATE);
-        intent.putExtra(EXTRA_UPDATE_SIGNATURE, true);
         context.startService(intent);
     }
 
@@ -92,9 +84,6 @@ public class ECDHKeyService extends IntentService {
         if (ACTION_GENERATE.equals(intent.getAction())) {
             GeneratePublicKeysTask generatePublicKeysTask = new GeneratePublicKeysTask(mContext);
             generatePublicKeysTask.start(intent);
-        } else if (ACTION_SYNC.equals(intent.getAction())) {
-            SyncPublicKeysTask syncPublicKeysTask = new SyncPublicKeysTask(mContext);
-            syncPublicKeysTask.start();
         }
     }
 
