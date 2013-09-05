@@ -19,6 +19,7 @@ package com.cyanogenmod.account.util;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.R;
 import com.cyanogenmod.account.auth.AuthClient;
+import com.cyanogenmod.account.auth.UpdateRequiredActivity;
 import com.cyanogenmod.account.ui.WebViewDialogFragment;
 
 import android.accounts.Account;
@@ -32,6 +33,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
@@ -299,5 +303,40 @@ public class CMAccountUtils {
         AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
         Account account = getCMAccountAccount(context);
         return getHmacSecret(accountManager, account);
+    }
+
+    public static void setMinimumAppVersion(Context context, int minimumVersion) {
+        SharedPreferences prefs = context.getSharedPreferences(CMAccount.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(CMAccount.MINIMUM_APP_VERSION, minimumVersion);
+        editor.commit();
+    }
+
+    public static int getMinimumAppVersion(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(CMAccount.SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
+        return prefs.getInt(CMAccount.MINIMUM_APP_VERSION, -1);
+    }
+
+    public static int getApplicationVersion(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager()
+                    .getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException("Could not get package name: " + e);
+        }
+    }
+
+    public static void showIncompatibleVersionNotification(Context context) {
+        Intent intent = new Intent(context, UpdateRequiredActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        Notification notification = new Notification.Builder(context)
+                .setContentTitle(context.getText(R.string.cmaccount_update_required_title))
+                .setContentText(context.getText(R.string.cmaccount_update_required_short))
+                .setSmallIcon(R.drawable.ic_dialog_alert)
+                .setLargeIcon(((BitmapDrawable) context.getResources().getDrawable(R.drawable.icon)).getBitmap())
+                .setContentIntent(contentIntent)
+                .build();
+        CMAccountUtils.showNotification(context, CMAccount.NOTIFICATION_ID_INCOMPATIBLE_VERSION, notification);
     }
 }

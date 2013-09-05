@@ -25,6 +25,7 @@ import com.cyanogenmod.account.api.AuthTokenResponse;
 import com.cyanogenmod.account.api.CreateProfileResponse;
 import com.cyanogenmod.account.api.ErrorResponse;
 import com.cyanogenmod.account.api.ProfileAvailableResponse;
+import com.cyanogenmod.account.api.response.GetMinimumAppVersionResponse;
 import com.cyanogenmod.account.ui.WebViewDialogFragment;
 import com.cyanogenmod.account.util.CMAccountUtils;
 
@@ -35,6 +36,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,6 +67,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private static final int DIALOG_NO_NETWORK_WARNING = 3;
     private static final int DIALOG_ERROR_CREATING_ACCOUNT = 4;
     private static final int DIALOG_ERROR_LOGIN = 5;
+    private static final int DIALOG_CHECKING_FOR_UPDATES = 6;
 
     private static final int MIN_PASSWORD_LENGTH = 8;
 
@@ -257,6 +260,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         });
         if (savedInstanceState == null && !CMAccountUtils.isNetworkConnected(this)) {
             CMAccountUtils.launchWifiSetup(this);
+        } else {
+            checkMinimumAppVersion();
         }
     }
 
@@ -279,6 +284,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI) {
             if (resultCode == Activity.RESULT_OK) {
+                checkMinimumAppVersion();
                 setResult(Activity.RESULT_OK);
             } else {
                 showDialog(DIALOG_NO_NETWORK_WARNING);
@@ -387,6 +393,23 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                             }
                         })
                         .create();
+                return mDialog;
+            case DIALOG_CHECKING_FOR_UPDATES:
+                final ProgressDialog updateDialog = new ProgressDialog(this);
+                updateDialog.setMessage(getText(R.string.cmaccount_checking_for_updates));
+                updateDialog.setIndeterminate(true);
+                updateDialog.setCancelable(true);
+                updateDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        if (mInFlightRequest != null) {
+                            mInFlightRequest.cancel();
+                            mInFlightRequest = null;
+                        }
+                        hideProgress();
+                    }
+                });
+                mDialog = updateDialog;
                 return mDialog;
             default:
                 return super.onCreateDialog(id, args);
@@ -537,6 +560,37 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             builder.setSpan(termsLauncher, start, end, flags);
         }
         return builder;
+    }
+
+    private void checkMinimumAppVersion() {
+        final Context context = this;
+        final int appVersion = CMAccountUtils.getApplicationVersion(context);
+        final int minimumVersion = CMAccountUtils.getMinimumAppVersion(this);
+        if (minimumVersion == -1) {
+            showDialog(DIALOG_CHECKING_FOR_UPDATES);
+            mInFlightRequest = mAuthClient.getMinimumAppVersion(new Response.Listener<GetMinimumAppVersionResponse>() {
+                @Override
+                public void onResponse(GetMinimumAppVersionResponse response) {
+                    CMAccountUtils.setMinimumAppVersion(context, response.getVersion());
+                    if (response.getVersion() > appVersion) {
+                        startUpdateRequiredActivity();
+                    }
+                    hideProgress();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    hideProgress();
+                }
+            });
+        } else if (minimumVersion > appVersion) {
+            startUpdateRequiredActivity();
+        }
+    }
+
+    private void startUpdateRequiredActivity() {
+        Intent intent = new Intent(this, UpdateRequiredActivity.class);
+        startActivity(intent);
     }
 
 }

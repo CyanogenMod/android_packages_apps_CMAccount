@@ -16,6 +16,9 @@
 
 package com.cyanogenmod.account;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.cyanogenmod.account.api.response.GetMinimumAppVersionResponse;
 import com.cyanogenmod.account.auth.AuthClient;
 
 import android.app.Application;
@@ -26,9 +29,10 @@ import android.content.ComponentName;
 import android.content.Context;
 
 import com.cyanogenmod.account.encryption.ECDHKeyService;
+import com.cyanogenmod.account.util.CMAccountUtils;
 import com.cyanogenmod.account.util.PRNGFixes;
 
-public class CMAccount extends Application {
+public class CMAccount extends Application implements Response.Listener<GetMinimumAppVersionResponse>, Response.ErrorListener {
 
     public static final String TAG = "CMAccount";
     // Leave this off for release
@@ -59,11 +63,13 @@ public class CMAccount extends Application {
     public static final String BACKOFF_MS = "backoff_ms";
     public static final int DEFAULT_BACKOFF_MS = 3000;
     public static final int MAX_BACKOFF_MS = 1000 * 60 * 60 * 6; // 6 hours
+    public static final String MINIMUM_APP_VERSION = "minimum_app_version";
 
     public static final int REQUEST_CODE_SETUP_WIFI = 0;
     public static final int REQUEST_CODE_SETUP_CMAccount = 1;
 
     public static final int NOTIFICATION_ID_PASSWORD_RESET = 666;
+    public static final int NOTIFICATION_ID_INCOMPATIBLE_VERSION = 667;
 
     private String mCMAccountUri;
 
@@ -81,9 +87,13 @@ public class CMAccount extends Application {
         final ComponentName deviceAdmin = new ComponentName(getApplicationContext(), CMAccountAdminReceiver.class);
         dpm.setActiveAdmin(deviceAdmin, true);
         //Warm the auth client instance
-        AuthClient.getInstance(getApplicationContext());
+        AuthClient authClient = AuthClient.getInstance(getApplicationContext());
         // Warm ECDH public keys
         ECDHKeyService.startGenerateNoUpload(getApplicationContext());
+        // Check minimum required app version
+        if (CMAccountUtils.isNetworkConnected(getApplicationContext())) {
+            authClient.getMinimumAppVersion(this, this);
+        }
     }
 
     public void disableStatusBar() {
@@ -98,6 +108,20 @@ public class CMAccount extends Application {
 
     public String getCMAccountUri() {
         return mCMAccountUri;
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError volleyError) {
+        // noop
+    }
+
+    @Override
+    public void onResponse(GetMinimumAppVersionResponse getMinimumAppVersionResponse) {
+        int minimumVersion = getMinimumAppVersionResponse.getVersion();
+        CMAccountUtils.setMinimumAppVersion(getApplicationContext(), minimumVersion);
+        if (CMAccountUtils.getApplicationVersion(getApplicationContext()) < minimumVersion) {
+            CMAccountUtils.showIncompatibleVersionNotification(getApplicationContext());
+        }
     }
 
     public static class CMAccountAdminReceiver extends DeviceAdminReceiver {}

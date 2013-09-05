@@ -16,7 +16,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.cyanogenmod.account"
-        android:versionCode="1">
+        android:versionCode="2">
 
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.STATUS_BAR" />
@@ -90,6 +90,10 @@
             android:label="@string/product_name"
             android:launchMode="singleTop"
             android:theme="@style/Theme.CMAccount.ActionBar.Overlay" />
+
+        <activity android:name=".auth.UpdateRequiredActivity"
+                  android:label="@string/product_name"
+                  android:theme="@style/Theme.CMAccount" />
 
         <receiver android:name=".gcm.GCMReceiver" android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">

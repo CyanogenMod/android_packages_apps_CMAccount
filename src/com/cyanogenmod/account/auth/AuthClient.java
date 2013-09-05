@@ -40,8 +40,11 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
@@ -61,9 +64,11 @@ import com.cyanogenmod.account.api.ProfileAvailableResponse;
 import com.cyanogenmod.account.api.SendChannelRequest;
 import com.cyanogenmod.account.api.request.AddPublicKeysRequest;
 import com.cyanogenmod.account.api.request.AddPublicKeysRequestBody;
+import com.cyanogenmod.account.api.request.GetMinimumAppVersionRequest;
 import com.cyanogenmod.account.api.request.GetPublicKeyIdsRequest;
 import com.cyanogenmod.account.api.request.SendChannelRequestBody;
 import com.cyanogenmod.account.api.response.AddPublicKeysResponse;
+import com.cyanogenmod.account.api.response.GetMinimumAppVersionResponse;
 import com.cyanogenmod.account.api.response.GetPublicKeyIdsResponse;
 import com.cyanogenmod.account.encryption.ECDHKeyService;
 import com.cyanogenmod.account.gcm.GCMUtil;
@@ -73,6 +78,7 @@ import com.cyanogenmod.account.util.CMAccountUtils;
 import com.cyanogenmod.account.util.EncryptionUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
@@ -91,6 +97,7 @@ public class AuthClient {
     private static final String SEND_CHANNEL_METHOD = "/send_channel";
     private static final String ADD_PUBLIC_KEYS_METHOD = "/add_public_keys";
     private static final String GET_PUBLIC_KEY_IDS_METHOD = "/get_public_key_ids";
+    private static final String GET_MINIMUM_APP_VERSION_METHOD = "/get_minimum_app_version";
     private static final String HELP_PATH = "/help";
     private static final String SERVER_URI = getServerURI();
 
@@ -101,6 +108,7 @@ public class AuthClient {
     public static final String SEND_CHANNEL_URI = SERVER_URI + API_ROOT + SECMSG_METHOD + SEND_CHANNEL_METHOD;
     public static final String ADD_PUBLIC_KEYS_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + ADD_PUBLIC_KEYS_METHOD;
     public static final String GET_PUBLIC_KEY_IDS_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + GET_PUBLIC_KEY_IDS_METHOD;
+    public static final String GET_MINIMUM_APP_VERSION_URI = SERVER_URI + API_ROOT + PING_METHOD + GET_MINIMUM_APP_VERSION_METHOD;
     public static final String LEARN_MORE_URI = SERVER_URI + HELP_PATH;
     public static final String TOS_URI = "http://www.cyanogenmod.org/docs/terms";
     public static final String PRIVACY_POLICY_URI = "http://www.cyanogenmod.org/docs/privacy";
@@ -122,6 +130,7 @@ public class AuthClient {
     private Request<?> mInFlightChannelRequest;
     private Request<?> mInFlightAddPublicKeysRequest;
     private Request<?> mInFlightGetPublicKeyIdsRequest;
+    private Request<?> mInFlightGetMinimumAppVersionRequest;
 
     private OnAccountsUpdateListener mAccountsUpdateListener;
 
@@ -441,6 +450,40 @@ public class AuthClient {
         };
 
         doTokenRequest(account, callback);
+    }
+
+    public Request<?> getMinimumAppVersion(final Listener<GetMinimumAppVersionResponse> listener, final ErrorListener errorListener) {
+        if (mInFlightGetMinimumAppVersionRequest != null) {
+            mInFlightGetMinimumAppVersionRequest.cancel();
+            mInFlightGetMinimumAppVersionRequest = null;
+        }
+        mInFlightGetMinimumAppVersionRequest = new GetMinimumAppVersionRequest(new Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                mInFlightGetMinimumAppVersionRequest = null;
+                try {
+                    GetMinimumAppVersionResponse getMinimumAppVersionResponse = mGson.fromJson(response, GetMinimumAppVersionResponse.class);
+                    if (listener != null) {
+                        listener.onResponse(getMinimumAppVersionResponse);
+                    }
+                } catch (JsonParseException e) {
+                    errorListener.onErrorResponse(new VolleyError(e));
+                }
+            }
+        }, new ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                mInFlightGetMinimumAppVersionRequest = null;
+                if (volleyError.networkResponse == null) {
+                    if (CMAccount.DEBUG) Log.d(TAG, "getMinimumAppVersion() onErrorResponse no response");
+                    volleyError.printStackTrace();
+                    errorListener.onErrorResponse(volleyError);
+                    return;
+                }
+            }
+        });
+        mRequestQueue.add(mInFlightGetMinimumAppVersionRequest);
+        return mInFlightGetMinimumAppVersionRequest;
     }
 
     public void addLocalAccount(final AccountManager accountManager, final Account account, String password, AuthTokenResponse response) {
