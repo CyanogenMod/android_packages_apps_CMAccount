@@ -70,7 +70,6 @@ import com.cyanogenmod.account.api.request.SendChannelRequestBody;
 import com.cyanogenmod.account.api.response.AddPublicKeysResponse;
 import com.cyanogenmod.account.api.response.GetMinimumAppVersionResponse;
 import com.cyanogenmod.account.api.response.GetPublicKeyIdsResponse;
-import com.cyanogenmod.account.encryption.ECDHKeyService;
 import com.cyanogenmod.account.gcm.GCMUtil;
 import com.cyanogenmod.account.gcm.model.WipeStartedMessage;
 import com.cyanogenmod.account.provider.CMAccountProvider;
@@ -778,6 +777,5 @@ public class AuthClient {
     private void generateEncryptionExtras(Account account, String password) {
         String deviceSalt = generateDeviceSalt(account);
         generateHmacSecret(account, password, deviceSalt);
-        ECDHKeyService.startGenerate(mContext);
     }
 }

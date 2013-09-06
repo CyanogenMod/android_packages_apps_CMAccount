@@ -182,12 +182,12 @@ public class GeneratePublicKeysTask implements Response.ErrorListener, Response.
     public void onResponse(AddPublicKeysResponse response) {
         if (response.statusCode == 200) {
             removePublicKeys(response);
-            synchronized (mNetworkRequestLock) {
-                mNetworkRequestInProgress = false;
-            }
             CMAccountUtils.resetBackoff(mAuthClient.getEncryptionPreferences());
         } else {
             handleError();
+        }
+        synchronized (mNetworkRequestLock) {
+            mNetworkRequestInProgress = false;
         }
     }
 

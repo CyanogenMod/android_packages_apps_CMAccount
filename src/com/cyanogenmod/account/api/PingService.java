@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.auth.AuthClient;
+import com.cyanogenmod.account.encryption.ECDHKeyService;
 import com.cyanogenmod.account.util.CMAccountUtils;
 
 import android.app.Service;
@@ -94,6 +95,7 @@ public class PingService extends Service implements Response.ErrorListener, Resp
             CMAccountUtils.resetBackoff(mAuthClient.getAuthPreferences());
             final Context context = getApplicationContext();
             CMAccountUtils.scheduleCMAccountPing(context, getPingIntent(context));
+            ECDHKeyService.startGenerate(context);
             stopSelf();
         } else {
             handleError();
