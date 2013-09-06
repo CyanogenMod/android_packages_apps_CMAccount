@@ -124,6 +124,8 @@ public class GCMIntentService extends IntentService implements Response.Listener
             handleSecureMessage(message);
         } else if (PlaintextMessage.COMMAND_PASSWORD_RESET.equals(message.getCommand())) {
             handlePasswordReset();
+        } else if (PlaintextMessage.COMMAND_PUBLIC_KEYS_EXHAUSTED.equals(message.getCommand())) {
+            handlePublicKeysExhausted();
         }
     }
 
@@ -257,6 +259,11 @@ public class GCMIntentService extends IntentService implements Response.Listener
         mAuthClient.expireToken(accountManager, mAccount);
         mAuthClient.expireRefreshToken(accountManager, mAccount);
         mAuthClient.notifyPasswordChange(mAccount);
+    }
+
+    private void handlePublicKeysExhausted() {
+        mContext.getContentResolver().delete(CMAccountProvider.ECDH_CONTENT_URI, null, null);
+        ECDHKeyService.startGenerate(mContext);
     }
 
     @Override

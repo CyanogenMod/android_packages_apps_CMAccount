@@ -23,6 +23,7 @@ public class PlaintextMessage implements Message {
     public static final String COMMAND_BEGIN_WIPE = "begin_wipe";
     public static final String COMMAND_KEY_EXCHANGE_FAILED = "key_exchange_failed";
     public static final String COMMAND_PASSWORD_RESET = "password_reset";
+    public static final String COMMAND_PUBLIC_KEYS_EXHAUSTED = "public_keys_exhausted";
 
     private String command;
 
