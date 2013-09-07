@@ -76,4 +76,8 @@
     <string name="location_street_level" product="default">Permitir aplicativos a usar o GPS do seu telefone para identificar a sua localização</string>
     <string name="location_network_based">Wi-Fi e localização de rede móvel</string>
     <string name="location_neighborhood_level">Permitir aplicativos a usar o serviço de localização do Google para estimar sua localização mais rapidamente. Dados de localização anônimos irão ser coletados e enviados ao Google.</string>
+    <string name="cmaccount_update_required_title">Atualização obrigatória</string>
+    <string name="cmaccount_update_required_text">Esta versão da conta CyanogenMod pode ser incompatível. Favor atualizar para a última versão do CyanogenMod para garantir compatibilidade.</string>
+    <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
+    <string name="cmaccount_checking_for_updates">Verificando por atualizações.</string>
 </resources>
