@@ -55,6 +55,10 @@
     <string name="cmaccount_add_title">Προσθήκη λογαριασμού CyanogenMod</string>
     <string name="cmaccount_add_create_label">Ένας λογαριασμός CyanogenMod παρέχει πρόσβαση σε πρόσθετες υπηρεσίες και λειτουργίες για την φορητή συσκευή σας που τρέχει CyanogenMod.</string>
     <string name="cmaccount_learn_more">Μάθετε περισσότερα\u2026</string>
+    <string name="cmaccount_update_required_title">Απαιτείται αναβάθμιση</string>
+    <string name="cmaccount_update_required_text">Αυτή η έκδοση του λογαριασμού CyanogenMod ίσως δεν είναι συμβατή. Παρακαλώ αναβαθμίστε στην πιο πρόσφατη έκδοση του CyanogenMod για εγγυημένη συμβατότητα.</string>
+    <string name="cmaccount_update_required_short">Αυτή η έκδοση ίσως δεν είναι συμβατή.</string>
+    <string name="cmaccount_checking_for_updates">Έλεγχος για ενημερώσεις.</string>
     <string name="cmaccount_password_changed_title">Ο κωδικός άλλαξε</string>
     <string name="cmaccount_password_changed_message">Παρακαλώ συνδεθείτε στον CyanogenMod λογαριασμό σας</string>
     <string name="cmaccount_login_message">Σύνδεση στο CyanogenMod</string>
