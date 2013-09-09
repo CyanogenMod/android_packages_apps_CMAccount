@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">CyanogenMod アカウント</string>
+    <string name="next">次へ</string>
+    <string name="continue_label">続ける</string>
+    <string name="prev">前へ</string>
+    <string name="skip">スキップ</string>
+    <string name="finish">完了</string>
+    <string name="cancel">キャンセル</string>
+    <string name="create">作成</string>
+    <string name="login">ログイン</string>
+    <string name="ok">OK</string>
+    <string name="existing">既存アカウントでログインする</string>
+    <string name="new_account">アカウントの新規作成</string>
+    <string name="skip_anyway">とにかくスキップする</string>
+    <string name="dont_skip">スキップしない</string>
+    <string name="setup_complete">セットアップが完了しました</string>
+    <string name="setup_complete_summary">おめでとうございます！ お使いのデバイスを楽しむ準備ができました。</string>
+    <string name="setup_welcome">CyanogenModへようこそ</string>
+    <string name="setup_welcome_summary">セットアップを開始します。お使いの言語を選択し「続ける」をタップしてください。</string>
+    <string name="setup_cmaccount">CyanogenMod アカウントのセットアップ</string>
+    <string name="setup_sim_missing">SIMカードを挿入してください</string>
+    <string name="setup_google_account">Google アカウント</string>
+    <string name="setup_location">位置情報の設定</string>
+    <string name="setup_datetime">日付 &amp; 時刻の設定</string>
+    <string name="setup_current_date">現在の日付</string>
+    <string name="setup_current_time">現在の時刻</string>
+    <string name="setup_msg_no_network">警告: アカウントのセットアップを実行できません</string>
+    <string name="cmaccount_setup_create_title">CyanogenMod アカウントを作成する</string>
+    <string name="cmaccount_setup_login_title">CyanogenMod アカウントにログインする</string>
+    <string name="cmaccount_setup_email_label">Eメールアドレス</string>
+    <string name="cmaccount_setup_email_unavailable_label">このEメールアドレスは既に登録済みです</string>
+    <string name="cmaccount_setup_email_invalid_label">有効なEメールアドレスではありません</string>
+    <string name="cmaccount_setup_password_label">パスワード</string>
+    <string name="cmaccount_setup_password_create_label">パスワード (最低8文字以上)</string>
+    <string name="cmaccount_setup_password_mismatch_label">パスワードが一致しません！</string>
+    <string name="cmaccount_setup_password_invalid_label">パスワードは8文字以上必要です！</string>
+    <string name="cmaccount_setup_confirm_password_label">パスワードの確認</string>
+    <string name="cmaccount_setup_tos_label">%1$sterms%2$s に同意します</string>
+    <string name="cmaccount_add_title">CyanogenMod アカウントを追加する</string>
+    <string name="cmaccount_add_create_label">CyanogenModアカウントはCyanogenModを実行しているモバイルデバイスのための付加価値サービスおよび機能へのアクセスを提供します。</string>
+    <string name="cmaccount_learn_more">詳しく\u2026</string>
+    <string name="cmaccount_update_required_title">アップデートが必要です</string>
+    <string name="cmaccount_update_required_text">このバージョンのCyanogenMod アカウントは互換性がないかもしれません。 念のため最新のCyanogenModにアップデートしてください。</string>
+    <string name="cmaccount_update_required_short">このバージョンは互換性がないかもしれません。</string>
+    <string name="cmaccount_checking_for_updates">アップデートを確認中。</string>
+    <string name="cmaccount_password_changed_title">パスワードが変更されました</string>
+    <string name="cmaccount_password_changed_message">CyanogenMod アカウントにログインしてください</string>
+    <string name="cmaccount_login_message">CyanogenModにログイン中</string>
+    <string name="cmaccount_creating_profile_message">CyanogenMod プロファイルを作成しています</string>
+    <string name="cmaccount_login_error_title">ログインに失敗しました</string>
+    <string name="cmaccount_login_error_message">eメールアドレスかパスワードが無効です。</string>
+    <string name="cmaccount_server_error_title">サーバーエラー</string>
+    <string name="cmaccount_create_account_error_title">アカウント作成中にエラーが発生しました</string>
+    <string name="cmaccount_server_error_message">サーバーと通信中にエラーが発生しました。 しばらくしてから再試行してください。</string>
+    <string name="cmaccount_error_multiple_accounts">デバイス1台につき使用できるCyanogenMod アカウントは1つのみです</string>
+    <string name="sim_missing_summary">お使いのデバイスのSIMカード説明書を参照してください。</string>
+    <string name="google_account_summary">Google アカウントをセットアップしますか？</string>
+    <string name="btn_google_account">Google アカウントのセットアップ</string>
+    <string name="location_access_title">位置情報にアクセスする</string>
+    <string name="location_access_summary">アプリがあなたの位置情報にアクセスすることを許可する</string>
+    <string name="location_sources_heading">位置情報のソース</string>
+    <string name="location_gps">GPS衛星</string>
+    <string name="location_street_level" product="tablet">アプリがあなたの位置を特定するためにお使いのタブレットでGPSを使用することを許可する</string>
+    <string name="location_street_level" product="default">アプリがあなたの位置を特定するためにお使いの携帯電話でGPSを使用することを許可する</string>
+    <string name="location_network_based">Wi-Fi &amp; モバイルネットワーク</string>
+    <string name="location_neighborhood_level">アプリがあなたの場所が速く推定するためにGoogleの位置情報サービスを使用することを許可します。あなたの位置情報は匿名データとしてGoogleに送信されます。</string>
+</resources>
