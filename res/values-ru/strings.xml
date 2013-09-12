@@ -30,9 +30,9 @@
     <string name="skip_anyway">Всё равно пропустить</string>
     <string name="dont_skip">Не пропускать</string>
     <string name="setup_complete">Настройка завершена</string>
-    <string name="setup_complete_summary">Поздравляем! Ваше устройство готово к бою.</string>
+    <string name="setup_complete_summary">Поздравляем! Ваше устройство готово к использованию.</string>
     <string name="setup_welcome">Добро пожаловать в CyanogenMod</string>
-    <string name="setup_welcome_summary">Для начала настройки устройства, выберите язык и нажмите \"Продолжить\".</string>
+    <string name="setup_welcome_summary">Для начала настройки устройства выберите язык и нажмите «Продолжить».</string>
     <string name="setup_cmaccount">Настройка аккаунта CyanogenMod</string>
     <string name="setup_sim_missing">Вставьте SIM-карту</string>
     <string name="setup_google_account">Аккаунт Google</string>
@@ -40,9 +40,9 @@
     <string name="setup_datetime">Настройки даты и времени</string>
     <string name="setup_current_date">Текущая дата</string>
     <string name="setup_current_time">Текущее время</string>
-    <string name="setup_msg_no_network">ВНИМАНИЕ: Вы не можете настроить свой аккаунт</string>
+    <string name="setup_msg_no_network">Внимание: настройка аккаунта невозможна</string>
     <string name="cmaccount_setup_create_title">Создать аккаунт CyanogenMod</string>
-    <string name="cmaccount_setup_login_title">Войдите в аккаунт СyanogenMod</string>
+    <string name="cmaccount_setup_login_title">Войти в аккаунт СyanogenMod</string>
     <string name="cmaccount_setup_email_label">E-mail</string>
     <string name="cmaccount_setup_email_unavailable_label">E-mail уже зарегистрирован</string>
     <string name="cmaccount_setup_email_invalid_label">Недопустимый e-mail</string>
@@ -58,7 +58,7 @@
     <string name="cmaccount_update_required_title">Требуется обновление</string>
     <string name="cmaccount_update_required_text">Текущая версия CyanogenMod может быть несовместима. Для обеспечения совместимости, обновите её до последней версии.</string>
     <string name="cmaccount_update_required_short">Эта версия может быть несовместима.</string>
-    <string name="cmaccount_checking_for_updates">Проверка обновлений.</string>
+    <string name="cmaccount_checking_for_updates">Проверка обновлений\u2026</string>
     <string name="cmaccount_password_changed_title">Пароль изменён</string>
     <string name="cmaccount_password_changed_message">Войдите в ваш аккаунт CyanogenMod</string>
     <string name="cmaccount_login_message">Вход в CyanogenMod</string>
