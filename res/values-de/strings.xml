@@ -55,6 +55,10 @@
     <string name="cmaccount_add_title">CyanogenMod-Konto hinzufügen</string>
     <string name="cmaccount_add_create_label">Ein CyanogenMod-Konto bietet Ihnen Zugriff auf zusätzliche Funktionen für Ihre mobilen Geräte, auf denen CyanogenMod installiert ist.</string>
     <string name="cmaccount_learn_more">Weitere Informationen\u2026</string>
+    <string name="cmaccount_update_required_title">Aktualisierung erforderlich</string>
+    <string name="cmaccount_update_required_text">Diese Version von CyanogenMod-Konto ist vermutlich inkompatibel. Bitte auf die neueste Version von CyanogenMod aktualisieren, um die Kompatibilität zu gewährleisten</string>
+    <string name="cmaccount_update_required_short">Diese Version ist inkompatibel</string>
+    <string name="cmaccount_checking_for_updates">Es wird nach Aktualisierungen gesucht</string>
     <string name="cmaccount_password_changed_title">Passwort geändert</string>
     <string name="cmaccount_password_changed_message">Bitte melden Sie sich erneut an</string>
     <string name="cmaccount_login_message">Anmeldung läuft\u2026</string>
