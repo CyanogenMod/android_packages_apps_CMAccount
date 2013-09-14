@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Compte CyanogenMod</string>
+    <string name="next">Següent</string>
+    <string name="continue_label">Continua</string>
+    <string name="prev">Anterior</string>
+    <string name="skip">Salta</string>
+    <string name="finish">Finalitza</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="create">Crea</string>
+    <string name="login">Nom d\'usuari</string>
+    <string name="ok">Accepta</string>
+    <string name="existing">Entra al compte existent</string>
+    <string name="new_account">Crea un nou compte</string>
+    <string name="skip_anyway">Salta de totes maneres</string>
+    <string name="dont_skip">No saltis</string>
+    <string name="setup_complete">Configuració completa</string>
+    <string name="setup_complete_summary">Felicitat! Elteu dispositiu esta llest per funcionar.</string>
+    <string name="setup_welcome">Benvingut a CyanogenMod</string>
+    <string name="setup_welcome_summary">Per començar a configurar el teu dispositiu, selecciona el teu idioma i continua.</string>
+    <string name="setup_cmaccount">Configura el teu compte CyanogenMod</string>
+    <string name="setup_sim_missing">Inserta una targeta SIM</string>
+    <string name="setup_google_account">Compte Google</string>
+    <string name="setup_location">Configuració d\'ubicació</string>
+    <string name="setup_datetime">Configuració de data &amp; hora</string>
+    <string name="setup_current_date">Data actual</string>
+    <string name="setup_current_time">Hora actual</string>
+    <string name="setup_msg_no_network">ALERTA: No podràs configurar els teus comptes</string>
+    <string name="cmaccount_setup_create_title">Crea un compte CyanogenMod</string>
+    <string name="cmaccount_setup_login_title">Entra al teu compte CyanogenMod</string>
+    <string name="cmaccount_setup_email_label">Correu electrònic</string>
+    <string name="cmaccount_setup_email_unavailable_label">El correu electrònic ja està registrat</string>
+    <string name="cmaccount_setup_email_invalid_label">No és una adreça de correu vàlida</string>
+    <string name="cmaccount_setup_password_label">Contrasenya</string>
+    <string name="cmaccount_setup_password_create_label">Contrasenya (min. 8 caràcters)</string>
+    <string name="cmaccount_setup_password_mismatch_label">Les contrasenyes no coincideixen!</string>
+    <string name="cmaccount_setup_password_invalid_label">La contrasenya ha de tenir almenys 8 caràcters!</string>
+    <string name="cmaccount_setup_confirm_password_label">Confirma la contrasenya</string>
+    <string name="cmaccount_setup_tos_label">Estic d\'acord amb els %1$stermes%2$s del servei</string>
+    <string name="cmaccount_add_title">Afegeix un compte CyanogenMod</string>
+    <string name="cmaccount_add_create_label">Un compte CyanogenMod dóna accés a serveis de valor afegit i funcionalitats pel teu dispositiu mòbil quan fa servir CyanogenMod.</string>
+    <string name="cmaccount_learn_more">Aprèn més\u2026</string>
+    <string name="cmaccount_update_required_title">Actualització requerida</string>
+    <string name="cmaccount_update_required_text">Aquesta versió del compte CyanogenMod podria ser incompatible. Si us plau actualitza a la darrera versió de CyanogenMod per assegurar la compatibilitat.</string>
+    <string name="cmaccount_update_required_short">Aquesta versió podria ser incompatible.</string>
+    <string name="cmaccount_checking_for_updates">Verificant actualitzacions.</string>
+    <string name="cmaccount_password_changed_title">Contrasenya canviada</string>
+    <string name="cmaccount_password_changed_message">Si us plau entra amb el teu compte CyanogenMod</string>
+    <string name="cmaccount_login_message">Entrant a CyanogenMod</string>
+    <string name="cmaccount_creating_profile_message">Creant el teu perfil CyanogenMod</string>
+    <string name="cmaccount_login_error_title">L\'entrada ha fallat</string>
+    <string name="cmaccount_login_error_message">Correu electrònic o contrasenya invàlids.</string>
+    <string name="cmaccount_server_error_title">Error del servidor</string>
+    <string name="cmaccount_create_account_error_title">Error creant el compte</string>
+    <string name="cmaccount_server_error_message">Hi ha hagut un error durant la comunicació amb el servidor. Si us plau intenta-ho una altra vegada més tard.</string>
+    <string name="cmaccount_error_multiple_accounts">Només està permés un compte CyanogenMod per dispositiu</string>
+    <string name="sim_missing_summary">Necessites consultar les instruccions de la targeta SIM que venien amb el teu dispositiu.</string>
+    <string name="google_account_summary">Vols configurar un compte Google?</string>
+    <string name="btn_google_account">Configura un compte Google</string>
+    <string name="location_access_title">Accedeix a la meva ubicació</string>
+    <string name="location_access_summary">Permet apps que t\'han demanat permís per utilitzar la teva informació d\'ubicació</string>
+    <string name="location_sources_heading">Origens d\'ubicacions</string>
+    <string name="location_gps">Satèlits GPS</string>
+    <string name="location_street_level" product="tablet">Permet a les apps utilitzar el GPS de la tauleta per fixar la teva ubicació</string>
+    <string name="location_street_level" product="default">Permet a les apps utilitzar el GPS del telèfon per fixar la teva ubicació</string>
+    <string name="location_network_based">Ubicacions Wi-Fi &amp; xarxa mòbil</string>
+    <string name="location_neighborhood_level">Permet a les apps utilitzar el servei d\'ubicacions de Google per calcular més ràpid la teva ubicació. Dades d\'ubicació anonòmines seran recollides i enviades a Google.</string>
+</resources>
