@@ -32,7 +32,7 @@
     <string name="setup_complete">A instalação está completa</string>
     <string name="setup_complete_summary">Parabéns! Seu dispositivo está pronto.</string>
     <string name="setup_welcome">Bem vindo ao CyanogenMod</string>
-    <string name="setup_welcome_summary">Para começar a configurar seu dispositivo, selecone seu idiome e continue.</string>
+    <string name="setup_welcome_summary">Para começar a configurar o seu dispositivo, selecione seu idioma e continue.</string>
     <string name="setup_cmaccount">Configurar sua conta CyanogenMod</string>
     <string name="setup_sim_missing">Insira o cartão SIM</string>
     <string name="setup_google_account">Conta Google</string>
@@ -47,7 +47,7 @@
     <string name="cmaccount_setup_email_unavailable_label">Email já registrado</string>
     <string name="cmaccount_setup_email_invalid_label">Endereço de email inválido</string>
     <string name="cmaccount_setup_password_label">Senha</string>
-    <string name="cmaccount_setup_password_create_label">Senha (Mínimo de 8 caracteres)</string>
+    <string name="cmaccount_setup_password_create_label">Senha (mínimo de 8 caracteres)</string>
     <string name="cmaccount_setup_password_mismatch_label">As senhas não coincidem!</string>
     <string name="cmaccount_setup_password_invalid_label">Senha deve ter no mínimo 8 caracteres!</string>
     <string name="cmaccount_setup_confirm_password_label">Confirmar senha</string>
