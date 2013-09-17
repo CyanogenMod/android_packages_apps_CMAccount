@@ -564,7 +564,8 @@ public class AuthClient {
                             final int status = volleyError.networkResponse.statusCode;
 
                             if (CMAccount.DEBUG) Log.d(TAG, "refreshAccessToken() onErrorResponse:  " + status);
-                            if (status == 400 || status == 401) {
+                            if (status == 401) {
+                                Log.d(TAG, "Received 401 response, expiring refresh token.");
                                 notifyPasswordChange(account);
                                 expireRefreshToken(mAccountManager, account);
                                 return;
