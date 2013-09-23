@@ -13,7 +13,7 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
     android-support-v13 \
-    volley \
+    volley-v14 \
     gson \
     play \
     spongycastle-light-jdk15on
@@ -29,6 +29,8 @@ LOCAL_AAPT_FLAGS += --extra-packages com.google.android.gms
 include $(BUILD_PACKAGE)
 
 LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := \
+    volley-v14:libs/volley.jar \
     play:../../../external/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar
 
 include $(BUILD_MULTI_PREBUILT)
+
