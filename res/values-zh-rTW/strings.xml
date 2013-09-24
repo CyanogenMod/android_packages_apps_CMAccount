@@ -51,7 +51,7 @@
     <string name="cmaccount_setup_password_mismatch_label">密碼不相符!</string>
     <string name="cmaccount_setup_password_invalid_label">密碼必須至少為8個字元!</string>
     <string name="cmaccount_setup_confirm_password_label">確認密碼</string>
-    <string name="cmaccount_setup_tos_label">我同意 %1$服務條款%2$</string>
+    <string name="cmaccount_setup_tos_label">我同意 %1$s服務條款%2$s</string>
     <string name="cmaccount_add_title">新增一個 CyanogenMod 帳戶</string>
     <string name="cmaccount_add_create_label">CyanogenMod 帳戶為您的 CyanogenMod 行動裝置提供增值服務和功能。</string>
     <string name="cmaccount_learn_more">了解更多\u2026</string>
