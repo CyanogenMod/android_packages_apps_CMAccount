@@ -51,7 +51,7 @@
     <string name="cmaccount_setup_password_mismatch_label">Hasło się nie zgadza!</string>
     <string name="cmaccount_setup_password_invalid_label">Hasło musi mieć przynajmniej 8 znaków!</string>
     <string name="cmaccount_setup_confirm_password_label">Potwierdź hasło</string>
-    <string name="cmaccount_setup_tos_label">Zgadzam się z %1$warunkami%2$s użytkowania</string>
+    <string name="cmaccount_setup_tos_label">Zgadzam się z %1$swarunkami%2$s użytkowania</string>
     <string name="cmaccount_add_title">Dodaj konto CyanogenMod</string>
     <string name="cmaccount_add_create_label">Konto CyanogenMod zapewnia urządzeniu z systemem CyanogenMod dostęp do dodatkowych usług oraz funkcjonalności.</string>
     <string name="cmaccount_learn_more">Zobacz więcej\u2026</string>
