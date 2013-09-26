@@ -43,21 +43,14 @@ public class FinishPage extends Page {
 
     @Override
     public int getNextButtonResId() {
-        return -1;
+        return R.string.finish;
     }
 
 
     public static class FinishFragment extends SetupPageFragment {
 
         @Override
-        protected void setUpPage() {
-            mRootView.findViewById(R.id.btn_finish).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ((SetupWizardActivity)getActivity()).doNext();
-                }
-            });
-        }
+        protected void setUpPage() {}
 
         @Override
         protected int getLayoutResource() {
