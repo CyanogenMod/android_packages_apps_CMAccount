@@ -16,9 +16,6 @@
 
 package com.cyanogenmod.account.ui;
 
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.util.Log;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.R;
 import com.cyanogenmod.account.gcm.GCMUtil;
@@ -30,13 +27,14 @@ import com.cyanogenmod.account.setup.SetupDataCallbacks;
 import com.cyanogenmod.account.util.CMAccountUtils;
 
 import android.accounts.AccountManager;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AppGlobals;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.StatusBarManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -53,7 +51,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import java.util.List;
 
@@ -63,6 +60,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
     private static final String KEY_SIM_MISSING_SHOWN = "sim-missing-shown";
+    private static final String KEY_G_ACCOUNT_SHOWN = "g-account-shown";
 
     private static final int DIALOG_SIM_MISSING = 0;
 
@@ -246,7 +244,12 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         if (page.getId() == R.string.setup_cmaccount) {
             doSimCheck();
         } else if (page.getId() == R.string.setup_google_account) {
-            launchGoogleAccountSetup();
+            // Only auto show the google account setup once.
+            boolean shown = mSharedPreferences.getBoolean(KEY_G_ACCOUNT_SHOWN, false);
+            if (!shown) {
+                mSharedPreferences.edit().putBoolean(KEY_G_ACCOUNT_SHOWN, true).commit();
+                launchGoogleAccountSetup();
+            }
         }
         updateNextPreviousState();
     }
@@ -356,6 +359,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         AccountManager.get(this).addAccount(CMAccount.ACCOUNT_TYPE_GOOGLE, null, null, bundle, this, new AccountManagerCallback<Bundle>() {
             @Override
             public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
+                if (isDestroyed()) return; //There is a change this activity has been torn down.
                 Page page = mPageList.findPage(R.string.setup_google_account);
                 if (page != null) {
                     onPageFinished(page);
