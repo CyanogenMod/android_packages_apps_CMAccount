@@ -50,7 +50,7 @@ public class WelcomePage extends Page {
 
     @Override
     public int getNextButtonResId() {
-        return -1;
+        return R.string.next;
     }
 
     public static class WelcomeFragment extends SetupPageFragment {
@@ -96,12 +96,6 @@ public class WelcomePage extends Page {
                         public void onNothingSelected(AdapterView<?> adapterView) {
                         }
                     });
-                }
-            });
-            mRootView.findViewById(R.id.btn_continue).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ((SetupWizardActivity)getActivity()).doNext();
                 }
             });
         }

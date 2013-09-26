@@ -47,10 +47,8 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -67,7 +65,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private ViewPager mViewPager;
     private CMPagerAdapter mPagerAdapter;
 
-    private MenuItem mNextMenuItem;
+    private Button mNextButton;
+    private Button mPrevButton;
 
     private PageList mPageList;
 
@@ -92,6 +91,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         } else {
             mSharedPreferences.edit().putBoolean(KEY_SIM_MISSING_SHOWN, false).commit();
         }
+        mNextButton = (Button) findViewById(R.id.next_button);
+        mPrevButton = (Button) findViewById(R.id.prev_button);
         mSetupData.registerListener(this);
         mPagerAdapter = new CMPagerAdapter(getFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -103,6 +104,18 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 if (position < mPageList.size()) {
                     onPageLoaded(mPageList.get(position));
                 }
+            }
+        });
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doNext();
+            }
+        });
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doPrevious();
             }
         });
         onPageTreeChanged();
@@ -122,24 +135,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     protected void onDestroy() {
         super.onDestroy();
         mSetupData.unregisterListener(this);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.setup, menu);
-        mNextMenuItem = menu.findItem(R.id.action_next);
-        updateNextPreviousState();
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_next:
-                doNext();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -220,22 +215,13 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private void updateNextPreviousState() {
         final int position = mViewPager.getCurrentItem();
-        final Page currentPage = mPageList.get(position);
-        final int nextButtonResId = currentPage.getNextButtonResId();
-        // onCreateOptionsMenu happens post create/resume. So this could initially be null;
-        if (mNextMenuItem != null) {
-            if (nextButtonResId != -1) {
-                mNextMenuItem.setEnabled(true);
-                mNextMenuItem.setTitle(nextButtonResId);
-            } else {
-                mNextMenuItem.setEnabled(false);
-                mNextMenuItem.setTitle("");
-            }
-        }
+        mNextButton.setEnabled(position != mPagerAdapter.getCutOffPage());
+        mPrevButton.setVisibility(position <= 0 ? View.INVISIBLE : View.VISIBLE);
     }
 
     @Override
     public void onPageLoaded(Page page) {
+        mNextButton.setText(page.getNextButtonResId());
         if (page.isRequired()) {
             if (recalculateCutOffPage()) {
                 mPagerAdapter.notifyDataSetChanged();
