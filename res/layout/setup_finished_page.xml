@@ -47,23 +47,6 @@
                     style="@style/SetupWizardPageSummary"
                     android:text="@string/setup_complete_summary" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
-
-                <Button
-                    android:id="@+id/btn_finish"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|right"
-                    android:text="@string/finish"
-                    style="@style/ActionButton" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

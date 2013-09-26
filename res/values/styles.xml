@@ -140,6 +140,20 @@
         <item name="android:layout_marginTop">@dimen/actionbar_title_top_margin</item>
     </style>
 
+    <style name="ButtonBar" parent="@android:style/Widget.ActionButton">
+        <item name="android:layout_height">15dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/btn_action</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingStart">2dp</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:minWidth">15dp</item>
+        <item name="android:minHeight">15dp</item>
+    </style>
+
     <style name="EditText">
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
