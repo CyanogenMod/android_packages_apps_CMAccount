@@ -37,21 +37,15 @@
                 android:layout_height="wrap_content"
                     >
 
-                <ImageView style="@style/SetupWizardModDivider" />
+                <View style="@style/SetupWizardDivider"/>
 
                 <TextView
                     style="@style/SetupWizardPageSummary"
                     android:text="@string/cmaccount_update_required_text" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginBottom="8dp"/>
 
                 <Button
                     android:id="@+id/btn_continue"

@@ -111,12 +111,15 @@
         <item name="android:textColor">@color/dark_gray</item>
     </style>
 
-    <style name="SetupWizardModDivider">
+    <style name="SetupWizardDivider">
         <item name="android:id">@+id/divider</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:src">@drawable/mod_divider</item>
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">?android:attr/dividerHorizontal</item>
     </style>
 
     <style name="ActionButton" parent="@android:style/Widget.ActionButton">

@@ -33,19 +33,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView style="@style/SetupWizardModDivider"/>
+                <View style="@style/SetupWizardDivider"
+                      android:layout_marginBottom="20dp"/>
 
                 <TextView style="@style/SetupWizardPageSummary" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="12dp"/>
 
                 <Button
                     android:id="@+id/google_button"

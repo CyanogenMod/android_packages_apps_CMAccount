@@ -32,7 +32,8 @@
 
         <TextView style="@style/SetupWizardPageTitle" />
 
-        <ImageView style="@style/SetupWizardModDivider"/>
+        <View style="@style/SetupWizardDivider"
+              android:layout_marginBottom="20dp"/>
 
         <ScrollView
             android:layout_width="match_parent"

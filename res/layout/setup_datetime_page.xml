@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView style="@style/SetupWizardModDivider" />
+                <View style="@style/SetupWizardDivider"/>
 
                 <Spinner
                     android:id="@+id/timezone_list"
@@ -72,12 +72,7 @@
                         style="@style/SetupWizardSpinnerItem" />
                 </TwoLineListItem>
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginTop="3dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"/>
 
                 <TwoLineListItem
                     android:id="@+id/time_item"
@@ -108,12 +103,7 @@
                         style="@style/SetupWizardSpinnerItem" />
                 </TwoLineListItem>
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginTop="3dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

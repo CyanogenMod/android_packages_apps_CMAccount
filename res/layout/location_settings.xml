@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView style="@style/SetupWizardModDivider" />
+                <View style="@style/SetupWizardDivider"/>
 
                 <LinearLayout
                     android:id="@+id/location"
@@ -84,11 +84,7 @@
                         android:clickable="false" />
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"/>
 
                 <LinearLayout
                     android:id="@+id/gps"
@@ -139,11 +135,7 @@
                         android:clickable="false" />
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"/>
 
                 <LinearLayout
                     android:id="@+id/network"
@@ -194,12 +186,7 @@
                         android:clickable="false" />
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginBottom="3dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
+                <View style="@style/SetupWizardDivider"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
