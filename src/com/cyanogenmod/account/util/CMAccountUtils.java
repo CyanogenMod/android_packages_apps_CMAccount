@@ -187,6 +187,12 @@ public class CMAccountUtils {
         return networkInfo != null && networkInfo.isConnected();
     }
 
+    public static boolean isWifiConnected(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mWifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return mWifi != null && mWifi.isConnected();
+    }
+
     public static boolean isGSMPhone(Context context) {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         int phoneType = telephonyManager.getPhoneType();
