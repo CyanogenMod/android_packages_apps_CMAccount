@@ -58,8 +58,10 @@ public class CMAccountPage extends Page {
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
             if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount && resultCode == Activity.RESULT_OK) {
                 mCallbacks.onPageFinished(mPage);
-            } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI && resultCode == Activity.RESULT_OK) {
-                CMAccountUtils.showLearnMoreDialog(getActivity());
+            } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI) {
+                if (resultCode == Activity.RESULT_OK || CMAccountUtils.isNetworkConnected(getActivity())) {
+                    CMAccountUtils.showLearnMoreDialog(getActivity());
+                }
             }
         }
 
@@ -80,7 +82,7 @@ public class CMAccountPage extends Page {
             mRootView.findViewById(R.id.learn_more_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (!CMAccountUtils.isNetworkConnected(getActivity())) {
+                    if (!CMAccountUtils.isWifiConnected(getActivity()) || !CMAccountUtils.isNetworkConnected(getActivity())) {
                         CMAccountUtils.launchWifiSetup(CMAccountFragment.this);
                     } else {
                         CMAccountUtils.showLearnMoreDialog(getActivity());
