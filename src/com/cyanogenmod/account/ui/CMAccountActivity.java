@@ -50,7 +50,7 @@ public class CMAccountActivity extends Activity {
         findViewById(R.id.learn_more_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!CMAccountUtils.isNetworkConnected(CMAccountActivity.this)) {
+                if (!CMAccountUtils.isNetworkConnected(CMAccountActivity.this) || !CMAccountUtils.isWifiConnected(CMAccountActivity.this)) {
                     CMAccountUtils.launchWifiSetup(CMAccountActivity.this);
                 } else {
                     CMAccountUtils.showLearnMoreDialog(CMAccountActivity.this);
@@ -64,8 +64,10 @@ public class CMAccountActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount && resultCode == RESULT_OK) {
             finish();
-        } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI && resultCode == Activity.RESULT_OK) {
-            CMAccountUtils.showLearnMoreDialog(this);
+        } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI) {
+            if (resultCode == Activity.RESULT_OK || CMAccountUtils.isNetworkConnected(CMAccountActivity.this)) {
+                CMAccountUtils.showLearnMoreDialog(this);
+            }
         }
     }
 }
