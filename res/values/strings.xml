@@ -45,6 +45,7 @@
     <string name="setup_current_date">Current date</string>
     <string name="setup_current_time">Current time</string>
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
+    <string name="setup_warning_skip_wifi">WARNING: You may incur extra carrier data charges.\n\nPhone setup can require significant network activity.</string>
 
     <string name="cmaccount_setup_create_title">Create a CyanogenMod account</string>
     <string name="cmaccount_setup_login_title">Log in to your CyanogenMod account</string>

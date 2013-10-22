@@ -68,6 +68,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     private static final int DIALOG_ERROR_CREATING_ACCOUNT = 4;
     private static final int DIALOG_ERROR_LOGIN = 5;
     private static final int DIALOG_CHECKING_FOR_UPDATES = 6;
+    private static final int DIALOG_SKIP_WIFI_WARNING = 7;
 
     private static final int MIN_PASSWORD_LENGTH = 8;
 
@@ -258,7 +259,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                 }
             }
         });
-        if (savedInstanceState == null && !CMAccountUtils.isNetworkConnected(this)) {
+        if (savedInstanceState == null && (!CMAccountUtils.isWifiConnected(this)) || !CMAccountUtils.isNetworkConnected(this)) {
             CMAccountUtils.launchWifiSetup(this);
         } else {
             checkMinimumAppVersion();
@@ -287,7 +288,11 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                 checkMinimumAppVersion();
                 setResult(Activity.RESULT_OK);
             } else {
-                showDialog(DIALOG_NO_NETWORK_WARNING);
+                if (!CMAccountUtils.isNetworkConnected(this)) {
+                    showDialog(DIALOG_NO_NETWORK_WARNING);
+                } else {
+                    showDialog(DIALOG_SKIP_WIFI_WARNING);
+                }
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -410,6 +415,23 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                     }
                 });
                 mDialog = updateDialog;
+                return mDialog;
+            case DIALOG_SKIP_WIFI_WARNING:
+                mDialog = new AlertDialog.Builder(this)
+                        .setMessage(R.string.setup_warning_skip_wifi)
+                        .setNeutralButton(R.string.skip_anyway, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                setResult(Activity.RESULT_CANCELED);
+                            }
+                        })
+                        .setPositiveButton(R.string.dont_skip, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                                CMAccountUtils.launchWifiSetup(AuthActivity.this);
+                            }
+                        }).create();
                 return mDialog;
             default:
                 return super.onCreateDialog(id, args);
