@@ -34,9 +34,11 @@
     <string name="dont_skip">Don\'t skip</string>
 
     <string name="setup_complete">Setup is complete</string>
-    <string name="setup_complete_summary">Congratulations! Your device is ready to rumble.</string>
+    <string name="setup_complete_summary" product="tablet">Congratulations! Your tablet is ready to rumble.</string>
+    <string name="setup_complete_summary" product="default">Congratulations! Your phone is ready to rumble.</string>
     <string name="setup_welcome">Welcome to CyanogenMod</string>
-    <string name="setup_welcome_summary">To get started setting up your device, select your language and continue.</string>
+    <string name="setup_welcome_summary" product="tablet">To get started setting up your tablet, select your language and continue.</string>
+    <string name="setup_welcome_summary" product="default">To get started setting up your phone, select your language and continue.</string>
     <string name="setup_cmaccount">Set up your CyanogenMod account</string>
     <string name="setup_sim_missing">Insert SIM card</string>
     <string name="setup_google_account">Google account</string>
@@ -45,7 +47,8 @@
     <string name="setup_current_date">Current date</string>
     <string name="setup_current_time">Current time</string>
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
-    <string name="setup_warning_skip_wifi">WARNING: You may incur extra carrier data charges.\n\nPhone setup can require significant network activity.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">WARNING: You may incur extra carrier data charges.\n\nTablet setup can require significant network activity.</string>
+    <string name="setup_warning_skip_wifi" product="default">WARNING: You may incur extra carrier data charges.\n\nPhone setup can require significant network activity.</string>
 
     <string name="cmaccount_setup_create_title">Create a CyanogenMod account</string>
     <string name="cmaccount_setup_login_title">Log in to your CyanogenMod account</string>
@@ -81,7 +84,8 @@
 
     <string name="cmaccount_error_multiple_accounts">Only one CyanogenMod account is allowed per device</string>
 
-    <string name="sim_missing_summary">You need to refer to the SIM card instructions that came with your device.</string>
+    <string name="sim_missing_summary" product="tablet">You need to refer to the SIM card instructions that came with your tablet.</string>
+    <string name="sim_missing_summary" product="default">You need to refer to the SIM card instructions that came with your phone.</string>
     <string name="google_account_summary">Do you want to set up a Google account?</string>
     <string name="btn_google_account">Set up Google account</string>
 
