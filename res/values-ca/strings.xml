@@ -23,9 +23,9 @@
     <string name="finish">Finalitza</string>
     <string name="cancel">Cancel·la</string>
     <string name="create">Crea</string>
-    <string name="login">Nom d\'usuari</string>
+    <string name="login">Entra</string>
     <string name="ok">Accepta</string>
-    <string name="existing">Entra al compte existent</string>
+    <string name="existing">Entra a un compte existent</string>
     <string name="new_account">Crea un nou compte</string>
     <string name="skip_anyway">Salta de totes maneres</string>
     <string name="dont_skip">No saltis</string>
@@ -41,6 +41,7 @@
     <string name="setup_current_date">Data actual</string>
     <string name="setup_current_time">Hora actual</string>
     <string name="setup_msg_no_network">ALERTA: No podràs configurar els teus comptes</string>
+    <string name="setup_warning_skip_wifi">ALERTA: Podrien haver-hi càrrecs de dades adicionals per part de l\'operadora.\n\nLa configuració del telèfon necessita una activitat de xarxa considerable.</string>
     <string name="cmaccount_setup_create_title">Crea un compte CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Entra al teu compte CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Correu electrònic</string>
