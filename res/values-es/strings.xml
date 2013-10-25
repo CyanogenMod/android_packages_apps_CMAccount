@@ -41,6 +41,7 @@
     <string name="setup_current_date">Fecha actual</string>
     <string name="setup_current_time">Hora actual</string>
     <string name="setup_msg_no_network">AVISO: No podrás configurar tus cuentas</string>
+    <string name="setup_warning_skip_wifi">AVISO: Es posible que se facturen cargos de datos adicionales.\n\nLa configuración del dispositivo puede requerir una gran cantidad de actividad de red.</string>
     <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Entrar en tu cuenta de CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Correo electrónico</string>
