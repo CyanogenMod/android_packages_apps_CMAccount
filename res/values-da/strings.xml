@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">CyanogenMod-Konto</string>
+    <string name="next">Næste</string>
+    <string name="continue_label">Fortsæt</string>
+    <string name="prev">Forrige</string>
+    <string name="skip">Ignorér</string>
+    <string name="finish">Afslut</string>
+    <string name="cancel">Annuller</string>
+    <string name="create">Opret</string>
+    <string name="login">Login</string>
+    <string name="ok">OK</string>
+    <string name="existing">Log ind på en eksisterende konto</string>
+    <string name="new_account">Opret en ny konto</string>
+    <string name="skip_anyway">Ignorér alligevel</string>
+    <string name="dont_skip">Ignorér ikke</string>
+    <string name="setup_complete">Installationen er færdig</string>
+    <string name="setup_complete_summary">Tillykke! Enheden er klar til kamp.</string>
+    <string name="setup_welcome">Velkommen til CyanogenMod</string>
+    <string name="setup_welcome_summary">For at komme igang med opsætningen af ​​enheden, skal du vælge dit sprog og fortsætte.</string>
+    <string name="setup_cmaccount">Opsæt din CyanogenMod-konto</string>
+    <string name="setup_sim_missing">Indsæt SIM-kortet</string>
+    <string name="setup_google_account">Google-konto</string>
+    <string name="setup_location">Lokalitetsindstillinger</string>
+    <string name="setup_datetime">Dato- og tidsindstillinger</string>
+    <string name="setup_current_date">Angiv dato</string>
+    <string name="setup_current_time">Angiv tid</string>
+    <string name="setup_msg_no_network">ADVARSEL: Du vil ikke være i stand til at oprette dine konti</string>
+    <string name="setup_warning_skip_wifi">ADVARSEL: Du kan pådrage dig ekstra data-udgifter.\n\nOpsætning af telefonen kan kræve en betydelig netværksaktivitet.</string>
+    <string name="cmaccount_setup_create_title">Opret en CyanogenMod-konto</string>
+    <string name="cmaccount_setup_login_title">Log ind på din CyanogenMod-konto</string>
+    <string name="cmaccount_setup_email_label">E-mail</string>
+    <string name="cmaccount_setup_email_unavailable_label">E-mail er allerede registreret</string>
+    <string name="cmaccount_setup_email_invalid_label">Ikke en gyldig email-adresse</string>
+    <string name="cmaccount_setup_password_label">Adgangskode</string>
+    <string name="cmaccount_setup_password_create_label">Adgangskode (min. 8 tegn)</string>
+    <string name="cmaccount_setup_password_mismatch_label">Adgangskoderne er ikke ens!</string>
+    <string name="cmaccount_setup_password_invalid_label">Adgangskoden skal være på mindst 8 tegn!</string>
+    <string name="cmaccount_setup_confirm_password_label">Bekræft adgangskoden</string>
+    <string name="cmaccount_setup_tos_label">Jeg accepterer %1$svilkårene%2$s for tjenesten</string>
+    <string name="cmaccount_add_title">Tilføj en CyanogenMod-konto</string>
+    <string name="cmaccount_add_create_label">En CyanogenMod-konto giver adgang til tillægstjenester og funktionalitet til din mobile enhed, der kører CyanogenMod.</string>
+    <string name="cmaccount_learn_more">Lær mere\u2026</string>
+    <string name="cmaccount_update_required_title">Opdatering Påkrævet</string>
+    <string name="cmaccount_update_required_text">Denne version af CyanogenMod-konto kan være inkompatibel. Opdatér til den nyeste version af CyanogenMod for at sikre kompatibilitet.</string>
+    <string name="cmaccount_update_required_short">Denne version kan være inkompatibel.</string>
+    <string name="cmaccount_checking_for_updates">Tjekker for opdateringer.</string>
+    <string name="cmaccount_password_changed_title">Adgangskoden ændret</string>
+    <string name="cmaccount_password_changed_message">Log venligst ind på din CyanogenMod-konto</string>
+    <string name="cmaccount_login_message">Logger ind på CyanogenMod</string>
+    <string name="cmaccount_creating_profile_message">Opretter din CyanogenMod-profil</string>
+    <string name="cmaccount_login_error_title">Login mislykkedes</string>
+    <string name="cmaccount_login_error_message">Ugyldig e-mail eller adgangskode.</string>
+    <string name="cmaccount_server_error_title">Serverfejl</string>
+    <string name="cmaccount_create_account_error_title">Fejl ved oprettelse af konto</string>
+    <string name="cmaccount_server_error_message">Der opstod en fejl under kommunikation med serveren. Prøv venligst igen senere.</string>
+    <string name="cmaccount_error_multiple_accounts">Kun én CyanogenMod-konto er tilladt per enhed</string>
+    <string name="sim_missing_summary">For vejledning til indsættelse af SIM-kort henvises der til brugervejledningen for din enhed.</string>
+    <string name="google_account_summary">Ønsker du at oprette en Google-konto?</string>
+    <string name="btn_google_account">Opret en Google-konto</string>
+    <string name="location_access_title">Adgang til min placering</string>
+    <string name="location_access_summary">Tillad apps, der har bedt om tilladelse, at bruge dine placeringsoplysninger</string>
+    <string name="location_sources_heading">Placeringskilder</string>
+    <string name="location_gps">GPS-satelliter</string>
+    <string name="location_street_level" product="tablet">Tillad, at apps bruger GPS på din tablet til at udpege din placering</string>
+    <string name="location_street_level" product="default">Tillad, at apps bruger GPS på din telefon til at udpege din placering</string>
+    <string name="location_network_based">Placering af Wi-Fi- og mobilnet</string>
+    <string name="location_neighborhood_level">Tillad, at apps bruger Googles placeringstjeneste til at beregne din placering hurtigere. Der indsamles anonyme placeringsdata, som sendes til Google.</string>
+</resources>
