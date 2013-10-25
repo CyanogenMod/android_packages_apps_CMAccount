@@ -41,7 +41,8 @@
     <string name="setup_datetime">Nastavení datumu a času</string>
     <string name="setup_current_date">Aktuální datum</string>
     <string name="setup_current_time">Aktuální čas</string>
-    <string name="setup_msg_no_network">UPOZORNĚNÍ: nebude možné nastavit účet</string>
+    <string name="setup_msg_no_network">UPOZORNĚNÍ: Nebude možné nastavit účet</string>
+    <string name="setup_warning_skip_wifi">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení telefonu může vyžadovat zvýšený datový přenos.</string>
 
     <string name="cmaccount_setup_create_title">Vytvořit účet CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Přihlásit se k CyanogenMod účtu</string>
