@@ -30,9 +30,11 @@
     <string name="skip_anyway">Most kihagyom</string>
     <string name="dont_skip">Nem hagyom ki</string>
     <string name="setup_complete">Beállítás kész</string>
-    <string name="setup_complete_summary">Gratulálunk! Készüléke használatra kész.</string>
+    <string name="setup_complete_summary" product="tablet">Gratulálunk! Táblagépe használatra kész.</string>
+    <string name="setup_complete_summary" product="default">Gratulálunk! Telefonja használatra kész.</string>
     <string name="setup_welcome">Üdvözöli a CyanogenMod Csapata</string>
-    <string name="setup_welcome_summary">A készülék beállításához válasszon nyelvet, majd kattintson a folytatásra.</string>
+    <string name="setup_welcome_summary" product="tablet">A táblagép beállításához válasszon nyelvet, majd kattintson a folytatásra.</string>
+    <string name="setup_welcome_summary" product="default">A telefon beállításához válasszon nyelvet, majd kattintson a folytatásra.</string>
     <string name="setup_cmaccount">Állítsa be a CyanogenMod fiókját</string>
     <string name="setup_sim_missing">Helyezzen be SIM kártyát</string>
     <string name="setup_google_account">Google fiók</string>
@@ -41,7 +43,8 @@
     <string name="setup_current_date">Aktuális dátum</string>
     <string name="setup_current_time">Aktuális idő</string>
     <string name="setup_msg_no_network">FIGYELEM: Nem fogja tudni állítani a fiókokat</string>
-    <string name="setup_warning_skip_wifi">FIGYELEM: Lehet, hogy jelentős összeget számítanak fel érte!\n\nA telefon beállítása nagyobb hálózati forgalmat igényel.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">FIGYELEM: Lehet, hogy jelentős összeget számítanak fel érte!\n\nA táblagép beállítása nagyobb hálózati forgalmat igényel.</string>
+    <string name="setup_warning_skip_wifi" product="default">FIGYELEM: Lehet, hogy jelentős összeget számítanak fel érte!\n\nA telefon beállítása nagyobb hálózati forgalmat igényel.</string>
     <string name="cmaccount_setup_create_title">CyanogenMod fiók létrehozása</string>
     <string name="cmaccount_setup_login_title">Bejelentkezés a CyanogenMod fiókba</string>
     <string name="cmaccount_setup_email_label">E-mail</string>
@@ -70,7 +73,8 @@
     <string name="cmaccount_create_account_error_title">Hiba a fiók létrehozásakor</string>
     <string name="cmaccount_server_error_message">Nem sikerült csatlakozni a szerverhez. Próbálja meg később.</string>
     <string name="cmaccount_error_multiple_accounts">Egy eszközhöz csak egy CyanogenMod fiók rendelhető</string>
-    <string name="sim_missing_summary">Nézze meg a SIM kártya leírását, melyet a készülékkel együtt kapott.</string>
+    <string name="sim_missing_summary" product="tablet">Nézze meg a SIM kártya leírását, melyet a táblagéppel együtt kapott.</string>
+    <string name="sim_missing_summary" product="default">Nézze meg a SIM kártya leírását, melyet a telefonnal együtt kapott.</string>
     <string name="google_account_summary">Szeretne beállítani egy Google fiókot?</string>
     <string name="btn_google_account">Google fiók beállítása</string>
     <string name="location_access_title">Hozzáférés a Saját helyemhez</string>
