@@ -30,9 +30,11 @@
     <string name="skip_anyway">Omitir</string>
     <string name="dont_skip">No omitir</string>
     <string name="setup_complete">Configuración completada</string>
-    <string name="setup_complete_summary">¡Felicidades! Tu dispositivo está listo.</string>
+    <string name="setup_complete_summary" product="tablet">¡Felicidades! Tu tablet está listo.</string>
+    <string name="setup_complete_summary" product="default">¡Felicidades! Tu teléfono está listo.</string>
     <string name="setup_welcome">Bienvenido a CyanogenMod</string>
-    <string name="setup_welcome_summary">Para empezar a configurar tu dispositivo, selecciona el lenguaje y toca en continuar.</string>
+    <string name="setup_welcome_summary" product="tablet">Para empezar a configurar tu tablet, selecciona el lenguaje y toca en continuar.</string>
+    <string name="setup_welcome_summary" product="default">Para empezar a configurar tu teléfono, selecciona el lenguaje y toca en continuar.</string>
     <string name="setup_cmaccount">Configurar tu cuenta de CyanogenMod</string>
     <string name="setup_sim_missing">Insertar tarjeta SIM</string>
     <string name="setup_google_account">Cuenta de Google</string>
@@ -41,7 +43,8 @@
     <string name="setup_current_date">Fecha actual</string>
     <string name="setup_current_time">Hora actual</string>
     <string name="setup_msg_no_network">AVISO: No podrás configurar tus cuentas</string>
-    <string name="setup_warning_skip_wifi">AVISO: Es posible que se facturen cargos de datos adicionales.\n\nLa configuración del dispositivo puede requerir una gran cantidad de actividad de red.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">AVISO: Es posible que se facturen cargos de datos adicionales.\n\nLa configuración del tablet puede requerir una gran cantidad de actividad de red.</string>
+    <string name="setup_warning_skip_wifi" product="default">AVISO: Es posible que se facturen cargos de datos adicionales.\n\nLa configuración del teléfono puede requerir una gran cantidad de actividad de red.</string>
     <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Entrar en tu cuenta de CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Correo electrónico</string>
@@ -71,7 +74,8 @@
     <string name="cmaccount_create_account_error_title">Se ha producido un error mientras se creaba la cuenta</string>
     <string name="cmaccount_server_error_message">Ocurrió un error en la comunicación con el servidor. Por favor, inténtalo más tarde.</string>
     <string name="cmaccount_error_multiple_accounts">Solo se permite una cuenta de CyanogenMod por dispositivo</string>
-    <string name="sim_missing_summary">Consulta las instrucciones de la tarjeta SIM que se incluyen con tu dispositivo.</string>
+    <string name="sim_missing_summary" product="tablet">Consulta las instrucciones de la tarjeta SIM que se incluyen con tu tablet.</string>
+    <string name="sim_missing_summary" product="default">Consulta las instrucciones de la tarjeta SIM que se incluyen con tu teléfono.</string>
     <string name="google_account_summary">¿Quieres configurar una cuenta de Google?</string>
     <string name="btn_google_account">Configurar cuenta de Google</string>
     <string name="location_access_title">Acceso a tu ubicación</string>
