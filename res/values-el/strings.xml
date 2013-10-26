@@ -30,9 +30,11 @@
     <string name="skip_anyway">Παράβλεψη ούτως ή άλλως</string>
     <string name="dont_skip">Να μην γίνει παράβλεψη</string>
     <string name="setup_complete">Η ρύθμιση ολοκληρώθηκε</string>
-    <string name="setup_complete_summary">Συγχαρητήρια! Η συσκευή σας είναι έτοιμη για χρήση.</string>
+    <string name="setup_complete_summary" product="tablet">Συγχαρητήρια! Το tablet σας είναι έτοιμo για χρήση.</string>
+    <string name="setup_complete_summary" product="default">Συγχαρητήρια! Το τηλέφωνό σας είναι έτοιμη για χρήση.</string>
     <string name="setup_welcome">Καλώς ήλθατε στο CyanogenMod</string>
-    <string name="setup_welcome_summary">Για να ξεκινήσετε την ρύθμιση της συσκευής σας, επιλέξτε τη γλώσσα σας και συνεχίστε.</string>
+    <string name="setup_welcome_summary" product="tablet">Για να ξεκινήσετε την ρύθμιση του tablet σας, επιλέξτε τη γλώσσα σας και συνεχίστε.</string>
+    <string name="setup_welcome_summary" product="default">Για να ξεκινήσετε την ρύθμιση του τηλεφώνου σας, επιλέξτε τη γλώσσα σας και συνεχίστε.</string>
     <string name="setup_cmaccount">Ρυθμίστε τον CyanogenMod λογαριασμό σας</string>
     <string name="setup_sim_missing">Εισάγετε κάρτα SIM</string>
     <string name="setup_google_account">Λογαριασμός Google</string>
@@ -41,6 +43,8 @@
     <string name="setup_current_date">Τρέχουσα ημερομηνία</string>
     <string name="setup_current_time">Τρέχουσα ώρα</string>
     <string name="setup_msg_no_network">ΠΡΟΣΟΧΗ: Δεν θα είστε σε θέση να ρυθμίστετε τους λογαριασμούς σας</string>
+    <string name="setup_warning_skip_wifi" product="tablet">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχο σας.\n\nΗ ρύθμιση του tablet μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
+    <string name="setup_warning_skip_wifi" product="default">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχο σας.\n\nΗ ρύθμιση του τηλεφώνου μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
     <string name="cmaccount_setup_create_title">Δημιουργήστε έναν λογαριασμό CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Συνδεθείτε στον CyanogenMod λογαριασμό σας</string>
     <string name="cmaccount_setup_email_label">Email</string>
@@ -69,7 +73,8 @@
     <string name="cmaccount_create_account_error_title">Σφάλμα δημιουργίας λογαριασμού</string>
     <string name="cmaccount_server_error_message">Παρουσιάστηκε σφάλμα κατά την επικοινωνία με το διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.</string>
     <string name="cmaccount_error_multiple_accounts">Επιτρέπεται μόνο ένας λογαριασμός CyanogenMod ανά συσκευή</string>
-    <string name="sim_missing_summary">Θα πρέπει να ανατρέξετε στις οδηγίες της κάρτας SIM που συνοδεύει τη συσκευή σας.</string>
+    <string name="sim_missing_summary" product="tablet">Θα πρέπει να ανατρέξετε στις οδηγίες της κάρτας SIM που συνοδεύει το tablet σας.</string>
+    <string name="sim_missing_summary" product="default">Θα πρέπει να ανατρέξετε στις οδηγίες της κάρτας SIM που συνοδεύει το τηλέφωνό σας.</string>
     <string name="google_account_summary">Θέλετε να ρυθμίσετε έναν λογαριασμό Google;</string>
     <string name="btn_google_account">Ρύθμιση λογαριασμού Google</string>
     <string name="location_access_title">Πρόσβαση στην τοποθεσία μου</string>
