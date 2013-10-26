@@ -30,9 +30,11 @@
     <string name="skip_anyway">Toch overslaan</string>
     <string name="dont_skip">Niet overslaan</string>
     <string name="setup_complete">Instellen is voltooid</string>
-    <string name="setup_complete_summary">Gefeliciteerd! Uw apparaat is gereed.</string>
+    <string name="setup_complete_summary" product="tablet">Gefeliciteerd! Uw tablet is gereed.</string>
+    <string name="setup_complete_summary" product="default">Gefeliciteerd! Uw telefoon is gereed.</string>
     <string name="setup_welcome">Welkom bij CyanogenMod</string>
-    <string name="setup_welcome_summary">Om te beginnen met het instellen van uw apparaat, selecteert u uw taal.</string>
+    <string name="setup_welcome_summary" product="tablet">Om te beginnen met het instellen van uw tablet, selecteert u uw taal.</string>
+    <string name="setup_welcome_summary" product="default">Om te beginnen met het instellen van uw telefoon, selecteert u uw taal.</string>
     <string name="setup_cmaccount">Uw CyanogenMod-account instellen</string>
     <string name="setup_sim_missing">Simkaart invoeren</string>
     <string name="setup_google_account">Google-account</string>
@@ -41,6 +43,8 @@
     <string name="setup_current_date">Huidige datum</string>
     <string name="setup_current_time">Huidige tijd</string>
     <string name="setup_msg_no_network">Let op: het is niet mogelijk accounts in te stellen</string>
+    <string name="setup_warning_skip_wifi" product="tablet">Let op: gegevensgebruik kan leiden tot extra kosten.\n\nBij het instellen van uw tablet kan veel netwerkactiviteit plaatsvinden.</string>
+    <string name="setup_warning_skip_wifi" product="default">Let op: gegevensgebruik kan leiden tot extra kosten.\n\nBij het instellen van uw telefoon kan veel netwerkactiviteit plaatsvinden.</string>
     <string name="cmaccount_setup_create_title">CyanogenMod-account aanmaken</string>
     <string name="cmaccount_setup_login_title">Inloggen op uw CyanogenMod-account</string>
     <string name="cmaccount_setup_email_label">E-mailadres</string>
@@ -69,7 +73,8 @@
     <string name="cmaccount_create_account_error_title">Kan account niet aanmaken</string>
     <string name="cmaccount_server_error_message">Er is een verbindingsfout opgetreden. Probeer het later nogmaals.</string>
     <string name="cmaccount_error_multiple_accounts">Slechts één CyanogenMod-account toegestaan per apparaat</string>
-    <string name="sim_missing_summary">Bekijk de simkaartinstructies voor uw apparaat.</string>
+    <string name="sim_missing_summary" product="tablet">Bekijk de simkaartinstructies voor uw tablet.</string>
+    <string name="sim_missing_summary" product="default">Bekijk de simkaartinstructies voor uw telefoon.</string>
     <string name="google_account_summary">Wilt u een Google-account aanmaken?</string>
     <string name="btn_google_account">Google-account aanmaken</string>
     <string name="location_access_title">Toegang tot mijn locatie</string>
