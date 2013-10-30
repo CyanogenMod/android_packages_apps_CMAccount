@@ -74,7 +74,7 @@
     <string name="cmaccount_server_error_message">Došlo je do pogreške u komunikaciji sa serverom. Molimo pokušajte kasnije.</string>
     <string name="cmaccount_error_multiple_accounts">Samo jedan CyanogenMod račun je dozvoljen po uređaju</string>
     <string name="sim_missing_summary" product="tablet">Pogledajte upute za SIM karticu koje su došle sa vašim tabletom.</string>
-    <string name="sim_missing_summary" product="tablet">Pogledajte upute za SIM karticu koje su došle sa vašim telefonom.</string>
+    <string name="sim_missing_summary" product="default">Pogledajte upute za SIM karticu koje su došle sa vašim telefonom.</string>
     <string name="google_account_summary">Želite li postaviti Google račun?</string>
     <string name="btn_google_account">Postavi Google račun</string>
     <string name="location_access_title">Pristup mojoj lokaciji</string>
