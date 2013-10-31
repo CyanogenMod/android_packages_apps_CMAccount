@@ -31,9 +31,11 @@
     <string name="skip_anyway">Salta comunque</string>
     <string name="dont_skip">Non saltare</string>
     <string name="setup_complete">Il setup è completo</string>
-    <string name="setup_complete_summary">Congratulazioni! Il tuo dispositivo è pronto a far faville!</string>
+    <string name="setup_complete_summary" product="tablet">Congratulazioni! Il tuo tablet è pronto a far faville!</string>
+    <string name="setup_complete_summary" product="default">Congratulazioni! Il tuo telefono è pronto a far faville!</string>
     <string name="setup_welcome">Benvenuto in CyanogenMod</string>
-    <string name="setup_welcome_summary">Per iniziare con la configurazione del dispositivo, seleziona la tua lingua e continua.</string>
+    <string name="setup_welcome_summary" product="tablet">Per iniziare con la configurazione del tablet, seleziona la tua lingua e continua.</string>
+    <string name="setup_welcome_summary" product="default">Per iniziare con la configurazione del telefono, seleziona la tua lingua e continua.</string>
     <string name="setup_cmaccount">Imposta il tuo account CyanogenMod</string>
     <string name="setup_sim_missing">Inserisci una SIM</string>
     <string name="setup_google_account">Account Google</string>
@@ -42,7 +44,8 @@
     <string name="setup_current_date">Data corrente</string>
     <string name="setup_current_time">Ora corrente</string>
     <string name="setup_msg_no_network">ATTENZIONE: Non sarai in grado di impostare i tuoi account</string>
-    <string name="setup_warning_skip_wifi">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del dispositivo potrebbe richiedere un significativo scambio di dati in rete.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del tablet potrebbe richiedere un significativo scambio di dati in rete.</string>
+    <string name="setup_warning_skip_wifi" product="default">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del telefono potrebbe richiedere un significativo scambio di dati in rete.</string>
     <string name="cmaccount_setup_create_title">Crea il tuo Account CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Effettua il login al tuo Account CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Email</string>
@@ -71,7 +74,8 @@
     <string name="cmaccount_create_account_error_title">Errore nella creazione dell\'account</string>
     <string name="cmaccount_server_error_message">Errore nella comunicazione con il server. Per favore prova più tardi.</string>
     <string name="cmaccount_error_multiple_accounts">È consentito un solo Account CyanogenMod per dispositivo</string>
-    <string name="sim_missing_summary">Controlla sulle istruzioni per la SIM card accluse al tuo dispositivo.</string>
+    <string name="sim_missing_summary" product="tablet">Controlla sulle istruzioni per la SIM card accluse al tuo tablet.</string>
+    <string name="sim_missing_summary" product="default">Controlla sulle istruzioni per la SIM card accluse al tuo telefono.</string>
     <string name="google_account_summary">Vuoi impostare un account Google?</string>
     <string name="btn_google_account">Imposta un account Google</string>
     <string name="location_access_title">Accesso alla posizione</string>
