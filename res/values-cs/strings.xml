@@ -31,9 +31,11 @@
     <string name="dont_skip">Nepřeskakovat</string>
 
     <string name="setup_complete">Nastavení dokončeno</string>
-    <string name="setup_complete_summary">Gratulujeme, Vaše zařízení je připraveno.</string>
+    <string name="setup_complete_summary" product="tablet">Gratulujeme, Váš tablet je připraven.</string>
+    <string name="setup_complete_summary" product="default">Gratulujeme, Váš telefon je připraven.</string>
     <string name="setup_welcome">Vítá Vás CyanogenMod</string>
-    <string name="setup_welcome_summary">Pro nastavení zařízení zvolte prosím jazyk a pokračujte.</string>
+    <string name="setup_welcome_summary" product="tablet">Zvolte prosím jazyk a pokračujte nastavením tabletu.</string>
+    <string name="setup_welcome_summary" product="default">Zvolte prosím jazyk a pokračujte nastavením telefonu.</string>
     <string name="setup_cmaccount">Nastavit účet CyanogenMod</string>
     <string name="setup_sim_missing">Vložit SIM kartu</string>
     <string name="setup_google_account">Účet Google</string>
@@ -42,7 +44,8 @@
     <string name="setup_current_date">Aktuální datum</string>
     <string name="setup_current_time">Aktuální čas</string>
     <string name="setup_msg_no_network">UPOZORNĚNÍ: Nebude možné nastavit účet</string>
-    <string name="setup_warning_skip_wifi">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení telefonu může vyžadovat zvýšený datový přenos.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení tabletu může vyžadovat zvýšený datový přenos.</string>
+    <string name="setup_warning_skip_wifi" product="default">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení telefonu může vyžadovat zvýšený datový přenos.</string>
 
     <string name="cmaccount_setup_create_title">Vytvořit účet CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Přihlásit se k CyanogenMod účtu</string>
@@ -78,7 +81,8 @@
 
     <string name="cmaccount_error_multiple_accounts">Na jednom zařízení je možné aktivovat pouze jeden CyanogenMod účet.</string>
 
-    <string name="sim_missing_summary">Přečtěte si prosím instrukce ohledně SIM karty doručené s vaším zařízením.</string>
+    <string name="sim_missing_summary" product="tablet">Přečtěte si prosím instrukce ohledně SIM karty doručené s vaším tabletem.</string>
+    <string name="sim_missing_summary" product="default">Přečtěte si prosím instrukce ohledně SIM karty doručené s vaším telefonem.</string>
     <string name="google_account_summary">Chcete provést nastavení účtu Google?</string>
     <string name="btn_google_account">Nastavit účet Google</string>
 
