@@ -30,9 +30,11 @@
     <string name="skip_anyway">Trotzdem überspringen</string>
     <string name="dont_skip">Zurück</string>
     <string name="setup_complete">Einrichtung abgeschlossen</string>
-    <string name="setup_complete_summary">Glückwunsch! Ihr Gerät ist nun vollständig eingerichtet.</string>
+    <string name="setup_complete_summary" product="tablet">Glückwunsch! Ihr Tablet ist nun vollständig eingerichtet.</string>
+    <string name="setup_complete_summary" product="default">Glückwunsch! Ihr Telefon ist nun vollständig eingerichtet.</string>
     <string name="setup_welcome">Willkommen bei CyanogenMod</string>
-    <string name="setup_welcome_summary">Um die Einrichtung fortzusetzen, wählen Sie bitte eine Sprache aus.</string>
+    <string name="setup_welcome_summary" product="tablet">Um die Einrichtung fortzusetzen, wählen Sie bitte eine Sprache aus.</string>
+    <string name="setup_welcome_summary" product="default">Um die Einrichtung fortzusetzen, wählen Sie bitte eine Sprache aus.</string>
     <string name="setup_cmaccount">CyanogenMod-Konto einrichten</string>
     <string name="setup_sim_missing">Setzen Sie eine SIM-Karte ein</string>
     <string name="setup_google_account">Google-Konto</string>
@@ -41,7 +43,8 @@
     <string name="setup_current_date">Aktuelles Datum</string>
     <string name="setup_current_time">Aktuelle Uhrzeit</string>
     <string name="setup_msg_no_network">WARNUNG: Sie werden nicht imstande sein, Ihr Konto erfolgreich einzurichten</string>
-    <string name="setup_warning_skip_wifi">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
+    <string name="setup_warning_skip_wifi" product="default">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
     <string name="cmaccount_setup_create_title">CyanogenMod-Konto erstellen</string>
     <string name="cmaccount_setup_login_title">An CyanogenMod-Konto anmelden</string>
     <string name="cmaccount_setup_email_label">E-Mail-Adresse</string>
@@ -70,7 +73,8 @@
     <string name="cmaccount_create_account_error_title">Fehler beim Erstellen eines Kontos</string>
     <string name="cmaccount_server_error_message">Bei der Kommunikation mit dem Server ist ein Problem aufgetreten. Bitte versuchen Sie es später erneut.</string>
     <string name="cmaccount_error_multiple_accounts">Es kann nur ein CyanogenMod-Konto pro Gerät eingerichtet werden</string>
-    <string name="sim_missing_summary">Hinweise zum Einsetzen der SIM-Karte erhalten Sie in der Bedienungsanleitung Ihres Gerätes.</string>
+    <string name="sim_missing_summary" product="tablet">Hinweise zum Einsetzen der SIM-Karte erhalten Sie in der Bedienungsanleitung Ihres Tablets.</string>
+    <string name="sim_missing_summary" product="default">Hinweise zum Einsetzen der SIM-Karte erhalten Sie in der Bedienungsanleitung Ihres Telefons.</string>
     <string name="google_account_summary">Möchten Sie nun ein Google-Konto einrichten?</string>
     <string name="btn_google_account">Google-Konto einrichten</string>
     <string name="location_access_title">Zugriff auf meinen Standort</string>
