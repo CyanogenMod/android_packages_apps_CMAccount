@@ -194,6 +194,11 @@ public class DateTimePage extends Page {
         }
 
         @Override
+        protected int getTitleResource() {
+            return R.string.setup_datetime;
+        }
+
+        @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             final Activity activity = getActivity();
             if (activity != null) {

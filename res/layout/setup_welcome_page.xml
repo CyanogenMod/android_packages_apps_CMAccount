@@ -15,51 +15,45 @@
      limitations under the License.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/SetupWizardCard">
+             style="@style/SetupWizardCard">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom|right"
-        android:src="@drawable/cid_welcome"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:scaleType="fitEnd" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|right"
+            android:src="@drawable/cid_welcome"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:scaleType="fitEnd" />
 
     <LinearLayout
-        android:orientation="vertical"
-        style="@style/SetupWizardPageContent">
+            android:orientation="vertical"
+            style="@style/SetupWizardPageContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <TextView style="@style/SetupWizardPageTitle" />
 
         <View style="@style/SetupWizardDivider"
-              android:layout_marginBottom="20dp"/>
+              android:layout_marginTop="5dp"
+              android:layout_marginBottom="5dp"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true">
+        <TextView
+                style="@style/SetupWizardPageSummary"
+                android:text="@string/setup_welcome_summary" />
 
-            <LinearLayout
-                android:orientation="vertical"
+        <com.cyanogenmod.account.ui.LocalePicker
+                android:id="@+id/locale_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_gravity="center"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
-                <TextView
-                    style="@style/SetupWizardPageSummary"
-                    android:text="@string/setup_welcome_summary" />
-
-                <Spinner
-                    android:id="@+id/locale_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp"
-                    android:layout_gravity="center"
-                    android:saveEnabled="false" />
-            </LinearLayout>
-        </ScrollView>
     </LinearLayout>
 </FrameLayout>

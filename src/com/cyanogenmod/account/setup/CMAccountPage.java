@@ -106,5 +106,9 @@ public class CMAccountPage extends Page {
             return R.layout.cmaccount;
         }
 
+        @Override
+        protected int getTitleResource() {
+            return R.string.setup_cmaccount;
+        }
     }
 }

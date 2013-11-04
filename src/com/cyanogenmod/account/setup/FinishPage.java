@@ -57,6 +57,10 @@ public class FinishPage extends Page {
             return R.layout.setup_finished_page;
         }
 
+        @Override
+        protected int getTitleResource() {
+            return R.string.setup_complete;
+        }
     }
 
 }
