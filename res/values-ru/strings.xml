@@ -30,9 +30,11 @@
     <string name="skip_anyway">Всё равно пропустить</string>
     <string name="dont_skip">Не пропускать</string>
     <string name="setup_complete">Настройка завершена</string>
-    <string name="setup_complete_summary">Поздравляем! Ваше устройство готово к использованию.</string>
+    <string name="setup_complete_summary" product="tablet">Поздравляем! Ваш планшет готов к использованию.</string>
+    <string name="setup_complete_summary" product="default">Поздравляем! Ваш телефон готов к использованию.</string>
     <string name="setup_welcome">Добро пожаловать в CyanogenMod</string>
-    <string name="setup_welcome_summary">Для начала настройки устройства выберите язык и нажмите «Продолжить».</string>
+    <string name="setup_welcome_summary" product="tablet">Для начала настройки планшета выберите язык и нажмите «Далее».</string>
+    <string name="setup_welcome_summary" product="default">Для начала настройки телефона выберите язык и нажмите «Далее».</string>
     <string name="setup_cmaccount">Настройка аккаунта CyanogenMod</string>
     <string name="setup_sim_missing">Вставьте SIM-карту</string>
     <string name="setup_google_account">Аккаунт Google</string>
@@ -40,7 +42,9 @@
     <string name="setup_datetime">Настройки даты и времени</string>
     <string name="setup_current_date">Текущая дата</string>
     <string name="setup_current_time">Текущее время</string>
-    <string name="setup_msg_no_network">Внимание: настройка аккаунта невозможна</string>
+    <string name="setup_msg_no_network">ВНИМАНИЕ: настройка аккаунта невозможна</string>
+    <string name="setup_warning_skip_wifi" product="tablet">ВНИМАНИЕ: Вы можете понести дополнительные расходы.\n\nНастройка планшета может потребовать значительной сетевой активности.</string>
+    <string name="setup_warning_skip_wifi" product="default">ВНИМАНИЕ: Вы можете понести дополнительные расходы.\n\nНастройка телефона может потребовать значительной сетевой активности.</string>
     <string name="cmaccount_setup_create_title">Создать аккаунт CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Войти в аккаунт СyanogenMod</string>
     <string name="cmaccount_setup_email_label">E-mail</string>
@@ -69,7 +73,8 @@
     <string name="cmaccount_create_account_error_title">Ошибка создания аккаунта</string>
     <string name="cmaccount_server_error_message">Произошла ошибка соединения с сервером. Повторите попытку позже.</string>
     <string name="cmaccount_error_multiple_accounts">Разрешён только один аккаунт CyanogenMod на устройстве</string>
-    <string name="sim_missing_summary">Обратитесь к инструкции по установке или активации вашей SIM-карты.</string>
+    <string name="sim_missing_summary" product="tablet">Обратитесь к инструкции по установке SIM-карты для вашего планшета.</string>
+    <string name="sim_missing_summary" product="default">Обратитесь к инструкции по установке SIM-карты для вашего телефона.</string>
     <string name="google_account_summary">Вы хотите настроить аккаунт Google?</string>
     <string name="btn_google_account">Настройка аккаунта Google</string>
     <string name="location_access_title">Доступ к моему местоположению</string>
