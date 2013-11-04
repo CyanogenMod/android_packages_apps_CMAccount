@@ -67,5 +67,9 @@ public class GoogleAccountPage extends Page {
             return R.layout.setup_google_account_page;
         }
 
+        @Override
+        protected int getTitleResource() {
+            return R.string.setup_google_account;
+        }
     }
 }

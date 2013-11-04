@@ -123,6 +123,11 @@ public class LocationSettingsPage extends Page {
         }
 
         @Override
+        protected int getTitleResource() {
+            return R.string.setup_location;
+        }
+
+        @Override
         public void onResume() {
             super.onResume();
             updateLocationToggles();
