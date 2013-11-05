@@ -30,9 +30,11 @@
     <string name="skip_anyway">Pular de qualquer maneira</string>
     <string name="dont_skip">Não pular</string>
     <string name="setup_complete">A instalação está completa</string>
-    <string name="setup_complete_summary">Parabéns! Seu dispositivo está pronto.</string>
+    <string name="setup_complete_summary" product="tablet">Parabéns! Seu tablet está pronto.</string>
+    <string name="setup_complete_summary" product="default">Parabéns! Seu telefone está pronto.</string>
     <string name="setup_welcome">Bem vindo ao CyanogenMod</string>
-    <string name="setup_welcome_summary">Para começar a configurar o seu dispositivo, selecione seu idioma e continue.</string>
+    <string name="setup_welcome_summary" product="tablet">Para começar a configurar o seu tablet, selecione seu idioma e continue.</string>
+    <string name="setup_welcome_summary" product="default">Para começar a configurar o seu tablet, selecione seu idioma e continue.</string>
     <string name="setup_cmaccount">Configurar sua conta CyanogenMod</string>
     <string name="setup_sim_missing">Insira o cartão SIM</string>
     <string name="setup_google_account">Conta Google</string>
@@ -65,7 +67,8 @@
     <string name="cmaccount_create_account_error_title">Erro ao criar a conta</string>
     <string name="cmaccount_server_error_message">Um erro ocorreu na comunicação com o servidor. Favor tente novamente mais tarde.</string>
     <string name="cmaccount_error_multiple_accounts">Somente um CyanogenMod é permitido em um dispositivo</string>
-    <string name="sim_missing_summary">Você precisa consultar as instruções do cartão SIM que veio com o seu dispositivo.</string>
+    <string name="sim_missing_summary" product="tablet">Você precisa consultar as instruções do cartão SIM que veio com o seu tablet.</string>
+    <string name="sim_missing_summary" product="default">Você precisa consultar as instruções do cartão SIM que veio com o seu telefone.</string>
     <string name="google_account_summary">Você quer configurar uma conta Google?</string>
     <string name="btn_google_account">Configurar conta Google</string>
     <string name="location_access_title">Acesso à minha localização</string>
@@ -80,4 +83,6 @@
     <string name="cmaccount_update_required_text">Esta versão da conta CyanogenMod pode ser incompatível. Favor atualizar para a última versão do CyanogenMod para garantir compatibilidade.</string>
     <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
     <string name="cmaccount_checking_for_updates">Verificando por atualizações.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">AVISO: Você pode ser cobrado pela sua operadora.\n\nConfiguração do tablet pode precisar de uma quantidade significativa de atividade de rede.</string>
+    <string name="setup_warning_skip_wifi" product="default">AVISO: Você pode ser cobrado pela sua operadora.\n\nConfiguração do telefone pode precisar de uma quantidade significativa de atividade de rede.</string>
 </resources>
