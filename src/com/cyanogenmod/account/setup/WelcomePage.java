@@ -16,19 +16,19 @@
 
 package com.cyanogenmod.account.setup;
 
-import com.android.internal.app.LocalePicker;
 import com.cyanogenmod.account.R;
+import com.cyanogenmod.account.ui.LocalePicker;
 import com.cyanogenmod.account.ui.SetupPageFragment;
-import com.cyanogenmod.account.ui.SetupWizardActivity;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -55,49 +55,74 @@ public class WelcomePage extends Page {
 
     public static class WelcomeFragment extends SetupPageFragment {
 
+        private ArrayAdapter<com.android.internal.app.LocalePicker.LocaleInfo> mLocaleAdapter;
+        private Locale mInitialLocale;
+        private Locale mCurrentLocale;
+        private int[] mAdapterIndices;
+
+        private LocalePicker mLanguagePicker;
+
+        private final Handler mHandler = new Handler();
+
+        private final Runnable mUpdateLocale = new Runnable() {
+            public void run() {
+                if (mCurrentLocale != null) {
+                    com.android.internal.app.LocalePicker.updateLocale(mCurrentLocale);
+                }
+            }
+        };
+
         @Override
         protected void setUpPage() {
-            final Spinner spinner = (Spinner) mRootView.findViewById(R.id.locale_list);
-            final ArrayAdapter<LocalePicker.LocaleInfo> adapter = LocalePicker.constructAdapter(getActivity(), R.layout.locale_picker_item, R.id.locale);
-            spinner.setAdapter(adapter);
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    Locale locale = adapter.getItem(i).getLocale();
-                    LocalePicker.updateLocale(locale);
+            mLanguagePicker = (LocalePicker) mRootView.findViewById(R.id.locale_list);
+            loadLanguages();
+        }
+
+        private void loadLanguages() {
+            mLocaleAdapter = com.android.internal.app.LocalePicker.constructAdapter(getActivity(), R.layout.locale_picker_item, R.id.locale);
+            mInitialLocale = Locale.getDefault();
+            mCurrentLocale = mInitialLocale;
+            mAdapterIndices = new int[mLocaleAdapter.getCount()];
+            int currentLocaleIndex = 0;
+            String [] labels = new String[mLocaleAdapter.getCount()];
+            for (int i=0; i<mAdapterIndices.length; i++) {
+                com.android.internal.app.LocalePicker.LocaleInfo localLocaleInfo = mLocaleAdapter.getItem(i);
+                Locale localLocale = localLocaleInfo.getLocale();
+                if (localLocale.equals(mCurrentLocale)) {
+                    currentLocaleIndex = i;
                 }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-                }
-            });
-
-            // Pre-select current locale
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    int count = adapter.getCount();
-                    Locale current = Locale.getDefault();
-                    for (int i=0; i<count; i++) {
-                        Locale locale = adapter.getItem(i).getLocale();
-                        if (current.equals(locale)) {
-                            spinner.setSelection(i);
-                            break;
-                        }
-                    }
-                    spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                            Locale locale = adapter.getItem(i).getLocale();
-                            LocalePicker.updateLocale(locale);
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> adapterView) {
-                        }
-                    });
+                mAdapterIndices[i] = i;
+                labels[i] = localLocaleInfo.getLabel();
+            }
+            mLanguagePicker.setDisplayedValues(labels);
+            mLanguagePicker.setMaxValue(labels.length - 1);
+            mLanguagePicker.setValue(currentLocaleIndex);
+            mLanguagePicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+            mLanguagePicker.setOnValueChangedListener(new LocalePicker.OnValueChangeListener() {
+                public void onValueChange(LocalePicker picker, int oldVal, int newVal) {
+                    setLocaleFromPicker();
                 }
             });
+        }
+
+        private void setLocaleFromPicker() {
+            int i = mAdapterIndices[mLanguagePicker.getValue()];
+            final com.android.internal.app.LocalePicker.LocaleInfo localLocaleInfo = mLocaleAdapter.getItem(i);
+            onLocaleChanged(localLocaleInfo.getLocale());
+        }
+
+        private void onLocaleChanged(Locale paramLocale) {
+            Resources localResources = getActivity().getResources();
+            Configuration localConfiguration1 = localResources.getConfiguration();
+            Configuration localConfiguration2 = new Configuration();
+            localConfiguration2.locale = paramLocale;
+            localResources.updateConfiguration(localConfiguration2, null);
+            localResources.updateConfiguration(localConfiguration1, null);
+            TextView titleView = (TextView) mRootView.findViewById(android.R.id.title);
+            titleView.setText(getTitleResource());
+            mHandler.removeCallbacks(mUpdateLocale);
+            mCurrentLocale = paramLocale;
+            mHandler.postDelayed(mUpdateLocale, 200);
         }
 
         @Override
@@ -105,6 +130,10 @@ public class WelcomePage extends Page {
             return R.layout.setup_welcome_page;
         }
 
+        @Override
+        protected int getTitleResource() {
+            return R.string.setup_welcome;
+        }
     }
 
 }

@@ -15,8 +15,5 @@
      limitations under the License.
 -->
 <resources>
-    <!-- CMAccount server url -->
-    <string name="cmaccount_uri" translatable="false">https://account.cyanogenmod.org</string>
-
-    <integer name="local_picker_items">5</integer>
+    <integer name="local_picker_items">3</integer>
 </resources>
