@@ -122,7 +122,7 @@ public class WelcomePage extends Page {
             titleView.setText(getTitleResource());
             mHandler.removeCallbacks(mUpdateLocale);
             mCurrentLocale = paramLocale;
-            mHandler.postDelayed(mUpdateLocale, 200);
+            mHandler.postDelayed(mUpdateLocale, 1000);
         }
 
         @Override
