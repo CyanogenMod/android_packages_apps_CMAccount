@@ -258,17 +258,21 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                switch (page.getId()) {
-                    case R.string.setup_cmaccount:
-                        if (CMAccountUtils.getCMAccountAccount(SetupWizardActivity.this) != null) {
+                if (page == null) {
+                    doNext();
+                } else {
+                    switch (page.getId()) {
+                        case R.string.setup_cmaccount:
+                            if (CMAccountUtils.getCMAccountAccount(SetupWizardActivity.this) != null) {
+                                removeSetupPage(page, false);
+                            } else {
+                                doNext();
+                            }
+                            break;
+                        case R.string.setup_google_account:
                             removeSetupPage(page, false);
-                        } else {
-                            doNext();
-                        }
-                        break;
-                    case R.string.setup_google_account:
-                        removeSetupPage(page, false);
-                        break;
+                            break;
+                    }
                 }
                 onPageTreeChanged();
             }
@@ -295,20 +299,20 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     private void removeUnNeededPages() {
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                Page page = mPageList.findPage(R.string.setup_cmaccount);
-                if (page != null && accountExists(CMAccount.ACCOUNT_TYPE_CMAccount)) {
-                    removeSetupPage(page, false);
-                }
-                page = mPageList.findPage(R.string.setup_google_account);
-                if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))) {
-                    removeSetupPage(page, false);
-                }
-                onPageTreeChanged();
-            }
-        });
+        boolean pagesRemoved = false;
+        Page page = mPageList.findPage(R.string.setup_cmaccount);
+        if (page != null && accountExists(CMAccount.ACCOUNT_TYPE_CMAccount)) {
+            removeSetupPage(page, false);
+            pagesRemoved = true;
+        }
+        page = mPageList.findPage(R.string.setup_google_account);
+        if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))) {
+            removeSetupPage(page, false);
+            pagesRemoved = true;
+        }
+        if (pagesRemoved) {
+            onPageTreeChanged();
+        }
     }
 
     private void doSimCheck() {
