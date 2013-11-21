@@ -30,9 +30,11 @@
     <string name="skip_anyway">Salta de totes maneres</string>
     <string name="dont_skip">No saltis</string>
     <string name="setup_complete">Configuració completa</string>
-    <string name="setup_complete_summary">Felicitat! Elteu dispositiu esta llest per funcionar.</string>
+    <string name="setup_complete_summary" product="tablet">Felicitats! La teva tauleta està llesta per funcionar.</string>
+    <string name="setup_complete_summary" product="default">Felicitats! El teu telèfon està llest per funcionar.</string>
     <string name="setup_welcome">Benvingut a CyanogenMod</string>
-    <string name="setup_welcome_summary">Per començar a configurar el teu dispositiu, selecciona el teu idioma i continua.</string>
+    <string name="setup_welcome_summary" product="tablet">Per començar a configurar la teva tauleta, selecciona el teu idioma i continua.</string>
+    <string name="setup_welcome_summary" product="default">Per començar a configurar el teu telèfon, selecciona el teu idioma i continua.</string>
     <string name="setup_cmaccount">Configura el teu compte CyanogenMod</string>
     <string name="setup_sim_missing">Inserta una targeta SIM</string>
     <string name="setup_google_account">Compte Google</string>
@@ -41,7 +43,8 @@
     <string name="setup_current_date">Data actual</string>
     <string name="setup_current_time">Hora actual</string>
     <string name="setup_msg_no_network">ALERTA: No podràs configurar els teus comptes</string>
-    <string name="setup_warning_skip_wifi">ALERTA: Podrien haver-hi càrrecs de dades adicionals per part de l\'operadora.\n\nLa configuració del telèfon necessita una activitat de xarxa considerable.</string>
+    <string name="setup_warning_skip_wifi" product="tablet">ALERTA: Podrien haver-hi càrrecs de dades adicionals per part de l\'operadora.\n\nLa configuració de la tauleta necessita una activitat de xarxa considerable.</string>
+    <string name="setup_warning_skip_wifi" product="default">ALERTA: Podrien haver-hi càrrecs de dades adicionals per part de l\'operadora.\n\nLa configuració del telèfon necessita una activitat de xarxa considerable.</string>
     <string name="cmaccount_setup_create_title">Crea un compte CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Entra al teu compte CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Correu electrònic</string>
@@ -70,7 +73,8 @@
     <string name="cmaccount_create_account_error_title">Error creant el compte</string>
     <string name="cmaccount_server_error_message">Hi ha hagut un error durant la comunicació amb el servidor. Si us plau intenta-ho una altra vegada més tard.</string>
     <string name="cmaccount_error_multiple_accounts">Només està permés un compte CyanogenMod per dispositiu</string>
-    <string name="sim_missing_summary">Necessites consultar les instruccions de la targeta SIM que venien amb el teu dispositiu.</string>
+    <string name="sim_missing_summary" product="tablet">Necessites consultar les instruccions de la targeta SIM que venien amb la teva tauleta.</string>
+    <string name="sim_missing_summary" product="default">Necessites consultar les instruccions de la targeta SIM que venien amb el teu telèfon.</string>
     <string name="google_account_summary">Vols configurar un compte Google?</string>
     <string name="btn_google_account">Configura un compte Google</string>
     <string name="location_access_title">Accedeix a la meva ubicació</string>
