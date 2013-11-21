@@ -32,9 +32,11 @@
     <string name="dont_skip">Moenie oorslaan nie</string>
 
     <string name="setup_complete">Opstelling is voltooi</string>
-    <string name="setup_complete_summary">Baie geluk! Jou toestel is gereed om te gebruik.</string>
+    <string name="setup_complete_summary" product="tablet">Baie geluk! Jou tablet is gereed om te gebruik.</string>
+    <string name="setup_complete_summary" product="default">Baie geluk! Jou selfoon is gereed om te gebruik.</string>
     <string name="setup_welcome">Welkom by CyanogenMod</string>
-    <string name="setup_welcome_summary">Om te begin, kies jou taal en gaan voort.</string>
+    <string name="setup_welcome_summary" product="tablet">Om te begin met die opstel van jou tablet, kies jou taal en gaan voort.</string>
+    <string name="setup_welcome_summary" product="default">Om te begin met die opstel van jou selfoon, kies jou taal en gaan voort.</string>
     <string name="setup_cmaccount">Stel jou CyanogenMod rekening op</string>
     <string name="setup_sim_missing">Voeg SIM-kaart in</string>
     <string name="setup_google_account">Google rekening</string>
@@ -43,6 +45,8 @@
     <string name="setup_current_date">Huidige datum</string>
     <string name="setup_current_time">Huidige tyd</string>
     <string name="setup_msg_no_network">WAARSKUWING: Jy sal nie in staat wees om jou rekeninge op te stel nie</string>
+    <string name="setup_warning_skip_wifi" product="tablet">WAARSKUWING: Potensiële ekstra netwerk data koste.\n\nTablet opstelling vereis aansienlike data netwerk aktiwiteit.</string>
+    <string name="setup_warning_skip_wifi" product="default">WAARSKUWING: Potensiële ekstra netwerk data koste.\n\nSelfoon opstelling vereis aansienlike data netwerk aktiwiteit.</string>
 
     <string name="cmaccount_setup_create_title">Skep \'n CyanogenMod rekening</string>
     <string name="cmaccount_setup_login_title">Teken in op jou CyanogenMod rekening</string>
@@ -78,7 +82,8 @@
 
     <string name="cmaccount_error_multiple_accounts">Slegs een CyanogenMod rekening word toegelaat per toestel</string>
 
-    <string name="sim_missing_summary">Verwys na die SIM-kaart instruksies wat saam gekom het met jou toestel gekom het.</string>
+    <string name="sim_missing_summary" product="tablet">Verwys na die SIM-kaart instruksies wat saam met jou tablet gekom het.</string>
+    <string name="sim_missing_summary" product="default">Verwys na die SIM-kaart instruksies wat saam met jou selfoon gekom het.</string>
     <string name="google_account_summary">Wil jy \'n Google-rekening opstel?</string>
     <string name="btn_google_account">Stel Google rekening op</string>
 
@@ -86,8 +91,8 @@
     <string name="location_access_summary">Laat programme toe wat toestemming gevra het om jou ligging inligting te gebruik</string>
     <string name="location_sources_heading">Ligging bronne</string>
     <string name="location_gps">GPS satelliete</string>
-    <string name="location_street_level" product="tablet">Laat programme toe om jou GPS te gebruik op jou tablet ligging te identifiseer</string>
-    <string name="location_street_level" product="default">Laat programme toe om jou GPS te gebruik op jou foon ligging te identifiseer</string>
+    <string name="location_street_level" product="tablet">Laat programme toe om jou GPS te gebruik om jou tablet ligging te identifiseer</string>
+    <string name="location_street_level" product="default">Laat programme toe om jou GPS te gebruik om jou selfoon ligging te identifiseer</string>
     <string name="location_network_based">Wi-Fi &amp; mobiele netwerkligging</string>
     <string name="location_neighborhood_level">Laat programme toe om Google\'s ligging diens te gebruik om jou ligging vinniger geskat te kry. Anonieme liggings data word ingesamel en gestuur aan Google.</string>
 </resources>
