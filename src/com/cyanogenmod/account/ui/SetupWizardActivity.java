@@ -25,6 +25,7 @@ import com.cyanogenmod.account.setup.Page;
 import com.cyanogenmod.account.setup.PageList;
 import com.cyanogenmod.account.setup.SetupDataCallbacks;
 import com.cyanogenmod.account.util.CMAccountUtils;
+import com.cyanogenmod.account.util.EnableAccessibilityController;
 
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
@@ -47,6 +48,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -116,6 +118,13 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             @Override
             public void onClick(View view) {
                 doPrevious();
+            }
+        });
+        final EnableAccessibilityController acc = new EnableAccessibilityController(this);
+        mViewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return acc.onInterceptTouchEvent(event);
             }
         });
         onPageTreeChanged();
