@@ -219,7 +219,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         } else {
             mSetupData.removePage(page);
         }
-        onPageLoaded(mPageList.get(position));
+        onPageLoaded(mPageList.get(mViewPager.getCurrentItem()));
     }
 
     private void updateNextPreviousState() {
@@ -264,28 +264,23 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     @Override
     public void onPageFinished(final Page page) {
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (page == null) {
-                    doNext();
-                } else {
-                    switch (page.getId()) {
-                        case R.string.setup_cmaccount:
-                            if (CMAccountUtils.getCMAccountAccount(SetupWizardActivity.this) != null) {
-                                removeSetupPage(page, false);
-                            } else {
-                                doNext();
-                            }
-                            break;
-                        case R.string.setup_google_account:
-                            removeSetupPage(page, false);
-                            break;
+        if (page == null) {
+            doNext();
+        } else {
+            switch (page.getId()) {
+                case R.string.setup_cmaccount:
+                    if (CMAccountUtils.getCMAccountAccount(SetupWizardActivity.this) != null) {
+                        removeSetupPage(page, false);
+                    } else {
+                        doNext();
                     }
-                }
-                onPageTreeChanged();
+                    break;
+                case R.string.setup_google_account:
+                    removeSetupPage(page, false);
+                    break;
             }
-        });
+        }
+        onPageTreeChanged();
     }
 
     private boolean recalculateCutOffPage() {
