@@ -48,6 +48,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +62,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
     private static final String KEY_SIM_MISSING_SHOWN = "sim-missing-shown";
     private static final String KEY_G_ACCOUNT_SHOWN = "g-account-shown";
+
+    private static final int REQUEST_CODE_SETUP_GOOGLE = 10;
 
     private static final int DIALOG_SIM_MISSING = 0;
 
@@ -178,6 +181,14 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_SETUP_GOOGLE) {
+            final Page page = mPageList.findPage(R.string.setup_google_account);
+            onPageFinished(page);
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         doPrevious();
     }
@@ -212,6 +223,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private void removeSetupPage(final Page page, boolean animate) {
         if (page == null || getPage(page.getKey()) == null || page.getId() == R.string.setup_complete) return;
         final int position = mViewPager.getCurrentItem();
+        if (position >= mPageList.size()) return;
         if (animate) {
             mViewPager.setCurrentItem(0);
             mSetupData.removePage(page);
@@ -276,7 +288,9 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                     }
                     break;
                 case R.string.setup_google_account:
-                    removeSetupPage(page, false);
+                    if ((!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))) {
+                        removeSetupPage(page, false);
+                    }
                     break;
             }
         }
@@ -350,13 +364,15 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         Bundle bundle = new Bundle();
         bundle.putBoolean(CMAccount.EXTRA_FIRST_RUN, true);
         bundle.putBoolean(CMAccount.EXTRA_ALLOW_SKIP, true);
-        AccountManager.get(this).addAccount(CMAccount.ACCOUNT_TYPE_GOOGLE, null, null, bundle, this, new AccountManagerCallback<Bundle>() {
+        AccountManager.get(this).addAccount(CMAccount.ACCOUNT_TYPE_GOOGLE, null, null, bundle, null, new AccountManagerCallback<Bundle>() {
             @Override
             public void run(AccountManagerFuture<Bundle> bundleAccountManagerFuture) {
-                if (isDestroyed()) return; //There is a change this activity has been torn down.
-                Page page = mPageList.findPage(R.string.setup_google_account);
-                if (page != null) {
-                    onPageFinished(page);
+                if (isDestroyed()) return; //There is a chance this activity has been torn down.
+                try {
+                    Intent intent = (Intent)bundleAccountManagerFuture.getResult().get(AccountManager.KEY_INTENT);
+                    startActivityForResult(intent, REQUEST_CODE_SETUP_GOOGLE);
+                } catch (Exception e) {
+                    Log.e(TAG, "Unable to launch Google account setup", e);
                 }
             }
         }, null);
