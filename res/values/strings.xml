@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">CyanogenMod Account</string>
     <string name="product_name" translatable="false">cyanogenmod</string>
     <string name="account_name" translatable="false">CyanogenMod</string>
