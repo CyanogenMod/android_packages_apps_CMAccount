@@ -33,8 +33,8 @@
     <string name="setup_complete_summary" product="tablet">¡Felicidades! Tu tablet está listo.</string>
     <string name="setup_complete_summary" product="default">¡Felicidades! Tu teléfono está listo.</string>
     <string name="setup_welcome">Bienvenido a CyanogenMod</string>
-    <string name="setup_welcome_summary" product="tablet">Para empezar a configurar tu tablet, selecciona el lenguaje y toca en continuar.</string>
-    <string name="setup_welcome_summary" product="default">Para empezar a configurar tu teléfono, selecciona el lenguaje y toca en continuar.</string>
+    <string name="setup_welcome_summary" product="tablet">Para empezar a configurar tu tablet, selecciona el lenguaje y toca en Siguiente.</string>
+    <string name="setup_welcome_summary" product="default">Para empezar a configurar tu teléfono, selecciona el lenguaje y toca en Siguiente.</string>
     <string name="setup_cmaccount">Configurar tu cuenta de CyanogenMod</string>
     <string name="setup_sim_missing">Insertar tarjeta SIM</string>
     <string name="setup_google_account">Cuenta de Google</string>
@@ -63,7 +63,6 @@
     <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod puede ser incompatible. Por favor, actualiza a la última versión de CyanogenMod para asegurar la compatibilidad.</string>
     <string name="cmaccount_update_required_short">Esta versión puede ser incompatible.</string>
     <string name="cmaccount_checking_for_updates">Comprobar actualizaciones.</string>
-
     <string name="cmaccount_password_changed_title">Contraseña cambiada</string>
     <string name="cmaccount_password_changed_message">Por favor, entra con tu cuenta de CyanogenMod</string>
     <string name="cmaccount_login_message">Entrando en CyanogenMod</string>
