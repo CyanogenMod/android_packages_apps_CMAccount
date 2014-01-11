@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+  <string name="app_name">חשבון CyanogenMod</string>
+  <string name="next">הבא</string>
+  <string name="continue_label">המשך</string>
+  <string name="prev">הקודם</string>
+  <string name="skip">דלג</string>
+  <string name="finish">סיום</string>
+  <string name="cancel">ביטול</string>
+  <string name="create">צור</string>
+  <string name="login">התחברות</string>
+  <string name="ok">אישור</string>
+  <string name="existing">התחבר עם חשבון קיים</string>
+  <string name="new_account">צור חשבון חדש</string>
+  <string name="skip_anyway">דלג בכל מקרה</string>
+  <string name="dont_skip">אל תדלג</string>
+  <string name="setup_complete">ההגדרה הושלמה</string>
+  <string name="setup_complete_summary" product="tablet">מזל טוב! הטאבלט שלך מוכן לקרב.</string>
+  <string name="setup_complete_summary" product="default">מזל טוב! הטאבלט שלך מוכן לקרב.</string>
+  <string name="setup_welcome">ברוך הבא ל-CyanogenMod</string>
+  <string name="setup_welcome_summary" product="tablet">כדי להתחיל עם הטאבלט שלך, בחר את שפתך והמשך.</string>
+  <string name="setup_welcome_summary" product="default">כדי להתחיל עם הטאבלט שלך, בחר את שפתך והמשך.</string>
+  <string name="setup_cmaccount">הגדר את חשבון CyanogenMod שלך</string>
+  <string name="setup_sim_missing">הכנס כרטיס SIM</string>
+  <string name="setup_google_account">חשבון Google</string>
+  <string name="setup_location">הגדרות מיקום</string>
+  <string name="setup_datetime">הגדרות תאריך &amp; זמן</string>
+  <string name="setup_current_date">התאריך הנוכחי</string>
+  <string name="setup_current_time">הזמן הנוכחי</string>
+  <string name="setup_msg_no_network">אזהרה: אתה לא תוכל להגדיר את החשבונות שלך</string>
+  <string name="setup_warning_skip_wifi" product="tablet">אזהרה: אתה יכול לקבל תשלום גדול יותר מהספק שלך.\n\nהגדרת טאבלט יכולה לדרוש הרבה פעילות ברשת.</string>
+  <string name="setup_warning_skip_wifi" product="default">אזהרה: אתה יכול לקבל תשלום גדול יותר מהספק שלך.\n\nהגדרת טאבלט יכולה לדרוש הרבה פעילות ברשת.</string>
+  <string name="cmaccount_setup_create_title">צור חשבון CyanogenMod</string>
+  <string name="cmaccount_setup_login_title">התחבר לחשבון CyanogenMod שלך</string>
+  <string name="cmaccount_setup_email_label">דואר אלקטרוני</string>
+  <string name="cmaccount_setup_email_unavailable_label">דואר אלקטרוני זה כבר רשום</string>
+  <string name="cmaccount_setup_email_invalid_label">כתובת דואר אלקטרוני לא חוקית</string>
+  <string name="cmaccount_setup_password_label">סיסמה</string>
+  <string name="cmaccount_setup_password_create_label">סיסמה (לפחות 8 תווים)</string>
+  <string name="cmaccount_setup_password_mismatch_label">הסיסמאות לא תואמות!</string>
+  <string name="cmaccount_setup_password_invalid_label">‏אורך הסיסמה חייב להיות לפחות 8 תווים!</string>
+  <string name="cmaccount_setup_confirm_password_label">אישור סיסמה</string>
+  <string name="cmaccount_setup_tos_label">אני מסכים לתנאי השימוש</string>
+  <string name="cmaccount_add_title">הוסף חשבון CyanogenMod</string>
+  <string name="cmaccount_add_create_label">חשבון CyanogenMod מאפשר גישה לשירותים ופעולות עבור מכשירך בזמן ריצת CyanogenMod.</string>
+  <string name="cmaccount_learn_more">למד עוד\u2026</string>
+  <string name="cmaccount_update_required_title">עדכון נדרש</string>
+  <string name="cmaccount_update_required_text">גרסת חשבון CyanogenMod שלך יכולה לא להתאים. אנה עדכן לגרסה האחרונה של חשבון CyanogenMod כדי להבטיח  תאימות.</string>
+  <string name="cmaccount_update_required_short">גירסה זו עשויה להיות לא תואמת.</string>
+  <string name="cmaccount_checking_for_updates">בודק עבור עדכונים.</string>
+  <string name="cmaccount_password_changed_title">הסיסמה שונתה</string>
+  <string name="cmaccount_password_changed_message">אנא התחבר לחשבון CyanogenMod שלך</string>
+  <string name="cmaccount_login_message">מתחבר ל-CyanogenMod</string>
+  <string name="cmaccount_creating_profile_message">יוצר את פרופיל CyanogenMod שלך</string>
+  <string name="cmaccount_login_error_title">התחברות נכשלה</string>
+  <string name="cmaccount_login_error_message">דואר אלקטרוני או סיסמה לא נכונים.</string>
+  <string name="cmaccount_server_error_title">שגיאת שרת</string>
+  <string name="cmaccount_create_account_error_title">שגיאה בעת יצירת חשבון</string>
+  <string name="cmaccount_server_error_message">שגיאה אירעה בעת קיום תקשורת עם השרת. נסה שוב מאוחר יותר.</string>
+  <string name="cmaccount_error_multiple_accounts">רק חשבון CyanogenMod אחד אפשרי למכשיר</string>
+  <string name="sim_missing_summary" product="tablet">צריך לפנות להגדרות כרטיס ה-SIM שלך שבאו עם הטאבלט.</string>
+  <string name="sim_missing_summary" product="default">צריך לפנות להגדרות כרטיס ה-SIM שלך שבאו עם הטאבלט.</string>
+  <string name="google_account_summary">האם ברצונך להגדיר את חשבון Google?</string>
+  <string name="btn_google_account">הגדרת חשבון Google</string>
+  <string name="location_access_title">גישה למיקום שלי</string>
+  <string name="location_access_summary">אפשר ליישומים שביקשו הרשאה לקבל את מיקומך</string>
+  <string name="location_sources_heading">מקורות מיקום</string>
+  <string name="location_gps">‏לווייני GPS</string>
+  <string name="location_street_level" product="tablet">אפשר אפליקציות להשתמש ב-GPS על הטאבלט כדי לאתר את מיקומך המדויק</string>
+  <string name="location_street_level" product="default">אפשר אפליקציות להשתמש ב-GPS על הטאבלט כדי לאתר את מיקומך המדויק</string>
+  <string name="location_network_based">מיקום רשת Wi-Fi &amp; רשת לנייד</string>
+  <string name="location_neighborhood_level">‏אפשר לאפליקציות להשתמש בשירות המיקום של Google כדי להעריך את מיקומך מהר יותר. נתוני מיקום אנונימיים ייאספו ויישלחו אל Google.</string>
+</resources>
