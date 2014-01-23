@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">CyanogenMod Paskyra</string>
+    <string name="app_name">"„CyanogenMod“ Paskyra"</string>
     <string name="next">Kitas</string>
     <string name="continue_label">Tęsti</string>
     <string name="prev">Ankstesnis</string>
@@ -30,14 +30,14 @@
     <string name="skip_anyway">Praleisti vistiek</string>
     <string name="dont_skip">Nepraleisti</string>
     <string name="setup_complete">Nustatymas baigtas</string>
-    <string name="setup_complete_summary" product="tablet">Sveikiname! Jūsų planšetinis kompiuteris yra paruoštas darbui.</string>
-    <string name="setup_complete_summary" product="default">Sveikiname! Jūsų telefonas yra paruoštas darbui.</string>
-    <string name="setup_welcome">Jus sveikina CyanogenMod</string>
+    <string name="setup_complete_summary" product="tablet">Sveikiname! Jūsų planšetinis kompiuteris paruoštas darbui.</string>
+    <string name="setup_complete_summary" product="default">Sveikiname! Jūsų telefonas paruoštas darbui.</string>
+    <string name="setup_welcome">"Jus sveikina „CyanogenMod“"</string>
     <string name="setup_welcome_summary" product="tablet">Norėdami naudotis planšetiniu kompiuteriu pasirinkite savo kalbą ir tęskite toliau.</string>
     <string name="setup_welcome_summary" product="default">Norėdami naudotis telefonu pasirinkite savo kalbą ir tęskite toliau.</string>
-    <string name="setup_cmaccount">Sukurkite savo CyanogenMod paskyrą</string>
+    <string name="setup_cmaccount">"Sukurkite savo „CyanogenMod“ paskyrą"</string>
     <string name="setup_sim_missing">Įdėkite SIM kortelę</string>
-    <string name="setup_google_account">Google paskyra</string>
+    <string name="setup_google_account">"„Google“ paskyra"</string>
     <string name="setup_location">Vietovės nustatymai</string>
     <string name="setup_datetime">Datos ir laiko nustatymai</string>
     <string name="setup_current_date">Dabartinė data</string>
@@ -45,8 +45,8 @@
     <string name="setup_msg_no_network">DĖMESIO: Jūs negalėsite konfigūruoti savo paskyrų</string>
     <string name="setup_warning_skip_wifi" product="tablet">ĮSPĖJIMAS: Gali reikėti papildomų duomenų mokesčių.\n\nPlanšetinio kompiuterio nustatymas gali reikalauti svarbios tinklo veiklos.</string>
     <string name="setup_warning_skip_wifi" product="default">ĮSPĖJIMAS: Gali reikėti papildomų duomenų mokesčių.\n\nTelefono nustatymas gali reikalauti svarbios tinklo veiklos.</string>
-    <string name="cmaccount_setup_create_title">Sukurti CyanogenMod paskyrą</string>
-    <string name="cmaccount_setup_login_title">Prisijunkite pries savo CyanogenMod paskyros</string>
+    <string name="cmaccount_setup_create_title">"Sukurti „CyanogenMod“ paskyrą"</string>
+    <string name="cmaccount_setup_login_title">"Prisijunkite pries savo „CyanogenMod“ paskyros"</string>
     <string name="cmaccount_setup_email_label">El. paštas</string>
     <string name="cmaccount_setup_email_unavailable_label">El. pašto adresas jau registruotas</string>
     <string name="cmaccount_setup_email_invalid_label">Neteisingas el. pašto adresas</string>
@@ -56,33 +56,33 @@
     <string name="cmaccount_setup_password_invalid_label">Slaptažodis turi būti bent 8 simbolių!</string>
     <string name="cmaccount_setup_confirm_password_label">Patvirtinkite slaptažodį</string>
     <string name="cmaccount_setup_tos_label">Aš sutinku su %1$spaslaugų tiekimo%2$s sąlygomis</string>
-    <string name="cmaccount_add_title">Pridėti CyanogenMod paskyrą</string>
-    <string name="cmaccount_add_create_label">CyanogenMod paskyra suteikia prieigą prie pridėtinės vertės paslaugų ir funkcijų mobiliajame prietaise.</string>
+    <string name="cmaccount_add_title">"Pridėti „CyanogenMod“ paskyrą"</string>
+    <string name="cmaccount_add_create_label">"„CyanogenMod“ paskyra suteikia prieigą prie pridėtinės vertės paslaugų ir funkcijų mobiliajame prietaise."</string>
     <string name="cmaccount_learn_more">Sužinokite daugiau\u2026</string>
     <string name="cmaccount_update_required_title">Reikalingas naujinimas</string>
-    <string name="cmaccount_update_required_text">Ši CyanogenMod paskyros versija gali būti nesuderinama. Prašome atnaujinti į naujausią versiją tam kad užtikrintumėte CyanogenMod suderinamumą.</string>
+    <string name="cmaccount_update_required_text">"Ši „CyanogenMod“ paskyros versija gali būti nesuderinama. Prašome atnaujinti į naujausią versiją tam kad užtikrintumėte „CyanogenMod“ suderinamumą."</string>
     <string name="cmaccount_update_required_short">Ši versija gali būti nesuderinama.</string>
     <string name="cmaccount_checking_for_updates">Ieškoma atnaujinimų.</string>
     <string name="cmaccount_password_changed_title">Slaptažodis pakeistas</string>
-    <string name="cmaccount_password_changed_message">Prašome prisijungti prie savo CyanogenMod paskyros</string>
-    <string name="cmaccount_login_message">Jungiamasi prie CyanogenMod</string>
-    <string name="cmaccount_creating_profile_message">Kuriama jūsų CyanogenMod paskyra</string>
+    <string name="cmaccount_password_changed_message">"Prašome prisijungti prie savo „CyanogenMod“ paskyros"</string>
+    <string name="cmaccount_login_message">"Jungiamasi prie „CyanogenMod“"</string>
+    <string name="cmaccount_creating_profile_message">"Kuriama jūsų „CyanogenMod“ paskyra"</string>
     <string name="cmaccount_login_error_title">Nepavyko prisijungti</string>
     <string name="cmaccount_login_error_message">Neteisingas el. paštas arba slaptažodis.</string>
     <string name="cmaccount_server_error_title">Serverio klaida</string>
     <string name="cmaccount_create_account_error_title">Klaida kuriant paskyrą</string>
     <string name="cmaccount_server_error_message">Įvyko klaida, susijungiant su serveriu. Prašome pabandyti vėliau.</string>
-    <string name="cmaccount_error_multiple_accounts">Prietaise leidžiama tik viena CyanogenMod paskyra </string>
+    <string name="cmaccount_error_multiple_accounts">"Prietaise leidžiama tik viena „CyanogenMod“ paskyra"</string>
     <string name="sim_missing_summary" product="tablet">Jums reikia kreiptis į SIM kortelės instrukcijas kuri atėjo kartu su planšetiniu kompiuteriu.</string>
     <string name="sim_missing_summary" product="default">Jums reikia kreiptis į SIM kortelės instrukcijas kuri atėjo kartu su telefonu.</string>
-    <string name="google_account_summary">Ar norite sukurti Google paskyrą?</string>
-    <string name="btn_google_account">Nustatykite Google paskyrą</string>
+    <string name="google_account_summary">"Ar norite sukurti „Google“ paskyrą?"</string>
+    <string name="btn_google_account">"Nustatykite „Google“ paskyrą"</string>
     <string name="location_access_title">Prieiga prie savo vietovės</string>
     <string name="location_access_summary">Leisti programoms paprašyti jūsų leidimo naudoti jūsų vietovės informaciją</string>
     <string name="location_sources_heading">Vietovės šaltiniai</string>
     <string name="location_gps">GPS palydovai</string>
     <string name="location_street_level" product="tablet">Leisti programoms naudoti jūsų planšetinio kompiuterio GPS tam, kad nustatyti jūsų vietovę</string>
     <string name="location_street_level" product="default">Leisti programoms naudoti jūsų telefono GPS tam, kad nustatyti jūsų vietovę</string>
-    <string name="location_network_based">Wi-Fi ir mobiliojo ryšio tinklo vieta</string>
-    <string name="location_neighborhood_level">Leisti programoms naudoti Google vietos paslaugai įvertinti jūsų buvimo vietą greičiau. Anoniminiai vietovės nustatymo duomenys bus renkami ir siunčiami į Google.</string>
+    <string name="location_network_based">"„Wi-Fi“ ir mobiliojo ryšio tinklo vieta"</string>
+    <string name="location_neighborhood_level">"Leisti programoms naudoti „Google“ vietos paslaugai įvertinti jūsų buvimo vietą greičiau. Anoniminiai vietovės nustatymo duomenys bus renkami ir siunčiami į „Google“."</string>
 </resources>
