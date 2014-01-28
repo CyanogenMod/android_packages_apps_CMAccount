@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Cuenta CyanogenMod</string>
+    <string name="next">Siguiente</string>
+    <string name="continue_label">Continuar</string>
+    <string name="prev">Anterior</string>
+    <string name="skip">Omitir</string>
+    <string name="finish">Finar</string>
+    <string name="cancel">Encaboxar</string>
+    <string name="create">Crear</string>
+    <string name="login">Entrar</string>
+    <string name="ok">Aceutar</string>
+    <string name="existing">Identificase usando una cuenta esistente</string>
+    <string name="new_account">Crear una nueva cuenta</string>
+    <string name="skip_anyway">Omitir</string>
+    <string name="dont_skip">Nun omitir</string>
+    <string name="setup_complete">Configuración completada</string>
+    <string name="setup_complete_summary" product="tablet">¡Felicidaes! La to tablet ta llista.</string>
+    <string name="setup_complete_summary" product="default">¡Felicidaes! El to teléfonu ta llistu.</string>
+    <string name="setup_welcome">Bienllegáu a CyanogenMod</string>
+    <string name="setup_welcome_summary" product="tablet">Pa empezar a configurar la to tablet, seleiciona la llingua y toca en Siguiente.</string>
+    <string name="setup_welcome_summary" product="default">Pa empezar a configurar el to teléfonu, seleiciona la llingua y toca en Siguiente.</string>
+    <string name="setup_cmaccount">Configurar la to cuenta de CyanogenMod</string>
+    <string name="setup_sim_missing">Inxertar tarxeta SIM</string>
+    <string name="setup_google_account">Cuenta de Google</string>
+    <string name="setup_location">Axustes de llocalización</string>
+    <string name="setup_datetime">Axustes de data y hora</string>
+    <string name="setup_current_date">Data actual</string>
+    <string name="setup_current_time">Hora actual</string>
+    <string name="setup_msg_no_network">AVISU: Nun vas poder configurar les tos cuentes</string>
+    <string name="setup_warning_skip_wifi" product="tablet">AVISU: Ye posible que se facturen cargos de datos adicionales.\n\nLa configuración de la tablet pue riquir una gran cantidá d\'actividá de rede.</string>
+    <string name="setup_warning_skip_wifi" product="default">AVISO: Ye posible que se facturen cargos de datos adicionales.\n\nLa configuración del teléfonu pue riquir una gran cantidá d\'actividad de rede.</string>
+    <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
+    <string name="cmaccount_setup_login_title">Entrar na to cuenta de CyanogenMod</string>
+    <string name="cmaccount_setup_email_label">Corréu-e</string>
+    <string name="cmaccount_setup_email_unavailable_label">Corréu-e yá rexistráu</string>
+    <string name="cmaccount_setup_email_invalid_label">Nun ye una direición de corréu-e válida</string>
+    <string name="cmaccount_setup_password_label">Contraseña</string>
+    <string name="cmaccount_setup_password_create_label">Contraseña (mín. 8 car.)</string>
+    <string name="cmaccount_setup_password_mismatch_label">¡Les contraseñes nun concasen!</string>
+    <string name="cmaccount_setup_password_invalid_label">¡La contraseña tien de tener a lo menos 8 caráuteres!</string>
+    <string name="cmaccount_setup_confirm_password_label">Confirmar contraseña</string>
+    <string name="cmaccount_setup_tos_label">Toi d\'acuerdu colos %1$stérminos%2$s del serviciu</string>
+    <string name="cmaccount_add_title">Amestar una cuenta de CyanogenMod</string>
+    <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod permite l\'accesu a servicios de valor añadíu y funcionalidaes estres pal to preséu CyanogenMod.</string>
+    <string name="cmaccount_learn_more">Lleer más\u2026</string>
+    <string name="cmaccount_update_required_title">Anovamientu necesariu</string>
+    <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod pue ser incompatible. Por favor, anueva a la cabera versión de CyanogenMod p\'asegurar la compatibilidá.</string>
+    <string name="cmaccount_update_required_short">Esta versión pue ser incompatible.</string>
+    <string name="cmaccount_checking_for_updates">Comprobar anovamientos.</string>
+    <string name="cmaccount_password_changed_title">Contraseña cambiada</string>
+    <string name="cmaccount_password_changed_message">Por favor, entra con tu cuenta de CyanogenMod</string>
+    <string name="cmaccount_login_message">Entrando en CyanogenMod</string>
+    <string name="cmaccount_creating_profile_message">Creando el to perfil en CyanogenMod</string>
+    <string name="cmaccount_login_error_title">Fallu al acceder</string>
+    <string name="cmaccount_login_error_message">Direición de corréu o contraseña incorreutos.</string>
+    <string name="cmaccount_server_error_title">Fallu de sirvidor</string>
+    <string name="cmaccount_create_account_error_title">Hebo un fallu mentanto se creaba la cuenta</string>
+    <string name="cmaccount_server_error_message">Hebo un fallu na comunicación col sirvidor. Por favor, inténtalo más tarde.</string>
+    <string name="cmaccount_error_multiple_accounts">Namái se permite una cuenta de CyanogenMod por preséu</string>
+    <string name="sim_missing_summary" product="tablet">Consulta les instrucciones de la tarxeta SIM que s\'inclúin cola to tablet.</string>
+    <string name="sim_missing_summary" product="default">Consulta les instrucciones de la tarxeta SIM que s\'inclúin col to teléfonu.</string>
+    <string name="google_account_summary">¿Quies configurar una cuenta de Google?</string>
+    <string name="btn_google_account">Configurar cuenta de Google</string>
+    <string name="location_access_title">Accesu a la to llocalización</string>
+    <string name="location_access_summary">Permitir que les aplicaciones que pidieron permisu usen la información sobre la to llocalización</string>
+    <string name="location_sources_heading">Fontes de llocalización</string>
+    <string name="location_gps">Satélites GPS</string>
+    <string name="location_street_level" product="tablet">Permitir que les aplicaciones usen el GPS de la tablet pa determinar la to llocalización</string>
+    <string name="location_street_level" product="default">Permitir que les aplicaciones usen el GPS del teléfonu pa determinar la to llocalización</string>
+    <string name="location_network_based">Llocalización por rede móvil y Wi-Fi</string>
+    <string name="location_neighborhood_level">Permitir que les aplicaciones usen el serviciu de llocalización de Google pa calcular la to llocalización más rápido. Van recopilase datos de llocalización anónimos y van unviase a Google</string>
+</resources>
