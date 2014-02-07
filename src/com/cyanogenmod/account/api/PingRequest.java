@@ -45,7 +45,7 @@ public class PingRequest extends CMAccountRequest<PingResponse> {
         addParameter(PARAM_MODEL, Build.MODEL);
         addParameter(PARAM_CARRIER, carrier);
         addParameter(PARAM_ANDROID_VERSION, Build.VERSION.RELEASE);
-        addParameter(PARAM_CM_VERSION, CMAccountUtils.getModVersion());
+        addParameter(PARAM_CM_VERSION, CMAccountUtils.getDisplayVersion());
         addParameter(PARAM_SALT, CMAccountUtils.getDeviceSalt(context));
     }
 

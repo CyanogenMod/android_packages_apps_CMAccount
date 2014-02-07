@@ -205,8 +205,8 @@ public class CMAccountUtils {
         return simState == TelephonyManager.SIM_STATE_ABSENT || simState == TelephonyManager.SIM_STATE_UNKNOWN;
     }
 
-    public static String getModVersion() {
-        return SystemProperties.get("ro.cm.version");
+    public static String getDisplayVersion() {
+        return SystemProperties.get("ro.cm.display.version");
     }
 
     public static String getUniqueDeviceId(Context context) {
