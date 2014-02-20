@@ -50,6 +50,7 @@
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
     <string name="setup_warning_skip_wifi" product="tablet">WARNING: You may incur extra carrier data charges.\n\nTablet setup can require significant network activity.</string>
     <string name="setup_warning_skip_wifi" product="default">WARNING: You may incur extra carrier data charges.\n\nPhone setup can require significant network activity.</string>
+    <string name="setup_privacy">Privacy Settings</string>
 
     <string name="cmaccount_setup_create_title">Create a CyanogenMod account</string>
     <string name="cmaccount_setup_login_title">Log in to your CyanogenMod account</string>
@@ -89,6 +90,9 @@
     <string name="sim_missing_summary" product="default">You need to refer to the SIM card instructions that came with your phone.</string>
     <string name="google_account_summary">Do you want to set up a Google account?</string>
     <string name="btn_google_account">Set up Google account</string>
+
+    <string name="whisperpush_title">Enable secure SMS</string>
+    <string name="whisperpush_summary">SMS messages with other CyanogenMod users who have enabled this feature will be automatically encrypted.</string>
 
     <string name="location_access_title">Access to my location</string>
     <string name="location_access_summary">Allow apps that have asked your permission to use your location information</string>

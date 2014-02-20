@@ -25,6 +25,7 @@ import com.cyanogenmod.account.setup.Page;
 import com.cyanogenmod.account.setup.PageList;
 import com.cyanogenmod.account.setup.SetupDataCallbacks;
 import com.cyanogenmod.account.util.CMAccountUtils;
+import com.cyanogenmod.account.util.WhisperPushUtils;
 
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
@@ -47,6 +48,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -363,6 +365,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     private void finishSetup() {
+        handleWhisperPushRegistration();
+
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
         ((CMAccount)AppGlobals.getInitialApplication()).enableStatusBar();
@@ -376,6 +380,14 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private boolean accountExists(String accountType) {
         return AccountManager.get(this).getAccountsByType(accountType).length > 0;
+    }
+
+    private void handleWhisperPushRegistration() {
+        Bundle privacyData = getPage(getString(R.string.setup_privacy)).getData();
+        if (privacyData.getBoolean("register")) {
+            Log.d(TAG, "Registering with WhisperPush");
+            WhisperPushUtils.startRegistration(this);
+        }
     }
 
     private class CMPagerAdapter extends FragmentStatePagerAdapter {

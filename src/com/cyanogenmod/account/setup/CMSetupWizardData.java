@@ -32,6 +32,7 @@ public class CMSetupWizardData extends AbstractSetupData {
                new CMAccountPage(mContext, this, R.string.setup_cmaccount),
                new GoogleAccountPage(mContext, this, R.string.setup_google_account),
                new LocationSettingsPage(mContext, this, R.string.setup_location),
+               new PrivacySettingsPage(mContext, this, R.string.setup_privacy),
                new DateTimePage(mContext, this, R.string.setup_datetime),
                new FinishPage(mContext, this, R.string.setup_complete)
         );

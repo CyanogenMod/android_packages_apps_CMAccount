@@ -16,7 +16,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     volley \
     gson \
     play \
-    spongycastle-light-jdk15on
+    spongycastle-light-jdk15on \
+	libphonenumbergoogle
 
 # Include res dir from chips
 google_play_dir := ../../../external/google/google_play_services/libproject/google-play-services_lib/res
