@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">Akaun CyanogenMod</string>
+  <string name="next">Selepas</string>
+  <string name="continue_label">Teruskan</string>
+  <string name="prev">Sebelum</string>
+  <string name="skip">Langkau</string>
+  <string name="finish">Tamat</string>
+  <string name="cancel">Batal</string>
+  <string name="create">Cipta</string>
+  <string name="login">Log masuk</string>
+  <string name="ok">OK</string>
+  <string name="existing">Log masuk ke akaun sedia ada</string>
+  <string name="new_account">Buat akaun baru</string>
+  <string name="skip_anyway">Langkau sahaja</string>
+  <string name="dont_skip">Jangan langkau</string>
+  <string name="setup_complete">Persediaan telah lengkap</string>
+  <string name="setup_complete_summary" product="tablet">Tahniah! Tablet anda sedia untuk diguna.</string>
+  <string name="setup_complete_summary" product="default">Tahniah! Telefon anda sedia untuk diguna.</string>
+  <string name="setup_welcome">Selamat datang ke CyanogenMod</string>
+  <string name="setup_welcome_summary" product="tablet">Untuk permulaan bagi menyediakan tablet anda, sila pilih bahasa dan teruskan.</string>
+  <string name="setup_welcome_summary" product="default">Untuk permulaan bagi menyediakan telefon anda, sila pilih bahasa dan teruskan.</string>
+  <string name="setup_cmaccount">Buat akaun CyanogenMod anda</string>
+  <string name="setup_sim_missing">Masukkan kad SIM</string>
+  <string name="setup_google_account">Akaun Google</string>
+  <string name="setup_location">Tetapan lokasi</string>
+  <string name="setup_current_date">Tarikh semasa</string>
+  <string name="setup_current_time">Masa semasa</string>
+  <string name="setup_msg_no_network">AMARAN: Anda tidak akan dapat membuat akaun</string>
+  <string name="setup_warning_skip_wifi" product="tablet">AMARAN: Anda mungkin dikenakan caj pengunaan data oleh rangkaian.\n\nPenyediaan tablet memerlukan pengunaan aktiviti rangkaian yang ketara.</string>
+  <string name="setup_warning_skip_wifi" product="default">AMARAN: Anda mungkin dikenakan caj pengunaan data oleh rangkaian.\n\nPenyediaan telefon memerlukan pengunaan aktiviti rangkaian yang ketara.</string>
+  <string name="cmaccount_setup_create_title">Buat akaun CyanogenMod</string>
+  <string name="cmaccount_setup_login_title">Log masuk ke akaun CyanogenMod</string>
+  <string name="cmaccount_setup_email_label">E-mel</string>
+  <string name="cmaccount_setup_email_unavailable_label">E-mel sudah didaftarkan</string>
+  <string name="cmaccount_setup_email_invalid_label">Bukan alamat e-mel yang sah</string>
+  <string name="cmaccount_setup_password_label">Kata laluan</string>
+  <string name="cmaccount_setup_password_create_label">Kata laluan (min. 8 karakter)</string>
+  <string name="cmaccount_setup_password_mismatch_label">Kata laluan tidak sama!</string>
+  <string name="cmaccount_setup_password_invalid_label">Kata laluan mesti sekurangya 8 karakter!</string>
+  <string name="cmaccount_setup_confirm_password_label">Sahkan kata laluan</string>
+  <string name="cmaccount_setup_tos_label">Saya setuju pada %1$sterma%2$s perkhidmatan</string>
+  <string name="cmaccount_add_title">Tambah akaun CyanogenMod</string>
+  <string name="cmaccount_add_create_label">Akaun CyanogenMod memberikan akses ke perkhidmatan nilai tambah dan fungsi untuk peranti mudah alih anda  yang menjalankan CyanogenMod.</string>
+  <string name="cmaccount_learn_more">Tahu lagi\u2026</string>
+  <string name="cmaccount_update_required_title">Kemaskini Diperlukan</string>
+  <string name="cmaccount_update_required_short">Versi ini mungkin tidak serasi.</string>
+  <string name="cmaccount_checking_for_updates">Menyemak kemaskini.</string>
+  <string name="cmaccount_password_changed_title">Kata laluan diubah</string>
+  <string name="cmaccount_password_changed_message">Sila log masuk ke akaun CyanogenMod anda</string>
+  <string name="cmaccount_login_message">Log masuk ke CyanogenMod</string>
+  <string name="cmaccount_creating_profile_message">Mencipta profil CyanogenMod anda</string>
+  <string name="cmaccount_login_error_title">Log masuk gagal</string>
+  <string name="cmaccount_login_error_message">E-mel atau kata laluan tidak sah.</string>
+  <string name="cmaccount_server_error_title">Ralat pelayan</string>
+  <string name="cmaccount_create_account_error_title">Ralat membuat akaun</string>
+  <string name="cmaccount_server_error_message">Ralat berlaku ketika berhubung dengan pelayan. Sila cuba sebentar lagi.</string>
+  <string name="cmaccount_error_multiple_accounts">Hanya satu akaun CyanogenMod dibenarkan pada setiap peranti</string>
+  <string name="sim_missing_summary" product="tablet">Anda perlu rujuk pada arahan kad SIM yang hadir bersama tablet anda.</string>
+  <string name="sim_missing_summary" product="default">Anda perlu rujuk pada arahan kad SIM yang hadir bersama telefon anda.</string>
+  <string name="google_account_summary">Adakah anda ingin gunakan akaun Google?</string>
+  <string name="btn_google_account">Gunakan akaun Google</string>
+  <string name="location_access_title">Akses ke lokasi saya</string>
+  <string name="location_access_summary">Benarkan aplikasi yang meminta keizinan untuk menggunakan maklumat lokasi anda</string>
+  <string name="location_sources_heading">Sumber lokasi</string>
+  <string name="location_gps">Satelit GPS</string>
+  <string name="location_street_level" product="tablet">Benarkan aplikasi menggunakan GPS pada tablet untuk tunjuk ke lokasi anda</string>
+  <string name="location_street_level" product="default">Benarkan aplikasi menggunakan GPS pada telefon untuk tunjuk ke lokasi anda</string>
+  <string name="location_neighborhood_level">Benarkan aplikasi menggunakan pekhidmatan lokasi Google untuk menganggar lokasi anda lebih pantas. Data lokasi tanpa nama akan dikumpul dan dihantar ke Google.</string>
+</resources>
