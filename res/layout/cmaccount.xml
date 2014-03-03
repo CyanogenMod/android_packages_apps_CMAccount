@@ -19,6 +19,9 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="25dp"
         style="@style/SetupWizardPageContent">
 
         <TextView
@@ -27,7 +30,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:fillViewport="true">
 
             <LinearLayout
@@ -38,6 +42,7 @@
                 <View style="@style/SetupWizardDivider"/>
 
                 <TextView
+                    android:id="@+id/cmaccount_add_create"
                     style="@style/SetupWizardPageSummary"
                     android:text="@string/cmaccount_add_create_label" />
 
@@ -45,32 +50,28 @@
                     android:id="@+id/learn_more_button"
                     style="@style/SetupWizardPageLink"
                     android:text="@string/cmaccount_learn_more" />
-
-                <View
-                    android:id="@+id/divider"
-                    android:background="?android:attr/dividerHorizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent" />
-
-                <Button
-                    android:id="@+id/existing_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/existing"
-                    style="@style/ActionButton" />
-
-                <Button
-                    android:id="@+id/new_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/new_account"
-                    style="@style/ActionButton" />
             </LinearLayout>
         </ScrollView>
+
+        <Button
+            android:id="@+id/existing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/existing" />
+
+        <TextView
+            android:id="@+id/cmaccount_or"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            style="@style/SetupWizardPageSummary"
+            android:text="@string/or" />
+
+        <Button
+            android:id="@+id/new_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/new_account" />
     </LinearLayout>
 </FrameLayout>

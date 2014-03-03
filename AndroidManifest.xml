@@ -66,7 +66,6 @@
 
         <activity android:name=".ui.SetupWizardActivity"
             android:label="@string/product_name"
-            android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
             android:launchMode="singleTop"
             android:excludeFromRecents="true"
             android:immersive="true">
@@ -83,18 +82,15 @@
 
         <activity android:name=".ui.CMAccountActivity"
             android:label="@string/product_name"
-            android:theme="@style/Theme.CMAccount.ActionBar.Overlay"
             android:launchMode="singleTop"
             android:excludeFromRecents="true" />
 
         <activity android:name=".auth.AuthActivity"
             android:label="@string/product_name"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.CMAccount.ActionBar.Overlay" />
+            android:launchMode="singleTop" />
 
         <activity android:name=".auth.UpdateRequiredActivity"
-                  android:label="@string/product_name"
-                  android:theme="@style/Theme.CMAccount" />
+                  android:label="@string/product_name" />
 
         <receiver android:name=".gcm.GCMReceiver" android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">

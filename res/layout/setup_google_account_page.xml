@@ -19,13 +19,17 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="25dp"
         style="@style/SetupWizardPageContent">
 
         <TextView style="@style/SetupWizardPageTitle" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:fillViewport="true">
 
             <LinearLayout
@@ -37,18 +41,13 @@
                       android:layout_marginBottom="20dp"/>
 
                 <TextView style="@style/SetupWizardPageSummary" />
-
-                <View style="@style/SetupWizardDivider"
-                      android:layout_marginTop="20dp"
-                      android:layout_marginBottom="12dp"/>
-
-                <Button
-                    android:id="@+id/google_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/ActionButton"
-                    android:text="@string/btn_google_account" />
             </LinearLayout>
         </ScrollView>
+
+        <Button
+            android:id="@+id/google_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_google_account" />
     </LinearLayout>
 </FrameLayout>

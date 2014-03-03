@@ -21,7 +21,7 @@
 
     <LinearLayout
         android:orientation="vertical"
-        style="@style/SetupWizardCard.Composite">
+        style="@style/SetupWizardCard">
 
         <TextView style="@style/SetupWizardPageTitle" />
 

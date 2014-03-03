@@ -15,23 +15,9 @@
      limitations under the License.
 -->
 <resources>
-    <style name="Theme.CMAccount" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
-        <item name="android:actionMenuTextColor">@android:color/holo_blue_light</item>
-        <item name="android:actionMenuTextAppearance">@style/ActionButton</item>
-    </style>
-
-    <style name="Theme.CMAccount.ActionBar" />
-
-    <style name="Theme.CMAccount.ActionBar.Overlay">
-        <item name="android:windowActionBarOverlay">true</item>
-    </style>
-
-    <style name="Widget.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@drawable/ab_bg</item>
-        <item name="android:displayOptions">disableHome|showCustom</item>
-        <item name="android:customNavigationLayout">@layout/action_bar_nav</item>
-        <item name="android:paddingTop">0dp</item>
+    <style name="Theme.CMAccount" parent="@android:style/Theme.Holo">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="RootLayout">
@@ -41,13 +27,11 @@
         <item name="android:paddingLeft">6dp</item>
         <item name="android:paddingBottom">4dp</item>
         <item name="android:paddingTop">@dimen/page_top_margin</item>
-        <item name="android:background">@color/light_gray</item>
     </style>
 
     <style name="SetupWizardCard">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@drawable/card</item>
     </style>
 
     <style name="SetupWizardPageContent">
@@ -58,18 +42,14 @@
         <item name="android:paddingRight">8dp</item>
     </style>
 
-    <style name="SetupWizardCard.Composite" parent="@style/SetupWizardPageContent">
-        <item name="android:background">@drawable/card</item>
-    </style>
-
     <style name="SetupWizardPageTitle">
         <item name="android:id">@android:id/title</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/title_top_margin</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/holo_blue_light</item>
     </style>
 
@@ -82,7 +62,7 @@
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="SetupWizardPageLink" parent="@android:style/Widget.ActionButton">
@@ -108,7 +88,7 @@
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="SetupWizardDivider">
