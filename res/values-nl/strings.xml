@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2013-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
     <string name="create">Aanmaken</string>
     <string name="login">Inloggen</string>
     <string name="ok">OK</string>
+    <string name="or">of</string>
     <string name="existing">Inloggen op een bestaand account</string>
     <string name="new_account">Nieuw account aanmaken</string>
     <string name="skip_anyway">Toch overslaan</string>
@@ -45,6 +46,7 @@
     <string name="setup_msg_no_network">Let op: het is niet mogelijk accounts in te stellen</string>
     <string name="setup_warning_skip_wifi" product="tablet">Let op: gegevensgebruik kan leiden tot extra kosten.\n\nBij het instellen van uw tablet kan veel netwerkactiviteit plaatsvinden.</string>
     <string name="setup_warning_skip_wifi" product="default">Let op: gegevensgebruik kan leiden tot extra kosten.\n\nBij het instellen van uw telefoon kan veel netwerkactiviteit plaatsvinden.</string>
+    <string name="setup_privacy">Privacy-instellingen</string>
     <string name="cmaccount_setup_create_title">CyanogenMod-account aanmaken</string>
     <string name="cmaccount_setup_login_title">Inloggen op uw CyanogenMod-account</string>
     <string name="cmaccount_setup_email_label">E-mailadres</string>
@@ -77,6 +79,8 @@
     <string name="sim_missing_summary" product="default">Bekijk de simkaartinstructies voor uw telefoon.</string>
     <string name="google_account_summary">Wilt u een Google-account aanmaken?</string>
     <string name="btn_google_account">Google-account aanmaken</string>
+    <string name="whisperpush_title">Beveiligde sms-berichten inschakelen</string>
+    <string name="whisperpush_summary">Sms-berichten uitgewisseld met andere CyanogenMod-gebruikers die deze functie hebben ingeschakeld worden automatisch versleuteld.</string>
     <string name="location_access_title">Toegang tot mijn locatie</string>
     <string name="location_access_summary">Apps die uw toestemming hebben gevraagd, toestaan uw locatiegegevens te gebruiken</string>
     <string name="location_sources_heading">Locatiebronnen</string>
