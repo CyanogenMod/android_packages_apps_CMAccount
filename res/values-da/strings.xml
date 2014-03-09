@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2013-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
     <string name="create">Opret</string>
     <string name="login">Login</string>
     <string name="ok">OK</string>
+    <string name="or">eller</string>
     <string name="existing">Log ind på en eksisterende konto</string>
     <string name="new_account">Opret en ny konto</string>
     <string name="skip_anyway">Ignorér alligevel</string>
@@ -45,6 +46,7 @@
     <string name="setup_msg_no_network">ADVARSEL: Du vil ikke være i stand til at oprette dine konti</string>
     <string name="setup_warning_skip_wifi" product="tablet">ADVARSEL: Du kan pådrage dig ekstra data-udgifter.\n\nOpsætning af tabletten kan kræve en betydelig netværksaktivitet.</string>
     <string name="setup_warning_skip_wifi" product="default">ADVARSEL: Du kan pådrage dig ekstra data-udgifter.\n\nOpsætning af telefonen kan kræve en betydelig netværksaktivitet.</string>
+    <string name="setup_privacy">Indstillinger for personlige oplysninger</string>
     <string name="cmaccount_setup_create_title">Opret en CyanogenMod-konto</string>
     <string name="cmaccount_setup_login_title">Log ind på din CyanogenMod-konto</string>
     <string name="cmaccount_setup_email_label">E-mail</string>
@@ -77,6 +79,8 @@
     <string name="sim_missing_summary" product="default">For vejledning til indsættelse af SIM-kort henvises der til brugervejledningen for din telefon.</string>
     <string name="google_account_summary">Ønsker du at oprette en Google-konto?</string>
     <string name="btn_google_account">Opret en Google-konto</string>
+    <string name="whisperpush_title">Aktivér sikker SMS</string>
+    <string name="whisperpush_summary">SMS-beskeder med andre brugere af CyanogenMod, som har aktiveret denne funktion, vil blive krypteret automatisk.</string>
     <string name="location_access_title">Adgang til min placering</string>
     <string name="location_access_summary">Tillad apps, der har bedt om tilladelse, at bruge dine placeringsoplysninger</string>
     <string name="location_sources_heading">Placeringskilder</string>
