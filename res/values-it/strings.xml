@@ -26,6 +26,7 @@
     <string name="create">Crea</string>
     <string name="login">Login</string>
     <string name="ok">OK</string>
+    <string name="or">o</string>
     <string name="existing">Accedi ad un account esistente</string>
     <string name="new_account">Crea un nuovo account</string>
     <string name="skip_anyway">Salta comunque</string>
@@ -46,6 +47,7 @@
     <string name="setup_msg_no_network">ATTENZIONE: Non sarai in grado di impostare i tuoi account</string>
     <string name="setup_warning_skip_wifi" product="tablet">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del tablet potrebbe richiedere un significativo scambio di dati in rete.</string>
     <string name="setup_warning_skip_wifi" product="default">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del telefono potrebbe richiedere un significativo scambio di dati in rete.</string>
+    <string name="setup_privacy">Impostazioni Privacy</string>
     <string name="cmaccount_setup_create_title">Crea il tuo Account CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Effettua il login al tuo Account CyanogenMod</string>
     <string name="cmaccount_setup_email_label">Email</string>
@@ -78,6 +80,8 @@
     <string name="sim_missing_summary" product="default">Controlla sulle istruzioni per la SIM card accluse al tuo telefono.</string>
     <string name="google_account_summary">Vuoi impostare un account Google?</string>
     <string name="btn_google_account">Imposta un account Google</string>
+    <string name="whisperpush_title">Attiva SMS sicuri</string>
+    <string name="whisperpush_summary">Gli SMS scambiati con gli altri utenti CyanogenMod che hanno attivato questa funzione verranno crittografati automaticamente.</string>
     <string name="location_access_title">Accesso alla posizione</string>
     <string name="location_access_summary">Consenti alle applicazioni alle quali è stato fornito il permesso di utilizzare le informazioni sulla tua posizione</string>
     <string name="location_sources_heading">Sorgenti della posizione</string>
