@@ -25,6 +25,7 @@
     <string name="create">Erstellen</string>
     <string name="login">Anmelden</string>
     <string name="ok">OK</string>
+    <string name="or">oder</string>
     <string name="existing">Bestehendes Konto verwenden</string>
     <string name="new_account">Neues Konto erstellen</string>
     <string name="skip_anyway">Trotzdem überspringen</string>
@@ -45,6 +46,7 @@
     <string name="setup_msg_no_network">WARNUNG: Sie werden nicht imstande sein, Ihr Konto erfolgreich einzurichten</string>
     <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
     <string name="setup_warning_skip_wifi" product="default">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
+    <string name="setup_privacy">Privatsphären-Einstellungen</string>
     <string name="cmaccount_setup_create_title">CyanogenMod-Konto erstellen</string>
     <string name="cmaccount_setup_login_title">An CyanogenMod-Konto anmelden</string>
     <string name="cmaccount_setup_email_label">E-Mail-Adresse</string>
@@ -77,6 +79,8 @@
     <string name="sim_missing_summary" product="default">Hinweise zum Einsetzen der SIM-Karte erhalten Sie in der Bedienungsanleitung Ihres Telefons.</string>
     <string name="google_account_summary">Möchten Sie nun ein Google-Konto einrichten?</string>
     <string name="btn_google_account">Google-Konto einrichten</string>
+    <string name="whisperpush_title">Sichere SMS aktivieren</string>
+    <string name="whisperpush_summary">SMS-Konversationen mit anderen CyanogenMod-Benutzern werden automatisch verschlüsselt, wenn beide Seiten diese Option aktiviert haben.</string>
     <string name="location_access_title">Zugriff auf meinen Standort</string>
     <string name="location_access_summary">Meine Standortdaten dürfen von Apps verwendet werden, die ich dazu berechtigt habe.</string>
     <string name="location_sources_heading">Standortquellen</string>
