@@ -85,4 +85,8 @@
     <string name="cmaccount_checking_for_updates">Verificando por atualizações.</string>
     <string name="setup_warning_skip_wifi" product="tablet">AVISO: Você pode ser cobrado pela sua operadora.\n\nConfiguração do tablet pode precisar de uma quantidade significativa de atividade de rede.</string>
     <string name="setup_warning_skip_wifi" product="default">AVISO: Você pode ser cobrado pela sua operadora.\n\nConfiguração do telefone pode precisar de uma quantidade significativa de atividade de rede.</string>
+    <string name="or">ou</string>
+    <string name="setup_privacy">Configurações de Privacidade</string>
+    <string name="whisperpush_title">Ativar SMS seguro</string>
+    <string name="whisperpush_summary">Mensagens SMS com outros usuários CyanogenMod que ativaram este recurso serão criptogradas automaticamente.</string>
 </resources>
