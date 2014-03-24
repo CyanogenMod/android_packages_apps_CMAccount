@@ -26,6 +26,7 @@
   <string name="create">Δημιουργία</string>
   <string name="login">Σύνδεση</string>
   <string name="ok">ΟΚ</string>
+  <string name="or">ή</string>
   <string name="existing">Σύνδεση σε ήδη υπάρχων λογαριασμό</string>
   <string name="new_account">Δημιουργία νέου λογαριασμού</string>
   <string name="skip_anyway">Παράβλεψη ούτως ή άλλως</string>
@@ -46,6 +47,7 @@
   <string name="setup_msg_no_network">ΠΡΟΣΟΧΗ: Δεν θα είστε σε θέση να ρυθμίστετε τους λογαριασμούς σας</string>
   <string name="setup_warning_skip_wifi" product="tablet">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του tablet μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
   <string name="setup_warning_skip_wifi" product="default">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του τηλεφώνου μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
+  <string name="setup_privacy">Ρυθμίσεις απορρήτου</string>
   <string name="cmaccount_setup_create_title">Δημιουργία λογαριασμού CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Συνδεθείτε στον CyanogenMod λογαριασμό σας</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -78,6 +80,8 @@
   <string name="sim_missing_summary" product="default">Θα πρέπει να ανατρέξετε στις οδηγίες της κάρτας SIM που συνοδεύει το τηλέφωνό σας.</string>
   <string name="google_account_summary">Θέλετε να ρυθμίσετε έναν λογαριασμό Google;</string>
   <string name="btn_google_account">Ρύθμιση λογαριασμού Google</string>
+  <string name="whisperpush_title">Ενεργοποίηση ασφαλών SMS</string>
+  <string name="whisperpush_summary">Μηνύματα SMS με άλλους χρήστες CyanogenMod που έχουν ενεργοποιήσει αυτή τη δυνατότητα θα κρυπτογραφούνται αυτόματα.</string>
   <string name="location_access_title">Πρόσβαση στην τοποθεσία μου</string>
   <string name="location_access_summary">Να επιτρέπεται σε εφαρμογές που έχουν ζητήσει την άδειά σας να χρησιμοποιούν τις πληροφορίες της τοποθεσίας σας</string>
   <string name="location_sources_heading">Πηγές τοποθεσίας</string>
