@@ -73,7 +73,8 @@
             android:label="@string/product_name"
             android:launchMode="singleTop"
             android:excludeFromRecents="true"
-            android:immersive="true">
+            android:immersive="true"
+            android:screenOrientation="locked">
 
                 <intent-filter android:priority="9">
 
@@ -88,14 +89,17 @@
         <activity android:name=".ui.CMAccountActivity"
             android:label="@string/product_name"
             android:launchMode="singleTop"
-            android:excludeFromRecents="true" />
+            android:excludeFromRecents="true"
+            android:screenOrientation="locked" />
 
         <activity android:name=".auth.AuthActivity"
             android:label="@string/product_name"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:screenOrientation="locked" />
 
         <activity android:name=".auth.UpdateRequiredActivity"
-                  android:label="@string/product_name" />
+                  android:label="@string/product_name"
+                  android:screenOrientation="locked" />
 
         <receiver android:name=".gcm.GCMReceiver" android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
