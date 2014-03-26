@@ -25,6 +25,7 @@
     <string name="create">Vytvořit</string>
     <string name="login">Přihlásit</string>
     <string name="ok">OK</string>
+    <string name="or">nebo</string>
     <string name="existing">Přihlásit se k existujícímu účtu</string>
     <string name="new_account">Vytvořit nový účet</string>
     <string name="skip_anyway">Přeskočit</string>
@@ -46,6 +47,7 @@
     <string name="setup_msg_no_network">UPOZORNĚNÍ: Nebude možné nastavit účet</string>
     <string name="setup_warning_skip_wifi" product="tablet">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení tabletu může vyžadovat zvýšený datový přenos.</string>
     <string name="setup_warning_skip_wifi" product="default">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení telefonu může vyžadovat zvýšený datový přenos.</string>
+    <string name="setup_privacy">Nastavení soukromí</string>
 
     <string name="cmaccount_setup_create_title">Vytvořit účet CyanogenMod</string>
     <string name="cmaccount_setup_login_title">Přihlásit se k CyanogenMod účtu</string>
@@ -85,6 +87,9 @@
     <string name="sim_missing_summary" product="default">Přečtěte si prosím instrukce ohledně SIM karty doručené s vaším telefonem.</string>
     <string name="google_account_summary">Chcete provést nastavení účtu Google?</string>
     <string name="btn_google_account">Nastavit účet Google</string>
+
+    <string name="whisperpush_title">Povolit zabezpečené SMS</string>
+    <string name="whisperpush_summary">Zprávy SMS, posílané mezi uživateli s nainstalovanou ROM CyanogenMod a s touto vlastnosti zapnutou, bud automaticky šifrované.</string>
 
     <string name="location_access_title">Přístup k mé poloze</string>
     <string name="location_access_summary">Ponechat zeptání aplikace snažící se zjistit Vaši polohu</string>
