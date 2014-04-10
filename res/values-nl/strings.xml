@@ -78,8 +78,8 @@
   <string name="cmaccount_error_multiple_accounts">Slechts één CyanogenMod-account toegestaan per apparaat</string>
   <string name="sim_missing_summary" product="tablet">Bekijk de simkaartinstructies voor uw tablet.</string>
   <string name="sim_missing_summary" product="default">Bekijk de simkaartinstructies voor uw telefoon.</string>
-  <string name="google_account_summary">Wilt u een Google-account aanmaken?</string>
-  <string name="btn_google_account">Google-account aanmaken</string>
+  <string name="google_account_summary">Wilt u een Google-account instellen?</string>
+  <string name="btn_google_account">Google-account instellen</string>
   <string name="whisperpush_title">Beveiligde sms-berichten inschakelen</string>
   <string name="whisperpush_summary">Sms-berichten uitgewisseld met andere CyanogenMod-gebruikers die deze functie hebben ingeschakeld worden automatisch versleuteld.</string>
   <string name="location_access_title">Toegang tot mijn locatie</string>

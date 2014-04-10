@@ -22,16 +22,16 @@
   <string name="prev">Vorige</string>
   <string name="skip">Slaan oor</string>
   <string name="finish">Klaar</string>
-  <string name="cancel">Kanseleer</string>
+  <string name="cancel">Kanselleer</string>
   <string name="create">Skep</string>
   <string name="login">Teken in</string>
   <string name="ok">OK</string>
   <string name="or">of</string>
   <string name="existing">Meld aan by bestaande rekening</string>
   <string name="new_account">Skep \'n nuwe rekening</string>
-  <string name="skip_anyway">Slaan oor in elk geval</string>
+  <string name="skip_anyway">Slaan in elk geval oor</string>
   <string name="dont_skip">Moenie oorslaan nie</string>
-  <string name="setup_complete">Opstelling is voltooi</string>
+  <string name="setup_complete">Opstelling is gedoen</string>
   <string name="setup_complete_summary" product="tablet">Baie geluk! Jou tablet is gereed, geniet CM daarop.</string>
   <string name="setup_complete_summary" product="default">Baie geluk! Jou foon is gereed, geniet CM daarop.</string>
   <string name="setup_welcome">Welkom by CyanogenMod</string>
@@ -41,7 +41,7 @@
   <string name="setup_sim_missing">Voeg SIM-kaart in</string>
   <string name="setup_google_account">Google rekening</string>
   <string name="setup_location">Plek-instellings</string>
-  <string name="setup_datetime">Datum &amp; tys instellings</string>
+  <string name="setup_datetime">Datum &amp; tyd instellings</string>
   <string name="setup_current_date">Huidige datum</string>
   <string name="setup_current_time">Huidige tyd</string>
   <string name="setup_msg_no_network">WAARSKUWING: Jy sal nie in staat wees om jou rekeninge op te stel nie</string>

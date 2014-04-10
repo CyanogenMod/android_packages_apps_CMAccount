@@ -20,15 +20,15 @@
   <string name="next">Següent</string>
   <string name="continue_label">Continua</string>
   <string name="prev">Anterior</string>
-  <string name="skip">Salta</string>
+  <string name="skip">Omet</string>
   <string name="finish">Finalitza</string>
   <string name="cancel">Cancel·la</string>
   <string name="create">Crea</string>
   <string name="login">Entra</string>
-  <string name="ok">Accepta</string>
+  <string name="ok">D\'acord</string>
   <string name="or">o</string>
   <string name="existing">Entra a un compte existent</string>
-  <string name="new_account">Crea un nou compte</string>
+  <string name="new_account">Crea un compte nou</string>
   <string name="skip_anyway">Salta de totes maneres</string>
   <string name="dont_skip">No saltis</string>
   <string name="setup_complete">Configuració completa</string>
@@ -38,10 +38,10 @@
   <string name="setup_welcome_summary" product="tablet">Per començar a configurar la teva tauleta, selecciona el teu idioma i continua.</string>
   <string name="setup_welcome_summary" product="default">Per començar a configurar el teu telèfon, selecciona el teu idioma i continua.</string>
   <string name="setup_cmaccount">Configura el teu compte CyanogenMod</string>
-  <string name="setup_sim_missing">Inserta una targeta SIM</string>
+  <string name="setup_sim_missing">Insereix una targeta SIM</string>
   <string name="setup_google_account">Compte Google</string>
-  <string name="setup_location">Configuració d\'ubicació</string>
-  <string name="setup_datetime">Configuració de data &amp; hora</string>
+  <string name="setup_location">Configuració de la ubicació</string>
+  <string name="setup_datetime">Configuració de data i hora</string>
   <string name="setup_current_date">Data actual</string>
   <string name="setup_current_time">Hora actual</string>
   <string name="setup_msg_no_network">ALERTA: No podràs configurar els teus comptes</string>
@@ -54,7 +54,7 @@
   <string name="cmaccount_setup_email_unavailable_label">El correu electrònic ja està registrat</string>
   <string name="cmaccount_setup_email_invalid_label">No és una adreça de correu vàlida</string>
   <string name="cmaccount_setup_password_label">Contrasenya</string>
-  <string name="cmaccount_setup_password_create_label">Contrasenya (min. 8 caràcters)</string>
+  <string name="cmaccount_setup_password_create_label">Contrasenya (mín. 8 caràcters)</string>
   <string name="cmaccount_setup_password_mismatch_label">Les contrasenyes no coincideixen!</string>
   <string name="cmaccount_setup_password_invalid_label">La contrasenya ha de tenir almenys 8 caràcters!</string>
   <string name="cmaccount_setup_confirm_password_label">Confirma la contrasenya</string>

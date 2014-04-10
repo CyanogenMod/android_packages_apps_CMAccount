@@ -26,6 +26,7 @@
   <string name="create">Создать</string>
   <string name="login">Войти</string>
   <string name="ok">ОК</string>
+  <string name="or">или</string>
   <string name="existing">Войти</string>
   <string name="new_account">Создать аккаунт</string>
   <string name="skip_anyway">Всё равно пропустить</string>
@@ -46,6 +47,7 @@
   <string name="setup_msg_no_network">ВНИМАНИЕ: настройка учётных записей будет невозможна</string>
   <string name="setup_warning_skip_wifi" product="tablet">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка планшета может потребовать значительной сетевой активности.</string>
   <string name="setup_warning_skip_wifi" product="default">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка телефона может потребовать значительной сетевой активности.</string>
+  <string name="setup_privacy">Конфиденциальность</string>
   <string name="cmaccount_setup_create_title">Создание аккаунта CM</string>
   <string name="cmaccount_setup_login_title">Вход в аккаунт СM</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -78,6 +80,8 @@
   <string name="sim_missing_summary" product="default">Обратитесь к инструкции по установке SIM-карты для вашего телефона.</string>
   <string name="google_account_summary">Вы хотите настроить аккаунт Google?</string>
   <string name="btn_google_account">Настройка аккаунта Google</string>
+  <string name="whisperpush_title">Шифрование SMS</string>
+  <string name="whisperpush_summary">SMS-сообщения, отправляемые другим пользователям CyanogenMod, будут автоматически зашифрованы.</string>
   <string name="location_access_title">Доступ к моему местоположению</string>
   <string name="location_access_summary">Разрешить приложениям получать сведения о вашем местоположении</string>
   <string name="location_sources_heading">Определение местоположения</string>
