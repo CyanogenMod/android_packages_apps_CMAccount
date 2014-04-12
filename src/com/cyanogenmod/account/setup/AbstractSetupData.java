@@ -62,7 +62,16 @@ public abstract class AbstractSetupData implements SetupDataCallbacks {
         return findPage(key);
     }
 
+    @Override
+    public Page getPage(int key) {
+        return findPage(key);
+    }
+
     public Page findPage(String key) {
+        return mPageList.findPage(key);
+    }
+
+    public Page findPage(int key) {
         return mPageList.findPage(key);
     }
 
