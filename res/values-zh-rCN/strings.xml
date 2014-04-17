@@ -18,6 +18,7 @@
 <resources>
   <string name="app_name">CyanogenMod 账户</string>
   <string name="next">下一步</string>
+  <string name="continue_label">继续</string>
   <string name="prev">上一步</string>
   <string name="skip">跳过</string>
   <string name="finish">完成</string>
