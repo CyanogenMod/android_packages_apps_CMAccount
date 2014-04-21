@@ -88,6 +88,6 @@
   <string name="location_gps">Satèlits GPS</string>
   <string name="location_street_level" product="tablet">Permet a les apps utilitzar el GPS de la tauleta per fixar la teva ubicació</string>
   <string name="location_street_level" product="default">Permet a les apps utilitzar el GPS del telèfon per fixar la teva ubicació</string>
-  <string name="location_network_based">Ubicacions Wi-Fi &amp; xarxa mòbil</string>
+  <string name="location_network_based">Ubicacions Wi-Fi i de xarxa mòbil</string>
   <string name="location_neighborhood_level">Permet a les apps utilitzar el servei d\'ubicacions de Google per calcular més ràpid la teva ubicació. Dades d\'ubicació anonòmines seran recollides i enviades a Google.</string>
 </resources>
