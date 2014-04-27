@@ -35,8 +35,8 @@
   <string name="setup_complete_summary" product="tablet">おめでとうございます！お使いのタブレットを楽しむ準備ができました。</string>
   <string name="setup_complete_summary" product="default">おめでとうございます！ お使いの携帯電話を楽しむ準備ができました。</string>
   <string name="setup_welcome">CyanogenModへようこそ</string>
-  <string name="setup_welcome_summary" product="tablet">タブレットのセットアップを開始するには、言語を選択して「続ける」をタップしてください。</string>
-  <string name="setup_welcome_summary" product="default">携帯電話のセットアップを開始するには、言語を選択して「続ける」をタップしてください。</string>
+  <string name="setup_welcome_summary" product="tablet">タブレットのセットアップを開始するには、言語を選択して続けてください。</string>
+  <string name="setup_welcome_summary" product="default">携帯電話のセットアップを開始するには、言語を選択して「次へ」をタップしてください。</string>
   <string name="setup_cmaccount">CyanogenModアカウントのセットアップ</string>
   <string name="setup_sim_missing">SIMカードを挿入してください</string>
   <string name="setup_google_account">Googleアカウント</string>
