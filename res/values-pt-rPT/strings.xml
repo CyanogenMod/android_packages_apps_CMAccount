@@ -42,17 +42,17 @@
   <string name="setup_google_account">Conta Google</string>
   <string name="setup_location">Definições de localização</string>
   <string name="setup_datetime">Definições de data e hora</string>
-  <string name="setup_current_date">Data actual</string>
-  <string name="setup_current_time">Tempo actual</string>
+  <string name="setup_current_date">Data atual</string>
+  <string name="setup_current_time">Tempo atual</string>
   <string name="setup_msg_no_network">AVISO: Não conseguirá configurar as suas contas</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do seu tablet pode precisar de atividade de rede significativa.</string>
   <string name="setup_warning_skip_wifi" product="default">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do telemóvel pode precisar de atividade de rede significativa.</string>
   <string name="setup_privacy">Definições de Privacidade</string>
   <string name="cmaccount_setup_create_title">Criar uma conta CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entre na sua conta CyanogenMod</string>
-  <string name="cmaccount_setup_email_label">Email</string>
-  <string name="cmaccount_setup_email_unavailable_label">Email já registado</string>
-  <string name="cmaccount_setup_email_invalid_label">Endereço de email inválido</string>
+  <string name="cmaccount_setup_email_label">E-mail</string>
+  <string name="cmaccount_setup_email_unavailable_label">E-mail já registado</string>
+  <string name="cmaccount_setup_email_invalid_label">Endereço de e-mail inválido</string>
   <string name="cmaccount_setup_password_label">Password</string>
   <string name="cmaccount_setup_password_create_label">Password (min. 8 caracteres)</string>
   <string name="cmaccount_setup_password_mismatch_label">As passwords não são iguais!</string>
@@ -62,7 +62,7 @@
   <string name="cmaccount_add_title">Adicionar uma nova conta CyanogenMod</string>
   <string name="cmaccount_add_create_label">Uma conta CyanogenMod oferece acesso a serviços de valor adicional e funcionalidade para o seu dispositivo móvel a correr CyanogenMod.</string>
   <string name="cmaccount_learn_more">Saiba mais\u2026</string>
-  <string name="cmaccount_update_required_title">Atualização Necessária</string>
+  <string name="cmaccount_update_required_title">Atualização necessária</string>
   <string name="cmaccount_update_required_text">Esta versão da Conta CyanogenMod pode ser incompatível.  Por favor atualize para a última versão da CyanogenMod para garantir a compatibilidade.</string>
   <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
   <string name="cmaccount_checking_for_updates">A procurar atualizações.</string>
@@ -77,11 +77,11 @@
   <string name="cmaccount_server_error_message">Ocorreu um erro durante a comunicação com o servidor. Por favor tente novamente mais tarde.</string>
   <string name="cmaccount_error_multiple_accounts">É permitida apenas uma conta CyanogenMod por dispositivo</string>
   <string name="sim_missing_summary" product="tablet">Consulte as instruções do cartão SIM que vieram com o seu tablet.</string>
-  <string name="sim_missing_summary" product="default">Consulte as instruções do cartão SIM que vieram com o seu dispositivo.</string>
+  <string name="sim_missing_summary" product="default">Consulte as instruções do cartão SIM que vieram com o seu telefone.</string>
   <string name="google_account_summary">Quer configurar uma conta Google?</string>
   <string name="btn_google_account">Configurar conta Google</string>
   <string name="whisperpush_title">Ativar SMS seguras</string>
-  <string name="whisperpush_summary">Mensagens SMS com outros utilizadores CyanogenMod que tenham esta funcionalidade ativa serão automaticamente encriptados.</string>
+  <string name="whisperpush_summary">Mensagens SMS com outros utilizadores CyanogenMod que tenham esta funcionalidade ativa serão automaticamente encriptadas.</string>
   <string name="location_access_title">Acesso à minha localização</string>
   <string name="location_access_summary">Permite a aplicações que lhe tenham pedido permissão usar a informação da sua localização</string>
   <string name="location_sources_heading">Fontes de localização</string>

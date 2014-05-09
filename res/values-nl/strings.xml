@@ -80,8 +80,8 @@
   <string name="sim_missing_summary" product="default">Bekijk de simkaartinstructies voor uw telefoon.</string>
   <string name="google_account_summary">Wilt u een Google-account instellen?</string>
   <string name="btn_google_account">Google-account instellen</string>
-  <string name="whisperpush_title">Beveiligde sms-berichten inschakelen</string>
-  <string name="whisperpush_summary">Sms-berichten uitgewisseld met andere CyanogenMod-gebruikers die deze functie hebben ingeschakeld worden automatisch versleuteld.</string>
+  <string name="whisperpush_title">Beveiligde sms-berichten</string>
+  <string name="whisperpush_summary">Versleuteld sms\'en met andere CyanogenMod-gebruikers die deze functie hebben ingeschakeld.</string>
   <string name="location_access_title">Toegang tot mijn locatie</string>
   <string name="location_access_summary">Apps die uw toestemming hebben gevraagd, toestaan uw locatiegegevens te gebruiken</string>
   <string name="location_sources_heading">Locatiebronnen</string>

@@ -44,10 +44,10 @@
   <string name="setup_datetime">Подешавања датума и времена</string>
   <string name="setup_current_date">Тренутни датум</string>
   <string name="setup_current_time">Тренутно време</string>
-  <string name="setup_msg_no_network">ПАЖЊА: Нећете бити у могућности да подесите Ваше налоге</string>
-  <string name="setup_warning_skip_wifi" product="tablet">ПАЖЊА: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање таблета може захтевати значајну употребу Интернет везе.</string>
-  <string name="setup_warning_skip_wifi" product="default">ПАЖЊА: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање телефона може захтевати значајну употребу Интернет везе.</string>
-  <string name="setup_privacy">Подешавања Приватности</string>
+  <string name="setup_msg_no_network">УПОЗОРЕЊЕ: Нећете бити у могућности да подесите Ваше налоге</string>
+  <string name="setup_warning_skip_wifi" product="tablet">УПОЗОРЕЊЕ: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање таблета може захтевати значајну употребу Интернет везе.</string>
+  <string name="setup_warning_skip_wifi" product="default">УПОЗОРЕЊЕ: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање телефона може захтевати значајну употребу Интернет везе.</string>
+  <string name="setup_privacy">Подешавања приватности</string>
   <string name="cmaccount_setup_create_title">Направите CyanogenMod налог</string>
   <string name="cmaccount_setup_login_title">Пријавите се на Ваш CyanogenMod налог</string>
   <string name="cmaccount_setup_email_label">Е-пошта</string>

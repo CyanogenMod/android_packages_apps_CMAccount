@@ -17,7 +17,14 @@
 -->
 <resources>
   <string name="setup_google_account">Google 帳戶</string>
+  <string name="cmaccount_setup_password_label">密碼</string>
+  <string name="cmaccount_setup_password_create_label">密碼（至少8個字元）</string>
+  <string name="cmaccount_setup_password_mismatch_label">密碼不相符！</string>
+  <string name="cmaccount_setup_password_invalid_label">密碼必須至少 8 個字元 ！</string>
+  <string name="cmaccount_setup_confirm_password_label">確認密碼</string>
   <string name="cmaccount_add_create_label">一個 CyanogenMod 帳戶為您運行的 CyanogenMod 流動裝置獲得增值服務和功能。</string>
+  <string name="cmaccount_password_changed_title">密碼已被更改</string>
+  <string name="cmaccount_login_error_message">無效的電子郵件或密碼。</string>
   <string name="google_account_summary">你想建立一個 Google 帳戶？</string>
   <string name="btn_google_account">建立 Google 帳戶</string>
   <string name="location_gps">GPS 衛星</string>
