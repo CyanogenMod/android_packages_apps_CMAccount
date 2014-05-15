@@ -25,6 +25,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class WebViewDialogFragment extends DialogFragment {
 
@@ -54,6 +55,12 @@ public class WebViewDialogFragment extends DialogFragment {
         setRetainInstance(true);
         mRootView = getActivity().getLayoutInflater().inflate(R.layout.terms_webview, null, false);
         mWebView = (WebView)mRootView.findViewById(R.id.webview);
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+        });
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.loadUrl(mUri);
