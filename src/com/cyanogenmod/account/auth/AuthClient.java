@@ -109,8 +109,8 @@ public class AuthClient {
     public static final String GET_PUBLIC_KEY_IDS_URI = SERVER_URI + API_ROOT + DEVICE_METHOD + GET_PUBLIC_KEY_IDS_METHOD;
     public static final String GET_MINIMUM_APP_VERSION_URI = SERVER_URI + API_ROOT + PING_METHOD + GET_MINIMUM_APP_VERSION_METHOD;
     public static final String LEARN_MORE_URI = SERVER_URI + HELP_PATH;
-    public static final String TOS_URI = "http://www.cyanogenmod.org/docs/terms";
-    public static final String PRIVACY_POLICY_URI = "http://www.cyanogenmod.org/docs/privacy";
+    public static final String TOS_URI = "https://cyngn.com/legal/terms-of-service";
+    public static final String PRIVACY_POLICY_URI = "https://cyngn.com/legal/privacy-policy";
 
     private static final String CLIENT_ID = "8001";
     private static final String SECRET = "b93bb90299bb46f3bafdd6ca630c8f3c";
