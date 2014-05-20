@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Conta CyanogenMod</string>
   <string name="next">Próxima</string>
   <string name="continue_label">Continuar</string>
@@ -53,11 +53,11 @@
   <string name="cmaccount_setup_email_label">E-mail</string>
   <string name="cmaccount_setup_email_unavailable_label">E-mail já registado</string>
   <string name="cmaccount_setup_email_invalid_label">Endereço de e-mail inválido</string>
-  <string name="cmaccount_setup_password_label">Password</string>
-  <string name="cmaccount_setup_password_create_label">Password (min. 8 caracteres)</string>
-  <string name="cmaccount_setup_password_mismatch_label">As passwords não são iguais!</string>
-  <string name="cmaccount_setup_password_invalid_label">A palavra-chave tem de ter no mínimo 8 caracteres.</string>
-  <string name="cmaccount_setup_confirm_password_label">Confirmar palavra-chave</string>
+  <string name="cmaccount_setup_password_label">Senha</string>
+  <string name="cmaccount_setup_password_create_label">Senha (min. 8 caracteres)</string>
+  <string name="cmaccount_setup_password_mismatch_label">As senhas não são iguais!</string>
+  <string name="cmaccount_setup_password_invalid_label">A senha tem de ter no mínimo 8 caracteres!</string>
+  <string name="cmaccount_setup_confirm_password_label">Confirmar senha</string>
   <string name="cmaccount_setup_tos_label">Eu aceito os  %1$stermos%2$s de serviço</string>
   <string name="cmaccount_add_title">Adicionar uma nova conta CyanogenMod</string>
   <string name="cmaccount_add_create_label">Uma conta CyanogenMod oferece acesso a serviços de valor adicional e funcionalidade para o seu dispositivo móvel a correr CyanogenMod.</string>
@@ -66,12 +66,12 @@
   <string name="cmaccount_update_required_text">Esta versão da Conta CyanogenMod pode ser incompatível.  Por favor atualize para a última versão da CyanogenMod para garantir a compatibilidade.</string>
   <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
   <string name="cmaccount_checking_for_updates">A procurar atualizações.</string>
-  <string name="cmaccount_password_changed_title">Palavra-passe alterada</string>
+  <string name="cmaccount_password_changed_title">Senha alterada</string>
   <string name="cmaccount_password_changed_message">Por favor entre na sua conta CyanogenMod</string>
   <string name="cmaccount_login_message">A entrar na CyanogenMod</string>
   <string name="cmaccount_creating_profile_message">A criar o seu perfil CyanogenMod</string>
   <string name="cmaccount_login_error_title">Falha ao entrar</string>
-  <string name="cmaccount_login_error_message">E-mail ou password inválidos.</string>
+  <string name="cmaccount_login_error_message">E-mail ou senha inválidos.</string>
   <string name="cmaccount_server_error_title">Erro no servidor</string>
   <string name="cmaccount_create_account_error_title">Erro ao criar a conta</string>
   <string name="cmaccount_server_error_message">Ocorreu um erro durante a comunicação com o servidor. Por favor tente novamente mais tarde.</string>

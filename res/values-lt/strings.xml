@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">„CyanogenMod“ paskyra</string>
   <string name="next">Kitas</string>
   <string name="continue_label">Tęsti</string>

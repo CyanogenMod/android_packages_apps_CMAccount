@@ -15,8 +15,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-  <string name="app_name">CyanogenMod 账户</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">CyanogenMod 帐户</string>
   <string name="next">下一步</string>
   <string name="continue_label">继续</string>
   <string name="prev">上一步</string>
@@ -27,8 +27,8 @@
   <string name="login">登录</string>
   <string name="ok">确定</string>
   <string name="or">或</string>
-  <string name="existing">使用已有账户登录</string>
-  <string name="new_account">创建新账户</string>
+  <string name="existing">使用已有帐户登录</string>
+  <string name="new_account">创建新帐户</string>
   <string name="skip_anyway">总是跳过</string>
   <string name="dont_skip">不要跳过</string>
   <string name="setup_complete">设置完成</string>
@@ -37,9 +37,9 @@
   <string name="setup_welcome">欢迎来到 CyanogenMod</string>
   <string name="setup_welcome_summary" product="tablet">开始设置您的设备之前，请先选择语言并继续。</string>
   <string name="setup_welcome_summary" product="default">开始设置您的设备之前，请先选择语言并继续。</string>
-  <string name="setup_cmaccount">设置您的 CyanogenMod 账户</string>
+  <string name="setup_cmaccount">设置您的 CyanogenMod 帐户</string>
   <string name="setup_sim_missing">请插入 SIM 卡</string>
-  <string name="setup_google_account">Google 账户</string>
+  <string name="setup_google_account">Google 帐户</string>
   <string name="setup_location">位置信息设置</string>
   <string name="setup_datetime">日期 &amp; 时间设置</string>
   <string name="setup_current_date">当前日期</string>
@@ -48,8 +48,8 @@
   <string name="setup_warning_skip_wifi" product="tablet">警告：您可能需要额外支付运营商数据费。\"\n\n\"设置过程可能会消耗大量网络流量。</string>
   <string name="setup_warning_skip_wifi" product="default">警告：您可能需要额外支付运营商数据费。\"\n\n\"手机设置过程可能会消耗大量网络流量。</string>
   <string name="setup_privacy">隐私设置</string>
-  <string name="cmaccount_setup_create_title">创建一个 CyanogenMod 账户</string>
-  <string name="cmaccount_setup_login_title">登录到您的 CyanogenMod 账户</string>
+  <string name="cmaccount_setup_create_title">创建一个 CyanogenMod 帐户</string>
+  <string name="cmaccount_setup_login_title">登录到您的 CyanogenMod 帐户</string>
   <string name="cmaccount_setup_email_label">电子邮件</string>
   <string name="cmaccount_setup_email_unavailable_label">电子邮件地址已被注册过</string>
   <string name="cmaccount_setup_email_invalid_label">不是一个合法的电子邮件地址</string>
@@ -59,23 +59,23 @@
   <string name="cmaccount_setup_password_invalid_label">密码不能少于 8 个字符！</string>
   <string name="cmaccount_setup_confirm_password_label">确认密码</string>
   <string name="cmaccount_setup_tos_label">我同意接受%1$s服务条款%2$s</string>
-  <string name="cmaccount_add_title">添加一个 CyanogenMod 账户</string>
+  <string name="cmaccount_add_title">添加一个 CyanogenMod 帐户</string>
   <string name="cmaccount_add_create_label">CyanogenMod 帐户为您上运行 CyanogenMod 的移动设备提供增值服务与功能。</string>
   <string name="cmaccount_learn_more">了解更多\u2026</string>
   <string name="cmaccount_update_required_title">需要更新</string>
-  <string name="cmaccount_update_required_text">此版本的 CyanogenMod 账户可能不兼容。请更新到最新版本的 CyanogenMod 以确保兼容性。</string>
+  <string name="cmaccount_update_required_text">此版本的 CyanogenMod 帐户可能不兼容。请更新到最新版本的 CyanogenMod 以确保兼容性。</string>
   <string name="cmaccount_update_required_short">此版本可能不兼容。</string>
   <string name="cmaccount_checking_for_updates">检查更新中。</string>
   <string name="cmaccount_password_changed_title">更改密码</string>
-  <string name="cmaccount_password_changed_message">请先登录您的 CyanogenMod 账户</string>
+  <string name="cmaccount_password_changed_message">请先登录您的 CyanogenMod 帐户</string>
   <string name="cmaccount_login_message">正在登录 CyanogenMod</string>
   <string name="cmaccount_creating_profile_message">正在创建您的 CyanogenMod 资料</string>
   <string name="cmaccount_login_error_title">登录失败</string>
   <string name="cmaccount_login_error_message">无效的电子邮件或密码。</string>
   <string name="cmaccount_server_error_title">服务器错误</string>
-  <string name="cmaccount_create_account_error_title">创建账户出错</string>
+  <string name="cmaccount_create_account_error_title">创建帐户出错</string>
   <string name="cmaccount_server_error_message">与服务器通讯时发生了错误。请稍候重试。</string>
-  <string name="cmaccount_error_multiple_accounts">在一台设备上只允许创建一个 CyanogenMod 账户</string>
+  <string name="cmaccount_error_multiple_accounts">在一台设备上只允许创建一个 CyanogenMod 帐户</string>
   <string name="sim_missing_summary" product="tablet">您需要参考设备附带的 SIM 卡说明。</string>
   <string name="sim_missing_summary" product="default">您需要参考设备附带的 SIM 卡说明。</string>
   <string name="google_account_summary">您想设置一个 Google 帐户吗？</string>

@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod 帳戶</string>
   <string name="next">下一步</string>
   <string name="continue_label">繼續</string>
