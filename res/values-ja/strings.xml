@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenModアカウント</string>
   <string name="next">次へ</string>
   <string name="continue_label">続ける</string>
@@ -61,7 +61,7 @@
   <string name="cmaccount_setup_tos_label">%1$s利用規約%2$sに同意します</string>
   <string name="cmaccount_add_title">CyanogenModアカウントを追加</string>
   <string name="cmaccount_add_create_label">CyanogenModアカウントはCyanogenModを使用しているモバイル端末に付加価値サービスおよび機能へのアクセスを提供します。</string>
-  <string name="cmaccount_learn_more">詳細</string>
+  <string name="cmaccount_learn_more">もっと詳しく\u2026</string>
   <string name="cmaccount_update_required_title">アップデートが必要です</string>
   <string name="cmaccount_update_required_text">このバージョンのCyanogenModアカウントは互換性がないかもしれません。 互換性を確保するために、最新バージョンのCyanogenModにアップデートしてください。</string>
   <string name="cmaccount_update_required_short">このバージョンは互換性がないかもしれません。</string>
@@ -70,7 +70,7 @@
   <string name="cmaccount_password_changed_message">CyanogenModアカウントにログインしてください</string>
   <string name="cmaccount_login_message">CyanogenModにログインしています</string>
   <string name="cmaccount_creating_profile_message">CyanogenModのプロフィールを作成しています</string>
-  <string name="cmaccount_login_error_title">ログインに失敗しました</string>
+  <string name="cmaccount_login_error_title">ログインできませんでした</string>
   <string name="cmaccount_login_error_message">メールアドレスまたはパスワードが無効です。</string>
   <string name="cmaccount_server_error_title">サーバーエラー</string>
   <string name="cmaccount_create_account_error_title">アカウントの作成中にエラーが発生しました</string>

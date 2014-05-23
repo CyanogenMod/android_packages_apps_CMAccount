@@ -7,6 +7,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_PACKAGE_NAME := CMAccount
 LOCAL_CERTIFICATE := platform
+LOCAL_PRIVILEGED_MODULE := true
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
@@ -18,6 +19,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     play \
     spongycastle-light-jdk15on \
 	libphonenumbergoogle
+
+LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 
 # Include res dir from chips
 google_play_dir := ../../../external/google/google_play_services/libproject/google-play-services_lib/res

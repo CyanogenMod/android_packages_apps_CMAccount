@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod Hesabı</string>
   <string name="next">Sonraki</string>
   <string name="continue_label">Devam</string>
@@ -50,7 +50,7 @@
   <string name="setup_privacy">Gizlilik Ayarları</string>
   <string name="cmaccount_setup_create_title">Bir CyanogenMod hesabı oluşturun</string>
   <string name="cmaccount_setup_login_title">CyanogenMod hesabınıza giriş yapın</string>
-  <string name="cmaccount_setup_email_label">Eposta</string>
+  <string name="cmaccount_setup_email_label">E-posta</string>
   <string name="cmaccount_setup_email_unavailable_label">E-posta zaten kayıtlı</string>
   <string name="cmaccount_setup_email_invalid_label">Geçerli bir e-posta adresi değil</string>
   <string name="cmaccount_setup_password_label">Şifre</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Şifreyi tekrarlayın</string>
   <string name="cmaccount_setup_tos_label">Hizmet %1$sşartlarını%2$s kabul ediyorum.</string>
   <string name="cmaccount_add_title">Bir CyanogenMod hesabı ekleyin</string>
-  <string name="cmaccount_add_create_label">Bir CyanogenMod hesabı CyanogenMod çalıştıran cihazınıza zenginlik katan servis ve fonksiyonelliğe erişim sağlar.</string>
+  <string name="cmaccount_add_create_label">Bir CyanogenMod hesabı CyanogenMod çalıştıran cihazınıza zenginlik katan hizmet ve işlevselliğe erişim sağlar.</string>
   <string name="cmaccount_learn_more">Daha fazla bilgi\u2026</string>
   <string name="cmaccount_update_required_title">Güncelleme Gerekli</string>
   <string name="cmaccount_update_required_text">CyanogenMod Hesabı\'nın bu sürümü uyumsuz olabilir. Lütfen uyumluluğu garantilemek için CyanogenMod\'u en son sürüme yükseltin.</string>
@@ -73,7 +73,7 @@
   <string name="cmaccount_login_error_title">Giriş başarısız</string>
   <string name="cmaccount_login_error_message">Geçersiz e-posta ya da şifre.</string>
   <string name="cmaccount_server_error_title">Sunucu hatası</string>
-  <string name="cmaccount_create_account_error_title">Hesap yaratılırken hata oluştu</string>
+  <string name="cmaccount_create_account_error_title">Hesap oluştururken hata oluştu</string>
   <string name="cmaccount_server_error_message">Sunucuyla bağlantı kurarken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</string>
   <string name="cmaccount_error_multiple_accounts">Cihaz başına sadece bir CyanogenMod hesabı kullanılabilir.</string>
   <string name="sim_missing_summary" product="tablet">Tabletinizle gelen SIM kart talimatlarına başvurmanız gerekmekte.</string>

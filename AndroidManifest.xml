@@ -41,6 +41,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER"/>
     <uses-permission android:name="org.whispersystems.whisperpush.permissions.REGISTER" />
 
     <permission android:name="org.whispersystems.whisperpush.permissions.REGISTER"
@@ -57,6 +58,12 @@
         android:icon="@drawable/icon"
         android:theme="@style/Theme.CMAccount"
         android:name=".CMAccount">
+
+        <uses-library android:name="org.cyanogenmod.hardware"
+                      android:required="false" />
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <service android:name="com.cyanogenmod.account.auth.AuthService"
             android:exported="true">

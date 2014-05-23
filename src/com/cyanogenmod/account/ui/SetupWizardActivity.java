@@ -16,14 +16,11 @@
 
 package com.cyanogenmod.account.ui;
 
+import android.content.res.ThemeManager;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.R;
 import com.cyanogenmod.account.gcm.GCMUtil;
-import com.cyanogenmod.account.setup.AbstractSetupData;
-import com.cyanogenmod.account.setup.CMSetupWizardData;
-import com.cyanogenmod.account.setup.Page;
-import com.cyanogenmod.account.setup.PageList;
-import com.cyanogenmod.account.setup.SetupDataCallbacks;
+import com.cyanogenmod.account.setup.*;
 import com.cyanogenmod.account.util.CMAccountUtils;
 import com.cyanogenmod.account.util.WhisperPushUtils;
 
@@ -313,6 +310,11 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             removeSetupPage(page, false);
             pagesRemoved = true;
         }
+        page = mPageList.findPage(R.string.setup_personalization);
+        if (page != null && PersonalizationPage.skipPage(this)) {
+            removeSetupPage(page, false);
+            pagesRemoved = true;
+        }
         if (pagesRemoved) {
             onPageTreeChanged();
         }
@@ -364,6 +366,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private void finishSetup() {
         handleWhisperPushRegistration();
+        handleDefaultThemeSetup();
 
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 1);
@@ -381,10 +384,27 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     private void handleWhisperPushRegistration() {
-        Bundle privacyData = getPage(R.string.setup_privacy).getData();
-        if (privacyData.getBoolean("register")) {
+        Page page = getPage(R.string.setup_personalization);
+        if (page == null) {
+            return;
+        }
+        Bundle privacyData = page.getData();
+        if (privacyData != null && privacyData.getBoolean("register")) {
             Log.d(TAG, "Registering with WhisperPush");
             WhisperPushUtils.startRegistration(this);
+        }
+    }
+
+    private void handleDefaultThemeSetup() {
+        Page page = getPage(R.string.setup_personalization);
+        if (page == null) {
+            return;
+        }
+        Bundle privacyData = page.getData();
+        if (privacyData != null && privacyData.getBoolean("apply_default_theme")) {
+            Log.d(TAG, "Applying default theme");
+            ThemeManager tm = (ThemeManager) this.getSystemService(Context.THEME_SERVICE);
+            tm.applyDefaultTheme();
         }
     }
 
