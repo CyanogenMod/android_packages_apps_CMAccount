@@ -60,13 +60,6 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/existing" />
 
-        <TextView
-            android:id="@+id/cmaccount_or"
-            android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            style="@style/SetupWizardPageSummary"
-            android:text="@string/or" />
-
         <Button
             android:id="@+id/new_button"
             android:layout_width="match_parent"

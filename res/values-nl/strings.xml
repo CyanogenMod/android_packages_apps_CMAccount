@@ -26,9 +26,8 @@
   <string name="create">Aanmaken</string>
   <string name="login">Inloggen</string>
   <string name="ok">OK</string>
-  <string name="or">of</string>
-  <string name="existing">Bestaand</string>
-  <string name="new_account">Nieuw</string>
+  <string name="existing">Inloggen op een bestaand account</string>
+  <string name="new_account">Nieuw account aanmaken</string>
   <string name="skip_anyway">Toch overslaan</string>
   <string name="dont_skip">Niet overslaan</string>
   <string name="setup_complete">Instellen is voltooid</string>

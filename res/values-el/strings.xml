@@ -26,9 +26,8 @@
   <string name="create">Δημιουργία</string>
   <string name="login">Σύνδεση</string>
   <string name="ok">ΟΚ</string>
-  <string name="or">ή</string>
-  <string name="existing">Υπάρχων</string>
-  <string name="new_account">Νέος</string>
+  <string name="existing">Σύνδεση σε ήδη υπάρχων λογαριασμό</string>
+  <string name="new_account">Δημιουργία νέου λογαριασμού</string>
   <string name="skip_anyway">Παράβλεψη ούτως ή άλλως</string>
   <string name="dont_skip">Να μην γίνει παράβλεψη</string>
   <string name="setup_complete">Η ρύθμιση ολοκληρώθηκε</string>

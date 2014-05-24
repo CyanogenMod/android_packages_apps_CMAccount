@@ -26,7 +26,8 @@
   <string name="create">建立</string>
   <string name="login">登入</string>
   <string name="ok">確定</string>
-  <string name="or">或</string>
+  <string name="existing">登入至現有帳戶</string>
+  <string name="new_account">建立一個新帳戶</string>
   <string name="skip_anyway">無論如何跳過</string>
   <string name="dont_skip">不要略過</string>
   <string name="setup_complete">設定已完成</string>

@@ -26,9 +26,8 @@
   <string name="create">Buat</string>
   <string name="login">Masuk</string>
   <string name="ok">Oke</string>
-  <string name="or">atau</string>
-  <string name="existing">Sudah ada</string>
-  <string name="new_account">Baru</string>
+  <string name="existing">Masuk menggunakan akun yang ada</string>
+  <string name="new_account">Buat akun baru</string>
   <string name="skip_anyway">Lewati saja</string>
   <string name="dont_skip">Jangan lewati</string>
   <string name="setup_complete">Setup selesai</string>

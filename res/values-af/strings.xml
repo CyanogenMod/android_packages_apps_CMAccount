@@ -26,7 +26,8 @@
   <string name="create">Skep</string>
   <string name="login">Teken in</string>
   <string name="ok">OK</string>
-  <string name="or">of</string>
+  <string name="existing">Meld aan by bestaande rekening</string>
+  <string name="new_account">Skep \'n nuwe rekening</string>
   <string name="skip_anyway">Slaan in elk geval oor</string>
   <string name="dont_skip">Moenie oorslaan nie</string>
   <string name="setup_complete">Opstelling is gedoen</string>
