@@ -26,7 +26,6 @@
   <string name="create">Crea</string>
   <string name="login">Login</string>
   <string name="ok">OK</string>
-  <string name="or">o</string>
   <string name="existing">Accedi ad un account esistente</string>
   <string name="new_account">Crea un nuovo account</string>
   <string name="skip_anyway">Salta comunque</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del tablet potrebbe richiedere un significativo scambio di dati in rete.</string>
   <string name="setup_warning_skip_wifi" product="default">ATTENZIONE: Potresti incorrere in costi aggiuntivi di connessione.\n\nLa configurazione del telefono potrebbe richiedere un significativo scambio di dati in rete.</string>
   <string name="setup_privacy">Impostazioni Privacy</string>
+  <string name="setup_personalization">Personalizza</string>
   <string name="cmaccount_setup_create_title">Crea il tuo Account CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Effettua il login al tuo Account CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Conferma password</string>
   <string name="cmaccount_setup_tos_label">Accetto i %1$stermini%2$s di servizio</string>
   <string name="cmaccount_add_title">Aggiungi un account CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Un Account CyanogenMod fornisce accesso a servizi a valore aggiunto e funzionalità per il tuo dispositivo mobile su cui è presente CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">Un account CyanogenMod fornisce l\'accesso a servizi a valore aggiunto e funzionalità per dispositivi mobili che eseguono CyanogenMod.\n\n Desideri aggiungere un account esistente o crearne uno nuovo?</string>
   <string name="cmaccount_learn_more">Leggi\u2026</string>
   <string name="cmaccount_update_required_title">Richiesto aggiornamento</string>
   <string name="cmaccount_update_required_text">Questa versione di CyanogenMod Account può essere incompatibile.  Per favore aggiorna la tua versione di CyanogenMod per assicurare la compatibilità.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Vuoi impostare un account Google?</string>
   <string name="btn_google_account">Imposta un account Google</string>
   <string name="whisperpush_title">Attiva SMS sicuri</string>
-  <string name="whisperpush_summary">Gli SMS scambiati con gli altri utenti CyanogenMod che hanno attivato questa funzione verranno crittografati automaticamente.</string>
+  <string name="whisperpush_summary">Le conversazioni SMS con gli altri utenti che utilizzano SMS sicuri su CyanogenMod verranno automaticamente crittografate.</string>
+  <string name="apply_default_theme_title">Usa tema CyanogenMod</string>
+  <string name="use_nav_keys">Usa tasti su schermo</string>
   <string name="location_access_title">Accesso alla posizione</string>
   <string name="location_access_summary">Consenti alle applicazioni alle quali è stato fornito il permesso di utilizzare le informazioni sulla tua posizione</string>
   <string name="location_sources_heading">Sorgenti della posizione</string>

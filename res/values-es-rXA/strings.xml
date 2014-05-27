@@ -26,7 +26,6 @@
   <string name="create">Crear</string>
   <string name="login">Entrar</string>
   <string name="ok">Aceutar</string>
-  <string name="or">o</string>
   <string name="existing">Identificase usando una cuenta esistente</string>
   <string name="new_account">Crear una nueva cuenta</string>
   <string name="skip_anyway">Omitir</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">AVISU: Quiciabes se facturen cargos de datos adicionales.\n\nLa configuración de la tablet pue riquir una gran cantidá d\'actividá de rede.</string>
   <string name="setup_warning_skip_wifi" product="default">AVISO: Quiciabes se facturen cargos de datos adicionales.\n\nLa configuración del teléfonu pue riquir una gran cantidá d\'actividá de rede.</string>
   <string name="setup_privacy">Axustes de privacidá</string>
+  <string name="setup_personalization">Personalizar</string>
   <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entrar na to cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Corréu-e</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Confirmar contraseña</string>
   <string name="cmaccount_setup_tos_label">Toi d\'acuerdu colos %1$stérminos%2$s del serviciu</string>
   <string name="cmaccount_add_title">Amestar una cuenta de CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod permite l\'accesu a servicios de valor añadíu y funcionalidaes estres pal to preséu CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod da accesu a servicios con valores añadíos y funcionalidaes pal to preséu CyanogenMod.\n\nQuies amestar una cuenta esistente o crear una nueva?</string>
   <string name="cmaccount_learn_more">Lleer más\u2026</string>
   <string name="cmaccount_update_required_title">Anovamientu necesariu</string>
   <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod pue ser incompatible. Por favor, anueva a la postrer versión de CyanogenMod p\'asegurar la compatibilidá.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">¿Quies configurar una cuenta de Google?</string>
   <string name="btn_google_account">Configurar cuenta de Google</string>
   <string name="whisperpush_title">Habilitar SMS seguros</string>
-  <string name="whisperpush_summary">Los mensaxes SMS intercambiaos con otros usuarios de CyanogenMod que tengan habilitada esta carauterística, van cifrase automáticamente.</string>
+  <string name="whisperpush_summary">Les conversaciones SMS con otros usuarios de CyanogenMod qu\'usen Secure SMS cífrense automáticamente.</string>
+  <string name="apply_default_theme_title">Usar tema de CyanogenMod</string>
+  <string name="use_nav_keys">Usar tecles en pantalla</string>
   <string name="location_access_title">Accesu a llocalización</string>
   <string name="location_access_summary">Permitir que aplicaciones con permisu usen info. sobre la to llocalización</string>
   <string name="location_sources_heading">Fontes de llocalización</string>

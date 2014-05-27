@@ -26,7 +26,6 @@
   <string name="create">Создать</string>
   <string name="login">Войти</string>
   <string name="ok">ОК</string>
-  <string name="or">или</string>
   <string name="existing">Войти</string>
   <string name="new_account">Создать аккаунт</string>
   <string name="skip_anyway">Всё равно пропустить</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка планшета может потребовать значительной сетевой активности.</string>
   <string name="setup_warning_skip_wifi" product="default">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка телефона может потребовать значительной сетевой активности.</string>
   <string name="setup_privacy">Конфиденциальность</string>
+  <string name="setup_personalization">Персонализация</string>
   <string name="cmaccount_setup_create_title">Создание аккаунта CM</string>
   <string name="cmaccount_setup_login_title">Вход в аккаунт СM</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Подтвердите пароль</string>
   <string name="cmaccount_setup_tos_label">Принимаю %1$sусловия%2$s предоставления сервиса</string>
   <string name="cmaccount_add_title">Добавить аккаунт CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Аккаунт CyanogenMod потребуется для использования дополнительных сетевых функций и служб вашего устройства.</string>
+  <string name="cmaccount_add_create_label">Аккаунт CyanogenMod предоставляет доступ к дополнительным сервисам и функциям вашего устройства.\n\nДобавить существующий аккаунт или создать новый?</string>
   <string name="cmaccount_learn_more">Узнать больше\u2026</string>
   <string name="cmaccount_update_required_title">Требуется обновление</string>
   <string name="cmaccount_update_required_text">Текущая версия CyanogenMod может быть несовместима. Для обеспечения совместимости установите самую последнюю версию.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Вы хотите настроить аккаунт Google?</string>
   <string name="btn_google_account">Настройка аккаунта Google</string>
   <string name="whisperpush_title">Шифрование SMS</string>
-  <string name="whisperpush_summary">SMS-сообщения, отправляемые другим пользователям CyanogenMod, будут автоматически зашифрованы.</string>
+  <string name="whisperpush_summary">SMS-переписка с другими пользователями CyanogenMod будет автоматически шифроваться.</string>
+  <string name="apply_default_theme_title">Использовать тему CyanogenMod</string>
+  <string name="use_nav_keys">Включить экранные кнопки</string>
   <string name="location_access_title">Доступ к моему местоположению</string>
   <string name="location_access_summary">Разрешить приложениям получать сведения о вашем местоположении</string>
   <string name="location_sources_heading">Определение местоположения</string>

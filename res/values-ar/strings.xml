@@ -26,9 +26,8 @@
   <string name="create">إنشاء</string>
   <string name="login">تسجيل الدخول</string>
   <string name="ok">موافق</string>
-  <string name="or">أو</string>
-  <string name="existing">تسجيل الدخول إلى حساب موجود</string>
-  <string name="new_account">إنشاء حساب جديد</string>
+  <string name="existing">القائمة</string>
+  <string name="new_account">جديد</string>
   <string name="skip_anyway">تخطي على أي حال</string>
   <string name="dont_skip">لا تتخطي</string>
   <string name="setup_complete">اكتمال الإعداد</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">تحذير: قد تحمل البيانات الناقل إضافي يمكن أن تتطلب الإعداد شحن.\n\nTablet نشاط شبكة كبيرة.</string>
   <string name="setup_warning_skip_wifi" product="default">تحذير: قد تحمل البيانات الناقل إضافي يمكن أن تتطلب الإعداد شحن.\n\nTablet نشاط شبكة كبيرة.</string>
   <string name="setup_privacy">إعدادات الخصوصية</string>
+  <string name="setup_personalization">طابع شخصي</string>
   <string name="cmaccount_setup_create_title">إنشاء حساب CyanogenMod</string>
   <string name="cmaccount_setup_login_title">تسجيل الدخول إلى الحساب CyanogenMod</string>
   <string name="cmaccount_setup_email_label">البريد الإلكتروني</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">تأكيد كلمة المرور</string>
   <string name="cmaccount_setup_tos_label">أوافق على sterms%1$s للخدمة%2$s</string>
   <string name="cmaccount_add_title">إضافة حساب CyanogenMod</string>
-  <string name="cmaccount_add_create_label">حساب CyanogenMod يوفر الوصول إلى الخدمات ذات القيمة المضافة والأداء الوظيفي لهاتفك بتشغيل CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">يوفر حساب CyanogenMod الوصول إلى الخدمات ذات القيمة المضافة وظائف لتشغيل الجهازك الذي يعمل بي CyanogenMod.\n\n هل تريد إضافة حساب موجود أو إنشاء حساب جديد؟</string>
   <string name="cmaccount_learn_more">تعلم المزيد\u2026</string>
   <string name="cmaccount_update_required_title">يتطلب تحديث البرنامج</string>
   <string name="cmaccount_update_required_text">هذا الإصدار لحساب CyanogenMod قد تكون غير متوافقة. الرجاء التحديث إلى الإصدار الأحدث من CyanogenMod ضمان التوافق.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">هل تريد إعداد حساب Google؟</string>
   <string name="btn_google_account">إعداد حساب Google</string>
   <string name="whisperpush_title">تمكين تأمين الرسائل القصيرة</string>
-  <string name="whisperpush_summary">سيتم تشفير الرسائل القصيرة مع المستخدمين الآخرين CyanogenMod الذين مكنت هذه الميزة تلقائياً.</string>
+  <string name="whisperpush_summary">محادثات قصيرة مع الآخرين باستخدام محادثة قصيرة آمنة على CyanogenMod سوف تكون مشفرة تلقائياً.</string>
+  <string name="apply_default_theme_title">استخدام موضوع CyanogenMod</string>
+  <string name="use_nav_keys">استخدام المفاتيح الموجودة على الشاشة</string>
   <string name="location_access_title">الوصول إلى الموقع الخاص بي</string>
   <string name="location_access_summary">السماح لتطبيقات التي طلبت الإذن الخاص بك استخدام معلومات الموقع الخاصة بك</string>
   <string name="location_sources_heading">مصادر الموقع</string>

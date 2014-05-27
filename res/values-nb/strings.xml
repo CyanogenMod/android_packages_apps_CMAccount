@@ -26,7 +26,6 @@
   <string name="create">Lag ny</string>
   <string name="login">Logg inn</string>
   <string name="ok">Ok</string>
-  <string name="or">eller</string>
   <string name="existing">Logg inn på eksisterende konto</string>
   <string name="new_account">Opprett en ny konto</string>
   <string name="skip_anyway">Hopp over uansett</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">Bekreft passord</string>
   <string name="cmaccount_setup_tos_label">Jeg godtar %1$svilkårene%2$s for tjenesten</string>
   <string name="cmaccount_add_title">Legg til en CyanogenMod-konto</string>
-  <string name="cmaccount_add_create_label">En CyanogenMod-konto gir tilgang til verdiøkende tjenester og funksjonalitet for din mobile enhet som kjører CyanogenMod.</string>
   <string name="cmaccount_learn_more">Lær mer\u2026</string>
   <string name="cmaccount_update_required_title">Oppdatering Påkrevd</string>
   <string name="cmaccount_update_required_text">Denne versjonen av CyanogenMod-konto kan være inkompatibel. Vennligst oppdater til den nyeste versjonen av CyanogenMod for å sikre kompatibilitet.</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">Ønsker du å sette opp en Google-konto?</string>
   <string name="btn_google_account">Konfigurer Google-konto</string>
   <string name="whisperpush_title">Aktiver sikker SMS</string>
-  <string name="whisperpush_summary">SMS-meldinger med andre CyanogenMod brukere som har aktivert denne funksjonen krypteres automatisk.</string>
   <string name="location_access_title">Tilgang til min posisjon</string>
   <string name="location_access_summary">Tillat apper som har bedt om tillatelse til å bruke din stedsinformasjon</string>
   <string name="location_sources_heading">Posisjonskilder</string>

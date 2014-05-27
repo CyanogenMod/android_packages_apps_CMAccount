@@ -26,7 +26,6 @@
   <string name="create">Izradi</string>
   <string name="login">Prijavi se</string>
   <string name="ok">U redu</string>
-  <string name="or">ili</string>
   <string name="existing">Prijavi se na postojeći račun</string>
   <string name="new_account">Izradi novi račun</string>
   <string name="skip_anyway">Svejedno preskoči</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">Potvrdi lozinku</string>
   <string name="cmaccount_setup_tos_label">I agree to the %1$suvjete pružanja%2$s of service</string>
   <string name="cmaccount_add_title">Dodaj CyanogenMod račun</string>
-  <string name="cmaccount_add_create_label">CyanogenMod račun omogućuje pristup usluga sa dodanom vrijednosti i funkcionalnosti za vaš uređaj sa CyanogenMod sustavom</string>
   <string name="cmaccount_learn_more">Saznaj više\u2026</string>
   <string name="cmaccount_update_required_title">Potrebno ažuriranje!</string>
   <string name="cmaccount_update_required_text">Ova verzija CyanogenMod računa može biti nekompatibilna. Molimo vas da ažurirate CyanogenMod na najnoviju verziju da osigurate kompatibilnost.</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">Želite li postaviti Google račun?</string>
   <string name="btn_google_account">Postavi Google račun</string>
   <string name="whisperpush_title">Omogući osigurane SMS poruke</string>
-  <string name="whisperpush_summary">SMS poruke sa ostalim CyanogenMod korisnicima koji su omogućili ovu značajku će automatski biti kodirane.</string>
   <string name="location_access_title">Pristup mojoj lokaciji</string>
   <string name="location_access_summary">Dozvoli pristup vašoj lokaciji aplikacijama koje imaju vaše odobrenje</string>
   <string name="location_sources_heading">Izvori lokacije</string>

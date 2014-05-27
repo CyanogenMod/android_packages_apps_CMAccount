@@ -26,7 +26,6 @@
   <string name="create">Vytvoriť</string>
   <string name="login">Prihlásiť sa</string>
   <string name="ok">OK</string>
-  <string name="or">alebo</string>
   <string name="existing">Prihlásiť sa k existujúcemu účtu</string>
   <string name="new_account">Vytvoriť nový účet</string>
   <string name="skip_anyway">Preskočiť</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">UPOZORNENIE: Toto nastavenie môže spôsobiť zvýšené poplatky za dátové prenosy.\n\nNastavenie tabletu môže vyžadovať zvýšený prenos dát.</string>
   <string name="setup_warning_skip_wifi" product="default">VAROVANIE: Môžu sa vyskytnúť ďalšie dátové poplatky u operátora.\n\nNastavenie telefónu môže vyžadovať značnú aktivitu v sieti.</string>
   <string name="setup_privacy">Nastavenia súkromia</string>
+  <string name="setup_personalization">Prispôsobenie</string>
   <string name="cmaccount_setup_create_title">Vytvorte si účet CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Prihláste sa do vášho účtu CyanogenMod</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Potvrdiť heslo</string>
   <string name="cmaccount_setup_tos_label">Súhlasím s %1$spodmienkami%2$s služby</string>
   <string name="cmaccount_add_title">Pridať účet CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Účet CyanogenMod poskytuje prístup k pridanej hodnote vo forme služieb a funkcií pre mobilné zariadenia s CyanogenModom.</string>
+  <string name="cmaccount_add_create_label">Účet CyanogenMod poskytuje prístup k pridanej hodnote vo forme služieb a funkcií pre mobilné zariadenia s CyanogenModom.\n\nChcete pridať existujúci účet alebo vytvoriť nový?</string>
   <string name="cmaccount_learn_more">Zistiť viac\u2026</string>
   <string name="cmaccount_update_required_title">Vyžadovaná aktualizácia</string>
   <string name="cmaccount_update_required_text">Táto verzia Účtu CyanogenMod môže byť nekompatibilná. Aktualizujte prosím na najnovšiu verziu CyanogenModu pre zaistenie kompatibility.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Chcete nastaviť účet Google?</string>
   <string name="btn_google_account">Nastaviť účet Google</string>
   <string name="whisperpush_title">Povoliť zabezpečené SMS</string>
-  <string name="whisperpush_summary">Správy SMS odosielané medzi ostatnými užívateľmi s CyanogenMod, ktorí povolili túto funkciu budú automaticky zašifrované.</string>
+  <string name="whisperpush_summary">SMS konverzácie s ostatnými pomocou zabezpečených SMS na CyanogenMode budú automaticky zašifrované.</string>
+  <string name="apply_default_theme_title">Použiť tému CyanogenModu</string>
+  <string name="use_nav_keys">Použiť tlačidlá na obrazovke</string>
   <string name="location_access_title">Prístup k mojej polohe</string>
   <string name="location_access_summary">Povoliť aplikáciám, ktoré žiadali o povolenie, používať informácie o vašej polohe</string>
   <string name="location_sources_heading">Zdroje polohy</string>

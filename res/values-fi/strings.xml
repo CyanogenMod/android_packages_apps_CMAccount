@@ -26,7 +26,6 @@
   <string name="create">Luo</string>
   <string name="login">Kirjaudu sisään</string>
   <string name="ok">OK</string>
-  <string name="or">tai</string>
   <string name="existing">Kirjaudu olemassa olevalle tilille</string>
   <string name="new_account">Luo uusi tili</string>
   <string name="skip_anyway">Ohita silti</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nTabletin asennus voi tarvita huomattavasti verkkoyhteyttä.</string>
   <string name="setup_warning_skip_wifi" product="default">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nPuhelimen asennus voi tarvita huomattavasti verkkoyhteyttä.</string>
   <string name="setup_privacy">Tietosuoja</string>
+  <string name="setup_personalization">Mukauta</string>
   <string name="cmaccount_setup_create_title">Luo CyanogenMod-tili</string>
   <string name="cmaccount_setup_login_title">Kirjaudu CyanogenMod-tilillesi</string>
   <string name="cmaccount_setup_email_label">Sähköposti</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Vahvista salasana</string>
   <string name="cmaccount_setup_tos_label">Hyväksyn palvelun %1$skäyttöehdot%2$s</string>
   <string name="cmaccount_add_title">Lisää CyanogenMod-tili</string>
-  <string name="cmaccount_add_create_label">CyanogenMod-tili sallii pääsyn uusiin palveluihin ja toimintoihin mobiililaittellasi jossa on CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">CyanogenMod-tili sallii pääsyn uusiin palveluihin ja toimintoihin mobiililaittellasi jossa on CyanogenMod.\n\nHaluatko lisätä olemassa olevan tilin tai luoda uuden?</string>
   <string name="cmaccount_learn_more">Lue lisää\u2026</string>
   <string name="cmaccount_update_required_title">Päivitys tarvitaan</string>
   <string name="cmaccount_update_required_text">Tämä versio CyanogenMod-tilistä saattaa olla epäyhteensopiva. Päivitä uusimpaan CyanogenMod-versioon takaaksesi yhteensopivuuden.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Haluatko asettaa Google-tilin?</string>
   <string name="btn_google_account">Aseta Google-tili</string>
   <string name="whisperpush_title">Ota turvalliset tekstiviestit käyttöön</string>
-  <string name="whisperpush_summary">Tekstiviestit muiden CyanogenModin ja tämän ominaisuuden käyttäjien kesken salataan automaattisesti.</string>
+  <string name="whisperpush_summary">Tekstiviestikeskustelut muiden CyanogenModin turvallisia tekstiviestejä käyttävien välillä salataan automaattisesti.</string>
+  <string name="apply_default_theme_title">Käytä CyanogenMod-teemaa</string>
+  <string name="use_nav_keys">Käytä näytössä näkyviä näppäimiä</string>
   <string name="location_access_title">Salli pääsy sijaintiin</string>
   <string name="location_access_summary">Salli sijainnin haku sovelluksille jotka ovat kysyneet luvan</string>
   <string name="location_sources_heading">Sijainnin lähteet</string>

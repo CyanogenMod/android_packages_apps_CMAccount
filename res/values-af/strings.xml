@@ -26,7 +26,6 @@
   <string name="create">Skep</string>
   <string name="login">Teken in</string>
   <string name="ok">OK</string>
-  <string name="or">of</string>
   <string name="existing">Meld aan by bestaande rekening</string>
   <string name="new_account">Skep \'n nuwe rekening</string>
   <string name="skip_anyway">Slaan in elk geval oor</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">Bevestig wagwoord</string>
   <string name="cmaccount_setup_tos_label">Ek stem saam met die bepalings van die %1$sdiens%2$s</string>
   <string name="cmaccount_add_title">Voeg \'n CyanogenMod rekening by</string>
-  <string name="cmaccount_add_create_label">\'n CyanogenMod rekening bied toegang tot toegevoegde waarde-dienste en funksies vir jou mobiele toestel op CyanogenMod</string>
   <string name="cmaccount_learn_more">Leer meer\u2026</string>
   <string name="cmaccount_update_required_title">Vereis opdateering </string>
   <string name="cmaccount_update_required_text">Hierdie weergawe van CyanogenMod Rekening kan nie versoenbaar wees nie. Verander asb na die nuutste weergawe van CyanogenMod om versoenbaarheid te verseker.</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">Wil jy \'n Google-rekening opstel?</string>
   <string name="btn_google_account">Stel Google rekening op</string>
   <string name="whisperpush_title">Aktiveer veilige SMS</string>
-  <string name="whisperpush_summary">SMS-boodskappe met ander CyanogenMod gebruikers wat hierdie funksie aangeskakel het, sal outomaties geënkripteer word.</string>
   <string name="location_access_title">Toegang tot my ligging</string>
   <string name="location_access_summary">Laat programme toe wat toestemming gevra het om jou ligging inligting te gebruik</string>
   <string name="location_sources_heading">Ligging bronne</string>

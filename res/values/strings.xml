@@ -28,9 +28,8 @@
     <string name="create">Create</string>
     <string name="login">Login</string>
     <string name="ok">OK</string>
-    <string name="or">or</string>
-    <string name="existing">Log in to existing account</string>
-    <string name="new_account">Create a new account</string>
+    <string name="existing">Existing</string>
+    <string name="new_account">New</string>
     <string name="skip_anyway">Skip anyway</string>
     <string name="dont_skip">Don\'t skip</string>
 
@@ -65,7 +64,7 @@
     <string name="cmaccount_setup_confirm_password_label">Confirm password</string>
     <string name="cmaccount_setup_tos_label">I agree to the %1$sterms%2$s of service</string>
     <string name="cmaccount_add_title">Add a CyanogenMod account</string>
-    <string name="cmaccount_add_create_label">A CyanogenMod account provides access to value-added services and functionality for your mobile device running CyanogenMod.</string>
+    <string name="cmaccount_add_create_label">A CyanogenMod account provides access to value-added services and functionality for your mobile device running CyanogenMod.\n\nDo you want to add an existing account or create a new one?</string>
     <string name="cmaccount_learn_more">Learn more\u2026</string>
 
     <string name="cmaccount_update_required_title">Update Required</string>
@@ -94,7 +93,7 @@
 
     <string name="whisperpush_title">Enable secure SMS</string>
     <string name="whisperpush_summary">SMS conversations with others using secure SMS on CyanogenMod will be automatically encrypted.</string>
-    <string name="apply_default_theme_title">Use CyanogenMod’s Look</string>
+    <string name="apply_default_theme_title">Use CyanogenMod’s theme</string>
     <string name="use_nav_keys">Use on-screen keys</string>
 
     <string name="location_access_title">Access to my location</string>

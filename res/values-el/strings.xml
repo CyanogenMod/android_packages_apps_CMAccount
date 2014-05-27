@@ -26,7 +26,6 @@
   <string name="create">Δημιουργία</string>
   <string name="login">Σύνδεση</string>
   <string name="ok">ΟΚ</string>
-  <string name="or">ή</string>
   <string name="existing">Σύνδεση σε ήδη υπάρχων λογαριασμό</string>
   <string name="new_account">Δημιουργία νέου λογαριασμού</string>
   <string name="skip_anyway">Παράβλεψη ούτως ή άλλως</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του tablet μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
   <string name="setup_warning_skip_wifi" product="default">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του τηλεφώνου μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
   <string name="setup_privacy">Ρυθμίσεις απορρήτου</string>
+  <string name="setup_personalization">Εξατομίκευση</string>
   <string name="cmaccount_setup_create_title">Δημιουργία λογαριασμού CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Συνδεθείτε στον CyanogenMod λογαριασμό σας</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Επιβεβαίωση κωδικού πρόσβασης</string>
   <string name="cmaccount_setup_tos_label">Συμφωνώ με τους %1$sόρους%2$s της υπηρεσίας</string>
   <string name="cmaccount_add_title">Προσθήκη λογαριασμού CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Ένας λογαριασμός CyanogenMod παρέχει πρόσβαση σε πρόσθετες υπηρεσίες και λειτουργίες για την φορητή συσκευή σας που τρέχει CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">Ένας λογαριασμός CyanogenMod παρέχει πρόσβαση σε πρόσθετες υπηρεσίες και λειτουργίες για την φορητή συσκευή σας που τρέχει CyanogenMod.\n\nΘέλετε να προσθέσετε έναν ήδη υπάρχων λογαριασμό ή να δημιουργήσετε ένα νέο;</string>
   <string name="cmaccount_learn_more">Μάθετε περισσότερα\u2026</string>
   <string name="cmaccount_update_required_title">Απαιτείται ενημέρωση</string>
   <string name="cmaccount_update_required_text">Αυτή η έκδοση του λογαριασμού CyanogenMod ίσως δεν είναι συμβατή. Παρακαλώ αναβαθμίστε στην πιο πρόσφατη έκδοση του CyanogenMod για εγγυημένη συμβατότητα.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Θέλετε να ρυθμίσετε έναν λογαριασμό Google;</string>
   <string name="btn_google_account">Ρύθμιση λογαριασμού Google</string>
   <string name="whisperpush_title">Ενεργοποίηση ασφαλών SMS</string>
-  <string name="whisperpush_summary">Μηνύματα SMS με άλλους χρήστες CyanogenMod που έχουν ενεργοποιήσει αυτή τη δυνατότητα θα κρυπτογραφούνται αυτόματα.</string>
+  <string name="whisperpush_summary">Οι συνομιλίες SMS με άλλους χρήστες ασφαλών SMS στο CyanogenMod θα κρυπτογραφούνται αυτόματα.</string>
+  <string name="apply_default_theme_title">Χρήση θέματος του CyanogenMod</string>
+  <string name="use_nav_keys">Χρήση πλήκτρων που εμφανίζονται στην οθόνη</string>
   <string name="location_access_title">Πρόσβαση στην τοποθεσία μου</string>
   <string name="location_access_summary">Να επιτρέπεται σε εφαρμογές που έχουν ζητήσει την άδειά σας να χρησιμοποιούν τις πληροφορίες της τοποθεσίας σας</string>
   <string name="location_sources_heading">Πηγές τοποθεσίας</string>

@@ -26,7 +26,6 @@
   <string name="create">Buat</string>
   <string name="login">Masuk</string>
   <string name="ok">Oke</string>
-  <string name="or">atau</string>
   <string name="existing">Masuk menggunakan akun yang ada</string>
   <string name="new_account">Buat akun baru</string>
   <string name="skip_anyway">Lewati saja</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">PERINGATAN: Anda mungkin dikenakan tambahan biaya data oleh operator.\n\nSetup tablet memerlukan aktivitas jaringan yang signifikan.</string>
   <string name="setup_warning_skip_wifi" product="default">PERINGATAN: Anda mungkin dikenakan tambahan biaya data oleh operator.\n\nSetup telepon memerlukan aktivitas jaringan yang signifikan.</string>
   <string name="setup_privacy">Pengaturan Privasi</string>
+  <string name="setup_personalization">Personalisasi</string>
   <string name="cmaccount_setup_create_title">Buat akun CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Masuk ke akun CyanogenMod anda</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Konfirmasi sandi</string>
   <string name="cmaccount_setup_tos_label">Saya setuju %1$ssyarat%2$s layanan</string>
   <string name="cmaccount_add_title">Tambah akun CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Akun CyanogenMod menyediakan akses ke layanan bernilai-tambah dan fungsionalitas perangkat seluler anda yang menjalankan CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">Akun CyanogenMod menyediakan akses ke layanan bernilai tambah dan fungsional untuk perangkat seluler Anda dalam menjalankan CyanogenMod.\n\nApakah Anda ingin menambahkan account yang ada atau membuat yang baru?</string>
   <string name="cmaccount_learn_more">Pelajari lebih jauh\u2026</string>
   <string name="cmaccount_update_required_title">Pembaruan Dibutuhkan</string>
   <string name="cmaccount_update_required_text">Versi Akun CyanogenMod ini mungkin tidak kompatibel. Silahkan perbarui ke versi terbaru dari CyanogenMod untuk memastikan kompatibilitas.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Apakah anda ingin membuat akun Google?</string>
   <string name="btn_google_account">Setup akun Google</string>
   <string name="whisperpush_title">Aktifkan SMS aman</string>
-  <string name="whisperpush_summary">Pesan SMS dengan pengguna CyanogenMod lain yang telah mengaktifkan fitur ini akan secara otomatis dienkripsi.</string>
+  <string name="whisperpush_summary">Percakapan SMS dengan orang lain menggunakan secure SMS di CyanogenMod akan secara otomatis dienkripsi.</string>
+  <string name="apply_default_theme_title">Gunakan tema CyanogenMod</string>
+  <string name="use_nav_keys">Gunakan tombol layar</string>
   <string name="location_access_title">Akses ke lokasi saya</string>
   <string name="location_access_summary">Perbolehkan aplikasi yang telah meminta izin anda untuk menggunakan informasi lokasi anda</string>
   <string name="location_sources_heading">Sumber lokasi</string>

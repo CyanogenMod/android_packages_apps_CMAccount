@@ -26,7 +26,6 @@
   <string name="create">创建</string>
   <string name="login">登录</string>
   <string name="ok">确定</string>
-  <string name="or">或</string>
   <string name="existing">使用已有帐户登录</string>
   <string name="new_account">创建新帐户</string>
   <string name="skip_anyway">总是跳过</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">确认密码</string>
   <string name="cmaccount_setup_tos_label">我同意接受%1$s服务条款%2$s</string>
   <string name="cmaccount_add_title">添加一个 CyanogenMod 帐户</string>
-  <string name="cmaccount_add_create_label">CyanogenMod 帐户为您上运行 CyanogenMod 的移动设备提供增值服务与功能。</string>
   <string name="cmaccount_learn_more">了解更多\u2026</string>
   <string name="cmaccount_update_required_title">需要更新</string>
   <string name="cmaccount_update_required_text">此版本的 CyanogenMod 帐户可能不兼容。请更新到最新版本的 CyanogenMod 以确保兼容性。</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">您想设置一个 Google 帐户吗？</string>
   <string name="btn_google_account">设置 Google 帐户</string>
   <string name="whisperpush_title">启用安全短信</string>
-  <string name="whisperpush_summary">与其他已启用此功能的 CyanogenMod 用户发送短信，短信将被自动加密。</string>
   <string name="location_access_title">访问我的位置</string>
   <string name="location_access_summary">允许您批准的应用使用您的位置信息</string>
   <string name="location_sources_heading">位置源</string>

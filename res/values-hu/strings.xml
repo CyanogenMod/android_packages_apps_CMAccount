@@ -26,7 +26,6 @@
   <string name="create">Létrehozás</string>
   <string name="login">Bejelentkezés</string>
   <string name="ok">Rendben</string>
-  <string name="or">vagy</string>
   <string name="existing">Bejelentkezés létező fiókkal</string>
   <string name="new_account">Új fiók létrehozása</string>
   <string name="skip_anyway">Most kihagyom</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">Jelszó megerősítése</string>
   <string name="cmaccount_setup_tos_label">Elfogadom a %1$sfelhasználási feltételeket%2$s</string>
   <string name="cmaccount_add_title">CyanogenMod fiók hozzáadása</string>
-  <string name="cmaccount_add_create_label">A CyanogenMod fiók értéknövelt szolgáltatásokat és funkciókat biztosít CyanogenMod-ot futtató készülékeken.</string>
   <string name="cmaccount_learn_more">Tudjon meg többet\u2026</string>
   <string name="cmaccount_update_required_title">Frissítésre van szükség</string>
   <string name="cmaccount_update_required_text">Ez a CyanogenMod fiók lehet, hogy nem kompatibilis.  Frissítsen a legújabb CyanogenMod verzióra a kompatibilitás biztosításáért.</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">Szeretne beállítani egy Google fiókot?</string>
   <string name="btn_google_account">Google fiók beállítása</string>
   <string name="whisperpush_title">Biztonságos SMS engedélyezése</string>
-  <string name="whisperpush_summary">Az SMS üzenetek automatikusan titkosításra kerülnek, amennyiben a címzett szintén engedélyezte a CyanogenMod rendszerében ezt az opciót.</string>
   <string name="location_access_title">Hozzáférés a Saját helyemhez</string>
   <string name="location_access_summary">Lehetővé teszi az alkalmazások számára, hogy engedélyt kérhessenek a helymeghatározási információk használatára</string>
   <string name="location_sources_heading">Hely forrásai</string>

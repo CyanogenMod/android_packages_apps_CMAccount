@@ -26,7 +26,6 @@
   <string name="create">Crear</string>
   <string name="login">Entrar</string>
   <string name="ok">Aceptar</string>
-  <string name="or">o</string>
   <string name="existing">Identificarse mediante una cuenta existente</string>
   <string name="new_account">Crear una nueva cuenta</string>
   <string name="skip_anyway">Omitir</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">Confirmar contraseña</string>
   <string name="cmaccount_setup_tos_label">Estoy de acuerdo con los %1$stérminos%2$s del servicio</string>
   <string name="cmaccount_add_title">Añadir una cuenta de CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod permite el acceso a servicios de valor añadido y funcionalidades extras para tu dispositivo CyanogenMod.</string>
   <string name="cmaccount_learn_more">Leer más\u2026</string>
   <string name="cmaccount_update_required_title">Actualización necesaria</string>
   <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod puede ser incompatible. Por favor, actualiza a la última versión de CyanogenMod para asegurar la compatibilidad.</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">¿Quieres configurar una cuenta de Google?</string>
   <string name="btn_google_account">Configurar cuenta de Google</string>
   <string name="whisperpush_title">Habilitar SMS seguros</string>
-  <string name="whisperpush_summary">Los mensajes SMS intercambiados con otros usuarios de CyanogenMod que tengan habilitada esta característica, serán cifrados automáticamente.</string>
   <string name="location_access_title">Acceso a tu ubicación</string>
   <string name="location_access_summary">Permitir que las aplicaciones que han pedido permiso usen la información sobre tu ubicación</string>
   <string name="location_sources_heading">Fuentes de ubicación</string>

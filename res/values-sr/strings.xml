@@ -26,7 +26,6 @@
   <string name="create">Направи</string>
   <string name="login">Пријавите се</string>
   <string name="ok">ОК</string>
-  <string name="or">или</string>
   <string name="existing">Пријавите се на постојећи налог</string>
   <string name="new_account">Направите нови налог</string>
   <string name="skip_anyway">Ипак прескочи</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">УПОЗОРЕЊЕ: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање таблета може захтевати значајну употребу Интернет везе.</string>
   <string name="setup_warning_skip_wifi" product="default">УПОЗОРЕЊЕ: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање телефона може захтевати значајну употребу Интернет везе.</string>
   <string name="setup_privacy">Подешавања приватности</string>
+  <string name="setup_personalization">Персонализуј</string>
   <string name="cmaccount_setup_create_title">Направите CyanogenMod налог</string>
   <string name="cmaccount_setup_login_title">Пријавите се на Ваш CyanogenMod налог</string>
   <string name="cmaccount_setup_email_label">Е-пошта</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Потврдите лозинку</string>
   <string name="cmaccount_setup_tos_label">Слажем се са %1$sусловима%2$s коришћења</string>
   <string name="cmaccount_add_title">Додајте CyanogenMod налог</string>
-  <string name="cmaccount_add_create_label">CyanogenMod налог обезбеђује приступ додатним сервисима и функционалностима за Ваш мобилни уређај.</string>
+  <string name="cmaccount_add_create_label">CyanogenMod налог обезбеђује приступ услугама додатне-вредности и функционалности за Ваш мобилни уређај који ради на CyanogenMod-у.\n\nДа ли желите да додате постојећи налог или отворите нови?</string>
   <string name="cmaccount_learn_more">Сазнајте више\u2026</string>
   <string name="cmaccount_update_required_title">Потребно ажурирање</string>
   <string name="cmaccount_update_required_text">Ова верзија CyanogenMod Account апликације је можда инкомпатибилна. Молимо ажурирајте Вашу верзију CyanogenMod система како би сте обезбедили компатибилност.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">Да ли желите да подесите Google налог?</string>
   <string name="btn_google_account">Подесите Google налог</string>
   <string name="whisperpush_title">Укључите сигурни SMS</string>
-  <string name="whisperpush_summary">SMS поруке са другим CyanogenMod корисницима који су такође активирали ову функцију ће аутоматски бити шифроване.</string>
+  <string name="whisperpush_summary">SMS конверзација са другим корисницима који користе безбедан SMS на CyanogenMod-у биће аутоматски шифрована.</string>
+  <string name="apply_default_theme_title">Користи CyanogenMod тему</string>
+  <string name="use_nav_keys">Користи тастере на екрану</string>
   <string name="location_access_title">Приступ мојој локацији</string>
   <string name="location_access_summary">Дозволите апликацијама које су захтевале Вашу дозволу да користе информације о Вашој локацији</string>
   <string name="location_sources_heading">Извори информација о локацији</string>

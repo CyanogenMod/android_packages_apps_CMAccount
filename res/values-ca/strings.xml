@@ -26,7 +26,6 @@
   <string name="create">Crea</string>
   <string name="login">Entra</string>
   <string name="ok">D\'acord</string>
-  <string name="or">o</string>
   <string name="existing">Entra a un compte existent</string>
   <string name="new_account">Crea un compte nou</string>
   <string name="skip_anyway">Salta de totes maneres</string>
@@ -60,7 +59,6 @@
   <string name="cmaccount_setup_confirm_password_label">Confirma la contrasenya</string>
   <string name="cmaccount_setup_tos_label">Estic d\'acord amb els %1$stermes%2$s del servei</string>
   <string name="cmaccount_add_title">Afegeix un compte CyanogenMod</string>
-  <string name="cmaccount_add_create_label">Un compte CyanogenMod dóna accés a serveis de valor afegit i funcionalitats pel teu dispositiu mòbil quan fa servir CyanogenMod.</string>
   <string name="cmaccount_learn_more">Aprèn més\u2026</string>
   <string name="cmaccount_update_required_title">Actualització requerida</string>
   <string name="cmaccount_update_required_text">Aquesta versió del compte CyanogenMod podria ser incompatible. Si us plau actualitza a la darrera versió de CyanogenMod per assegurar la compatibilitat.</string>
@@ -81,7 +79,6 @@
   <string name="google_account_summary">Vols configurar un compte Google?</string>
   <string name="btn_google_account">Configura un compte Google</string>
   <string name="whisperpush_title">Habilita els SMS segurs</string>
-  <string name="whisperpush_summary">Els missatges SMS amb altres usuaris de CyanogenMod que han permès aquesta característica s\'encriptaran automàticament.</string>
   <string name="location_access_title">Accedeix a la meva ubicació</string>
   <string name="location_access_summary">Permet apps que t\'han demanat permís per utilitzar la teva informació d\'ubicació</string>
   <string name="location_sources_heading">Origens d\'ubicacions</string>

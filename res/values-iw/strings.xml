@@ -26,7 +26,6 @@
   <string name="create">צור</string>
   <string name="login">התחברות</string>
   <string name="ok">אישור</string>
-  <string name="or">או</string>
   <string name="existing">התחבר עם חשבון קיים</string>
   <string name="new_account">צור חשבון חדש</string>
   <string name="skip_anyway">דלג בכל מקרה</string>
@@ -48,6 +47,7 @@
   <string name="setup_warning_skip_wifi" product="tablet">אזהרה: אתה יכול לקבל תשלום גדול יותר מהספק שלך.\n\nהגדרת טאבלט יכולה לדרוש הרבה פעילות ברשת.</string>
   <string name="setup_warning_skip_wifi" product="default">אזהרה: אתה יכול לקבל תשלום גדול יותר מהספק שלך.\n\nהגדרת טאבלט יכולה לדרוש הרבה פעילות ברשת.</string>
   <string name="setup_privacy">הגדרות פרטיות</string>
+  <string name="setup_personalization">התאם</string>
   <string name="cmaccount_setup_create_title">צור חשבון CyanogenMod</string>
   <string name="cmaccount_setup_login_title">התחבר לחשבון CyanogenMod שלך</string>
   <string name="cmaccount_setup_email_label">דואר אלקטרוני</string>
@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">אישור סיסמה</string>
   <string name="cmaccount_setup_tos_label">אני מסכים לתנאי השימוש</string>
   <string name="cmaccount_add_title">הוסף חשבון CyanogenMod</string>
-  <string name="cmaccount_add_create_label">חשבון CyanogenMod מאפשר גישה לשירותים ופעולות עבור מכשירך בזמן ריצת CyanogenMod.</string>
+  <string name="cmaccount_add_create_label">חשבון CyanogenMod מספק גישה לשירותים נוספים ואפשרויות חדשות עבור מכשיר ה-CyanogenMod שלך.\n\nהאם אתה רוצה להוסיף חשבון קיים או ליצור אחד חדש?</string>
   <string name="cmaccount_learn_more">למד עוד\u2026</string>
   <string name="cmaccount_update_required_title">עדכון נדרש</string>
   <string name="cmaccount_update_required_text">גרסת חשבון CyanogenMod שלך יכולה לא להתאים. אנה עדכן לגרסה האחרונה של חשבון CyanogenMod כדי להבטיח  תאימות.</string>
@@ -81,7 +81,9 @@
   <string name="google_account_summary">האם ברצונך להגדיר את חשבון Google?</string>
   <string name="btn_google_account">הגדרת חשבון Google</string>
   <string name="whisperpush_title">אפשר SMS מאובטח</string>
-  <string name="whisperpush_summary">הודעות SMS עם משתמשי CyanogenMod שהפעילו תכונה זו יוצפנו באופן אוטומטי.</string>
+  <string name="whisperpush_summary">שיחות SMS עם אנשים אחרים בעזרת SMS מאובטח של CyanogenMod יוצפנו אוטומטית.</string>
+  <string name="apply_default_theme_title">השתמש בערכת עיצוב של CyanogenMod</string>
+  <string name="use_nav_keys">השתמש במקשים על המסך</string>
   <string name="location_access_title">גישה למיקום שלי</string>
   <string name="location_access_summary">אפשר ליישומים שביקשו הרשאה לקבל את מיקומך</string>
   <string name="location_sources_heading">מקורות מיקום</string>
