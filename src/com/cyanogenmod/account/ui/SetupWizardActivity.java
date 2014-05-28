@@ -74,6 +74,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     private final Handler mHandler = new Handler();
 
     private SharedPreferences mSharedPreferences;
+    private boolean mSetupComplete = false;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -365,6 +366,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     }
 
     private void finishSetup() {
+        if (mSetupComplete) return;
+        mSetupComplete = true;
         handleWhisperPushRegistration();
         handleDefaultThemeSetup();
 
