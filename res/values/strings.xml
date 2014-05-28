@@ -51,6 +51,7 @@
     <string name="setup_warning_skip_wifi" product="default">WARNING: You may incur extra carrier data charges.\n\nPhone setup can require significant network activity.</string>
     <string name="setup_privacy">Privacy Settings</string>
     <string name="setup_personalization">Personalize</string>
+    <string name="setup_finalizing">Finalizing setup\u2026</string>
 
     <string name="cmaccount_setup_create_title">Create a CyanogenMod account</string>
     <string name="cmaccount_setup_login_title">Log in to your CyanogenMod account</string>
