@@ -26,8 +26,8 @@
   <string name="create">Vytvoriť</string>
   <string name="login">Prihlásiť sa</string>
   <string name="ok">OK</string>
-  <string name="existing">Prihlásiť sa k existujúcemu účtu</string>
-  <string name="new_account">Vytvoriť nový účet</string>
+  <string name="existing">Existujúci</string>
+  <string name="new_account">Nový</string>
   <string name="skip_anyway">Preskočiť</string>
   <string name="dont_skip">Nepreskakovať</string>
   <string name="setup_complete">Nastavenie je dokončené</string>

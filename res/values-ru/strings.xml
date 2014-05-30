@@ -26,8 +26,8 @@
   <string name="create">Создать</string>
   <string name="login">Войти</string>
   <string name="ok">ОК</string>
-  <string name="existing">Войти</string>
-  <string name="new_account">Создать аккаунт</string>
+  <string name="existing">Существующий</string>
+  <string name="new_account">Новый</string>
   <string name="skip_anyway">Всё равно пропустить</string>
   <string name="dont_skip">Не пропускать</string>
   <string name="setup_complete">Настройка завершена</string>

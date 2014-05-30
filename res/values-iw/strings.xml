@@ -26,8 +26,8 @@
   <string name="create">צור</string>
   <string name="login">התחברות</string>
   <string name="ok">אישור</string>
-  <string name="existing">התחבר עם חשבון קיים</string>
-  <string name="new_account">צור חשבון חדש</string>
+  <string name="existing">קיים</string>
+  <string name="new_account">חדש</string>
   <string name="skip_anyway">דלג בכל מקרה</string>
   <string name="dont_skip">אל תדלג</string>
   <string name="setup_complete">ההגדרה הושלמה</string>

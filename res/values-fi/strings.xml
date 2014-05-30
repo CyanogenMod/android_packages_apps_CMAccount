@@ -26,8 +26,8 @@
   <string name="create">Luo</string>
   <string name="login">Kirjaudu sisään</string>
   <string name="ok">OK</string>
-  <string name="existing">Kirjaudu olemassa olevalle tilille</string>
-  <string name="new_account">Luo uusi tili</string>
+  <string name="existing">Olemassa oleva</string>
+  <string name="new_account">Uusi</string>
   <string name="skip_anyway">Ohita silti</string>
   <string name="dont_skip">Älä ohita</string>
   <string name="setup_complete">Asennus on valmis</string>

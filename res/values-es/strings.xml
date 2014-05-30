@@ -26,8 +26,8 @@
   <string name="create">Crear</string>
   <string name="login">Entrar</string>
   <string name="ok">Aceptar</string>
-  <string name="existing">Identificarse mediante una cuenta existente</string>
-  <string name="new_account">Crear una nueva cuenta</string>
+  <string name="existing">Esistente</string>
+  <string name="new_account">Nueva</string>
   <string name="skip_anyway">Omitir</string>
   <string name="dont_skip">No omitir</string>
   <string name="setup_complete">Configuración completada</string>

@@ -26,8 +26,6 @@
   <string name="create">Skapa</string>
   <string name="login">Logga in</string>
   <string name="ok">OK</string>
-  <string name="existing">Logga in med befintligt konto</string>
-  <string name="new_account">Skapa nytt konto</string>
   <string name="skip_anyway">Hoppa över ändå</string>
   <string name="dont_skip">Hoppa inte över</string>
   <string name="setup_complete">Konfigurationen är klar</string>

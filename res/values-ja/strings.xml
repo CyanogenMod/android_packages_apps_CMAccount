@@ -26,8 +26,8 @@
   <string name="create">作成</string>
   <string name="login">ログイン</string>
   <string name="ok">OK</string>
-  <string name="existing">既存のアカウントにログイン</string>
-  <string name="new_account">新しいアカウントの作成</string>
+  <string name="existing">既存のアカウント</string>
+  <string name="new_account">新しいアカウント</string>
   <string name="skip_anyway">とにかくスキップ</string>
   <string name="dont_skip">スキップしない</string>
   <string name="setup_complete">セットアップが完了しました</string>

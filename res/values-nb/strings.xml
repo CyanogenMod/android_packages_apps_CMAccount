@@ -26,8 +26,6 @@
   <string name="create">Lag ny</string>
   <string name="login">Logg inn</string>
   <string name="ok">Ok</string>
-  <string name="existing">Logg inn på eksisterende konto</string>
-  <string name="new_account">Opprett en ny konto</string>
   <string name="skip_anyway">Hopp over uansett</string>
   <string name="dont_skip">Ikke hopp over</string>
   <string name="setup_complete">Konfigureringen er ferdig</string>

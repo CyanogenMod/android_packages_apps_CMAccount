@@ -26,8 +26,8 @@
   <string name="create">Створити</string>
   <string name="login">Логін</string>
   <string name="ok">Гаразд</string>
-  <string name="existing">Увійти в існуючу обліковий запис</string>
-  <string name="new_account">Створити новий обліковий запис</string>
+  <string name="existing">Існуючий</string>
+  <string name="new_account">Новий</string>
   <string name="skip_anyway">Пропустити</string>
   <string name="dont_skip">Не пропускати</string>
   <string name="setup_complete">Встановлення завершено</string>

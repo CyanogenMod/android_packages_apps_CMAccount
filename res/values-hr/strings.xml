@@ -26,8 +26,6 @@
   <string name="create">Izradi</string>
   <string name="login">Prijavi se</string>
   <string name="ok">U redu</string>
-  <string name="existing">Prijavi se na postojeći račun</string>
-  <string name="new_account">Izradi novi račun</string>
   <string name="skip_anyway">Svejedno preskoči</string>
   <string name="dont_skip">Ne preskači</string>
   <string name="setup_complete">Postavka je završena</string>

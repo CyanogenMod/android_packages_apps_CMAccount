@@ -26,8 +26,8 @@
   <string name="create">Créer</string>
   <string name="login">S\'identifier</string>
   <string name="ok">Ok</string>
-  <string name="existing">Se connecter à un compte existant</string>
-  <string name="new_account">Créer un nouveau compte</string>
+  <string name="existing">Existant</string>
+  <string name="new_account">Nouveau</string>
   <string name="skip_anyway">Toujours ignorer</string>
   <string name="dont_skip">Ne pas ignorer</string>
   <string name="setup_complete">Paramétrage terminé</string>
