@@ -26,7 +26,6 @@
   <string name="create">හදන්න</string>
   <string name="login">පුරන්න</string>
   <string name="ok">හරි</string>
-  <string name="or">නැතිනම්</string>
   <string name="existing">පවත්නා</string>
   <string name="new_account">අලුත්</string>
   <string name="skip_anyway">කෙසේ වූවද මඟහරින්න</string>
@@ -49,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">අවවාදයයි: ඔබට අමතර වාහක දත්ත අයකිරීම් දැරීමට සිදුවෙනු ඇත.\n\nඋපාංගයේ පිහිටුවීම සඳහා සැලකිය යුතු මට්ටමක ජාල ක්‍රියාකාරකම් අවශ්‍ය විය හැක.</string>
   <string name="setup_privacy">පෞද්ගලිකත්ව සැකසීම්</string>
   <string name="setup_personalization">පුද්ගලායනය</string>
+  <string name="setup_finalizing">පිහිටුවීම අවසන් කරමින්\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod ගිණුමක් හදන්න</string>
   <string name="cmaccount_setup_login_title">ඔබගේ CyanogenMod ගිණුමට පුරන්න</string>
   <string name="cmaccount_setup_email_label">ඊ-තැපෑල</string>

@@ -20,7 +20,7 @@
   <string name="next">Следеће</string>
   <string name="continue_label">Настави</string>
   <string name="prev">Претходно</string>
-  <string name="skip">Прекочи</string>
+  <string name="skip">Прескочи</string>
   <string name="finish">Заврши</string>
   <string name="cancel">Поништи</string>
   <string name="create">Направи</string>
@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">УПОЗОРЕЊЕ: Оператер ће Вам можда наплатити додатне трошкове.\n\nПодешавање телефона може захтевати значајну употребу Интернет везе.</string>
   <string name="setup_privacy">Подешавања приватности</string>
   <string name="setup_personalization">Персонализуј</string>
+  <string name="setup_finalizing">Финализација подешавања\u2026</string>
   <string name="cmaccount_setup_create_title">Направите CyanogenMod налог</string>
   <string name="cmaccount_setup_login_title">Пријавите се на Ваш CyanogenMod налог</string>
   <string name="cmaccount_setup_email_label">Е-пошта</string>
@@ -64,7 +65,7 @@
   <string name="cmaccount_learn_more">Сазнајте више\u2026</string>
   <string name="cmaccount_update_required_title">Потребно ажурирање</string>
   <string name="cmaccount_update_required_text">Ова верзија CyanogenMod Account апликације је можда инкомпатибилна. Молимо ажурирајте Вашу верзију CyanogenMod система како би сте обезбедили компатибилност.</string>
-  <string name="cmaccount_update_required_short">Ова верзија је можда инкомпатибилна.</string>
+  <string name="cmaccount_update_required_short">Ова верзија је можда некомпатибилна.</string>
   <string name="cmaccount_checking_for_updates">Провера нове верзије је у току.</string>
   <string name="cmaccount_password_changed_title">Лозинка је промењена</string>
   <string name="cmaccount_password_changed_message">Пријавите се на Ваш CyanogenMod налог</string>

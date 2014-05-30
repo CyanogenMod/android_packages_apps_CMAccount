@@ -26,11 +26,13 @@
   <string name="create">建立</string>
   <string name="login">登入</string>
   <string name="ok">確定</string>
+  <string name="existing">現有帳戶</string>
+  <string name="new_account">新增帳戶</string>
   <string name="skip_anyway">無論如何跳過</string>
   <string name="dont_skip">不要略過</string>
   <string name="setup_complete">設定已完成</string>
-  <string name="setup_complete_summary" product="tablet">恭喜！你的平板電腦已設置完畢。</string>
-  <string name="setup_complete_summary" product="default">恭喜！你的手機已設置完畢。</string>
+  <string name="setup_complete_summary" product="tablet">恭喜！你的平板電腦已設定完畢。</string>
+  <string name="setup_complete_summary" product="default">恭喜！你的手機已設定完畢。</string>
   <string name="setup_welcome">歡迎使用 CyanogenMod</string>
   <string name="setup_welcome_summary" product="tablet">要開始設定你的平板電腦之前，請選擇你的語言然後繼續。</string>
   <string name="setup_welcome_summary" product="default">要開始設定你的電話之前，請選擇你的語言然後繼續。</string>
@@ -42,21 +44,24 @@
   <string name="setup_current_date">目前日期</string>
   <string name="setup_current_time">目前時間</string>
   <string name="setup_msg_no_network">警告：你將無法設定你的帳戶</string>
-  <string name="setup_warning_skip_wifi" product="tablet">警告：你可能需支付額外的數據傳輸費用。\n\n平板電腦設定程序可能需要佔用大量網路流量。</string>
-  <string name="setup_warning_skip_wifi" product="default">警告：你可能需支付額外的數據傳輸費用。\n\n電話設定程序可能需要佔用大量網路流量。</string>
+  <string name="setup_warning_skip_wifi" product="tablet">警告：你可能需支付額外的數據傳輸費用。\n\n平板電腦設定程式可能需要佔用大量網絡流量。</string>
+  <string name="setup_warning_skip_wifi" product="default">警告：你可能需支付額外的數據傳輸費用。\n\n電話設定程式可能需要佔用大量網絡流量。</string>
   <string name="setup_privacy">私隱設定</string>
+  <string name="setup_personalization">個人化</string>
+  <string name="setup_finalizing">正在最終確定設定\u2026</string>
   <string name="cmaccount_setup_create_title">建立一個 CyanogenMod 帳戶</string>
   <string name="cmaccount_setup_login_title">登入您的 CyanogenMod 帳戶</string>
   <string name="cmaccount_setup_email_label">電子郵件</string>
   <string name="cmaccount_setup_email_unavailable_label">電子郵件已被註冊</string>
   <string name="cmaccount_setup_email_invalid_label">不是一個有效的電子郵件地址</string>
   <string name="cmaccount_setup_password_label">密碼</string>
-  <string name="cmaccount_setup_password_create_label">密碼 (至少8個字元)</string>
+  <string name="cmaccount_setup_password_create_label">密碼 (至少 8 個字元)</string>
   <string name="cmaccount_setup_password_mismatch_label">密碼不相符！</string>
   <string name="cmaccount_setup_password_invalid_label">密碼必須至少 8 個字元 ！</string>
   <string name="cmaccount_setup_confirm_password_label">確認密碼</string>
   <string name="cmaccount_setup_tos_label">我同意接受%1$s服務條款%2$s</string>
   <string name="cmaccount_add_title">新增一個 CyanogenMod 帳戶</string>
+  <string name="cmaccount_add_create_label">CyanogenMod 帳戶為您執行 CyanogenMod 的流動裝置提供增值服務與功能。\n\n您要新增現有帳戶還是建立新帳戶？</string>
   <string name="cmaccount_learn_more">瞭解更多\u2026</string>
   <string name="cmaccount_update_required_title">需要更新</string>
   <string name="cmaccount_update_required_text">此 CyanogenMod 帳戶的版本可能不相容於您的系統。請更新到最新版本的 CyanogenMod， 以確保相容性。</string>
@@ -71,18 +76,21 @@
   <string name="cmaccount_server_error_title">伺服器錯誤</string>
   <string name="cmaccount_create_account_error_title">在建立帳號中出現錯誤</string>
   <string name="cmaccount_server_error_message">與伺服器通訊時發生錯誤。請稍後再試。</string>
-  <string name="cmaccount_error_multiple_accounts">一個行動裝置只允許存在一個 CyanogenMod 帳戶</string>
+  <string name="cmaccount_error_multiple_accounts">一個流動裝置只允許存在一個 CyanogenMod 帳戶</string>
   <string name="sim_missing_summary" product="tablet">你需要參考平板電腦附帶的 SIM 卡說明。</string>
   <string name="sim_missing_summary" product="default">你需要參考電話附帶的 SIM 卡說明。</string>
   <string name="google_account_summary">你想建立一個 Google 帳戶？</string>
   <string name="btn_google_account">建立 Google 帳戶</string>
   <string name="whisperpush_title">啟用安全短訊</string>
+  <string name="whisperpush_summary">與其他在 CyanogenMod 上使用安全短訊的人的短訊會話將被自動加密。</string>
+  <string name="apply_default_theme_title">使用 CyanogenMod 的主題</string>
+  <string name="use_nav_keys">使用螢幕上的按鈕</string>
   <string name="location_access_title">存取我的位置</string>
   <string name="location_access_summary">允許獲得您許可的應用程式使用您的位置資訊</string>
   <string name="location_sources_heading">位置資訊來源</string>
   <string name="location_gps">GPS 衛星</string>
   <string name="location_street_level" product="tablet">允許應用程式使用平板電腦的 GPS 指出您的精確位置</string>
   <string name="location_street_level" product="default">允許應用程式使用電話的 GPS 指出您的精確位置</string>
-  <string name="location_network_based">Wi-Fi 與流動網路位置</string>
+  <string name="location_network_based">Wi-Fi 與流動網絡位置</string>
   <string name="location_neighborhood_level">允許應用程式使用 Google 的定位服務來加速估算你的位置。匿名位置數據將被收集並傳送至 Google。</string>
 </resources>

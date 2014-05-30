@@ -26,6 +26,8 @@
   <string name="create">Lag ny</string>
   <string name="login">Logg inn</string>
   <string name="ok">Ok</string>
+  <string name="existing">Eksisterende</string>
+  <string name="new_account">Ny</string>
   <string name="skip_anyway">Hopp over uansett</string>
   <string name="dont_skip">Ikke hopp over</string>
   <string name="setup_complete">Konfigureringen er ferdig</string>
@@ -45,6 +47,8 @@
   <string name="setup_warning_skip_wifi" product="tablet">Advarsel: Du kan pådra deg ekstra datakostnader.\n\nTablet oppsett kan kreve betydelig nettverksaktivitet.</string>
   <string name="setup_warning_skip_wifi" product="default">Advarsel: Du kan pådra deg ekstra datakostnader.\n\nTelefon oppsett kan kreve betydelig nettverksaktivitet.</string>
   <string name="setup_privacy">Personverninnstillinger</string>
+  <string name="setup_personalization">Tilpasse</string>
+  <string name="setup_finalizing">Fullfører installasjon\u2026</string>
   <string name="cmaccount_setup_create_title">Lag en CyanogenMod-konto</string>
   <string name="cmaccount_setup_login_title">Logg inn på eksisterende CyanogenMod-konto</string>
   <string name="cmaccount_setup_email_label">E-post</string>
@@ -57,6 +61,7 @@
   <string name="cmaccount_setup_confirm_password_label">Bekreft passord</string>
   <string name="cmaccount_setup_tos_label">Jeg godtar %1$svilkårene%2$s for tjenesten</string>
   <string name="cmaccount_add_title">Legg til en CyanogenMod-konto</string>
+  <string name="cmaccount_add_create_label">En CyanogenMod-konto gir tilgang til verdifulle tjenester og funksjonalitet for mobilenheten som kjører CyanogenMod.\n\nVuk du vil legge til en eksisterende konto eller opprette en ny?</string>
   <string name="cmaccount_learn_more">Lær mer\u2026</string>
   <string name="cmaccount_update_required_title">Oppdatering Påkrevd</string>
   <string name="cmaccount_update_required_text">Denne versjonen av CyanogenMod-konto kan være inkompatibel. Vennligst oppdater til den nyeste versjonen av CyanogenMod for å sikre kompatibilitet.</string>
@@ -77,6 +82,9 @@
   <string name="google_account_summary">Ønsker du å sette opp en Google-konto?</string>
   <string name="btn_google_account">Konfigurer Google-konto</string>
   <string name="whisperpush_title">Aktiver sikker SMS</string>
+  <string name="whisperpush_summary">SMS samtaler med andre via sikker SMS på CyanogenMod vil automatisk krypteres.</string>
+  <string name="apply_default_theme_title">Bruk Cyanogenmods tema</string>
+  <string name="use_nav_keys">Bruk tastene på skjermtastaturet</string>
   <string name="location_access_title">Tilgang til min posisjon</string>
   <string name="location_access_summary">Tillat apper som har bedt om tillatelse til å bruke din stedsinformasjon</string>
   <string name="location_sources_heading">Posisjonskilder</string>

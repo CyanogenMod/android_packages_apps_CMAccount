@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
   <string name="setup_privacy">Privatsphären-Einstellungen</string>
   <string name="setup_personalization">Personalisieren</string>
+  <string name="setup_finalizing">Einrichtung wird abgeschlossen\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod-Konto erstellen</string>
   <string name="cmaccount_setup_login_title">An CyanogenMod-Konto anmelden</string>
   <string name="cmaccount_setup_email_label">E-Mail-Adresse</string>

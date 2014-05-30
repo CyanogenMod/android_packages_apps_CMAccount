@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">AVISO: Quiciabes se facturen cargos de datos adicionales.\n\nLa configuración del teléfonu pue riquir una gran cantidá d\'actividá de rede.</string>
   <string name="setup_privacy">Axustes de privacidá</string>
   <string name="setup_personalization">Personalizar</string>
+  <string name="setup_finalizing">Finando configuración\u2026</string>
   <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entrar na to cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Corréu-e</string>

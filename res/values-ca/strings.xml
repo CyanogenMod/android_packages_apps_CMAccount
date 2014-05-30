@@ -26,6 +26,8 @@
   <string name="create">Crea</string>
   <string name="login">Entra</string>
   <string name="ok">D\'acord</string>
+  <string name="existing">Existent</string>
+  <string name="new_account">Nou</string>
   <string name="skip_anyway">Salta de totes maneres</string>
   <string name="dont_skip">No saltis</string>
   <string name="setup_complete">Configuració completa</string>
@@ -44,7 +46,9 @@
   <string name="setup_msg_no_network">ALERTA: No podràs configurar els teus comptes</string>
   <string name="setup_warning_skip_wifi" product="tablet">ALERTA: Podrien haver-hi càrrecs de dades adicionals per part de l\'operadora.\n\nLa configuració de la tauleta necessita una activitat de xarxa considerable.</string>
   <string name="setup_warning_skip_wifi" product="default">ALERTA: Podrien haver-hi càrrecs de dades adicionals per part de l\'operadora.\n\nLa configuració del telèfon necessita una activitat de xarxa considerable.</string>
-  <string name="setup_privacy">Ajustaments de privacitat</string>
+  <string name="setup_privacy">Configuració de privacitat</string>
+  <string name="setup_personalization">Personalitza</string>
+  <string name="setup_finalizing">Acabant la configuració\u2026</string>
   <string name="cmaccount_setup_create_title">Crea un compte CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entra al teu compte CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Correu electrònic</string>
@@ -57,6 +61,7 @@
   <string name="cmaccount_setup_confirm_password_label">Confirma la contrasenya</string>
   <string name="cmaccount_setup_tos_label">Estic d\'acord amb els %1$stermes%2$s del servei</string>
   <string name="cmaccount_add_title">Afegeix un compte CyanogenMod</string>
+  <string name="cmaccount_add_create_label">Un compte de CyanogenMod proporciona accés als serveis de valor afegit i funcionalitats en el teu dispositiu mòbil amb CyanogenMod.\n\nVols afegir un compte existent o crear-ne un de nou?</string>
   <string name="cmaccount_learn_more">Aprèn més\u2026</string>
   <string name="cmaccount_update_required_title">Actualització requerida</string>
   <string name="cmaccount_update_required_text">Aquesta versió del compte CyanogenMod podria ser incompatible. Si us plau actualitza a la darrera versió de CyanogenMod per assegurar la compatibilitat.</string>
@@ -77,6 +82,9 @@
   <string name="google_account_summary">Vols configurar un compte Google?</string>
   <string name="btn_google_account">Configura un compte Google</string>
   <string name="whisperpush_title">Habilita els SMS segurs</string>
+  <string name="whisperpush_summary">Les converses d\'SMS amb els altres usuaris mitjançant SMS segurs de CyanogenMod seran xifrats automàticament.</string>
+  <string name="apply_default_theme_title">Utilitza el tema de CyanogenMod</string>
+  <string name="use_nav_keys">Utilitza tecles en pantalla</string>
   <string name="location_access_title">Accedeix a la meva ubicació</string>
   <string name="location_access_summary">Permet apps que t\'han demanat permís per utilitzar la teva informació d\'ubicació</string>
   <string name="location_sources_heading">Origens d\'ubicacions</string>

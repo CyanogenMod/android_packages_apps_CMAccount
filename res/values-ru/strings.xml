@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка телефона может потребовать значительной сетевой активности.</string>
   <string name="setup_privacy">Конфиденциальность</string>
   <string name="setup_personalization">Персонализация</string>
+  <string name="setup_finalizing">Завершение настройки\u2026</string>
   <string name="cmaccount_setup_create_title">Создание аккаунта CM</string>
   <string name="cmaccount_setup_login_title">Вход в аккаунт СM</string>
   <string name="cmaccount_setup_email_label">E-mail</string>

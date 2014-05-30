@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nPuhelimen asennus voi tarvita huomattavasti verkkoyhteyttä.</string>
   <string name="setup_privacy">Tietosuoja</string>
   <string name="setup_personalization">Mukauta</string>
+  <string name="setup_finalizing">Viimeistellään asennusta\u2026</string>
   <string name="cmaccount_setup_create_title">Luo CyanogenMod-tili</string>
   <string name="cmaccount_setup_login_title">Kirjaudu CyanogenMod-tilillesi</string>
   <string name="cmaccount_setup_email_label">Sähköposti</string>
