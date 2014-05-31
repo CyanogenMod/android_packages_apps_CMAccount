@@ -42,6 +42,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <uses-permission android:name="org.whispersystems.whisperpush.permissions.REGISTER" />
 
     <permission android:name="org.whispersystems.whisperpush.permissions.REGISTER"
@@ -134,6 +135,11 @@
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.ApplyHexoIconsReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.cyanogenmod.account.intent.action.APPLY_HEXO_ICONS" />
             </intent-filter>
         </receiver>
 
