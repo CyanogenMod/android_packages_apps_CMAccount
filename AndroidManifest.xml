@@ -43,6 +43,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER"/>
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-permission android:name="org.whispersystems.whisperpush.permissions.REGISTER" />
 
     <permission android:name="org.whispersystems.whisperpush.permissions.REGISTER"
