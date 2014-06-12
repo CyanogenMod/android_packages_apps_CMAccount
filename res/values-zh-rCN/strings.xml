@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">添加一个 CyanogenMod 帐户</string>
   <string name="cmaccount_add_create_label">CyanogenMod 帐户为您运行 CyanogenMod 的移动设备提供增值服务和功能。\n\n您想要添加现有的帐户或创建一个新帐户吗？</string>
   <string name="cmaccount_learn_more">了解更多\u2026</string>
+  <string name="cmaccount_learn_more_alt">了解更多</string>
   <string name="cmaccount_update_required_title">需要更新</string>
   <string name="cmaccount_update_required_text">此版本的 CyanogenMod 帐户可能不兼容。请更新到最新版本的 CyanogenMod 以确保兼容性。</string>
   <string name="cmaccount_update_required_short">此版本可能不兼容。</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">允许应用使用手机上的 GPS 来定位您的位置</string>
   <string name="location_network_based">Wi-Fi &amp; 移动网络位置</string>
   <string name="location_neighborhood_level">允许应用使用 Google 的位置服务来快速的定位您的位置。匿名位置数据将被收集并发送至 Google。</string>
+  <string name="update_icon_pack_available">更新的图标包可用</string>
+  <string name="apply_icon_pack">应用</string>
 </resources>

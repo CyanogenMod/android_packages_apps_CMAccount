@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Adicionar uma conta CyanogenMod</string>
   <string name="cmaccount_add_create_label">Uma conta CyanogenMod oferece acesso a serviços de valor e funcionalidade para o seu dispositivo móvel rodando CyanogenMod.\n\nVocê deseja adicionar uma conta existente ou criar uma nova?</string>
   <string name="cmaccount_learn_more">Saiba mais\u2026</string>
+  <string name="cmaccount_learn_more_alt">Saiba mais</string>
   <string name="cmaccount_update_required_title">Atualização obrigatória</string>
   <string name="cmaccount_update_required_text">Esta versão da conta CyanogenMod pode ser incompatível. Favor atualizar para a última versão do CyanogenMod para garantir compatibilidade.</string>
   <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Permitir aplicativos a usar o GPS do seu telefone para identificar a sua localização</string>
   <string name="location_network_based">Wi-Fi e localização de rede móvel</string>
   <string name="location_neighborhood_level">Permitir aplicativos a usar o serviço de localização do Google para estimar sua localização mais rapidamente. Dados de localização anônimos irão ser coletados e enviados ao Google.</string>
+  <string name="update_icon_pack_available">Está disponivel um pacote de ícones atualizado</string>
+  <string name="apply_icon_pack">Aplicar</string>
 </resources>

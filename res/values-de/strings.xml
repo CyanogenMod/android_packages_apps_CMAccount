@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">CyanogenMod-Konto hinzufügen</string>
   <string name="cmaccount_add_create_label">Ein CyanogenMod-Konto bietet Zugang zu Mehrwertdiensten und Funktionen für Ihr mobiles Gerät mit CyanogenMod.\n\nMöchten Sie ein bestehendes Konto hinzufügen oder ein neues erstellen?</string>
   <string name="cmaccount_learn_more">Weitere Informationen\u2026</string>
+  <string name="cmaccount_learn_more_alt">Mehr erfahren</string>
   <string name="cmaccount_update_required_title">Aktualisierung erforderlich</string>
   <string name="cmaccount_update_required_text">Diese Version von CyanogenMod-Konto ist vermutlich inkompatibel. Bitte auf die neueste Version von CyanogenMod aktualisieren, um die Kompatibilität zu gewährleisten</string>
   <string name="cmaccount_update_required_short">Diese Version ist inkompatibel</string>
@@ -82,6 +83,7 @@
   <string name="google_account_summary">Möchten Sie nun ein Google-Konto einrichten?</string>
   <string name="btn_google_account">Google-Konto einrichten</string>
   <string name="whisperpush_title">Sichere SMS aktivieren</string>
+  <string name="whisperpush_summary">SMS-Konversationen mit anderen Nutzern, die sichere SMS auf CyanogenMod nutzen, werden automatisch verschlüsselt.</string>
   <string name="apply_default_theme_title">CyanogenMod-Theme verwenden</string>
   <string name="use_nav_keys">Bildschirmtasten benutzen</string>
   <string name="location_access_title">Zugriff auf meinen Standort</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Apps dürfen meinen Standort mithilfe von GPS auf meinem Telefon bestimmen</string>
   <string name="location_network_based">WLAN- &amp; Mobilfunknetz-Standort</string>
   <string name="location_neighborhood_level">Apps dürfen meinen Standort mit dem Google-Standortdienst schneller bestimmen. Anonyme Standortdaten werden erfasst und an Google gesendet.</string>
+  <string name="update_icon_pack_available">Für das Symbolpaket ist eine Aktualisierung verfügbar</string>
+  <string name="apply_icon_pack">Anwenden</string>
 </resources>

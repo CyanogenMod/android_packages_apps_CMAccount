@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">CyanogenMod-account toevoegen</string>
   <string name="cmaccount_add_create_label">Een CyanogenMod-account biedt toegang tot extra diensten en functies voor uw apparaten die op CyanogenMod draaien.\n\nWilt u een bestaand account toevoegen of een nieuw account maken?</string>
   <string name="cmaccount_learn_more">Lees meer\u2026</string>
+  <string name="cmaccount_learn_more_alt">Lees meer</string>
   <string name="cmaccount_update_required_title">Update vereist</string>
   <string name="cmaccount_update_required_text">Uw versie van CyanogenMod-account is mogelijk te oud. Om een correcte werking te garanderen moet u de laatste versie van CyanogenMod installeren</string>
   <string name="cmaccount_update_required_short">Deze versie is mogelijk incompatibel.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Apps toestaan GPS op uw telefoon te gebruiken om uw locatie te bepalen</string>
   <string name="location_network_based">Wifi- en mobiele netwerklocatie</string>
   <string name="location_neighborhood_level">Apps toestaan de locatieservice van Google te gebruiken om uw locatie sneller te schatten. Anonieme locatiegegevens worden verzonden naar Google en verzameld.</string>
+  <string name="update_icon_pack_available">Er is een bijgewerkt pictogrampakket beschikbaar</string>
+  <string name="apply_icon_pack">Toepassen</string>
 </resources>

@@ -33,7 +33,7 @@
   <string name="setup_complete">Настройка завершена</string>
   <string name="setup_complete_summary" product="tablet">Поздравляем! Ваш планшет готов к использованию.</string>
   <string name="setup_complete_summary" product="default">Поздравляем! Ваш телефон готов к использованию.</string>
-  <string name="setup_welcome">Привет!</string>
+  <string name="setup_welcome">Добро пожаловать в CyanogenMod</string>
   <string name="setup_welcome_summary" product="tablet">Для начала настройки планшета выберите язык и нажмите «Далее».</string>
   <string name="setup_welcome_summary" product="default">Для начала настройки телефона выберите язык и нажмите «Далее».</string>
   <string name="setup_cmaccount">Настройка аккаунта CM</string>
@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Добавить аккаунт CyanogenMod</string>
   <string name="cmaccount_add_create_label">Аккаунт CyanogenMod предоставляет доступ к дополнительным сервисам и функциям вашего устройства.\n\nДобавить существующий аккаунт или создать новый?</string>
   <string name="cmaccount_learn_more">Узнать больше\u2026</string>
+  <string name="cmaccount_learn_more_alt">Подробнее</string>
   <string name="cmaccount_update_required_title">Требуется обновление</string>
   <string name="cmaccount_update_required_text">Текущая версия CyanogenMod может быть несовместима. Для обеспечения совместимости установите самую последнюю версию.</string>
   <string name="cmaccount_update_required_short">Эта версия может быть несовместима.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Разрешить приложениям использовать GPS на вашем телефоне для определения местоположения</string>
   <string name="location_network_based">По координатам сети</string>
   <string name="location_neighborhood_level">Разрешить приложениям использовать службы позиционирования Google для быстрого определения вашего местоположения.</string>
+  <string name="update_icon_pack_available">Доступен обновлённый набор значков</string>
+  <string name="apply_icon_pack">Применить</string>
 </resources>

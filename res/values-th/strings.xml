@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">คำเตือน: การกระทำนี้อาจมีค่าใช้จ่าย\n\n\nการตั้งค่าโทรศัพท์มือถือต้องการทำกิจกรรมบนอินเตอร์เน็ต</string>
   <string name="setup_privacy">การตั้งค่าความเป็นส่วนตัว</string>
   <string name="setup_personalization">ตั้งค่าส่วนบุคคล</string>
+  <string name="setup_finalizing">กำลังเสร็จสิ้นการตั้งค่า\u2026</string>
   <string name="cmaccount_setup_create_title">สร้างบัญชี CyanogenMod</string>
   <string name="cmaccount_setup_login_title">เข้าสู่ระบบบัญชี CyanogenMod ของคุณ</string>
   <string name="cmaccount_setup_email_label">อีเมล</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">เพิ่มบัญชี CyanogenMod</string>
   <string name="cmaccount_add_create_label">บัญชี CyanogenMod จะช่วยให้การทำงานของอุปกรณ์เข้าถึงบริการเสริมของ CyanogenMod มีประสิทธิภาพ \n\n คุณต้องการเพิ่มบัญชีผู้ใช้ที่มีอยู่ หรือสร้างใหม่หรือไม่?</string>
   <string name="cmaccount_learn_more">เรียนรู้เพิ่มเติม\u2026</string>
+  <string name="cmaccount_learn_more_alt">เรียนรู้เพิ่มเติม</string>
   <string name="cmaccount_update_required_title">ต้องการปรับปรุงรุ่น</string>
   <string name="cmaccount_update_required_text">เวอร์ชันของ \"บัญชี  CyanogenMod\" ที่ใช้อยู่ไม่สามารถเข้ากันได้กับเซิฟเวอร์ กรุณาอัพเดต CyanogenMod เป็นรุ่นล่าสุดเพื่อความเข้ากันได้ </string>
   <string name="cmaccount_update_required_short">เวอร์ชันนี้อาจจะไม่สามารถเข้ากันได้</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">อนุญาตให้ใช้ GPS บนโทรศัพท์มือถือ เพื่อหาตำแหน่งของคุณ</string>
   <string name="location_network_based">Wi-Fi &amp; เครือข่ายมือถือ</string>
   <string name="location_neighborhood_level">อนุญาตให้ใช้ Google\'s location service เพื่อเข้าถึงตำแหน่งของคุณได้เร็วขึ้น ข้อมูลที่อยู่แบบไม่ระบุตัวต้นจะถูกเก็บและส่งไปยัง Google</string>
+  <string name="update_icon_pack_available">มีรุ่นปรับปรุงของชุดไอคอนใหม่</string>
+  <string name="apply_icon_pack">นำไปใช้</string>
 </resources>

@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">CyanogenMod ගිණුමක් එක් කරන්න</string>
   <string name="cmaccount_add_create_label">CyanogenMod ධාවනය වන ඔබගේ ජංගම උපාංගය වෙත ප්‍රයෝජනවත් සේවා සහ ක්‍රියාකාරිත්වයක පිවිසුම CyanogenMod ගිණුමක් මගින් සලසාදෙනු ඇත.\n\nඔබට පවත්නා ගිණුමක් එක් කිරීමට හෝ අලුත් එකක් සෑදීමට අවශ්‍යද?</string>
   <string name="cmaccount_learn_more">තව දැනගන්න\u2026</string>
+  <string name="cmaccount_learn_more_alt">තව දැනගන්න</string>
   <string name="cmaccount_update_required_title">යාවත්කාල කිරීම අවශ්‍යය</string>
   <string name="cmaccount_update_required_text">CyanogenMod ගිණුමේ මෙම අනුවාදය අනුකූල නොවියහැක. කරුණාකර අනුකූලතාව සහතික කරගැනීමට CyanogenMod හි නවතම අනුවාදයට යාවත්කාල කරගන්න.</string>
   <string name="cmaccount_update_required_short">මෙම අනුවාදය අනුකූල නොවියහැක.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">ඔබගේ ස්ථානය නිර්ණය කිරීම සඳහා ඔබගේ උපාංගයේ GPS භාවිතයට යෙදුම් වෙත අවසර දෙන්න</string>
   <string name="location_network_based">Wi-Fi සහ ජංගම ජාල ස්ථානය</string>
   <string name="location_neighborhood_level">ඔබගේ ස්ථානය ඉක්මනින් නිර්ණය කිරීම සඳහා ගූගල් ස්ථාන සේවාව භාවිතයට යෙදුම් වෙත අවසර දෙන්න. නිර්නාමික ස්ථාන දත්ත එකතු කර ගූගල් වෙත යැවෙනු ඇත.</string>
+  <string name="update_icon_pack_available">යාවත්කාලිත අයිකන පොදියක් ඇත</string>
+  <string name="apply_icon_pack">යොදන්න</string>
 </resources>

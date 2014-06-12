@@ -30,7 +30,7 @@
   <string name="new_account">Nauja</string>
   <string name="skip_anyway">Praleisti vis tiek</string>
   <string name="dont_skip">Nepraleisti</string>
-  <string name="setup_complete">Nustatymas baigtas</string>
+  <string name="setup_complete">Sąranka baigta</string>
   <string name="setup_complete_summary" product="tablet">Sveikiname! Jūsų planšetinis kompiuteris paruoštas darbui.</string>
   <string name="setup_complete_summary" product="default">Sveikiname! Jūsų telefonas paruoštas darbui.</string>
   <string name="setup_welcome">Jus sveikina „CyanogenMod“</string>
@@ -59,10 +59,11 @@
   <string name="cmaccount_setup_password_mismatch_label">Slaptažodžiai nesutampa!</string>
   <string name="cmaccount_setup_password_invalid_label">Slaptažodis turi būti bent 8 simbolių!</string>
   <string name="cmaccount_setup_confirm_password_label">Patvirtinkite slaptažodį</string>
-  <string name="cmaccount_setup_tos_label">Aš sutinku su %1$spaslaugų tiekimo%2$s sąlygomis</string>
+  <string name="cmaccount_setup_tos_label">Aš sutinku su %1$spaslaugų teikimo%2$s sąlygomis</string>
   <string name="cmaccount_add_title">Pridėti „CyanogenMod“ paskyrą</string>
   <string name="cmaccount_add_create_label">„CyanogenMod“ paskyra suteikia prieigą prie pridėtinės vertės paslaugų ir funkcijų mobiliajame prietaise kuriame veikia „CyanogenMod“.\n\nAr norite pridėti esamą paskyrą arba sukurti naują?</string>
   <string name="cmaccount_learn_more">Sužinokite daugiau\u2026</string>
+  <string name="cmaccount_learn_more_alt">Sužinokite daugiau</string>
   <string name="cmaccount_update_required_title">Reikalingas naujinimas</string>
   <string name="cmaccount_update_required_text">Ši „CyanogenMod“ paskyros versija gali būti nesuderinama. Prašome atnaujinti į naujausią versiją tam kad užtikrintumėte „CyanogenMod“ suderinamumą.</string>
   <string name="cmaccount_update_required_short">Ši versija gali būti nesuderinama.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Leisti programoms naudoti jūsų telefono GPS tam, kad nustatyti jūsų vietovę</string>
   <string name="location_network_based">„Wi-Fi“ ir mobiliojo ryšio tinklo vieta</string>
   <string name="location_neighborhood_level">Leisti programoms naudoti „Google“ vietos paslaugai įvertinti jūsų buvimo vietą greičiau. Anoniminiai vietovės nustatymo duomenys bus renkami ir siunčiami į „Google“.</string>
+  <string name="update_icon_pack_available">Galimas piktogramų paketo atnaujinimas</string>
+  <string name="apply_icon_pack">Taikyti</string>
 </resources>

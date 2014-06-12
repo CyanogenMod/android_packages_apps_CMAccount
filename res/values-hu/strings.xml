@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">CyanogenMod fiók hozzáadása</string>
   <string name="cmaccount_add_create_label">A CyanogenMod fiók hozzáférést ad CyanogenModot futtató eszközén értéknövelt szolgáltatások és funkcionalitás elérésére.\n\nSzeretné már meglévő fiókja adatait megadni, vagy új fiókot létrehozni?</string>
   <string name="cmaccount_learn_more">Tudjon meg többet\u2026</string>
+  <string name="cmaccount_learn_more_alt">Tudjon meg többet</string>
   <string name="cmaccount_update_required_title">Frissítésre van szükség</string>
   <string name="cmaccount_update_required_text">Ez a CyanogenMod fiók lehet, hogy nem kompatibilis.  Frissítsen a legújabb CyanogenMod verzióra a kompatibilitás biztosításáért.</string>
   <string name="cmaccount_update_required_short">Ez a verzió lehet, hogy nem kompatibilis.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Pontos GPS helymeghatározás engedélyezése a telefon számára</string>
   <string name="location_network_based">Wi-Fi &amp; mobil hálózati helymeghatározás</string>
   <string name="location_neighborhood_level">Engedélyezi az alkalmazások számára a Google helymeghatározó szolgáltatását a gyorsabb helymeghatározás érdekében. Valamint az anonim helyadatok összegyűjtését és a Google-nek történő elküldését.</string>
+  <string name="update_icon_pack_available">Elérhető ikon csomag frissítés</string>
+  <string name="apply_icon_pack">Alkalmazás</string>
 </resources>

@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Přidat účet CyanogenMod</string>
   <string name="cmaccount_add_create_label">Účet CyanogenMod umožní přístup k rozšiřujícím službám a funkcím pro všechna mobilní zařízení, na kterém je spuštěn právě CyanogenMod.\n\nChcete použít již existující účet nebo vytvořit nový?</string>
   <string name="cmaccount_learn_more">Zjistit více\u2026</string>
+  <string name="cmaccount_learn_more_alt">Dozvědět se více</string>
   <string name="cmaccount_update_required_title">Vyžadována aktualizace</string>
   <string name="cmaccount_update_required_text">Tato verze CyanogenMod účtu může být nekompatibilní. Prosím pro zajištění kompatibility proveďte aktualizaci na poslední verzi CyanogenMod.</string>
   <string name="cmaccount_update_required_short">Tato verze může být nekompatibilní.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Aplikace může použít GPS pro získání přesné polohy telefonu</string>
   <string name="location_network_based">Zjištění polohy s využitím Wi-Fi a mobilní sítě</string>
   <string name="location_neighborhood_level">Aplikace může použít Google službu pro zjištění polohy. Jsou shromažďována a odesílána anonymní data do Google.</string>
+  <string name="update_icon_pack_available">Je dostupný aktualizovaný balíček ikon</string>
+  <string name="apply_icon_pack">Použít</string>
 </resources>

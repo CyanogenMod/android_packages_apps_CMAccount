@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Voeg \'n CyanogenMod rekening by</string>
   <string name="cmaccount_add_create_label">\'n CyanogenMod rekening bied toegang tot toegevoegde waarde-dienste en funksies vir jou mobiele toestel.\n\nWil jy \'n bestaande rekening byvoeg of \'n nuwe een?</string>
   <string name="cmaccount_learn_more">Leer meer\u2026</string>
+  <string name="cmaccount_learn_more_alt">Leer meer</string>
   <string name="cmaccount_update_required_title">Vereis opdateering </string>
   <string name="cmaccount_update_required_text">Hierdie weergawe van CyanogenMod Rekening kan nie versoenbaar wees nie. Verander asb na die nuutste weergawe van CyanogenMod om versoenbaarheid te verseker.</string>
   <string name="cmaccount_update_required_short">Hierdie weergawe kan onversoenbaar wees.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Laat programme toe om jou GPS te gebruik op jou foon ligging te identifiseer</string>
   <string name="location_network_based">Wi-Fi &amp; mobiele netwerkligging</string>
   <string name="location_neighborhood_level">Laat programme toe om Google\'s ligging diens te gebruik om jou ligging vinniger geskat te kry. Anonieme liggings data word ingesamel en gestuur aan Google.</string>
+  <string name="update_icon_pack_available">\'n Nuwer ikoon stel is beskikbaar</string>
+  <string name="apply_icon_pack">Pas toe</string>
 </resources>

@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Προσθήκη λογαριασμού CyanogenMod</string>
   <string name="cmaccount_add_create_label">Ένας λογαριασμός CyanogenMod παρέχει πρόσβαση σε πρόσθετες υπηρεσίες και λειτουργίες για την φορητή συσκευή σας που τρέχει CyanogenMod.\n\nΘέλετε να προσθέσετε έναν ήδη υπάρχων λογαριασμό ή να δημιουργήσετε ένα νέο;</string>
   <string name="cmaccount_learn_more">Μάθετε περισσότερα\u2026</string>
+  <string name="cmaccount_learn_more_alt">Μάθετε περισσότερα</string>
   <string name="cmaccount_update_required_title">Απαιτείται ενημέρωση</string>
   <string name="cmaccount_update_required_text">Αυτή η έκδοση του λογαριασμού CyanogenMod ίσως δεν είναι συμβατή. Παρακαλώ αναβαθμίστε στην πιο πρόσφατη έκδοση του CyanogenMod για εγγυημένη συμβατότητα.</string>
   <string name="cmaccount_update_required_short">Αυτή η έκδοση ίσως δεν είναι συμβατή.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Να επιτρέπεται στις εφαρμογές η χρήση του GPS στο τηλέφωνό σας για την επισήμανση της τοποθεσίας σας</string>
   <string name="location_network_based">Wi-Fi &amp; δίκτυο κιν. τηλεφωνίας</string>
   <string name="location_neighborhood_level">Να επιτρέπεται στις εφαρμογές να χρησιμοποιούν την υπηρεσία τοποθεσίας της Google για γρήγορη εκτίμηση της τοποθεσίας σας. Θα συλλεχθούν ανώνυμα δεδομένα και θα αποσταλούν στην Google.</string>
+  <string name="update_icon_pack_available">Ένα ενημερωμένο πακέτο εικονιδίων είναι διαθέσιμο</string>
+  <string name="apply_icon_pack">Εφαρμογή</string>
 </resources>

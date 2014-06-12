@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">إضافة حساب CyanogenMod</string>
   <string name="cmaccount_add_create_label">يوفر حساب CyanogenMod الوصول إلى الخدمات ذات القيمة المضافة وظائف لتشغيل الجهازك الذي يعمل بي CyanogenMod.\n\n هل تريد إضافة حساب موجود أو إنشاء حساب جديد؟</string>
   <string name="cmaccount_learn_more">تعلم المزيد\u2026</string>
+  <string name="cmaccount_learn_more_alt">لمعرفة المزيد</string>
   <string name="cmaccount_update_required_title">يتطلب تحديث البرنامج</string>
   <string name="cmaccount_update_required_text">هذا الإصدار لحساب CyanogenMod قد تكون غير متوافقة. الرجاء التحديث إلى الإصدار الأحدث من CyanogenMod ضمان التوافق.</string>
   <string name="cmaccount_update_required_short">قد يكون هذا الإصدار غير متوافق.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">السماح لتطبيقات استخدام نظام تحديد المواقع على الهاتف الخاص بك لتحديد الموقع الخاص بك</string>
   <string name="location_network_based">Wi-Fi &amp; موقع شبكة الجوال</string>
   <string name="location_neighborhood_level">السماح لتطبيقات استخدام خدمة موقع Google لتقدير موقعك أسرع. سيتم جمع البيانات مكان مجهول وإرسالها إلى Google.</string>
+  <string name="update_icon_pack_available">تحديث متوفر لحزمة الأيقونات</string>
+  <string name="apply_icon_pack">تطبق</string>
 </resources>

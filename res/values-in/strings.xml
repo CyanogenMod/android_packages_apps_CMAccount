@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Tambah akun CyanogenMod</string>
   <string name="cmaccount_add_create_label">Akun CyanogenMod menyediakan akses ke layanan bernilai tambah dan fungsional untuk perangkat seluler Anda dalam menjalankan CyanogenMod.\n\nApakah Anda ingin menambahkan account yang ada atau membuat yang baru?</string>
   <string name="cmaccount_learn_more">Pelajari lebih jauh\u2026</string>
+  <string name="cmaccount_learn_more_alt">Pelajari lebih lanjut</string>
   <string name="cmaccount_update_required_title">Pembaruan Dibutuhkan</string>
   <string name="cmaccount_update_required_text">Versi Akun CyanogenMod ini mungkin tidak kompatibel. Silahkan perbarui ke versi terbaru dari CyanogenMod untuk memastikan kompatibilitas.</string>
   <string name="cmaccount_update_required_short">Versi ini mungkin tidak kompatibel.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Perbolehkan aplikasi untuk menggunakan GPS pada telepon anda untuk menentukan lokasi anda</string>
   <string name="location_network_based">Wi-Fi &amp; lokasi jaringan mobile</string>
   <string name="location_neighborhood_level">Perbolehkan aplikasi menggunakan Layanan Lokasi Google untuk memperkirakan lokasi anda lebih cepat. Data lokasi anonim akan dikumpulkan dan dikirimkan ke Google.</string>
+  <string name="update_icon_pack_available">Paket ikon terbaru tersedia</string>
+  <string name="apply_icon_pack">Terapkan</string>
 </resources>
