@@ -102,6 +102,9 @@ public class PersonalizationPage extends Page {
                 if (themeLayout != null) {
                     themeLayout.setVisibility(View.GONE);
                 }
+                if (mSwitcher != null) {
+                    mSwitcher.setVisibility(View.GONE);
+                }
             } else {
                 defaultThemeSwitch.setChecked(true);
             }
@@ -198,7 +201,7 @@ public class PersonalizationPage extends Page {
 
 
     protected static boolean hideThemeSwitch(Context context) {
-        return ThemeUtils.getDefaultThemePackageName(context) == CustomTheme.HOLO_DEFAULT;
+        return ThemeUtils.getDefaultThemePackageName(context).equals(CustomTheme.HOLO_DEFAULT);
     }
 
     public static boolean skipPage(Context context) {
