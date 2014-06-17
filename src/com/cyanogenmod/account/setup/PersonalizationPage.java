@@ -18,7 +18,7 @@ package com.cyanogenmod.account.setup;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.ThemeUtils;
-import android.content.res.CustomTheme;
+import android.content.res.ThemeConfig;
 import android.graphics.ColorFilter;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
@@ -201,7 +201,7 @@ public class PersonalizationPage extends Page {
 
 
     protected static boolean hideThemeSwitch(Context context) {
-        return ThemeUtils.getDefaultThemePackageName(context).equals(CustomTheme.HOLO_DEFAULT);
+        return ThemeUtils.getDefaultThemePackageName(context).equals(ThemeConfig.HOLO_DEFAULT);
     }
 
     public static boolean skipPage(Context context) {
