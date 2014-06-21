@@ -82,7 +82,7 @@
   <string name="sim_missing_summary" product="default">携帯電話に付属しているSIMカードの説明書を参照してください。</string>
   <string name="google_account_summary">Googleアカウントをセットアップしますか？</string>
   <string name="btn_google_account">Googleアカウントをセットアップ</string>
-  <string name="whisperpush_title">セキュアSMSを有効にする</string>
+  <string name="whisperpush_title">セキュアSMSを有効化</string>
   <string name="whisperpush_summary">CyanogenModでセキュアSMSを使用している人とのSMSの会話は自動的に暗号化されます。</string>
   <string name="apply_default_theme_title">CyanogenModのテーマを使用</string>
   <string name="use_nav_keys">オンスクリーンキーを使用</string>

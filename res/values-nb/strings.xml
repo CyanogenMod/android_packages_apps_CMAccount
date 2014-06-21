@@ -63,6 +63,7 @@
   <string name="cmaccount_add_title">Legg til en CyanogenMod-konto</string>
   <string name="cmaccount_add_create_label">En CyanogenMod-konto gir tilgang til verdifulle tjenester og funksjonalitet for mobilenheten som kjører CyanogenMod.\n\nVuk du vil legge til en eksisterende konto eller opprette en ny?</string>
   <string name="cmaccount_learn_more">Lær mer\u2026</string>
+  <string name="cmaccount_learn_more_alt">Lær mer</string>
   <string name="cmaccount_update_required_title">Oppdatering Påkrevd</string>
   <string name="cmaccount_update_required_text">Denne versjonen av CyanogenMod-konto kan være inkompatibel. Vennligst oppdater til den nyeste versjonen av CyanogenMod for å sikre kompatibilitet.</string>
   <string name="cmaccount_update_required_short">Denne versjonen kan være inkompatibel.</string>
@@ -93,4 +94,6 @@
   <string name="location_street_level" product="default">Tillat apper å bruke GPS på telefonen for å finne den eksakte posisjonen din</string>
   <string name="location_network_based">Wi-Fi- og mobilnettverksposisjon</string>
   <string name="location_neighborhood_level">Tillat at apper bruker posisjonstjenesten fra Google til å finne posisjonen din raskere. Anonym posisjonsdata blir samlet inn og sendt til Google.</string>
+  <string name="update_icon_pack_available">En oppdatert ikon pakke er tilgjengelig</string>
+  <string name="apply_icon_pack">Bruk</string>
 </resources>
