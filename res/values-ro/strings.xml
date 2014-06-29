@@ -43,10 +43,10 @@
   <string name="setup_datetime">Setările de dată &amp; timp</string>
   <string name="setup_current_date">Data curentă</string>
   <string name="setup_current_time">Ora curentă</string>
-  <string name="setup_msg_no_network">AVERTIZARE: Nu veţi fi capabil să configurați conturile dvs</string>
+  <string name="setup_msg_no_network">AVERTIZARE: Nu veți fi capabil să configurați conturile dvs</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVERTIZARE: Se pot genera în contul dvs taxe de date suplimentare de către operator.\n\nConfigurarea tabletei poate necesita un trafic semnificativ în rețea.</string>
   <string name="setup_warning_skip_wifi" product="default">AVERTIZARE: Se pot genera în contul dvs taxe de date suplimentare de către operator.\n\nConfigurarea telefonului poate necesita un trafic semnificativ în rețea.</string>
-  <string name="setup_privacy">Setări de confidenţialitate</string>
+  <string name="setup_privacy">Setări de confidențialitate</string>
   <string name="setup_personalization">Personalizare</string>
   <string name="setup_finalizing">Se termină setup-ul</string>
   <string name="cmaccount_setup_create_title">Creați un cont CyanogenMod</string>
