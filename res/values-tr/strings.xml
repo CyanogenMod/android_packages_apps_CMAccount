@@ -26,8 +26,8 @@
   <string name="create">Oluştur</string>
   <string name="login">Giriş Yap</string>
   <string name="ok">Tamam</string>
-  <string name="existing">Varolan bir hesaba giriş yap</string>
-  <string name="new_account">Yeni hesap oluştur</string>
+  <string name="existing">Varolan</string>
+  <string name="new_account">Yeni</string>
   <string name="skip_anyway">Yine de atla</string>
   <string name="dont_skip">Atlama</string>
   <string name="setup_complete">Kurulum tamamlandı</string>
@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">UYARI: Ekstra operatör veri ücreti alınabilir.\n\nTelefon kurulumu önemli ölçüde ağ trafiği gerektirir.</string>
   <string name="setup_privacy">Gizlilik Ayarları</string>
   <string name="setup_personalization">Kişiselleştir</string>
+  <string name="setup_finalizing">Kurulum tamamlanıyor\u2026</string>
   <string name="cmaccount_setup_create_title">Bir CyanogenMod hesabı oluşturun</string>
   <string name="cmaccount_setup_login_title">CyanogenMod hesabınıza giriş yapın</string>
   <string name="cmaccount_setup_email_label">E-posta</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">Bir CyanogenMod hesabı ekleyin</string>
   <string name="cmaccount_add_create_label">Bir CyanogenMod hesabı, CyanogenMod çalıştıran mobil cihazınıza zenginlik katan servis ve fonksiyonelliğe erişim sağlar.\n\nVarolan hesabınızı kullanmak ya da yeni bir hesap oluşturmak ister misiniz?</string>
   <string name="cmaccount_learn_more">Daha fazla bilgi\u2026</string>
+  <string name="cmaccount_learn_more_alt">Daha fazla bilgi edinin</string>
   <string name="cmaccount_update_required_title">Güncelleme Gerekli</string>
   <string name="cmaccount_update_required_text">CyanogenMod Hesabı\'nın bu sürümü uyumsuz olabilir. Lütfen uyumluluğu garantilemek için CyanogenMod\'u en son sürüme yükseltin.</string>
   <string name="cmaccount_update_required_short">Bu sürüm uyumsuz olabilir.</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Uygulamaların telefonunuzdaki GPS özelliğini kullanarak yerinizi tespit etmesine izin ver.</string>
   <string name="location_network_based">Wi-Fi ve mobil ağ konumu</string>
   <string name="location_neighborhood_level">Uygulamaların konumunuzu daha hızlı bulabilmesi için Google\'ın konum servislerini kullanmasına izin verin. Anonim veriler toplanacak ve Google\'a gönderilecektir.</string>
+  <string name="update_icon_pack_available">Güncellenmiş bir simge paketi mevcut</string>
+  <string name="apply_icon_pack">Uygula</string>
 </resources>

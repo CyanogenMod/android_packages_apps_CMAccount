@@ -26,8 +26,8 @@
   <string name="create">Utwórz</string>
   <string name="login">Zaloguj</string>
   <string name="ok">OK</string>
-  <string name="existing">Zaloguj się na istniejące konto</string>
-  <string name="new_account">Utwórz nowe konto</string>
+  <string name="existing">Istniejące</string>
+  <string name="new_account">Nowe</string>
   <string name="skip_anyway">Pomiń mimo to</string>
   <string name="dont_skip">Nie pomijaj</string>
   <string name="setup_complete">Konfiguracja zakończona</string>
@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">OSTRZEŻENIE: Operator może naliczyć dodatkowe opłaty za internet.\n\nKonfiguracja telefonu może wymagać przesłania dużych ilości danych.</string>
   <string name="setup_privacy">Ustawienia prywatności</string>
   <string name="setup_personalization">Personalizacja</string>
+  <string name="setup_finalizing">Kończenie instalacji\u2026</string>
   <string name="cmaccount_setup_create_title">Utwórz konto CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Zaloguj się na swoje konto CyanogenMod</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">Dodaj konto CyanogenMod</string>
   <string name="cmaccount_add_create_label">Konto CyanogenMod zapewnia dostęp do usług dodanych i funkcjonalności na urządzeniu mobilnym z systemem CyanogenMod.\n\nCzy chcesz dodać istniejące konto lub utworzyć nowe?</string>
   <string name="cmaccount_learn_more">Dowiedz się więcej\u2026</string>
+  <string name="cmaccount_learn_more_alt">Więcej informacji</string>
   <string name="cmaccount_update_required_title">Wymagana aktualizacja</string>
   <string name="cmaccount_update_required_text">Ta wersja Konta CyanogenMod może być niekompatybilna. W celu zapewnienia kompatybilności zaktualizuj system CyanogenMod do najnowszej wersji.</string>
   <string name="cmaccount_update_required_short">Ta wersja może być niekompatybilna.</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Pozwól aplikacjom korzystać z GPS na twoim telefonie do ustalania twojej lokalizacji</string>
   <string name="location_network_based">Lokalizacja przez Wi-Fi \u0026 sieć komórkową</string>
   <string name="location_neighborhood_level">Pozwól aplikacjom na korzystanie z usługi lokalizacji Google w celu przyśpieszenia ustalania położenia. Anonimowe dane będą zbierane i wysyłane do Google.</string>
+  <string name="update_icon_pack_available">Dostępna jest aktualizacja zestawu ikon</string>
+  <string name="apply_icon_pack">Zastosuj</string>
 </resources>

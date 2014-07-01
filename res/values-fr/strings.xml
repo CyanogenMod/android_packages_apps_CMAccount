@@ -26,8 +26,8 @@
   <string name="create">Créer</string>
   <string name="login">S\'identifier</string>
   <string name="ok">Ok</string>
-  <string name="existing">Se connecter à un compte existant</string>
-  <string name="new_account">Créer un nouveau compte</string>
+  <string name="existing">Existant</string>
+  <string name="new_account">Nouveau</string>
   <string name="skip_anyway">Toujours ignorer</string>
   <string name="dont_skip">Ne pas ignorer</string>
   <string name="setup_complete">Paramétrage terminé</string>
@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">ATTENTION: Vous pouvez encourir des frais de données supplémentaires.\n\n La configuration de votre téléphone peut exiger une activité importante du réseau.</string>
   <string name="setup_privacy">Paramètres de confidentialité</string>
   <string name="setup_personalization">Personnaliser</string>
+  <string name="setup_finalizing">Finalisation de l\'installation\u2026</string>
   <string name="cmaccount_setup_create_title">Créer un compte CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Se connecter à son compte CyanogenMod</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">Ajouter un compte CyanogenMod</string>
   <string name="cmaccount_add_create_label">Un compte CyanogenMod permet d\'accéder à des services à valeur ajoutée et des fonctionnalités pour votre périphérique mobile sous CyanogenMod.\n\nVoulez-vous ajouter un compte existant ou en créer un nouveau ?</string>
   <string name="cmaccount_learn_more">Lire plus\u2026</string>
+  <string name="cmaccount_learn_more_alt">En savoir plus</string>
   <string name="cmaccount_update_required_title">Mise à jour nécessaire</string>
   <string name="cmaccount_update_required_text">Cette version de l\'application de compte CyanogenMod est obsolète. Installez la dernière mise à jour de CyanogenMod pour assurer la compatibilité.</string>
   <string name="cmaccount_update_required_short">Cette version est obsolète.</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Permettre aux applications utilisant le GPS de votre smartphone à localiser votre emplacement</string>
   <string name="location_network_based">Localisation Wi-Fi &amp; réseau mobile</string>
   <string name="location_neighborhood_level">Permettre aux applications d\'utiliser le service de localisation de Google pour définir votre emplacement plus rapidement. Des données de localisation anonymes seront collectées et envoyées à Google.</string>
+  <string name="update_icon_pack_available">Un pack d\'icônes mis à jour est disponible</string>
+  <string name="apply_icon_pack">Appliquer</string>
 </resources>

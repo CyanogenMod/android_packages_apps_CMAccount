@@ -26,8 +26,8 @@
   <string name="create">Crear</string>
   <string name="login">Entrar</string>
   <string name="ok">Aceutar</string>
-  <string name="existing">Identificase usando una cuenta esistente</string>
-  <string name="new_account">Crear una nueva cuenta</string>
+  <string name="existing">Esistente</string>
+  <string name="new_account">Nueva</string>
   <string name="skip_anyway">Omitir</string>
   <string name="dont_skip">Nun omitir</string>
   <string name="setup_complete">Configuración completada</string>
@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">AVISO: Quiciabes se facturen cargos de datos adicionales.\n\nLa configuración del teléfonu pue riquir una gran cantidá d\'actividá de rede.</string>
   <string name="setup_privacy">Axustes de privacidá</string>
   <string name="setup_personalization">Personalizar</string>
+  <string name="setup_finalizing">Finando configuración\u2026</string>
   <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entrar na to cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Corréu-e</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">Amestar una cuenta de CyanogenMod</string>
   <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod da accesu a servicios con valores añadíos y funcionalidaes pal to preséu CyanogenMod.\n\nQuies amestar una cuenta esistente o crear una nueva?</string>
   <string name="cmaccount_learn_more">Lleer más\u2026</string>
+  <string name="cmaccount_learn_more_alt">Deprendi más</string>
   <string name="cmaccount_update_required_title">Anovamientu necesariu</string>
   <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod pue ser incompatible. Por favor, anueva a la postrer versión de CyanogenMod p\'asegurar la compatibilidá.</string>
   <string name="cmaccount_update_required_short">Esta versión pue ser incompatible.</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Permitir que les aplicaciones usen el GPS del teléfonu pa determinar la to llocalización</string>
   <string name="location_network_based">Llocalización por rede móvil y Wi-Fi</string>
   <string name="location_neighborhood_level">Permitir que les aplicaciones usen el serviciu de llocalización de Google pa calcular la to llocalización más rápido. Van atropase datos de llocalización anónimos y van unviase a Google.</string>
+  <string name="update_icon_pack_available">Hai disponible un paquete d\'iconos anováu</string>
+  <string name="apply_icon_pack">Aplicar</string>
 </resources>

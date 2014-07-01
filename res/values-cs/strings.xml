@@ -26,8 +26,8 @@
   <string name="create">Vytvořit</string>
   <string name="login">Přihlásit</string>
   <string name="ok">OK</string>
-  <string name="existing">Přihlásit se k existujícímu účtu</string>
-  <string name="new_account">Vytvořit nový účet</string>
+  <string name="existing">Existující</string>
+  <string name="new_account">Nový</string>
   <string name="skip_anyway">Přeskočit</string>
   <string name="dont_skip">Nepřeskakovat</string>
   <string name="setup_complete">Nastavení dokončeno</string>
@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení telefonu může vyžadovat zvýšený datový přenos.</string>
   <string name="setup_privacy">Nastavení soukromí</string>
   <string name="setup_personalization">Přizpůsobit</string>
+  <string name="setup_finalizing">Dokončování nastavení\u2026</string>
   <string name="cmaccount_setup_create_title">Vytvořit účet CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Přihlásit se k CyanogenMod účtu</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">Přidat účet CyanogenMod</string>
   <string name="cmaccount_add_create_label">Účet CyanogenMod umožní přístup k rozšiřujícím službám a funkcím pro všechna mobilní zařízení, na kterém je spuštěn právě CyanogenMod.\n\nChcete použít již existující účet nebo vytvořit nový?</string>
   <string name="cmaccount_learn_more">Zjistit více\u2026</string>
+  <string name="cmaccount_learn_more_alt">Dozvědět se více</string>
   <string name="cmaccount_update_required_title">Vyžadována aktualizace</string>
   <string name="cmaccount_update_required_text">Tato verze CyanogenMod účtu může být nekompatibilní. Prosím pro zajištění kompatibility proveďte aktualizaci na poslední verzi CyanogenMod.</string>
   <string name="cmaccount_update_required_short">Tato verze může být nekompatibilní.</string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Aplikace může použít GPS pro získání přesné polohy telefonu</string>
   <string name="location_network_based">Zjištění polohy s využitím Wi-Fi a mobilní sítě</string>
   <string name="location_neighborhood_level">Aplikace může použít Google službu pro zjištění polohy. Jsou shromažďována a odesílána anonymní data do Google.</string>
+  <string name="update_icon_pack_available">Je dostupný aktualizovaný balíček ikon</string>
+  <string name="apply_icon_pack">Použít</string>
 </resources>

@@ -67,6 +67,7 @@
     <string name="cmaccount_add_title">Add a CyanogenMod account</string>
     <string name="cmaccount_add_create_label">A CyanogenMod account provides access to value-added services and functionality for your mobile device running CyanogenMod.\n\nDo you want to add an existing account or create a new one?</string>
     <string name="cmaccount_learn_more">Learn more\u2026</string>
+    <string name="cmaccount_learn_more_alt">Learn more</string>
 
     <string name="cmaccount_update_required_title">Update Required</string>
     <string name="cmaccount_update_required_text">This version of CyanogenMod Account may be incompatible. Please update to the latest version of CyanogenMod to ensure compatibility.</string>
@@ -105,4 +106,6 @@
     <string name="location_street_level" product="default">Allow apps to use GPS on your phone to pinpoint your location</string>
     <string name="location_network_based">Wi-Fi &amp; mobile network location</string>
     <string name="location_neighborhood_level">Allow apps to use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
+    <string name="update_icon_pack_available">An updated icon pack is available</string>
+    <string name="apply_icon_pack">Apply</string>
 </resources>
