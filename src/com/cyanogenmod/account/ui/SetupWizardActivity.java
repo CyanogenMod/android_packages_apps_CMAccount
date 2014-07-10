@@ -334,12 +334,14 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
     private void removeUnNeededPages() {
         boolean pagesRemoved = false;
         Page page = mPageList.findPage(R.string.setup_cmaccount);
-        if (page != null && accountExists(CMAccount.ACCOUNT_TYPE_CMAccount)) {
+        if (page != null && accountExists(CMAccount.ACCOUNT_TYPE_CMAccount)
+                || CMAccountUtils.isUnableToModifyAccounts(SetupWizardActivity.this)) {
             removeSetupPage(page, false);
             pagesRemoved = true;
         }
         page = mPageList.findPage(R.string.setup_google_account);
-        if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))) {
+        if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))
+                || CMAccountUtils.isUnableToModifyAccounts(SetupWizardActivity.this)) {
             removeSetupPage(page, false);
             pagesRemoved = true;
         }

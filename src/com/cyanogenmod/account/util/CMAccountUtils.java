@@ -16,6 +16,8 @@
 
 package com.cyanogenmod.account.util;
 
+import android.os.Bundle;
+import android.os.UserManager;
 import com.cyanogenmod.account.CMAccount;
 import com.cyanogenmod.account.R;
 import com.cyanogenmod.account.auth.AuthClient;
@@ -203,6 +205,12 @@ public class CMAccountUtils {
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         int simState = telephonyManager.getSimState();
         return simState == TelephonyManager.SIM_STATE_ABSENT || simState == TelephonyManager.SIM_STATE_UNKNOWN;
+    }
+
+    public static boolean isUnableToModifyAccounts(Context context) {
+        UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        Bundle restrictions = um.getUserRestrictions();
+        return restrictions.getBoolean(UserManager.DISALLOW_MODIFY_ACCOUNTS, false);
     }
 
     public static String getDisplayVersion() {
