@@ -65,4 +65,35 @@
   <string name="cmaccount_learn_more">زانیاری زیاتر\u2026</string>
   <string name="cmaccount_learn_more_alt">زیاتر بزانە</string>
   <string name="cmaccount_update_required_title">تازه‌کردنه‌وه‌ پێویسته‌</string>
+  <string name="cmaccount_update_required_text">ئه‌م وه‌شانی هه‌ژماری ساینه‌جینه‌ له‌وانه‌یه‌ گونجاو نه‌بێت.تکایه‌ تازه‌ی بکه‌ره‌وه‌ بۆ کۆتا وه‌شانی ساینه‌جین بۆ دڵنیایی گونجاندن.</string>
+  <string name="cmaccount_update_required_short">ئه‌م وه‌شانه‌ له‌وانه‌یه‌ نه‌گونجێت.</string>
+  <string name="cmaccount_checking_for_updates">پشکنین بۆ تازه‌کردنه‌وه‌.</string>
+  <string name="cmaccount_password_changed_title">وشه‌ی نهێنی گۆڕدرا</string>
+  <string name="cmaccount_password_changed_message">تکایه‌ بچۆ ژووره‌وه‌ بۆ هه‌ژماری ساینه‌جینمۆد</string>
+  <string name="cmaccount_login_message">چوونه‌ ژووره‌وه‌ بۆ ساینه‌جینمۆد</string>
+  <string name="cmaccount_creating_profile_message">دروستکردنی هه‌ژماری ساینه‌جینمۆد</string>
+  <string name="cmaccount_login_error_title">چوونه‌ژووره‌وه‌ سه‌رکه‌وتوونه‌بوو</string>
+  <string name="cmaccount_login_error_message">ئیمێڵ و وشه‌ی نهێنی هه‌ڵه‌یه‌.</string>
+  <string name="cmaccount_server_error_title">هەڵەی ڕاژە</string>
+  <string name="cmaccount_create_account_error_title">هه‌ڵه‌ له‌ دروستکردنی هه‌ژمار</string>
+  <string name="cmaccount_server_error_message">هه‌ڵه‌یه‌ک ڕوویدا کاتێک په‌یوه‌ندی ده‌کرا له‌گه‌ڵ ڕاژه‌.تکایه‌ دواتر هه‌وڵ بده‌ره‌وه‌.</string>
+  <string name="cmaccount_error_multiple_accounts">ته‌نیا یه‌ک هه‌ژماری ساینه‌جینمۆد ڕێگه‌پێدراوه‌ بۆ یه‌ک ئامێر</string>
+  <string name="sim_missing_summary" product="tablet">پێویسته‌ ئاماژه‌ بۆ ڕێنماییه‌کانی سیم بکه‌یت که‌ له‌گه‌ڵ تابلێته‌که‌ته‌.</string>
+  <string name="sim_missing_summary" product="default">پێویسته‌ ئاماژه‌ بۆ ڕێنماییه‌کانی سیم بکه‌یت که‌ له‌گه‌ڵ مۆبایله‌که‌ته‌.</string>
+  <string name="google_account_summary">ئه‌ته‌وێ هه‌ژماری گۆگڵ دابمه‌زرێنیت؟</string>
+  <string name="btn_google_account">دامه‌زراندنی هه‌ژماری گۆگڵ</string>
+  <string name="whisperpush_title">کارپێکردنی نامه‌ی پارێزراو</string>
+  <string name="whisperpush_summary">گفتوگۆی SMS له‌گه‌ڵ نامه‌ پارێزراوه‌کانی تر له‌سه‌ر هه‌ژماری ساینه‌جین مۆد خۆکارانه‌ گرێده‌درێن.</string>
+  <string name="apply_default_theme_title">به‌کارهێنانی ڕووکاری ساینه‌جینمۆد</string>
+  <string name="use_nav_keys">به‌کارهێنانی ته‌خته‌کلیلی سه‌رشاشه‌</string>
+  <string name="location_access_title">دۆزینەوەی شوێنەکەم</string>
+  <string name="location_access_summary">ڕێگه‌دان به‌ به‌رنامه‌کان بۆ پرسیارکردن بۆ به‌کارهێنانی زانیاری شوێن</string>
+  <string name="location_sources_heading">سەرچاوەی شوێنەکەت</string>
+  <string name="location_gps">مانگە دەستکردەکانی GPS</string>
+  <string name="location_street_level" product="tablet">ڕێگه‌دان به‌ GPS له‌سه‌ر تابلێته‌که‌ت بۆ دیاریکردنی شوێن</string>
+  <string name="location_street_level" product="default">ڕێگه‌دان به‌ GPS له‌سه‌ر مۆبایله‌که‌ت بۆ دیاریکردنی شوێن</string>
+  <string name="location_network_based">وایفای&amp;هێڵی مۆبایل و شوێن</string>
+  <string name="location_neighborhood_level">ڕێگەدان به‌ به‌رنامه‌ بۆ بەکارهێنانی خزمەتگوزاری دیاری کردنی شوێنی گوگڵ بۆ خێراتر مەزندە کردنی شوێنی تۆ. زانیاری شوێنی نەناسراو کۆدەکرێتەوە و ئەنێردرێت بۆ گوگڵ.</string>
+  <string name="update_icon_pack_available">تازه‌کردنه‌وه‌ی پاکه‌تی ئایکۆن ئاماده‌یه‌</string>
+  <string name="apply_icon_pack">لێدان</string>
 </resources>

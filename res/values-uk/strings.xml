@@ -48,6 +48,7 @@
   <string name="setup_warning_skip_wifi" product="default">УВАГА: Ви можете понести додаткові витрати.\n\nНалаштування телефону може потребувати значну мережеву активність.</string>
   <string name="setup_privacy">Конфіденційність</string>
   <string name="setup_personalization">Персоналізація</string>
+  <string name="setup_finalizing">Завершення налаштування\u2026</string>
   <string name="cmaccount_setup_create_title">Створити обліковий запис CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Увійти до облікового запису CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -62,6 +63,7 @@
   <string name="cmaccount_add_title">Додати обліковий запис CyanogenMod</string>
   <string name="cmaccount_add_create_label">Обліковий запис CyanogenMod надає доступ до додаткових сервісів і функціональності для вашого мобільного пристрою під керуванням CyanogenMod.\n\nВи хочете додати існуючий обліковий запис чи створити новий?</string>
   <string name="cmaccount_learn_more">Дізнатись більше\u2026</string>
+  <string name="cmaccount_learn_more_alt">Дізнатися більше</string>
   <string name="cmaccount_update_required_title">Необхідне оновлення</string>
   <string name="cmaccount_update_required_text">Ця версія облікового запису CyanogenMod може бути несумісна. Будь ласка, оновіться до останньої версії CyanogenMod для забезпечення сумісності.</string>
   <string name="cmaccount_update_required_short">Ця версія може бути несумісною. </string>
@@ -92,4 +94,6 @@
   <string name="location_street_level" product="default">Дозволити програмам використовувати GPS на вашому телефоні для визначення місцезнаходження.</string>
   <string name="location_network_based">Місцезнаходення по WiFi &amp; мобільних мережах</string>
   <string name="location_neighborhood_level">Дозволити програмам використовувати службу місцезнаходження Google для пришвидшення визначення вашого місцезнаходження. Анонімні дані про місцезнаходження збиратиметься та відсилатиметься в Google.</string>
+  <string name="update_icon_pack_available">Доступний оновлений набір значків</string>
+  <string name="apply_icon_pack">Застосувати</string>
 </resources>

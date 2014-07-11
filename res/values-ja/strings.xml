@@ -76,7 +76,7 @@
   <string name="cmaccount_login_error_message">メールアドレスまたはパスワードが無効です。</string>
   <string name="cmaccount_server_error_title">サーバーエラー</string>
   <string name="cmaccount_create_account_error_title">アカウントの作成中にエラーが発生しました</string>
-  <string name="cmaccount_server_error_message">サーバーと通信中にエラーが発生しました。しばらくしてからもう一度お試しください。</string>
+  <string name="cmaccount_server_error_message">サーバーと通信中にエラーが発生しました。 しばらくしてからもう一度お試しください。</string>
   <string name="cmaccount_error_multiple_accounts">端末1台につき使用できるCyanogenModアカウントは1つのみです</string>
   <string name="sim_missing_summary" product="tablet">タブレットに付属しているSIMカードの説明書を参照してください。</string>
   <string name="sim_missing_summary" product="default">携帯電話に付属しているSIMカードの説明書を参照してください。</string>

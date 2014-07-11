@@ -62,7 +62,7 @@
   <string name="cmaccount_setup_tos_label">J\'accepte les %1$stermes%2$s du service</string>
   <string name="cmaccount_add_title">Ajouter un compte CyanogenMod</string>
   <string name="cmaccount_add_create_label">Un compte CyanogenMod permet d\'accéder à des services à valeur ajoutée et des fonctionnalités pour votre périphérique mobile sous CyanogenMod.\n\nVoulez-vous ajouter un compte existant ou en créer un nouveau ?</string>
-  <string name="cmaccount_learn_more">Lire plus\u2026</string>
+  <string name="cmaccount_learn_more">En savoir plus\u2026</string>
   <string name="cmaccount_learn_more_alt">En savoir plus</string>
   <string name="cmaccount_update_required_title">Mise à jour nécessaire</string>
   <string name="cmaccount_update_required_text">Cette version de l\'application de compte CyanogenMod est obsolète. Installez la dernière mise à jour de CyanogenMod pour assurer la compatibilité.</string>
