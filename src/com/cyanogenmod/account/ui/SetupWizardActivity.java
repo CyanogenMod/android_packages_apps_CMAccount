@@ -448,7 +448,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
         if (privacyData != null && privacyData.getBoolean("apply_default_theme")) {
             Log.d(TAG, "Applying default theme");
             ThemeManager tm = (ThemeManager) this.getSystemService(Context.THEME_SERVICE);
-            tm.addClient(ThemeUtils.getDefaultThemePackageName(this), this);
+            tm.addClient(this);
             tm.applyDefaultTheme();
             return true;
         }
@@ -462,7 +462,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
     public void onFinish(boolean isSuccess) {
         removeDialog(DIALOG_FINISHING);
         ThemeManager tm = (ThemeManager) this.getSystemService(Context.THEME_SERVICE);
-        tm.removeClient(ThemeUtils.getDefaultThemePackageName(this));
+        tm.removeClient(this);
 
         // add notification
         Intent hexoInfoIntent = new Intent(Intent.ACTION_MAIN)
