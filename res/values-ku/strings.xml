@@ -55,9 +55,9 @@
   <string name="cmaccount_setup_email_unavailable_label">ئه‌م ئیمه‌یڵه‌ پێشتر تۆمارکراوه‌</string>
   <string name="cmaccount_setup_email_invalid_label">ئیمێڵه‌که‌ت ڕاست نییه‌</string>
   <string name="cmaccount_setup_password_label">وشه‌ی نهێنی</string>
-  <string name="cmaccount_setup_password_create_label">وشه‌ی نهێنی(له‌ ٨ پیت که‌متر نه‌بێت)</string>
+  <string name="cmaccount_setup_password_create_label">وشه‌ی نهێنی(له‌ 8 پیت که‌متر نه‌بێت)</string>
   <string name="cmaccount_setup_password_mismatch_label">وشه‌ی نهێنییه‌کان له‌یه‌ک ناچن !</string>
-  <string name="cmaccount_setup_password_invalid_label">وشه‌ی نهێنی ده‌بێت له‌ ٨ پیت زیاتر بێت!</string>
+  <string name="cmaccount_setup_password_invalid_label">وشه‌ی نهێنی ده‌بێت له‌ 8 پیت زیاتر بێت!</string>
   <string name="cmaccount_setup_confirm_password_label">ڕازیبون له‌سه‌ر وشه‌ی نهێنی</string>
   <string name="cmaccount_setup_tos_label">من ڕازی بووم به‌ یاساکانی  %1$s له‌ خزمه‌تگوزاری %2$s دا</string>
   <string name="cmaccount_add_title">زیادکردنی ئه‌کاونتێکی CyanogenMod </string>
@@ -85,7 +85,7 @@
   <string name="whisperpush_title">کارپێکردنی نامه‌ی پارێزراو</string>
   <string name="whisperpush_summary">گفتوگۆی SMS له‌گه‌ڵ نامه‌ پارێزراوه‌کانی تر له‌سه‌ر هه‌ژماری ساینه‌جین مۆد خۆکارانه‌ گرێده‌درێن.</string>
   <string name="apply_default_theme_title">به‌کارهێنانی ڕووکاری ساینه‌جینمۆد</string>
-  <string name="use_nav_keys">به‌کارهێنانی ته‌خته‌کلیلی سه‌رشاشه‌</string>
+  <string name="use_nav_keys">به‌کارهێنانی ته‌خته‌کلیلی سەر ڕوونما</string>
   <string name="location_access_title">دۆزینەوەی شوێنەکەم</string>
   <string name="location_access_summary">ڕێگه‌دان به‌ به‌رنامه‌کان بۆ پرسیارکردن بۆ به‌کارهێنانی زانیاری شوێن</string>
   <string name="location_sources_heading">سەرچاوەی شوێنەکەت</string>
@@ -94,6 +94,6 @@
   <string name="location_street_level" product="default">ڕێگه‌دان به‌ GPS له‌سه‌ر مۆبایله‌که‌ت بۆ دیاریکردنی شوێن</string>
   <string name="location_network_based">وایفای&amp;هێڵی مۆبایل و شوێن</string>
   <string name="location_neighborhood_level">ڕێگەدان به‌ به‌رنامه‌ بۆ بەکارهێنانی خزمەتگوزاری دیاری کردنی شوێنی گوگڵ بۆ خێراتر مەزندە کردنی شوێنی تۆ. زانیاری شوێنی نەناسراو کۆدەکرێتەوە و ئەنێردرێت بۆ گوگڵ.</string>
-  <string name="update_icon_pack_available">تازه‌کردنه‌وه‌ی پاکه‌تی ئایکۆن ئاماده‌یه‌</string>
+  <string name="update_icon_pack_available">تازه‌کردنه‌وه‌ی پاکه‌تی وێنۆچکه‌ ئاماده‌یه‌</string>
   <string name="apply_icon_pack">لێدان</string>
 </resources>
