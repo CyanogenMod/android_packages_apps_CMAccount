@@ -139,7 +139,6 @@ public class ManualTestActivity extends Activity {
     private void enableSetup() {
         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 0);
         Settings.Secure.putInt(getContentResolver(), Settings.Secure.USER_SETUP_COMPLETE, 0);
-        Settings.Secure.putInt(getContentResolver(), Settings.Secure.DEFAULT_THEME_APPLIED_ON_FIRST_BOOT, 0);
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.HOME");
         final PackageManager pm = getPackageManager();

@@ -23,7 +23,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ThemeUtils;
-import android.content.res.CustomTheme;
+import android.content.res.ThemeConfig;
 import android.content.res.ThemeManager;
 import android.provider.ThemesContract;
 import android.util.Log;
@@ -39,7 +39,7 @@ public class ApplyHexoIconsReceiver extends BroadcastReceiver {
             "com.cyanogenmod.account.intent.action.APPLY_HEXO_ICONS";
 
     public void onReceive(Context context, Intent intent) {
-        if (ThemeUtils.getDefaultThemePackageName(context) != CustomTheme.HOLO_DEFAULT
+        if (ThemeUtils.getDefaultThemePackageName(context) != ThemeConfig.HOLO_DEFAULT
                 && isPackageInstalled(context, HEXO_ICONS_PACKAGE_NAME)) {
             ArrayList<String> componentList = new ArrayList<String>();
             componentList.add(ThemesContract.ThemesColumns.MODIFIES_ICONS);

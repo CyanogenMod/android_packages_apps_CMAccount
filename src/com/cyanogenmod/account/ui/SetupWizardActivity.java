@@ -334,12 +334,14 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
     private void removeUnNeededPages() {
         boolean pagesRemoved = false;
         Page page = mPageList.findPage(R.string.setup_cmaccount);
-        if (page != null && accountExists(CMAccount.ACCOUNT_TYPE_CMAccount)) {
+        if (page != null && accountExists(CMAccount.ACCOUNT_TYPE_CMAccount)
+                || CMAccountUtils.isUnableToModifyAccounts(SetupWizardActivity.this)) {
             removeSetupPage(page, false);
             pagesRemoved = true;
         }
         page = mPageList.findPage(R.string.setup_google_account);
-        if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))) {
+        if (page != null && (!GCMUtil.googleServicesExist(SetupWizardActivity.this) || accountExists(CMAccount.ACCOUNT_TYPE_GOOGLE))
+                || CMAccountUtils.isUnableToModifyAccounts(SetupWizardActivity.this)) {
             removeSetupPage(page, false);
             pagesRemoved = true;
         }
@@ -446,7 +448,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
         if (privacyData != null && privacyData.getBoolean("apply_default_theme")) {
             Log.d(TAG, "Applying default theme");
             ThemeManager tm = (ThemeManager) this.getSystemService(Context.THEME_SERVICE);
-            tm.addClient(ThemeUtils.getDefaultThemePackageName(this), this);
+            tm.addClient(this);
             tm.applyDefaultTheme();
             return true;
         }
@@ -460,7 +462,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
     public void onFinish(boolean isSuccess) {
         removeDialog(DIALOG_FINISHING);
         ThemeManager tm = (ThemeManager) this.getSystemService(Context.THEME_SERVICE);
-        tm.removeClient(ThemeUtils.getDefaultThemePackageName(this));
+        tm.removeClient(this);
 
         // add notification
         Intent hexoInfoIntent = new Intent(Intent.ACTION_MAIN)
