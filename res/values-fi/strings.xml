@@ -42,7 +42,7 @@
   <string name="setup_location">Sijaintiasetukset</string>
   <string name="setup_datetime">Päivämäärä &amp; aika</string>
   <string name="setup_current_date">Aseta päivämäärä</string>
-  <string name="setup_current_time">Aseta aila</string>
+  <string name="setup_current_time">Aseta aika</string>
   <string name="setup_msg_no_network">VAROITUS: Et pysty asettamaan käyttäjätilejäsi</string>
   <string name="setup_warning_skip_wifi" product="tablet">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nTabletin asennus voi tarvita huomattavasti verkkoyhteyttä.</string>
   <string name="setup_warning_skip_wifi" product="default">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nPuhelimen asennus voi tarvita huomattavasti verkkoyhteyttä.</string>

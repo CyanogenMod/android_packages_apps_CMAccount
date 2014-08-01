@@ -43,7 +43,7 @@
   <string name="setup_datetime">Dátum &amp; Idő beállítások</string>
   <string name="setup_current_date">Aktuális dátum</string>
   <string name="setup_current_time">Aktuális idő</string>
-  <string name="setup_msg_no_network">FIGYELEM: Nem fogja tudni állítani a fiókokat</string>
+  <string name="setup_msg_no_network">FIGYELEM: Nem fogja tudni beállítani a fiókokat</string>
   <string name="setup_warning_skip_wifi" product="tablet">FIGYELEM: Lehet, hogy jelentős összeget számítanak fel érte!\n\nA táblagép beállítása nagyobb hálózati forgalmat igényel.</string>
   <string name="setup_warning_skip_wifi" product="default">FIGYELEM: Lehet, hogy jelentős összeget számítanak fel érte!\n\nA telefon beállítása nagyobb hálózati forgalmat igényel.</string>
   <string name="setup_privacy">Adatvédelmi beállítások</string>
@@ -55,7 +55,7 @@
   <string name="cmaccount_setup_email_unavailable_label">Már regisztrált e-mail cím</string>
   <string name="cmaccount_setup_email_invalid_label">Nem érvényes e-mail cím</string>
   <string name="cmaccount_setup_password_label">Jelszó</string>
-  <string name="cmaccount_setup_password_create_label">Jelszó (Legalább 8 karakter)</string>
+  <string name="cmaccount_setup_password_create_label">Jelszó (legalább 8 karakter)</string>
   <string name="cmaccount_setup_password_mismatch_label">A megadott jelszavak nem egyeznek!</string>
   <string name="cmaccount_setup_password_invalid_label">A jelszónak legalább 8 karakternek kell lennie!</string>
   <string name="cmaccount_setup_confirm_password_label">Jelszó megerősítése</string>
