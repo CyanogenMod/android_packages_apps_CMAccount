@@ -87,13 +87,13 @@
   <string name="apply_default_theme_title">Usa tema CyanogenMod</string>
   <string name="use_nav_keys">Usa tasti su schermo</string>
   <string name="location_access_title">Accesso alla posizione</string>
-  <string name="location_access_summary">Consenti alle applicazioni alle quali è stato fornito il permesso di utilizzare le informazioni sulla tua posizione</string>
+  <string name="location_access_summary">Consenti alle app alle quali è stato fornito il permesso di utilizzare le informazioni sulla tua posizione</string>
   <string name="location_sources_heading">Sorgenti della posizione</string>
   <string name="location_gps">Satelliti GPS</string>
-  <string name="location_street_level" product="tablet">Consenti alle applicazioni di utilizzare il GPS sul tuo tablet per determinare la tua posizione</string>
-  <string name="location_street_level" product="default">Consenti alle applicazioni di utilizzare il GPS sul tuo telefono per determinare la tua posizione</string>
+  <string name="location_street_level" product="tablet">Consenti alle app di utilizzare il GPS sul tuo tablet per determinare la tua posizione</string>
+  <string name="location_street_level" product="default">Consenti alle app di utilizzare il GPS sul tuo telefono per determinare la tua posizione</string>
   <string name="location_network_based">Reti Wi-Fi &amp; mobili</string>
-  <string name="location_neighborhood_level">Consenti alle applicazioni di utilizzare il servizio di posizionamento di Google per determinare velocemente la tua posizione. Dati anonimi di posizione saranno raccolti e inviati a Google.</string>
+  <string name="location_neighborhood_level">Consenti alle app di utilizzare il servizio di posizionamento di Google per determinare velocemente la tua posizione. Dati anonimi di posizione saranno raccolti e inviati a Google.</string>
   <string name="update_icon_pack_available">E\' disponibile un pacchetto icone aggiornato</string>
   <string name="apply_icon_pack">Applica</string>
 </resources>
