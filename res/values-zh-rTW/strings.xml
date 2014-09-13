@@ -94,5 +94,6 @@
   <string name="location_street_level" product="default">允許應用程式使用手機的 GPS 找出您的精確位置</string>
   <string name="location_network_based">Wi-Fi 與行動網路位置</string>
   <string name="location_neighborhood_level">允許應用程式使用 Google 的定位服務加速判斷您的約略位置。系統會收集匿名的位置資料並傳送給 Google。</string>
+  <string name="update_icon_pack_available">圖示集有可用的更新</string>
   <string name="apply_icon_pack">套用</string>
 </resources>
