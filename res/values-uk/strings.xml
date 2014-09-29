@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">УВАГА: Ви не зможете налаштувати свої обл. записи</string>
   <string name="setup_warning_skip_wifi" product="tablet">УВАГА: Ви можете понести додаткові витрати.\n\nНалаштування планшету може потребувати значну мережеву активність.</string>
   <string name="setup_warning_skip_wifi" product="default">УВАГА: Ви можете понести додаткові витрати.\n\nНалаштування телефону може потребувати значну мережеву активність.</string>
-  <string name="setup_privacy">Конфіденційність</string>
   <string name="setup_personalization">Персоналізація</string>
   <string name="setup_finalizing">Завершення налаштування\u2026</string>
   <string name="cmaccount_setup_create_title">Створити обліковий запис CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Використовувати екрані кнопки</string>
   <string name="location_access_title">Доступ до мого місцезнаходження</string>
   <string name="location_access_summary">Надавати програмам дані місцезнаходження, якщо вони про це попросили</string>
-  <string name="location_sources_heading">Джерела місцезнаходження</string>
   <string name="location_gps">Супутники GPS</string>
   <string name="location_street_level" product="tablet">Дозволити програмам використовувати GPS на вашому планшеті для визначення місцезнаходження</string>
   <string name="location_street_level" product="default">Дозволити програмам використовувати GPS на вашому телефоні для визначення місцезнаходження.</string>

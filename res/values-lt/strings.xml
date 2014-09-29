@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">DĖMESIO: Jūs negalėsite konfigūruoti savo paskyrų</string>
   <string name="setup_warning_skip_wifi" product="tablet">ĮSPĖJIMAS: Gali reikėti papildomų duomenų mokesčių.\n\nPlanšetinio kompiuterio nustatymas gali reikalauti svarbios tinklo veiklos.</string>
   <string name="setup_warning_skip_wifi" product="default">ĮSPĖJIMAS: Gali reikėti papildomų duomenų mokesčių.\n\nTelefono nustatymas gali reikalauti svarbios tinklo veiklos.</string>
-  <string name="setup_privacy">Privatumo nustatymai</string>
   <string name="setup_personalization">Personalizuoti</string>
   <string name="setup_finalizing">Sąranka užbaigiama\u2026</string>
   <string name="cmaccount_setup_create_title">Sukurti „CyanogenMod“ paskyrą</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Naudoti klavišus ekrane</string>
   <string name="location_access_title">Prieiga prie mano vietovės</string>
   <string name="location_access_summary">Leisti programoms paprašyti jūsų leidimo naudoti jūsų vietovės informaciją</string>
-  <string name="location_sources_heading">Vietovės šaltiniai</string>
   <string name="location_gps">GPS palydovai</string>
   <string name="location_street_level" product="tablet">Leisti programoms naudoti jūsų planšetinio kompiuterio GPS tam, kad nustatyti jūsų vietovę</string>
   <string name="location_street_level" product="default">Leisti programoms naudoti jūsų telefono GPS tam, kad nustatyti jūsų vietovę</string>

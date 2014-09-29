@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">Let op: het is niet mogelijk accounts in te stellen</string>
   <string name="setup_warning_skip_wifi" product="tablet">Let op: gegevensgebruik kan leiden tot extra kosten.\n\nBij het instellen van uw tablet kan veel netwerkactiviteit plaatsvinden.</string>
   <string name="setup_warning_skip_wifi" product="default">Let op: gegevensgebruik kan leiden tot extra kosten.\n\nBij het instellen van uw telefoon kan veel netwerkactiviteit plaatsvinden.</string>
-  <string name="setup_privacy">Privacy-instellingen</string>
   <string name="setup_personalization">Personaliseren</string>
   <string name="setup_finalizing">Instellen afronden\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod-account aanmaken</string>
@@ -56,7 +55,7 @@
   <string name="cmaccount_setup_email_invalid_label">Geen geldig e-mailadres</string>
   <string name="cmaccount_setup_password_label">Wachtwoord</string>
   <string name="cmaccount_setup_password_create_label">Wachtwoord (min. 8 tekens)</string>
-  <string name="cmaccount_setup_password_mismatch_label">De wachtwoorden komen niet overeen</string>
+  <string name="cmaccount_setup_password_mismatch_label">Wachtwoorden komen niet overeen</string>
   <string name="cmaccount_setup_password_invalid_label">Wachtwoord moet ten minste 8 tekens bevatten</string>
   <string name="cmaccount_setup_confirm_password_label">Wachtwoord bevestigen</string>
   <string name="cmaccount_setup_tos_label">Ik ga akkoord met de %1$sservicevoorwaarden%2$s</string>
@@ -76,7 +75,7 @@
   <string name="cmaccount_login_error_message">Ongeldig e-mailadres of wachtwoord.</string>
   <string name="cmaccount_server_error_title">Serverfout</string>
   <string name="cmaccount_create_account_error_title">Kan account niet aanmaken</string>
-  <string name="cmaccount_server_error_message">Er is een verbindingsfout opgetreden. Probeer het later nogmaals.</string>
+  <string name="cmaccount_server_error_message">Er is een verbindingsfout opgetreden. Probeer het later opnieuw.</string>
   <string name="cmaccount_error_multiple_accounts">Slechts één CyanogenMod-account toegestaan per apparaat</string>
   <string name="sim_missing_summary" product="tablet">Bekijk de simkaartinstructies voor uw tablet.</string>
   <string name="sim_missing_summary" product="default">Bekijk de simkaartinstructies voor uw telefoon.</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">On-screen toetsen gebruiken</string>
   <string name="location_access_title">Toegang tot mijn locatie</string>
   <string name="location_access_summary">Apps die uw toestemming hebben gevraagd, toestaan uw locatiegegevens te gebruiken</string>
-  <string name="location_sources_heading">Locatiebronnen</string>
   <string name="location_gps">GPS-satellieten</string>
   <string name="location_street_level" product="tablet">Apps toestaan GPS op uw tablet te gebruiken om uw locatie te bepalen</string>
   <string name="location_street_level" product="default">Apps toestaan GPS op uw telefoon te gebruiken om uw locatie te bepalen</string>

@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">ADVARSEL: Du vil ikke være i stand til at oprette dine konti</string>
   <string name="setup_warning_skip_wifi" product="tablet">ADVARSEL: Du kan pådrage dig ekstra data-udgifter.\n\nOpsætning af tabletten kan kræve en betydelig netværksaktivitet.</string>
   <string name="setup_warning_skip_wifi" product="default">ADVARSEL: Du kan pådrage dig ekstra data-udgifter.\n\nOpsætning af telefonen kan kræve en betydelig netværksaktivitet.</string>
-  <string name="setup_privacy">Indstillinger for personlige oplysninger</string>
   <string name="setup_personalization">Tilpas</string>
   <string name="setup_finalizing">Fuldender installation\u2026</string>
   <string name="cmaccount_setup_create_title">Opret en CyanogenMod-konto</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Brug taster på skærm</string>
   <string name="location_access_title">Adgang til min placering</string>
   <string name="location_access_summary">Tillad apps, der har bedt om tilladelse, at bruge dine placeringsoplysninger</string>
-  <string name="location_sources_heading">Placeringskilder</string>
   <string name="location_gps">GPS-satelliter</string>
   <string name="location_street_level" product="tablet">Tillad, at apps bruger GPS på din tablet til at udpege din placering</string>
   <string name="location_street_level" product="default">Tillad, at apps bruger GPS på din telefon til at udpege din placering</string>

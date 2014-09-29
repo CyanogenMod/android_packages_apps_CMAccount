@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">경고: 계정 설정을 할 수 없게 될 것입니다</string>
   <string name="setup_warning_skip_wifi" product="tablet">경고: 통신사로부터 데이터 요금이 부과될 수 있습니다.\n\n태블릿 설정은 많은 네트워크 활동을 필요로 합니다.</string>
   <string name="setup_warning_skip_wifi" product="default">경고: 통신사로부터 데이터 요금이 부과될 수 있습니다.\n\n휴대전화 설정은 많은 네트워크 활동을 필요로 합니다.</string>
-  <string name="setup_privacy">개인 정보 설정</string>
   <string name="setup_personalization">개인화</string>
   <string name="setup_finalizing">설치 완료 중\u2026</string>
   <string name="cmaccount_setup_create_title">새 CyanogenMod 계정 만들기</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">온스크린 키 사용</string>
   <string name="location_access_title">위치 정보 액세스</string>
   <string name="location_access_summary">위치 정보를 사용하고자 하는 앱을 허용합니다</string>
-  <string name="location_sources_heading">위치 소스</string>
   <string name="location_gps">GPS 위성</string>
   <string name="location_street_level" product="tablet">앱이 사용자 태블릿의 GPS를 사용하여 사용자 위치를 파악하도록 합니다.</string>
   <string name="location_street_level" product="default">앱이 사용자 휴대전화의 GPS를 사용하여 사용자 위치를 파악하도록 합니다.</string>

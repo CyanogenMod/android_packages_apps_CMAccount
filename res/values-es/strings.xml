@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">AVISO: No podrás configurar tus cuentas</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVISO: Es posible que se facturen cargos de datos adicionales.\n\nLa configuración del tablet puede requerir una gran cantidad de actividad de red.</string>
   <string name="setup_warning_skip_wifi" product="default">AVISO: Es posible que se facturen cargos de datos adicionales.\n\nLa configuración del teléfono puede requerir una gran cantidad de actividad de red.</string>
-  <string name="setup_privacy">Ajustes de privacidad</string>
   <string name="setup_personalization">Personalizar</string>
   <string name="setup_finalizing">Finalizando configuración\u2026</string>
   <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Usar teclas en pantalla</string>
   <string name="location_access_title">Acceso a tu ubicación</string>
   <string name="location_access_summary">Permitir que las aplicaciones que han pedido permiso usen la información sobre tu ubicación</string>
-  <string name="location_sources_heading">Fuentes de ubicación</string>
   <string name="location_gps">Satélites GPS</string>
   <string name="location_street_level" product="tablet">Permitir que las aplicaciones usen el GPS del tablet para determinar tu ubicación</string>
   <string name="location_street_level" product="default">Permitir que las aplicaciones usen el GPS del teléfono para determinar tu ubicación</string>

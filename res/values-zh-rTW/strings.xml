@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">警告：您將無法設定您的帳戶</string>
   <string name="setup_warning_skip_wifi" product="tablet">警告：您可能需支付額外的數據傳輸費用。\n\n平板電腦設定程序可能需要佔用大量的網路流量。</string>
   <string name="setup_warning_skip_wifi" product="default">警告：您可能需支付額外的數據傳輸費用。\n\n手機設定程序可能需要佔用大量的網路流量。</string>
-  <string name="setup_privacy">隱私設定</string>
   <string name="setup_personalization">個人化</string>
   <string name="setup_finalizing">設定即將完成\u2026</string>
   <string name="cmaccount_setup_create_title">建立一個 CyanogenMod 帳戶</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">使用螢幕上的按鈕</string>
   <string name="location_access_title">存取我的位置資訊</string>
   <string name="location_access_summary">允許獲得您許可的應用程式使用您的位置資訊</string>
-  <string name="location_sources_heading">位置資訊來源</string>
   <string name="location_gps">GPS 衛星</string>
   <string name="location_street_level" product="tablet">允許應用程式使用平板電腦的 GPS 找出您的精確位置</string>
   <string name="location_street_level" product="default">允許應用程式使用手機的 GPS 找出您的精確位置</string>

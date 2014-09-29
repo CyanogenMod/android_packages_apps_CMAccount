@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">PERINGATAN: Anda tidak akan dapat mengkonfigurasi akun anda</string>
   <string name="setup_warning_skip_wifi" product="tablet">PERINGATAN: Anda mungkin dikenakan tambahan biaya data oleh operator.\n\nSetup tablet memerlukan aktivitas jaringan yang signifikan.</string>
   <string name="setup_warning_skip_wifi" product="default">PERINGATAN: Anda mungkin dikenakan tambahan biaya data oleh operator.\n\nSetup telepon memerlukan aktivitas jaringan yang signifikan.</string>
-  <string name="setup_privacy">Pengaturan Privasi</string>
   <string name="setup_personalization">Personalisasi</string>
   <string name="setup_finalizing">Menyelesaikan pengaturan\u2026</string>
   <string name="cmaccount_setup_create_title">Buat akun CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Gunakan tombol layar</string>
   <string name="location_access_title">Akses ke lokasi saya</string>
   <string name="location_access_summary">Perbolehkan aplikasi yang telah meminta izin anda untuk menggunakan informasi lokasi anda</string>
-  <string name="location_sources_heading">Sumber lokasi</string>
   <string name="location_gps">Satelit GPS</string>
   <string name="location_street_level" product="tablet">Perbolehkan aplikasi untuk menggunakan GPS pada tablet anda untuk menentukan lokasi anda</string>
   <string name="location_street_level" product="default">Perbolehkan aplikasi untuk menggunakan GPS pada telepon anda untuk menentukan lokasi anda</string>

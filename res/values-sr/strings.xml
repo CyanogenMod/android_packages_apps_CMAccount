@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">УПОЗОРЕЊЕ: Нећеш бити у могућности да подесиш твоје налоге</string>
   <string name="setup_warning_skip_wifi" product="tablet">УПОЗОРЕЊЕ: Оператер ће ти можда наплатити додатне трошкове.\n\nПодешавање таблета може захтевати значајну употребу интернет везе.</string>
   <string name="setup_warning_skip_wifi" product="default">УПОЗОРЕЊЕ: Оператер ће ти можда наплатити додатне трошкове.\n\nПодешавање телефона може захтевати значајну употребу интернет везе.</string>
-  <string name="setup_privacy">Подешавања приватности</string>
   <string name="setup_personalization">Персонализуј</string>
   <string name="setup_finalizing">Финализација подешавања\u2026</string>
   <string name="cmaccount_setup_create_title">Направи CyanogenMod налог</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Користи тастере на екрану</string>
   <string name="location_access_title">Приступ мојој локацији</string>
   <string name="location_access_summary">Дозволи апликацијама које захтевају твоју дозволу да користе информације о твојој локацији</string>
-  <string name="location_sources_heading">Извори локација</string>
   <string name="location_gps">GPS сателити</string>
   <string name="location_street_level" product="tablet">Дозволи апликацијама да користе GPS сензор на твом таблету како би утврдиле твоју локацију</string>
   <string name="location_street_level" product="default">Дозволи апликацијама да користе GPS сензор на твом телефону како би утврдиле твоју локацију</string>

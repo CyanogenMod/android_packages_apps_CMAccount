@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">UPOZORNĚNÍ: Nebude možné nastavit účet</string>
   <string name="setup_warning_skip_wifi" product="tablet">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení tabletu může vyžadovat zvýšený datový přenos.</string>
   <string name="setup_warning_skip_wifi" product="default">UPOZORNĚNÍ: Toto nastavení může způsobit zvýšené poplatky za datové přenosy.\n\nNastavení telefonu může vyžadovat zvýšený datový přenos.</string>
-  <string name="setup_privacy">Nastavení soukromí</string>
   <string name="setup_personalization">Přizpůsobit</string>
   <string name="setup_finalizing">Dokončování nastavení\u2026</string>
   <string name="cmaccount_setup_create_title">Vytvořit účet CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Použít tlačítka na obrazovce</string>
   <string name="location_access_title">Přístup k mé poloze</string>
   <string name="location_access_summary">Ponechat zeptání aplikace snažící se zjistit Vaši polohu</string>
-  <string name="location_sources_heading">Zdroje polohy</string>
   <string name="location_gps">Satelity GPS</string>
   <string name="location_street_level" product="tablet">Aplikace může použít GPS pro získání přesné polohy tabletu</string>
   <string name="location_street_level" product="default">Aplikace může použít GPS pro získání přesné polohy telefonu</string>

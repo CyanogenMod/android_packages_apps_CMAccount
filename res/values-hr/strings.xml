@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">UPOZORENJE: Nećete biti u mogućnosti postaviti račune</string>
   <string name="setup_warning_skip_wifi" product="tablet">UPOZORENJE: Možete iskusiti dodatne mrežne troškove.\n\nPostavka tableta može zahtijevati značajne mrežne aktivnosti.</string>
   <string name="setup_warning_skip_wifi" product="default">UPOZORENJE: Možete iskusiti dodatne troškove nosača podataka.\n\nPostavka telefona može zahtijevati značajne mrežne aktivnosti.</string>
-  <string name="setup_privacy">Postavke Privatnosti</string>
   <string name="setup_personalization">Osobne postavke</string>
   <string name="setup_finalizing">Dovršavanje postavljanja\u2026</string>
   <string name="cmaccount_setup_create_title">Napravi CyanogenMod račun</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Koristi virtualne navigacijske tipke</string>
   <string name="location_access_title">Pristup mojoj lokaciji</string>
   <string name="location_access_summary">Dozvoli pristup vašoj lokaciji aplikacijama koje imaju vaše odobrenje</string>
-  <string name="location_sources_heading">Izvori lokacije</string>
   <string name="location_gps">GPS sateliti</string>
   <string name="location_street_level" product="tablet">Dozvoli aplikacijama da koriste GPS na vašem tabletu za određivanje lokacije</string>
   <string name="location_street_level" product="default">Dozvoli aplikacijama da koriste GPS na vašem uređaju za određivanje lokacije</string>
