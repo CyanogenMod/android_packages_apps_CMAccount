@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">UYARI: Hesaplarınızı ayarlayamayacaksınız</string>
   <string name="setup_warning_skip_wifi" product="tablet">UYARI: Ekstra operatör veri ücreti alınabilir.\n\nTablet kurulumu önemli ölçüde ağ trafiği gerektirir.</string>
   <string name="setup_warning_skip_wifi" product="default">UYARI: Ekstra operatör veri ücreti alınabilir.\n\nTelefon kurulumu önemli ölçüde ağ trafiği gerektirir.</string>
-  <string name="setup_privacy">Gizlilik Ayarları</string>
   <string name="setup_personalization">Kişiselleştir</string>
   <string name="setup_finalizing">Kurulum tamamlanıyor\u2026</string>
   <string name="cmaccount_setup_create_title">Bir CyanogenMod hesabı oluşturun</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Ekran-üstü tuşları kullan</string>
   <string name="location_access_title">Konumuma erişim</string>
   <string name="location_access_summary">Konumunuza erişim izni isteyen uygulamalara izin ver</string>
-  <string name="location_sources_heading">Konum kaynakları</string>
   <string name="location_gps">GPS uyduları</string>
   <string name="location_street_level" product="tablet">Uygulamaların tabletinizdeki GPS özelliğini kullanarak yerinizi tespit etmesine izin ver.</string>
   <string name="location_street_level" product="default">Uygulamaların telefonunuzdaki GPS özelliğini kullanarak yerinizi tespit etmesine izin ver.</string>

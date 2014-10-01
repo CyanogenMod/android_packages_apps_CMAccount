@@ -46,9 +46,8 @@
   <string name="setup_msg_no_network">警告: アカウントをセットアップできません</string>
   <string name="setup_warning_skip_wifi" product="tablet">警告: 追加のパケット通信料が発生する可能性があります。\n\nタブレットのセットアップにはネットワークアクティビティが必要です。</string>
   <string name="setup_warning_skip_wifi" product="default">警告: 追加のパケット通信料が発生する可能性があります。\n\n携帯電話のセットアップにはネットワークアクティビティが必要です。</string>
-  <string name="setup_privacy">プライバシーの設定</string>
   <string name="setup_personalization">パーソナライズ</string>
-  <string name="setup_finalizing">セットアップを終了中\u2026</string>
+  <string name="setup_finalizing">セットアップを終了しています\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenModアカウントを作成</string>
   <string name="cmaccount_setup_login_title">CyanogenModアカウントにログイン</string>
   <string name="cmaccount_setup_email_label">メール</string>
@@ -56,7 +55,7 @@
   <string name="cmaccount_setup_email_invalid_label">有効なメールアドレスではありません</string>
   <string name="cmaccount_setup_password_label">パスワード</string>
   <string name="cmaccount_setup_password_create_label">パスワード（最低8文字以上）</string>
-  <string name="cmaccount_setup_password_mismatch_label">パスワードが一致しません！</string>
+  <string name="cmaccount_setup_password_mismatch_label">パスワードが一致しません</string>
   <string name="cmaccount_setup_password_invalid_label">パスワードは最低8文字以上である必要があります</string>
   <string name="cmaccount_setup_confirm_password_label">パスワードの確認</string>
   <string name="cmaccount_setup_tos_label">%1$s利用規約%2$sに同意します</string>
@@ -87,8 +86,7 @@
   <string name="apply_default_theme_title">CyanogenModのテーマを使用</string>
   <string name="use_nav_keys">オンスクリーンキーを使用</string>
   <string name="location_access_title">位置情報にアクセス</string>
-  <string name="location_access_summary">位置情報を使用する権限を要求したことのあるアプリを許可する</string>
-  <string name="location_sources_heading">位置情報源</string>
+  <string name="location_access_summary">位置情報を使用する権限を要求したアプリを許可する</string>
   <string name="location_gps">GPS衛星</string>
   <string name="location_street_level" product="tablet">現在地を特定するためにタブレットのGPSの使用をアプリに許可する</string>
   <string name="location_street_level" product="default">現在地を特定するために携帯電話のGPSの使用をアプリに許可する</string>

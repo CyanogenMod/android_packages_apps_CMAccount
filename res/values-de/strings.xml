@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">WARNUNG: Sie werden nicht imstande sein, Ihr Konto erfolgreich einzurichten</string>
   <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
   <string name="setup_warning_skip_wifi" product="default">WARNUNG: Die Kontoeinrichtung kann beträchtliche Netzaktivität mit sich bringen, wodurch Kosten bei Ihrem Mobilnetzbetreiber entstehen können.</string>
-  <string name="setup_privacy">Privatsphären-Einstellungen</string>
   <string name="setup_personalization">Personalisieren</string>
   <string name="setup_finalizing">Einrichtung wird abgeschlossen\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod-Konto erstellen</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Bildschirmtasten benutzen</string>
   <string name="location_access_title">Zugriff auf meinen Standort</string>
   <string name="location_access_summary">Meine Standortdaten dürfen von Apps verwendet werden, die ich dazu berechtigt habe.</string>
-  <string name="location_sources_heading">Standortquellen</string>
   <string name="location_gps">GPS-Satelliten</string>
   <string name="location_street_level" product="tablet">Apps dürfen meinen Standort mithilfe von GPS auf meinem Tablet bestimmen</string>
   <string name="location_street_level" product="default">Apps dürfen meinen Standort mithilfe von GPS auf meinem Telefon bestimmen</string>

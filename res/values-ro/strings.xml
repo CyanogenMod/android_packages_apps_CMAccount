@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">AVERTIZARE: Nu veți fi capabil să configurați conturile dvs</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVERTIZARE: Se pot genera în contul dvs taxe de date suplimentare de către operator.\n\nConfigurarea tabletei poate necesita un trafic semnificativ în rețea.</string>
   <string name="setup_warning_skip_wifi" product="default">AVERTIZARE: Se pot genera în contul dvs taxe de date suplimentare de către operator.\n\nConfigurarea telefonului poate necesita un trafic semnificativ în rețea.</string>
-  <string name="setup_privacy">Setări de confidențialitate</string>
   <string name="setup_personalization">Personalizare</string>
   <string name="setup_finalizing">Se termină setup-ul</string>
   <string name="cmaccount_setup_create_title">Creați un cont CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Folosește tastele de pe ecran</string>
   <string name="location_access_title">Acces la locația mea</string>
   <string name="location_access_summary">Permite aplicațiilor care au cerut permisiunea dvs să utilizeze informația de localizare</string>
-  <string name="location_sources_heading">Sursele de localizare</string>
   <string name="location_gps">Sateliți GPS</string>
   <string name="location_street_level" product="tablet">Permite aplicațiilor să folosească GPS-ul din tableta pentru a permite localizare dvs</string>
   <string name="location_street_level" product="default">Permite aplicațiilor să folosească GPS-ul din telefon pentru a permite localizare dvs</string>

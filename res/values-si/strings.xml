@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">අවවාදයයි: ඔබට ඔබගේ ගිණුම් පිහිටුවීමට නොහැකිවනු ඇත</string>
   <string name="setup_warning_skip_wifi" product="tablet">අවවාදයයි: ඔබට අමතර වාහක දත්ත අයකිරීම් දැරීමට සිදුවෙනු ඇත.\n\nටැබ්ලටයේ පිහිටුවීම සඳහා සැලකිය යුතු මට්ටමක ජාල ක්‍රියාකාරකම් අවශ්‍ය විය හැක.</string>
   <string name="setup_warning_skip_wifi" product="default">අවවාදයයි: ඔබට අමතර වාහක දත්ත අයකිරීම් දැරීමට සිදුවෙනු ඇත.\n\nඋපාංගයේ පිහිටුවීම සඳහා සැලකිය යුතු මට්ටමක ජාල ක්‍රියාකාරකම් අවශ්‍ය විය හැක.</string>
-  <string name="setup_privacy">පෞද්ගලිකත්ව සැකසීම්</string>
   <string name="setup_personalization">පුද්ගලායනය</string>
   <string name="setup_finalizing">පිහිටුවීම අවසන් කරමින්\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod ගිණුමක් හදන්න</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">තිරයේ ඇති යතුරු භාවිතා කරන්න</string>
   <string name="location_access_title">මගේ ස්ථානය පරිශීලනයට</string>
   <string name="location_access_summary">අනුමැතිය ඉල්ලා ඇති යෙදුම් සඳහා ඔබගේ ස්ථාන තොරතුරු භාවිතයට අවසර දෙන්න</string>
-  <string name="location_sources_heading">ස්ථාන මූලාශ්‍ර</string>
   <string name="location_gps">GPS චන්ද්‍රිකාව</string>
   <string name="location_street_level" product="tablet">ඔබගේ ස්ථානය නිර්ණය කිරීම සඳහා ඔබගේ ටැබ්ලටයේ GPS භාවිතයට යෙදුම් වෙත අවසර දෙන්න</string>
   <string name="location_street_level" product="default">ඔබගේ ස්ථානය නිර්ණය කිරීම සඳහා ඔබගේ උපාංගයේ GPS භාවිතයට යෙදුම් වෙත අවසර දෙන්න</string>

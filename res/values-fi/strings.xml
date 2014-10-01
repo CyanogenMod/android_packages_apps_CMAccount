@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">VAROITUS: Et pysty asettamaan käyttäjätilejäsi</string>
   <string name="setup_warning_skip_wifi" product="tablet">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nTabletin asennus voi tarvita huomattavasti verkkoyhteyttä.</string>
   <string name="setup_warning_skip_wifi" product="default">VAROITUS: Ylimääräisiä tiedonsiirtokuluja voi syntyä,\n\nPuhelimen asennus voi tarvita huomattavasti verkkoyhteyttä.</string>
-  <string name="setup_privacy">Tietosuoja</string>
   <string name="setup_personalization">Mukauta</string>
   <string name="setup_finalizing">Viimeistellään asennusta\u2026</string>
   <string name="cmaccount_setup_create_title">Luo CyanogenMod-tili</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Käytä näytössä näkyviä näppäimiä</string>
   <string name="location_access_title">Salli pääsy sijaintiin</string>
   <string name="location_access_summary">Salli sijainnin haku sovelluksille jotka ovat kysyneet luvan</string>
-  <string name="location_sources_heading">Sijainnin lähteet</string>
   <string name="location_gps">GPS-satellittit</string>
   <string name="location_street_level" product="tablet">Salli sovellusten käyttää tablet-laitteesi GPS:ää paikantaaksesi sijaintisi</string>
   <string name="location_street_level" product="default">Salli sovellusten käyttää puhelimesi GPS:ää paikantaaksesi sijaintisi</string>

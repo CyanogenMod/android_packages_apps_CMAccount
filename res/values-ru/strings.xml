@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">ВНИМАНИЕ: настройка учётных записей будет невозможна</string>
   <string name="setup_warning_skip_wifi" product="tablet">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка планшета может потребовать значительной сетевой активности.</string>
   <string name="setup_warning_skip_wifi" product="default">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка телефона может потребовать значительной сетевой активности.</string>
-  <string name="setup_privacy">Конфиденциальность</string>
   <string name="setup_personalization">Персонализация</string>
   <string name="setup_finalizing">Завершение настройки\u2026</string>
   <string name="cmaccount_setup_create_title">Создание аккаунта CM</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Включить экранные кнопки</string>
   <string name="location_access_title">Доступ к моему местоположению</string>
   <string name="location_access_summary">Разрешить приложениям получать сведения о вашем местоположении</string>
-  <string name="location_sources_heading">Определение местоположения</string>
   <string name="location_gps">По спутникам GPS</string>
   <string name="location_street_level" product="tablet">Разрешить приложениям использовать GPS на вашем планшете для определения местоположения</string>
   <string name="location_street_level" product="default">Разрешить приложениям использовать GPS на вашем телефоне для определения местоположения</string>

@@ -49,7 +49,6 @@
     <string name="setup_msg_no_network">WARNING: You won\'t be able to set up your accounts</string>
     <string name="setup_warning_skip_wifi" product="tablet">WARNING: You may incur extra carrier data charges.\n\nTablet setup can require significant network activity.</string>
     <string name="setup_warning_skip_wifi" product="default">WARNING: You may incur extra carrier data charges.\n\nPhone setup can require significant network activity.</string>
-    <string name="setup_privacy">Privacy Settings</string>
     <string name="setup_personalization">Personalize</string>
     <string name="setup_finalizing">Finalizing setup\u2026</string>
 
@@ -100,7 +99,6 @@
 
     <string name="location_access_title">Access to my location</string>
     <string name="location_access_summary">Allow apps that have asked your permission to use your location information</string>
-    <string name="location_sources_heading">Location sources</string>
     <string name="location_gps">GPS satellites</string>
     <string name="location_street_level" product="tablet">Allow apps to use GPS on your tablet to pinpoint your location</string>
     <string name="location_street_level" product="default">Allow apps to use GPS on your phone to pinpoint your location</string>

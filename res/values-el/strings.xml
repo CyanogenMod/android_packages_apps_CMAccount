@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">ΠΡΟΣΟΧΗ: Δεν θα είστε σε θέση να ρυθμίστετε τους λογαριασμούς σας</string>
   <string name="setup_warning_skip_wifi" product="tablet">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του tablet μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
   <string name="setup_warning_skip_wifi" product="default">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του τηλεφώνου μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
-  <string name="setup_privacy">Ρυθμίσεις απορρήτου</string>
   <string name="setup_personalization">Εξατομίκευση</string>
   <string name="setup_finalizing">Οριστικοποίηση εγκατάστασης\u2026</string>
   <string name="cmaccount_setup_create_title">Δημιουργία λογαριασμού CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Χρήση πλήκτρων που εμφανίζονται στην οθόνη</string>
   <string name="location_access_title">Πρόσβαση στην τοποθεσία μου</string>
   <string name="location_access_summary">Να επιτρέπεται σε εφαρμογές που έχουν ζητήσει την άδειά σας να χρησιμοποιούν τις πληροφορίες της τοποθεσίας σας</string>
-  <string name="location_sources_heading">Πηγές τοποθεσίας</string>
   <string name="location_gps">Δορυφόροι GPS</string>
   <string name="location_street_level" product="tablet">Να επιτρέπεται στις εφαρμογές η χρήση του GPS στο tablet σας για την επισήμανση της τοποθεσίας σας</string>
   <string name="location_street_level" product="default">Να επιτρέπεται στις εφαρμογές η χρήση του GPS στο τηλέφωνό σας για την επισήμανση της τοποθεσίας σας</string>

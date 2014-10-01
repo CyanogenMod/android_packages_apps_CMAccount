@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">HOIATUS: Te ei saa seadistada oma kontot</string>
   <string name="setup_warning_skip_wifi" product="tablet">HOIATUS: Teid võidakse maksustada andmete ülekande eest.\n\nTahvel võib vajada toimivat võrguühendust.</string>
   <string name="setup_warning_skip_wifi" product="default">HOIATUS: Teid võidakse maksustada andmete ülekande eest.\n\nTelefon võib vajada toimivat võrguühendust.</string>
-  <string name="setup_privacy">Privaatsussätted</string>
   <string name="setup_personalization">Isikupärasta</string>
   <string name="setup_finalizing">Lõpetan seadistust\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod konto loomine</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Kasuta ekraaniklahve</string>
   <string name="location_access_title">Juurdepääs minu asukohale</string>
   <string name="location_access_summary">Lubatud rakendused saavad loa kasutada teie asukohateavet</string>
-  <string name="location_sources_heading">Asukoha määramise allikad</string>
   <string name="location_gps">GPS-satelliidid</string>
   <string name="location_street_level" product="tablet">Lubage rakendustel asukoha määramiseks kasutada  tahvli GPS-i</string>
   <string name="location_street_level" product="default">Lubage rakendustel asukoha määramiseks kasutada  telefoni GPS-i</string>

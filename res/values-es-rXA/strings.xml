@@ -46,7 +46,6 @@
   <string name="setup_msg_no_network">AVISU: Nun vas poder configurar les tos cuentes</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVISU: Quiciabes se facturen cargos de datos adicionales.\n\nLa configuración de la tablet pue riquir una gran cantidá d\'actividá de rede.</string>
   <string name="setup_warning_skip_wifi" product="default">AVISO: Quiciabes se facturen cargos de datos adicionales.\n\nLa configuración del teléfonu pue riquir una gran cantidá d\'actividá de rede.</string>
-  <string name="setup_privacy">Axustes de privacidá</string>
   <string name="setup_personalization">Personalizar</string>
   <string name="setup_finalizing">Finando configuración\u2026</string>
   <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
@@ -88,7 +87,6 @@
   <string name="use_nav_keys">Usar tecles en pantalla</string>
   <string name="location_access_title">Accesu a llocalización</string>
   <string name="location_access_summary">Permitir que aplicaciones con permisu usen info. sobre la to llocalización</string>
-  <string name="location_sources_heading">Fontes de llocalización</string>
   <string name="location_gps">Satélites GPS</string>
   <string name="location_street_level" product="tablet">Permitir que les aplicaciones usen el GPS de la tablet pa determinar la to llocalización</string>
   <string name="location_street_level" product="default">Permitir que les aplicaciones usen el GPS del teléfonu pa determinar la to llocalización</string>
