@@ -31,8 +31,8 @@
   <string name="skip_anyway">依要略過</string>
   <string name="dont_skip">不要略過</string>
   <string name="setup_complete">設定已完成</string>
-  <string name="setup_complete_summary" product="tablet">恭喜！你的平板電腦已準備翻滾一番。</string>
-  <string name="setup_complete_summary" product="default">恭喜！你的手機已準備翻滾一番。</string>
+  <string name="setup_complete_summary" product="tablet">恭喜！您的平板電腦已準備就緒。</string>
+  <string name="setup_complete_summary" product="default">恭喜！您的手機已準備就緒。</string>
   <string name="setup_welcome">歡迎使用 CyanogenMod</string>
   <string name="setup_welcome_summary" product="tablet">若要開始設定您的平板電腦，請選擇您的語言然後繼續。</string>
   <string name="setup_welcome_summary" product="default">若要開始設定您的手機，請選擇您的語言然後繼續。</string>
