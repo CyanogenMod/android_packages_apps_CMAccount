@@ -88,10 +88,10 @@
   <string name="location_access_title">Accéder à ma localisation</string>
   <string name="location_access_summary">Permettre aux applications ayant demandé l\'autorisation d\'accéder aux données de localisation</string>
   <string name="location_gps">Satellites GPS</string>
-  <string name="location_street_level" product="tablet">Permettre aux applications utilisant le GPS de votre tablette à localiser votre emplacement</string>
-  <string name="location_street_level" product="default">Permettre aux applications utilisant le GPS de votre smartphone à localiser votre emplacement</string>
+  <string name="location_street_level" product="tablet">Permettre aux applications d\'utiliser le GPS sur votre tablette afin de situer votre localisation</string>
+  <string name="location_street_level" product="default">Permettre aux applications d\'utiliser le GPS sur votre téléphone afin de situer votre localisation</string>
   <string name="location_network_based">Localisation Wi-Fi &amp; réseau mobile</string>
-  <string name="location_neighborhood_level">Permettre aux applications d\'utiliser le service de localisation de Google pour définir votre emplacement plus rapidement. Des données de localisation anonymes seront collectées et envoyées à Google.</string>
+  <string name="location_neighborhood_level">Permettre aux applications d\'utiliser le service de localisation de Google pour définir votre localisation plus rapidement. Des données de localisation anonymes seront collectées et envoyées à Google.</string>
   <string name="update_icon_pack_available">Un pack d\'icônes mis à jour est disponible</string>
   <string name="apply_icon_pack">Appliquer</string>
 </resources>
