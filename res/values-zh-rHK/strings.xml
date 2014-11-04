@@ -37,7 +37,7 @@
   <string name="setup_welcome_summary" product="tablet">要開始設定你的平板電腦之前，請選擇你的語言然後繼續。</string>
   <string name="setup_welcome_summary" product="default">要開始設定你的電話之前，請選擇你的語言然後繼續。</string>
   <string name="setup_cmaccount">設定您的 CyanogenMod 帳戶</string>
-  <string name="setup_sim_missing">請插入 SIM 卡</string>
+  <string name="setup_sim_missing">請插入 SIM 咭</string>
   <string name="setup_google_account">Google 帳戶</string>
   <string name="setup_location">地理位置設定</string>
   <string name="setup_datetime">日期與時間設定</string>
@@ -77,8 +77,8 @@
   <string name="cmaccount_create_account_error_title">在建立帳號中出現錯誤</string>
   <string name="cmaccount_server_error_message">與伺服器通訊時發生錯誤。請稍後再試。</string>
   <string name="cmaccount_error_multiple_accounts">一個流動裝置只允許存在一個 CyanogenMod 帳戶</string>
-  <string name="sim_missing_summary" product="tablet">你需要參考平板電腦附帶的 SIM 卡說明。</string>
-  <string name="sim_missing_summary" product="default">你需要參考電話附帶的 SIM 卡說明。</string>
+  <string name="sim_missing_summary" product="tablet">你需要參考平板電腦附帶的 SIM 咭說明。</string>
+  <string name="sim_missing_summary" product="default">你需要參考電話附帶的 SIM 咭說明。</string>
   <string name="google_account_summary">你想建立一個 Google 帳戶？</string>
   <string name="btn_google_account">建立 Google 帳戶</string>
   <string name="whisperpush_title">啟用安全短訊</string>
