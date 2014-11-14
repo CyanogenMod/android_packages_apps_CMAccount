@@ -106,4 +106,9 @@
     <string name="location_neighborhood_level">Allow apps to use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
     <string name="update_icon_pack_available">An updated icon pack is available</string>
     <string name="apply_icon_pack">Apply</string>
+
+    <string name="setup_mobile_data">Allow Mobile Data</string>
+    <string name="enable_mobile_data_summary">Turning on mobile data during the setup process may be subject to data charges.</string>
+    <string name="enable_mobile_off">No</string>
+    <string name="enable_mobile_on">Yes</string>
 </resources>
