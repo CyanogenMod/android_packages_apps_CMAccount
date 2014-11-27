@@ -94,4 +94,6 @@
   <string name="location_neighborhood_level">Perbolehkan aplikasi menggunakan Layanan Lokasi Google untuk memperkirakan lokasi anda lebih cepat. Data lokasi anonim akan dikumpulkan dan dikirimkan ke Google.</string>
   <string name="update_icon_pack_available">Paket ikon terbaru tersedia</string>
   <string name="apply_icon_pack">Terapkan</string>
+  <string name="enable_mobile_off">Tidak</string>
+  <string name="enable_mobile_on">Ya</string>
 </resources>

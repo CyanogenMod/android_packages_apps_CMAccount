@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Να επιτρέπεται στις εφαρμογές να χρησιμοποιούν την υπηρεσία τοποθεσίας της Google για γρήγορη εκτίμηση της τοποθεσίας σας. Θα συλλεχθούν ανώνυμα δεδομένα και θα αποσταλούν στην Google.</string>
   <string name="update_icon_pack_available">Ένα ενημερωμένο πακέτο εικονιδίων είναι διαθέσιμο</string>
   <string name="apply_icon_pack">Εφαρμογή</string>
+  <string name="setup_mobile_data">Ενεργοποίηση δεδομένων τηλεφωνίας</string>
+  <string name="enable_mobile_data_summary">Με την ενεργοποίηση των δεδομένων κινητής τηλεφωνίας ενδέχεται να υπάρξουν επιπλέον χρεώσεις.</string>
+  <string name="enable_mobile_off">Όχι</string>
+  <string name="enable_mobile_on">Ναι</string>
 </resources>

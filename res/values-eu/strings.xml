@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">Cyanogenmod kontu batek CyanogenMod duen gailu mugikorrari funtzionalitate eta balio erantsiko zerbitzuetara sarbidea ahalbidetzen dio.\n\nKontu berri bat sortu edo existitzen den kontu bat gehitu nahi duzu?</string>
   <string name="cmaccount_learn_more">Gehiago irakurri\u2026</string>
   <string name="cmaccount_learn_more_alt">Gehiago ezagutu</string>
-  <string name="cmaccount_update_required_title">Eguneratzea beharrezkoa</string>
   <string name="cmaccount_update_required_text">CyanogenMod Kontua-ren bertsio hau bateragarria ez izatea gerta daiteke. Bateragarritasuna bermatzeko CyanogenMod-en azken bertsiora egunerazazu, mesedez.</string>
   <string name="cmaccount_update_required_short">Bertsio hau bateragarria ez izatea gerta daiteke.</string>
   <string name="cmaccount_checking_for_updates">Eguneraketak bilatzen.</string>

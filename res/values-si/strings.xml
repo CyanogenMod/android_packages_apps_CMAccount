@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">ඔබගේ ස්ථානය ඉක්මනින් නිර්ණය කිරීම සඳහා ගූගල් ස්ථාන සේවාව භාවිතයට යෙදුම් වෙත අවසර දෙන්න. නිර්නාමික ස්ථාන දත්ත එකතු කර ගූගල් වෙත යැවෙනු ඇත.</string>
   <string name="update_icon_pack_available">යාවත්කාලිත අයිකන පොදියක් ඇත</string>
   <string name="apply_icon_pack">යොදන්න</string>
+  <string name="setup_mobile_data">ජංගම දත්ත අනුමත කරන්න</string>
+  <string name="enable_mobile_data_summary">පිහිටුවීමේ ක්‍රියාවලිය අතර තුර ජංගම දත්ත සක්‍රීය කල හොත් දත්ත වියදම් දැරීමට සිදුවනු ඇත.</string>
+  <string name="enable_mobile_off">නැහැ</string>
+  <string name="enable_mobile_on">ඔව්</string>
 </resources>

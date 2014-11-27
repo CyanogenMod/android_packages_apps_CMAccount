@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">En CyanogenMod-konto gir tilgang til verdifulle tjenester og funksjonalitet for mobilenheten som kjører CyanogenMod.\n\nVuk du vil legge til en eksisterende konto eller opprette en ny?</string>
   <string name="cmaccount_learn_more">Lær mer\u2026</string>
   <string name="cmaccount_learn_more_alt">Lær mer</string>
-  <string name="cmaccount_update_required_title">Oppdatering Påkrevd</string>
   <string name="cmaccount_update_required_text">Denne versjonen av CyanogenMod-konto kan være inkompatibel. Vennligst oppdater til den nyeste versjonen av CyanogenMod for å sikre kompatibilitet.</string>
   <string name="cmaccount_update_required_short">Denne versjonen kan være inkompatibel.</string>
   <string name="cmaccount_checking_for_updates">Ser etter oppdateringer.</string>

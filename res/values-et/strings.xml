@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">CyanogenMod konto võimaldab ligipääsu lisaväärtusteenustele ja funktsionaalsusele teie telefonis, milles töötab CyanogenMod.\n\nKas soovite lisada olemasoleva konto või luua uue?</string>
   <string name="cmaccount_learn_more">Loe rohkem\u2026</string>
   <string name="cmaccount_learn_more_alt">Saa rohkem teada</string>
-  <string name="cmaccount_update_required_title">Uuendus Nõutud</string>
   <string name="cmaccount_update_required_text">See versioon CyanogenMod Kontost võib olla kokkusobimatu. Palun uuendage CyanogenMod\'i uusim versioon, et tagada ühilduvus.</string>
   <string name="cmaccount_update_required_short">See versioon võib olla kokkusobimatu.</string>
   <string name="cmaccount_checking_for_updates">Kontrollin värskendusi.</string>

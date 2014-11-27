@@ -63,7 +63,7 @@
   <string name="cmaccount_add_create_label">Un compte de CyanogenMod proporciona accés als serveis de valor afegit i funcionalitats en el teu dispositiu mòbil amb CyanogenMod.\n\nVols afegir un compte existent o crear-ne un de nou?</string>
   <string name="cmaccount_learn_more">Aprèn més\u2026</string>
   <string name="cmaccount_learn_more_alt">Aprèn més</string>
-  <string name="cmaccount_update_required_title">Actualització requerida</string>
+  <string name="cmaccount_update_required_title">Actualització necessària</string>
   <string name="cmaccount_update_required_text">Aquesta versió del compte CyanogenMod podria ser incompatible. Si us plau actualitza a la darrera versió de CyanogenMod per assegurar la compatibilitat.</string>
   <string name="cmaccount_update_required_short">Aquesta versió podria ser incompatible.</string>
   <string name="cmaccount_checking_for_updates">Verificant actualitzacions.</string>
@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Permet a les apps utilitzar el servei d\'ubicacions de Google per calcular més ràpid la teva ubicació. Dades d\'ubicació anonòmines seran recollides i enviades a Google.</string>
   <string name="update_icon_pack_available">Hi ha disponible un paquet d\'icones actualitzat</string>
   <string name="apply_icon_pack">Aplica</string>
+  <string name="setup_mobile_data">Permet les dades mòbils</string>
+  <string name="enable_mobile_data_summary">Encenent les dades mòbils durant el procés de configuració pot provocar càrrecs degut a l\'ús de dades.</string>
+  <string name="enable_mobile_off">No</string>
+  <string name="enable_mobile_on">Sí</string>
 </resources>

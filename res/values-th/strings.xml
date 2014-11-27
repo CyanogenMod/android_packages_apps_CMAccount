@@ -63,7 +63,7 @@
   <string name="cmaccount_add_create_label">บัญชี CyanogenMod จะช่วยให้การทำงานของอุปกรณ์เข้าถึงบริการเสริมของ CyanogenMod มีประสิทธิภาพ \n\n คุณต้องการเพิ่มบัญชีผู้ใช้ที่มีอยู่ หรือสร้างใหม่หรือไม่?</string>
   <string name="cmaccount_learn_more">เรียนรู้เพิ่มเติม\u2026</string>
   <string name="cmaccount_learn_more_alt">เรียนรู้เพิ่มเติม</string>
-  <string name="cmaccount_update_required_title">ต้องการปรับปรุงรุ่น</string>
+  <string name="cmaccount_update_required_title">ต้องการอัพเดต</string>
   <string name="cmaccount_update_required_text">เวอร์ชันของ \"บัญชี  CyanogenMod\" ที่ใช้อยู่ไม่สามารถเข้ากันได้กับเซิฟเวอร์ กรุณาอัพเดต CyanogenMod เป็นรุ่นล่าสุดเพื่อความเข้ากันได้ </string>
   <string name="cmaccount_update_required_short">เวอร์ชันนี้อาจจะไม่สามารถเข้ากันได้</string>
   <string name="cmaccount_checking_for_updates">กำลังตรวจสอบการอัพเดต</string>
@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">อนุญาตให้ใช้ Google\'s location service เพื่อเข้าถึงตำแหน่งของคุณได้เร็วขึ้น ข้อมูลที่อยู่แบบไม่ระบุตัวต้นจะถูกเก็บและส่งไปยัง Google</string>
   <string name="update_icon_pack_available">มีรุ่นปรับปรุงของชุดไอคอนใหม่</string>
   <string name="apply_icon_pack">นำไปใช้</string>
+  <string name="setup_mobile_data">อนุญาตใช้เครือข่ายมือถือ</string>
+  <string name="enable_mobile_data_summary">เปิดข้อมูลเครือข่ายมือถือขณะทำการติดตั้งอาจมีค่าบริการข้อมูล</string>
+  <string name="enable_mobile_off">ไม่</string>
+  <string name="enable_mobile_on">ใช่</string>
 </resources>

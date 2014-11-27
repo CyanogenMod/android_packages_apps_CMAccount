@@ -63,7 +63,7 @@
   <string name="cmaccount_add_create_label">„CyanogenMod“ paskyra suteikia prieigą prie pridėtinės vertės paslaugų ir funkcijų mobiliajame prietaise kuriame veikia „CyanogenMod“.\n\nAr norite pridėti esamą paskyrą arba sukurti naują?</string>
   <string name="cmaccount_learn_more">Sužinokite daugiau\u2026</string>
   <string name="cmaccount_learn_more_alt">Sužinokite daugiau</string>
-  <string name="cmaccount_update_required_title">Reikalingas naujinimas</string>
+  <string name="cmaccount_update_required_title">Reikalingas atnaujinimas</string>
   <string name="cmaccount_update_required_text">Ši „CyanogenMod“ paskyros versija gali būti nesuderinama. Prašome atnaujinti į naujausią versiją tam kad užtikrintumėte „CyanogenMod“ suderinamumą.</string>
   <string name="cmaccount_update_required_short">Ši versija gali būti nesuderinama.</string>
   <string name="cmaccount_checking_for_updates">Ieškoma atnaujinimų.</string>
@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Leisti programoms naudoti „Google“ vietos paslaugai įvertinti jūsų buvimo vietą greičiau. Anoniminiai vietovės nustatymo duomenys bus renkami ir siunčiami į „Google“.</string>
   <string name="update_icon_pack_available">Galimas piktogramų paketo atnaujinimas</string>
   <string name="apply_icon_pack">Taikyti</string>
+  <string name="setup_mobile_data">Leisti mobiliuosius duomenis</string>
+  <string name="enable_mobile_data_summary">Įjungiant mobiliuosius duomenis sąrankos metu gali būti taikomos duomenų mokestis.</string>
+  <string name="enable_mobile_off">Ne</string>
+  <string name="enable_mobile_on">Taip</string>
 </resources>

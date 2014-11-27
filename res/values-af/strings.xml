@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">\'n CyanogenMod rekening bied toegang tot toegevoegde waarde-dienste en funksies vir jou mobiele toestel.\n\nWil jy \'n bestaande rekening byvoeg of \'n nuwe een?</string>
   <string name="cmaccount_learn_more">Leer meer\u2026</string>
   <string name="cmaccount_learn_more_alt">Leer meer</string>
-  <string name="cmaccount_update_required_title">Vereis opdateering </string>
   <string name="cmaccount_update_required_text">Hierdie weergawe van CyanogenMod Rekening kan nie versoenbaar wees nie. Verander asb na die nuutste weergawe van CyanogenMod om versoenbaarheid te verseker.</string>
   <string name="cmaccount_update_required_short">Hierdie weergawe kan onversoenbaar wees.</string>
   <string name="cmaccount_checking_for_updates">Besig om te kyk vir opgraderings.</string>

@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">CyanogenMod račun omogućava pristup dodatnim servisima i mogućnostima za Vaš uređaj.\n\nŽelite li koristiti postojeći ili napraviti novi račun?</string>
   <string name="cmaccount_learn_more">Saznaj više\u2026</string>
   <string name="cmaccount_learn_more_alt">Saznajte više</string>
-  <string name="cmaccount_update_required_title">Potrebno ažuriranje!</string>
   <string name="cmaccount_update_required_text">Ova verzija CyanogenMod računa može biti nekompatibilna. Molimo vas da ažurirate CyanogenMod na najnoviju verziju da osigurate kompatibilnost.</string>
   <string name="cmaccount_update_required_short">Ova verzija može biti nekompatibilna.</string>
   <string name="cmaccount_checking_for_updates">Tražim ažuriranja.</string>

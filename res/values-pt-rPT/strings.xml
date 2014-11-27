@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Permite a aplicações utilizar o serviço de localização da Google para estimar a sua localização mais rapidamente. Dados anónimos de localização serão recolhidos e enviados à Google.</string>
   <string name="update_icon_pack_available">Está disponivel um pacote de ícones atualizado</string>
   <string name="apply_icon_pack">Aplicar</string>
+  <string name="setup_mobile_data">Permitir ligação de dados</string>
+  <string name="enable_mobile_data_summary">Ativar a ligação de dados durante o processo de instalação pode estar sujeito a gastos adicionais.</string>
+  <string name="enable_mobile_off">Não</string>
+  <string name="enable_mobile_on">Sim</string>
 </resources>

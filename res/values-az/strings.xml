@@ -60,12 +60,14 @@
   <string name="cmaccount_add_title">CyanogenMod hesabı əlavə et</string>
   <string name="cmaccount_learn_more">Daha çox məlumat\u2026</string>
   <string name="cmaccount_learn_more_alt">Daha çox məlumat</string>
-  <string name="cmaccount_update_required_title">Yeniləmə Lazımdır</string>
   <string name="cmaccount_update_required_short">Bu versiya uyğunlaşmaya bilər.</string>
   <string name="cmaccount_checking_for_updates">Yeniliklər yoxlanılır.</string>
   <string name="cmaccount_password_changed_title">Şifrə dəyişdirildi</string>
   <string name="cmaccount_password_changed_message">Zəhmət olmasa CyanogenMod hesabınıza daxil olun</string>
   <string name="cmaccount_login_message">CyanogenMod\'a daxil olunur</string>
+  <string name="cmaccount_login_error_title">Giriş baş tutmadı</string>
+  <string name="cmaccount_login_error_message">Etibarsız e-poçt və ya şifrə.</string>
+  <string name="cmaccount_server_error_title">Server xətası</string>
   <string name="location_network_based">Wi-Fi &amp; mobil şəbəkə məkanı</string>
   <string name="apply_icon_pack">Tətbiq et</string>
 </resources>

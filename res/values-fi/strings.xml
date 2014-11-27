@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">CyanogenMod-tili sallii pääsyn uusiin palveluihin ja toimintoihin mobiililaittellasi jossa on CyanogenMod.\n\nHaluatko lisätä olemassa olevan tilin tai luoda uuden?</string>
   <string name="cmaccount_learn_more">Lue lisää\u2026</string>
   <string name="cmaccount_learn_more_alt">Lue lisää</string>
-  <string name="cmaccount_update_required_title">Päivitys tarvitaan</string>
   <string name="cmaccount_update_required_text">Tämä versio CyanogenMod-tilistä saattaa olla epäyhteensopiva. Päivitä uusimpaan CyanogenMod-versioon takaaksesi yhteensopivuuden.</string>
   <string name="cmaccount_update_required_short">Tämä versio saattaa olla epäyhteensopiva.</string>
   <string name="cmaccount_checking_for_updates">Tarkistetaan päivityksiä.</string>

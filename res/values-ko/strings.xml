@@ -63,7 +63,7 @@
   <string name="cmaccount_add_create_label">CyanogenMod 계정은 CyanogenMod를 실행 중인 장치에 여러가지 부가 서비스와 기능들을 제공합니다.\n\n기존 계정을 추가할까요, 새 계정을 만들까요?</string>
   <string name="cmaccount_learn_more">자세한 정보\u2026</string>
   <string name="cmaccount_learn_more_alt">더 알아보기</string>
-  <string name="cmaccount_update_required_title">업데이트가 필요합니다</string>
+  <string name="cmaccount_update_required_title">업데이트 필요</string>
   <string name="cmaccount_update_required_text">이 버전의 CyanogenMod 계정은 호환되지 않을 수 있습니다. 호환성을 위해 최신 버전의 CyanogenMod로 업데이트해주세요.</string>
   <string name="cmaccount_update_required_short">이 버전은 호환되지 않을 수 있습니다.</string>
   <string name="cmaccount_checking_for_updates">업데이트를 확인 중입니다.</string>
@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">사용자의 위치를 빠르게 예측하도록 앱에서 Google 위치 서비스를 사용합니다. 익명의 위치 정보가 수집되어 Google로 전송됩니다.</string>
   <string name="update_icon_pack_available">업데이트된 아이콘 팩을 사용할 수 있습니다</string>
   <string name="apply_icon_pack">적용</string>
+  <string name="setup_mobile_data">모바일 데이터 허용</string>
+  <string name="enable_mobile_data_summary">설치 과정 중에 모바일 데이터를 사용하면 데이터 요금이 부과될 수 있습니다.</string>
+  <string name="enable_mobile_off">아니오</string>
+  <string name="enable_mobile_on">예</string>
 </resources>

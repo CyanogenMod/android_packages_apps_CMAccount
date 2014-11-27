@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">現在地を高速に推定するためにGoogleの位置情報サービスの使用をアプリに許可します。匿名化された現在地データがGoogleに収集および送信されます。</string>
   <string name="update_icon_pack_available">アップデートされたアイコンパックが利用可能です</string>
   <string name="apply_icon_pack">適用</string>
+  <string name="setup_mobile_data">モバイルデータ通信を許可</string>
+  <string name="enable_mobile_data_summary">セットアップの過程でモバイルデータ通信をONにすると、パケット通信料が発生する可能性があります。</string>
+  <string name="enable_mobile_off">いいえ</string>
+  <string name="enable_mobile_on">はい</string>
 </resources>

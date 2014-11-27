@@ -52,7 +52,7 @@
   <string name="cmaccount_setup_login_title">Conectați-vă la contul dvs CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Email</string>
   <string name="cmaccount_setup_email_unavailable_label">Emailul este deja înregistrat</string>
-  <string name="cmaccount_setup_email_invalid_label">Nu este o adresă de email validă</string>
+  <string name="cmaccount_setup_email_invalid_label">Nu este o adresă de email corectă</string>
   <string name="cmaccount_setup_password_label">Parola</string>
   <string name="cmaccount_setup_password_create_label">Parola (min. 8 caractere)</string>
   <string name="cmaccount_setup_password_mismatch_label">Parolele nu se potrivesc!</string>
@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Permite aplicațiilor să folosească serviciul de localizare Google pentru a estima mai rapid locația dvs. Datele anonime de localizare vor fi colectate și trimise la Google.</string>
   <string name="update_icon_pack_available">Un pachet de imagini actualizat este disponibil</string>
   <string name="apply_icon_pack">Activare</string>
+  <string name="setup_mobile_data">Permite date mobile</string>
+  <string name="enable_mobile_data_summary">Activarea datelor mobile în timpul procesului de instalare poate fi supusă tarifelor de date.</string>
+  <string name="enable_mobile_off">Nu</string>
+  <string name="enable_mobile_on">Da</string>
 </resources>

@@ -94,4 +94,6 @@
   <string name="location_neighborhood_level">Apps dürfen meinen Standort mit dem Google-Standortdienst schneller bestimmen. Anonyme Standortdaten werden erfasst und an Google gesendet.</string>
   <string name="update_icon_pack_available">Für das Symbolpaket ist eine Aktualisierung verfügbar</string>
   <string name="apply_icon_pack">Anwenden</string>
+  <string name="enable_mobile_off">Nein</string>
+  <string name="enable_mobile_on">Ja</string>
 </resources>
