@@ -46,7 +46,7 @@
   <string name="setup_msg_no_network">警告: アカウントをセットアップできません</string>
   <string name="setup_warning_skip_wifi" product="tablet">警告: 追加のパケット通信料が発生する可能性があります。\n\nタブレットのセットアップにはネットワークアクティビティが必要です。</string>
   <string name="setup_warning_skip_wifi" product="default">警告: 追加のパケット通信料が発生する可能性があります。\n\n携帯電話のセットアップにはネットワークアクティビティが必要です。</string>
-  <string name="setup_personalization">パーソナライズ</string>
+  <string name="setup_personalization">個人設定</string>
   <string name="setup_finalizing">セットアップを終了しています\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenModアカウントを作成</string>
   <string name="cmaccount_setup_login_title">CyanogenModアカウントにログイン</string>

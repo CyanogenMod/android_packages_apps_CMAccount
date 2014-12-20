@@ -93,4 +93,6 @@
   <string name="location_neighborhood_level">Tillåt appar att använda Googles platstjänst för att uppskatta din plats snabbare. Anonym platsinformation samlas in och skickas till Google.</string>
   <string name="update_icon_pack_available">Ett uppdaterat ikonpaket finns tillgängligt</string>
   <string name="apply_icon_pack">Tillämpa</string>
+  <string name="enable_mobile_off">Nej</string>
+  <string name="enable_mobile_on">Ja</string>
 </resources>

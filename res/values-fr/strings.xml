@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">Un compte CyanogenMod permet d\'accéder à des services à valeur ajoutée et des fonctionnalités pour votre appareil mobile sous CyanogenMod.\n\nVoulez-vous ajouter un compte existant ou en créer un nouveau ?</string>
   <string name="cmaccount_learn_more">En savoir plus\u2026</string>
   <string name="cmaccount_learn_more_alt">En savoir plus</string>
+  <string name="cmaccount_update_required_title">Mise à jour nécessaire</string>
   <string name="cmaccount_update_required_text">Cette version de l\'application de compte CyanogenMod est obsolète. Installez la dernière mise à jour de CyanogenMod pour assurer la compatibilité.</string>
   <string name="cmaccount_update_required_short">Cette version est obsolète.</string>
   <string name="cmaccount_checking_for_updates">Vérification de mise à jour\u2026</string>
@@ -93,4 +94,8 @@
   <string name="location_neighborhood_level">Permettre aux applications d\'utiliser le service de localisation de Google pour définir votre localisation plus rapidement. Des données de localisation anonymes seront collectées et envoyées à Google.</string>
   <string name="update_icon_pack_available">Un pack d\'icônes mis à jour est disponible</string>
   <string name="apply_icon_pack">Appliquer</string>
+  <string name="setup_mobile_data">Autoriser les données mobiles</string>
+  <string name="enable_mobile_data_summary">Activer les données mobiles pendant le processus d\'installation peut engendrer des frais supplémentaires.</string>
+  <string name="enable_mobile_off">Non</string>
+  <string name="enable_mobile_on">Oui</string>
 </resources>

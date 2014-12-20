@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">Обліковий запис CyanogenMod надає доступ до додаткових сервісів і функціональності для вашого мобільного пристрою під керуванням CyanogenMod.\n\nВи хочете додати існуючий обліковий запис чи створити новий?</string>
   <string name="cmaccount_learn_more">Дізнатись більше\u2026</string>
   <string name="cmaccount_learn_more_alt">Дізнатися більше</string>
+  <string name="cmaccount_update_required_title">Необхідне оновлення</string>
   <string name="cmaccount_update_required_text">Ця версія облікового запису CyanogenMod може бути несумісна. Будь ласка, оновіться до останньої версії CyanogenMod для забезпечення сумісності.</string>
   <string name="cmaccount_update_required_short">Ця версія може бути несумісною. </string>
   <string name="cmaccount_checking_for_updates">Перевірка наявності оновлень.</string>
@@ -93,4 +94,8 @@
   <string name="location_neighborhood_level">Дозволити програмам використовувати службу місцезнаходження Google для пришвидшення визначення вашого місцезнаходження. Анонімні дані про місцезнаходження збиратиметься та відсилатиметься в Google.</string>
   <string name="update_icon_pack_available">Доступний оновлений набір значків</string>
   <string name="apply_icon_pack">Застосувати</string>
+  <string name="setup_mobile_data">Дозволити мобільний інтернет</string>
+  <string name="enable_mobile_data_summary">Увімкнення мобільного інтернету під час налаштування може понести витрати.</string>
+  <string name="enable_mobile_off">Ні</string>
+  <string name="enable_mobile_on">Так</string>
 </resources>

@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">\'n CyanogenMod rekening bied toegang tot toegevoegde waarde-dienste en funksies vir jou mobiele toestel.\n\nWil jy \'n bestaande rekening byvoeg of \'n nuwe een?</string>
   <string name="cmaccount_learn_more">Leer meer\u2026</string>
   <string name="cmaccount_learn_more_alt">Leer meer</string>
+  <string name="cmaccount_update_required_title">Vereis opdatering</string>
   <string name="cmaccount_update_required_text">Hierdie weergawe van CyanogenMod Rekening kan nie versoenbaar wees nie. Verander asb na die nuutste weergawe van CyanogenMod om versoenbaarheid te verseker.</string>
   <string name="cmaccount_update_required_short">Hierdie weergawe kan onversoenbaar wees.</string>
   <string name="cmaccount_checking_for_updates">Besig om te kyk vir opgraderings.</string>
@@ -93,4 +94,8 @@
   <string name="location_neighborhood_level">Laat programme toe om Google\'s ligging diens te gebruik om jou ligging vinniger geskat te kry. Anonieme liggings data word ingesamel en gestuur aan Google.</string>
   <string name="update_icon_pack_available">\'n Nuwer ikoon stel is beskikbaar</string>
   <string name="apply_icon_pack">Pas toe</string>
+  <string name="setup_mobile_data">Laat mobiele data toe</string>
+  <string name="enable_mobile_data_summary">Die aktivering van mobiele data gedurende die opstel proses kan dalk data kostes veroorsaak.</string>
+  <string name="enable_mobile_off">Nee</string>
+  <string name="enable_mobile_on">Ja</string>
 </resources>

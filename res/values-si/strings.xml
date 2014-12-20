@@ -23,7 +23,7 @@
   <string name="skip">මඟහරින්න</string>
   <string name="finish">අවසන් කරන්න</string>
   <string name="cancel">අවලංගුයි</string>
-  <string name="create">හදන්න</string>
+  <string name="create">තනන්න</string>
   <string name="login">පුරන්න</string>
   <string name="ok">හරි</string>
   <string name="existing">පවත්නා</string>
@@ -37,9 +37,9 @@
   <string name="setup_welcome_summary" product="tablet">ඔබගේ ටැබ්ලටය පිහිටුවීම ඇරඹීමට, ඔබගේ භාෂාව තෝරා ඉදිරියට යන්න.</string>
   <string name="setup_welcome_summary" product="default">ඔබගේ උපාංගය පිහිටුවීම ඇරඹීමට, ඔබගේ භාෂාව තෝරා ඉදිරියට යන්න.</string>
   <string name="setup_cmaccount">ඔබගේ CyanogenMod ගිණුම පිහිටුවන්න</string>
-  <string name="setup_sim_missing">SIM කාඩ්පත ඇතුළු කරන්න</string>
+  <string name="setup_sim_missing">සිම් කාඩ්පත ඇතුළු කරන්න</string>
   <string name="setup_google_account">ගූගල් ගිණුම</string>
-  <string name="setup_location">ස්ථාන සැකසීම්</string>
+  <string name="setup_location">පිහිටීම් සැකසීම්</string>
   <string name="setup_datetime">දිනය සහ වේලාව සැකසීම්</string>
   <string name="setup_current_date">පවත්නා දිනය</string>
   <string name="setup_current_time">පවත්නා වේලාව</string>
@@ -48,22 +48,22 @@
   <string name="setup_warning_skip_wifi" product="default">අවවාදයයි: ඔබට අමතර වාහක දත්ත අයකිරීම් දැරීමට සිදුවෙනු ඇත.\n\nඋපාංගයේ පිහිටුවීම සඳහා සැලකිය යුතු මට්ටමක ජාල ක්‍රියාකාරකම් අවශ්‍ය විය හැක.</string>
   <string name="setup_personalization">පුද්ගලායනය</string>
   <string name="setup_finalizing">පිහිටුවීම අවසන් කරමින්\u2026</string>
-  <string name="cmaccount_setup_create_title">CyanogenMod ගිණුමක් හදන්න</string>
+  <string name="cmaccount_setup_create_title">CyanogenMod ගිණුමක් තනන්න</string>
   <string name="cmaccount_setup_login_title">ඔබගේ CyanogenMod ගිණුමට පුරන්න</string>
-  <string name="cmaccount_setup_email_label">ඊ-තැපෑල</string>
-  <string name="cmaccount_setup_email_unavailable_label">ඊ-තැපෑල කලින් ලියාපදිංචි වූවකි</string>
-  <string name="cmaccount_setup_email_invalid_label">අවලංගු ඊ-තැපැල් ලිපිනයකි</string>
+  <string name="cmaccount_setup_email_label">ඊමේල්</string>
+  <string name="cmaccount_setup_email_unavailable_label">ඊමේලය දැනටමත් ලියාපදිංචි වූවකි</string>
+  <string name="cmaccount_setup_email_invalid_label">වලංගු ඊමේල් ලිපිනයක් නොවේ</string>
   <string name="cmaccount_setup_password_label">මුරපදය</string>
   <string name="cmaccount_setup_password_create_label">මුරපදය (අවම අක්ෂර 8)</string>
   <string name="cmaccount_setup_password_mismatch_label">මුරපද නොගැලපේ!</string>
-  <string name="cmaccount_setup_password_invalid_label">මුරපදයේ අඩු තරමින් අක්ෂර 8 වත් තිබුය යුතුය!</string>
-  <string name="cmaccount_setup_confirm_password_label">මුර පදය තහවුරු කරන්න</string>
-  <string name="cmaccount_setup_tos_label">සේවාවේ %1$sකොන්දේසි%2$s වෙත මම එකඟය</string>
+  <string name="cmaccount_setup_password_invalid_label">මුරපදයේ අඩු තරමින් අක්ෂර 8 වත් තිබිය යුතුය!</string>
+  <string name="cmaccount_setup_confirm_password_label">මුරපදය තහවුරු කරන්න</string>
+  <string name="cmaccount_setup_tos_label">සේවාවේ %1$sකොන්දේසි%2$s වෙත මම එකඟයි</string>
   <string name="cmaccount_add_title">CyanogenMod ගිණුමක් එක් කරන්න</string>
-  <string name="cmaccount_add_create_label">CyanogenMod ධාවනය වන ඔබගේ ජංගම උපාංගය වෙත ප්‍රයෝජනවත් සේවා සහ ක්‍රියාකාරිත්වයක පිවිසුම CyanogenMod ගිණුමක් මගින් සලසාදෙනු ඇත.\n\nඔබට පවත්නා ගිණුමක් එක් කිරීමට හෝ අලුත් එකක් සෑදීමට අවශ්‍යද?</string>
+  <string name="cmaccount_add_create_label">CyanogenMod ධාවනය වන ඔබගේ ජංගම උපාංගය වෙත ප්‍රයෝජනවත් සේවා සහ ක්‍රියාකාරිත්වයක පිවිසුම CyanogenMod ගිණුමක් මගින් සලසාදෙනු ඇත.\n\nඔබට පවත්නා ගිණුමක් එක් කිරීමට හෝ අලුත් එකක් සෑදීමට අවශ්‍ය ද?</string>
   <string name="cmaccount_learn_more">තව දැනගන්න\u2026</string>
   <string name="cmaccount_learn_more_alt">තව දැනගන්න</string>
-  <string name="cmaccount_update_required_title">යාවත්කාල කිරීම අවශ්‍යය</string>
+  <string name="cmaccount_update_required_title">යාවත්කාලීනයක් අවශ්‍යයි</string>
   <string name="cmaccount_update_required_text">CyanogenMod ගිණුමේ මෙම අනුවාදය අනුකූල නොවියහැක. කරුණාකර අනුකූලතාව සහතික කරගැනීමට CyanogenMod හි නවතම අනුවාදයට යාවත්කාල කරගන්න.</string>
   <string name="cmaccount_update_required_short">මෙම අනුවාදය අනුකූල නොවියහැක.</string>
   <string name="cmaccount_checking_for_updates">යාවත්කාලීනයන් සඳහා පිරික්සමින්.</string>
@@ -84,10 +84,10 @@
   <string name="whisperpush_title">ආරක්ෂිත SMS සබල කරන්න</string>
   <string name="whisperpush_summary">CyanogenMod හි ආරක්ෂිත SMS භාවිතයෙන් අන් අය සමග සිදුකරණ කෙටි පණිවිඩ සංවාද ස්වයංක්‍රීයව ගුප්ත කේතනය කෙරේ.</string>
   <string name="apply_default_theme_title">CyanogenMod තේමාව භාවිතා කරන්න</string>
-  <string name="use_nav_keys">තිරයේ ඇති යතුරු භාවිතා කරන්න</string>
-  <string name="location_access_title">මගේ ස්ථානය පරිශීලනයට</string>
+  <string name="use_nav_keys">තිර-මත ඇති යතුරු භාවිතා කරන්න</string>
+  <string name="location_access_title">මගේ පිහිටීමට ප්‍රවේශය</string>
   <string name="location_access_summary">අනුමැතිය ඉල්ලා ඇති යෙදුම් සඳහා ඔබගේ ස්ථාන තොරතුරු භාවිතයට අවසර දෙන්න</string>
-  <string name="location_gps">GPS චන්ද්‍රිකාව</string>
+  <string name="location_gps">GPS චන්ද්‍රිකා</string>
   <string name="location_street_level" product="tablet">ඔබගේ ස්ථානය නිර්ණය කිරීම සඳහා ඔබගේ ටැබ්ලටයේ GPS භාවිතයට යෙදුම් වෙත අවසර දෙන්න</string>
   <string name="location_street_level" product="default">ඔබගේ ස්ථානය නිර්ණය කිරීම සඳහා ඔබගේ උපාංගයේ GPS භාවිතයට යෙදුම් වෙත අවසර දෙන්න</string>
   <string name="location_network_based">Wi-Fi සහ ජංගම ජාල ස්ථානය</string>

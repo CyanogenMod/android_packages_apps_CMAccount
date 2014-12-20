@@ -95,7 +95,7 @@
   <string name="update_icon_pack_available">Galimas piktogramų paketo atnaujinimas</string>
   <string name="apply_icon_pack">Taikyti</string>
   <string name="setup_mobile_data">Leisti mobiliuosius duomenis</string>
-  <string name="enable_mobile_data_summary">Įjungiant mobiliuosius duomenis sąrankos metu gali būti taikomos duomenų mokestis.</string>
+  <string name="enable_mobile_data_summary">Įjungiant mobiliuosius duomenis sąrankos metu gali būti taikomas duomenų mokestis.</string>
   <string name="enable_mobile_off">Ne</string>
   <string name="enable_mobile_on">Taip</string>
 </resources>
