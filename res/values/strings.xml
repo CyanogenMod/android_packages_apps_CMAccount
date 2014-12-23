@@ -68,7 +68,7 @@
     <string name="cmaccount_learn_more">Learn more\u2026</string>
     <string name="cmaccount_learn_more_alt">Learn more</string>
 
-    <string name="cmaccount_update_required_title">Update Required</string>
+    <string name="cmaccount_update_required_title">Update required</string>
     <string name="cmaccount_update_required_text">This version of CyanogenMod Account may be incompatible. Please update to the latest version of CyanogenMod to ensure compatibility.</string>
     <string name="cmaccount_update_required_short">This version may be incompatible.</string>
     <string name="cmaccount_checking_for_updates">Checking for updates.</string>
@@ -106,4 +106,9 @@
     <string name="location_neighborhood_level">Allow apps to use Google\'s location service to estimate your location faster. Anonymous location data will be collected and sent to Google.</string>
     <string name="update_icon_pack_available">An updated icon pack is available</string>
     <string name="apply_icon_pack">Apply</string>
+
+    <string name="setup_mobile_data">Allow mobile data</string>
+    <string name="enable_mobile_data_summary">Turning on mobile data during the setup process may be subject to data charges.</string>
+    <string name="enable_mobile_off">No</string>
+    <string name="enable_mobile_on">Yes</string>
 </resources>

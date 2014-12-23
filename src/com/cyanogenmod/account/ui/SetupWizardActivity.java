@@ -497,6 +497,10 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
     }
 
     private void finalizeSetup() {
+        if (CMAccountUtils.hasTelephony(this) &&
+                !CMAccountUtils.isMobileDataEnabled(this)) {
+            CMAccountUtils.setMobileDataEnabled(this, true);
+        }
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         disableSetupWizards(intent);

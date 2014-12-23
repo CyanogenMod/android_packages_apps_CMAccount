@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod da accesu a servicios con valores añadíos y funcionalidaes pal to preséu CyanogenMod.\n\nQuies amestar una cuenta esistente o crear una nueva?</string>
   <string name="cmaccount_learn_more">Lleer más\u2026</string>
   <string name="cmaccount_learn_more_alt">Deprendi más</string>
-  <string name="cmaccount_update_required_title">Anovamientu necesariu</string>
   <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod pue ser incompatible. Por favor, anueva a la postrer versión de CyanogenMod p\'asegurar la compatibilidá.</string>
   <string name="cmaccount_update_required_short">Esta versión pue ser incompatible.</string>
   <string name="cmaccount_checking_for_updates">Comprobar anovamientos.</string>

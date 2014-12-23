@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Дозволити програмам використовувати службу місцезнаходження Google для пришвидшення визначення вашого місцезнаходження. Анонімні дані про місцезнаходження збиратиметься та відсилатиметься в Google.</string>
   <string name="update_icon_pack_available">Доступний оновлений набір значків</string>
   <string name="apply_icon_pack">Застосувати</string>
+  <string name="setup_mobile_data">Дозволити мобільний інтернет</string>
+  <string name="enable_mobile_data_summary">Увімкнення мобільного інтернету під час налаштування може понести витрати.</string>
+  <string name="enable_mobile_off">Ні</string>
+  <string name="enable_mobile_on">Так</string>
 </resources>

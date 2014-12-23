@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Разрешить приложениям использовать службы позиционирования Google для быстрого определения вашего местоположения.</string>
   <string name="update_icon_pack_available">Доступен обновлённый набор значков</string>
   <string name="apply_icon_pack">Применить</string>
+  <string name="setup_mobile_data">Включить мобильный интернет</string>
+  <string name="enable_mobile_data_summary">Передача данных через мобильную сеть во время начальной настройки может привести к нежелательным расходам.</string>
+  <string name="enable_mobile_off">Нет</string>
+  <string name="enable_mobile_on">Да</string>
 </resources>

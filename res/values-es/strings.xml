@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Permitir que las aplicaciones usen el servicio de ubicación de Google para calcular tu ubicación más rápido. Se recopilarán datos de ubicación anónimos y se enviarán a Google</string>
   <string name="update_icon_pack_available">Un paquete de iconos actualizado está disponible</string>
   <string name="apply_icon_pack">Aplicar</string>
+  <string name="setup_mobile_data">Permitir datos móviles</string>
+  <string name="enable_mobile_data_summary">Activar los datos móviles durante el proceso de configuración puede ocasionar cargos de datos.</string>
+  <string name="enable_mobile_off">No</string>
+  <string name="enable_mobile_on">Sí</string>
 </resources>

@@ -63,7 +63,7 @@
   <string name="cmaccount_add_create_label">Bir CyanogenMod hesabı, CyanogenMod çalıştıran mobil cihazınıza zenginlik katan servis ve fonksiyonelliğe erişim sağlar.\n\nVarolan hesabınızı kullanmak ya da yeni bir hesap oluşturmak ister misiniz?</string>
   <string name="cmaccount_learn_more">Daha fazla bilgi\u2026</string>
   <string name="cmaccount_learn_more_alt">Daha fazla bilgi edinin</string>
-  <string name="cmaccount_update_required_title">Güncelleme Gerekli</string>
+  <string name="cmaccount_update_required_title">Güncelleme gerekli</string>
   <string name="cmaccount_update_required_text">CyanogenMod Hesabı\'nın bu sürümü uyumsuz olabilir. Lütfen uyumluluğu garantilemek için CyanogenMod\'u en son sürüme yükseltin.</string>
   <string name="cmaccount_update_required_short">Bu sürüm uyumsuz olabilir.</string>
   <string name="cmaccount_checking_for_updates">Güncellemeler kontrol ediliyor...</string>
@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Uygulamaların konumunuzu daha hızlı bulabilmesi için Google\'ın konum servislerini kullanmasına izin verin. Anonim veriler toplanacak ve Google\'a gönderilecektir.</string>
   <string name="update_icon_pack_available">Güncellenmiş bir simge paketi mevcut</string>
   <string name="apply_icon_pack">Uygula</string>
+  <string name="setup_mobile_data">Mobil veriye izin ver</string>
+  <string name="enable_mobile_data_summary">Kurulum işlemi sırasında mobil veriyi açarak veri ücretlerine tabi kalabilirsiniz.</string>
+  <string name="enable_mobile_off">Hayır</string>
+  <string name="enable_mobile_on">Evet</string>
 </resources>

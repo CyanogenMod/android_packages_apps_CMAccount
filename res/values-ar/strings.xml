@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">يوفر حساب CyanogenMod الوصول إلى الخدمات ذات القيمة المضافة وظائف لتشغيل الجهازك الذي يعمل بي CyanogenMod.\n\n هل تريد إضافة حساب موجود أو إنشاء حساب جديد؟</string>
   <string name="cmaccount_learn_more">تعلم المزيد\u2026</string>
   <string name="cmaccount_learn_more_alt">لمعرفة المزيد</string>
-  <string name="cmaccount_update_required_title">يتطلب تحديث البرنامج</string>
   <string name="cmaccount_update_required_text">هذا الإصدار لحساب CyanogenMod قد تكون غير متوافقة. الرجاء التحديث إلى الإصدار الأحدث من CyanogenMod ضمان التوافق.</string>
   <string name="cmaccount_update_required_short">قد يكون هذا الإصدار غير متوافق.</string>
   <string name="cmaccount_checking_for_updates">التحقق من وجود تحديثات.</string>

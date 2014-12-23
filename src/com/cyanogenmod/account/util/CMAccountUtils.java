@@ -44,6 +44,7 @@ import android.net.wifi.WifiManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.Settings;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
@@ -193,6 +194,38 @@ public class CMAccountUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mWifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return mWifi != null && mWifi.isConnected();
+    }
+
+    public static boolean isMobileDataEnabled(Context context) {
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            int subscription = MSimTelephonyManager.
+                    getDefault().getPreferredDataSubscription();
+            return android.provider.Settings.Global.getInt(context.getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA + subscription, 0) != 0;
+        } else {
+            return android.provider.Settings.Global.getInt(context.getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA, 0) != 0;
+        }
+    }
+
+    public static void setMobileDataEnabled(Context context, boolean enabled) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(
+                        Context.CONNECTIVITY_SERVICE);
+        cm.setMobileDataEnabled(enabled);
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            int subscription = MSimTelephonyManager.getDefault().getPreferredDataSubscription();
+            android.provider.Settings.Global.putInt(context.getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA + subscription, enabled ? 1 : 0);
+        } else {
+            android.provider.Settings.Global.putInt(context.getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA, enabled ? 1 : 0);
+        }
+    }
+
+    public static boolean hasTelephony(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
     }
 
     public static boolean isGSMPhone(Context context) {

@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">Aplikace může použít Google službu pro zjištění polohy. Jsou shromažďována a odesílána anonymní data do Google.</string>
   <string name="update_icon_pack_available">Je dostupný aktualizovaný balíček ikon</string>
   <string name="apply_icon_pack">Použít</string>
+  <string name="setup_mobile_data">Povolit mobilní data</string>
+  <string name="enable_mobile_data_summary">Povolením mobilních dat při procesu nastavování může způsobit zvýšené poplatky u poskytovatele za přenesená data.</string>
+  <string name="enable_mobile_off">Ne</string>
+  <string name="enable_mobile_on">Ano</string>
 </resources>

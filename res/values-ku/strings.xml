@@ -63,7 +63,6 @@
   <string name="cmaccount_add_create_label">هه‌ژماری CyanogenMod  پێویستی به‌ ده‌سته‌ڵاته‌ بۆ زیادکردنی خزمه‌تگوزاری و فرمان بۆ مۆبایله‌که‌ت که‌ به‌ CyanogenMod کارده‌کات \n\n ئه‌ته‌وێ هه‌ژمارێکی تر یان دانه‌یه‌کی نوێ دابنێیت؟</string>
   <string name="cmaccount_learn_more">زانیاری زیاتر\u2026</string>
   <string name="cmaccount_learn_more_alt">زیاتر بزانە</string>
-  <string name="cmaccount_update_required_title">تازه‌کردنه‌وه‌ پێویسته‌</string>
   <string name="cmaccount_update_required_text">ئه‌م وه‌شانی هه‌ژماری ساینه‌جینه‌ له‌وانه‌یه‌ گونجاو نه‌بێت.تکایه‌ تازه‌ی بکه‌ره‌وه‌ بۆ کۆتا وه‌شانی ساینه‌جین بۆ دڵنیایی گونجاندن.</string>
   <string name="cmaccount_update_required_short">ئه‌م وه‌شانه‌ له‌وانه‌یه‌ نه‌گونجێت.</string>
   <string name="cmaccount_checking_for_updates">پشکنین بۆ تازه‌کردنه‌وه‌.</string>
