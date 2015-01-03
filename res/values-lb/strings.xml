@@ -55,7 +55,7 @@
   <string name="cmaccount_setup_email_invalid_label">Keng gëlteg E-Mail-Adress</string>
   <string name="cmaccount_setup_password_label">Passwuert</string>
   <string name="cmaccount_setup_password_create_label">Passwuert (min. 8 Zeechen)</string>
-  <string name="cmaccount_setup_password_mismatch_label">D\'Passwierer stëmmen net iwwerteneen!</string>
+  <string name="cmaccount_setup_password_mismatch_label">D\'Passwierer stëmmen net iwwereneen!</string>
   <string name="cmaccount_setup_password_invalid_label">D\'Passwuert muss mindestens 8 Zeechen hunn!</string>
   <string name="cmaccount_setup_confirm_password_label">Passwuert bestätegen</string>
   <string name="cmaccount_setup_tos_label">Ech stëmmen den %1$sKonditioune%2$s vum Service zou</string>
@@ -64,7 +64,7 @@
   <string name="cmaccount_learn_more">Méi léieren\u2026</string>
   <string name="cmaccount_learn_more_alt">Méi gewuer ginn</string>
   <string name="cmaccount_update_required_title">Update néideg</string>
-  <string name="cmaccount_update_required_text">Dës Versioun vun CyanogenMod-Konto ass wahrscheinlech net kompatibel. Aktualiséier w.e.g. op déi aktuell Versioun vu CyanogenMod fir Kompatibilitéit ze erreechen.</string>
+  <string name="cmaccount_update_required_text">Dës Versioun vun CyanogenMod-Konto ass wahrscheinlech net kompatibel. Aktualiséier w.e.g. op déi aktuell Versioun vu CyanogenMod fir Kompatibilitéit z\'erreechen.</string>
   <string name="cmaccount_update_required_short">Dës Versioun kéint inkompatibel sinn.</string>
   <string name="cmaccount_checking_for_updates">Et gëtt no Aktualiséierunge gesicht.</string>
   <string name="cmaccount_password_changed_title">Passwuert geännert</string>
@@ -91,7 +91,7 @@
   <string name="location_street_level" product="tablet">Appen dierfen op de GPS vu mengem Tablet zougräife fir mäi Standuert ze bestëmmen</string>
   <string name="location_street_level" product="default">Appen dierfen op de GPS vu mengem Telefon zougräife fir mäi Standuert ze bestëmmen</string>
   <string name="location_network_based">Lokaliséierung iwwer WLAN an Datennetzwierk</string>
-  <string name="location_neighborhood_level">Appe kënnen de Standuertservice vu Google benotze fir de Standuert méi séier ze estiméieren. Anonym Standuertdate gi gesammelt an u Google geschéckt.</string>
+  <string name="location_neighborhood_level">Appe kënnen de Standuertservice vu Google benotze fir de Standuert méi séier z\'estiméieren. Anonym Standuertdate gi gesammelt an u Google geschéckt.</string>
   <string name="update_icon_pack_available">Et ass en aktualiséierten Symbolpak disponibel</string>
   <string name="apply_icon_pack">Applizéieren</string>
   <string name="setup_mobile_data">Mobil Daten erlaben</string>

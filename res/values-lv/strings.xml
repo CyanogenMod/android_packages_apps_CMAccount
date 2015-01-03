@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">CyanogenMod konts nodrošina jūsu mobilās iekārtas, kas darbojas CyanogenMod, piekļuvi pievienotās vērtības pakalpojumiem.\n\nVai vēlaties pievienot esošu kontu vai izveidot jaunu?</string>
   <string name="cmaccount_learn_more">Uzzināt vairāk\u2026</string>
   <string name="cmaccount_learn_more_alt">Uzzināt vairāk</string>
+  <string name="cmaccount_update_required_title">Nepieciešama atjaunošana</string>
   <string name="cmaccount_update_required_text">Iespējams, ka šī CyanogenMod konta versija nav saderīga. Lūdzu atjaunojieties uz jaunāko CyanogenMod versiju, lai nodrošinātu saderību.</string>
   <string name="cmaccount_update_required_short">Iespējams, ka šī versija nav saderīga.</string>
   <string name="cmaccount_checking_for_updates">Pārbauda atjaunojumus.</string>
@@ -93,4 +94,8 @@
   <string name="location_neighborhood_level">Ļaut lietotnēm izmantot Google atrašanās vietas pakalpojumu, lai ātrāk noteiktu jūsu atrašanās vietu. Anonīmi atrašanās vietas dati tiks apkopoti un nosūtīti uz Google.</string>
   <string name="update_icon_pack_available">Ir pieejama atjaunota ikonu pakotne</string>
   <string name="apply_icon_pack">Pielietot</string>
+  <string name="setup_mobile_data">Atļaut mobilos datus</string>
+  <string name="enable_mobile_data_summary">Mobilo datu atļaušana uzstādīšanas laikā var radīt papildu pakalpojuma izmaksas.</string>
+  <string name="enable_mobile_off">Nē</string>
+  <string name="enable_mobile_on">Jā</string>
 </resources>

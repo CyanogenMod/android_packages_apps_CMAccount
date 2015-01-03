@@ -94,4 +94,8 @@
   <string name="location_neighborhood_level">允許應用程式使用 Google 的定位服務加速判斷您的約略位置。系統會收集匿名的位置資料並傳送給 Google。</string>
   <string name="update_icon_pack_available">圖示集有可用的更新</string>
   <string name="apply_icon_pack">套用</string>
+  <string name="setup_mobile_data">允許行動數據</string>
+  <string name="enable_mobile_data_summary">在安裝過程中打開行動數據可能會需要數據費用。</string>
+  <string name="enable_mobile_off">否</string>
+  <string name="enable_mobile_on">是</string>
 </resources>
