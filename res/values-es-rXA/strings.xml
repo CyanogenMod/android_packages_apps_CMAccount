@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">Una cuenta de CyanogenMod da accesu a servicios con valores añadíos y funcionalidaes pal to preséu CyanogenMod.\n\nQuies amestar una cuenta esistente o crear una nueva?</string>
   <string name="cmaccount_learn_more">Lleer más\u2026</string>
   <string name="cmaccount_learn_more_alt">Deprendi más</string>
+  <string name="cmaccount_update_required_title">Anovamientu necesariu</string>
   <string name="cmaccount_update_required_text">Esta versión de Cuenta CyanogenMod pue ser incompatible. Por favor, anueva a la postrer versión de CyanogenMod p\'asegurar la compatibilidá.</string>
   <string name="cmaccount_update_required_short">Esta versión pue ser incompatible.</string>
   <string name="cmaccount_checking_for_updates">Comprobar anovamientos.</string>
@@ -93,4 +94,8 @@
   <string name="location_neighborhood_level">Permitir que les aplicaciones usen el serviciu de llocalización de Google pa calcular la to llocalización más rápido. Van atropase datos de llocalización anónimos y van unviase a Google.</string>
   <string name="update_icon_pack_available">Hai disponible un paquete d\'iconos anováu</string>
   <string name="apply_icon_pack">Aplicar</string>
+  <string name="setup_mobile_data">Permitir datos móviles</string>
+  <string name="enable_mobile_data_summary">Activar los datos móviles mentanto\'l procesu de configuración pue ocasionar cargos de datos.</string>
+  <string name="enable_mobile_off">Non</string>
+  <string name="enable_mobile_on">Sí</string>
 </resources>

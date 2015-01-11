@@ -37,7 +37,7 @@
   <string name="setup_welcome_summary" product="tablet">Для початку налаштуйте свій планшет, оберіть мову та продовжіть.</string>
   <string name="setup_welcome_summary" product="default">Для початку налаштуйте свій телефон, оберіть мову та продовжіть.</string>
   <string name="setup_cmaccount">Налаштуйте обліковий запис CyanogenMod</string>
-  <string name="setup_sim_missing">Вставте SIM карту</string>
+  <string name="setup_sim_missing">Вставте SIM-картку</string>
   <string name="setup_google_account">Обліковий запис Google</string>
   <string name="setup_location">Налаштування місцезнаходження</string>
   <string name="setup_datetime">Налаштування дати &amp; часу</string>
@@ -77,8 +77,8 @@
   <string name="cmaccount_create_account_error_title">Помилка створення обл.запису</string>
   <string name="cmaccount_server_error_message">Під час підключення до сервера сталася помилка. Будь ласка, спробуйте пізніше.</string>
   <string name="cmaccount_error_multiple_accounts">Дозволяється мати тільки один обл. запис CyanogenMod на пристрої</string>
-  <string name="sim_missing_summary" product="tablet">Зверніться до інструкції по встановленні SIM-карти для вашого планшета.</string>
-  <string name="sim_missing_summary" product="default">Зверніться до інструкції по встановленні SIM-карти для вашого телефону.</string>
+  <string name="sim_missing_summary" product="tablet">Зверніться до інструкції по встановленні SIM-картки для вашого планшета.</string>
+  <string name="sim_missing_summary" product="default">Зверніться до інструкції по встановленні SIM-картки для вашого телефону.</string>
   <string name="google_account_summary">Бажаєте налаштувати обліковий запис Google?</string>
   <string name="btn_google_account">Налаштуйте обліковий запис Google</string>
   <string name="whisperpush_title">Шифрування SMS</string>

@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">هه‌ژماری CyanogenMod  پێویستی به‌ ده‌سته‌ڵاته‌ بۆ زیادکردنی خزمه‌تگوزاری و فرمان بۆ مۆبایله‌که‌ت که‌ به‌ CyanogenMod کارده‌کات \n\n ئه‌ته‌وێ هه‌ژمارێکی تر یان دانه‌یه‌کی نوێ دابنێیت؟</string>
   <string name="cmaccount_learn_more">زانیاری زیاتر\u2026</string>
   <string name="cmaccount_learn_more_alt">زیاتر بزانە</string>
+  <string name="cmaccount_update_required_title">تازه‌کردنه‌وه‌ پێویسته‌</string>
   <string name="cmaccount_update_required_text">ئه‌م وه‌شانی هه‌ژماری ساینه‌جینه‌ له‌وانه‌یه‌ گونجاو نه‌بێت.تکایه‌ تازه‌ی بکه‌ره‌وه‌ بۆ کۆتا وه‌شانی ساینه‌جین بۆ دڵنیایی گونجاندن.</string>
   <string name="cmaccount_update_required_short">ئه‌م وه‌شانه‌ له‌وانه‌یه‌ نه‌گونجێت.</string>
   <string name="cmaccount_checking_for_updates">پشکنین بۆ تازه‌کردنه‌وه‌.</string>
@@ -93,4 +94,8 @@
   <string name="location_neighborhood_level">ڕێگەدان به‌ به‌رنامه‌ بۆ بەکارهێنانی خزمەتگوزاری دیاری کردنی شوێنی گوگڵ بۆ خێراتر مەزندە کردنی شوێنی تۆ. زانیاری شوێنی نەناسراو کۆدەکرێتەوە و ئەنێردرێت بۆ گوگڵ.</string>
   <string name="update_icon_pack_available">تازه‌کردنه‌وه‌ی پاکه‌تی وێنۆچکه‌ ئاماده‌یه‌</string>
   <string name="apply_icon_pack">لێدان</string>
+  <string name="setup_mobile_data">ڕێگەدان بە داتای مۆبایل</string>
+  <string name="enable_mobile_data_summary">کردنەوەی داتای مۆبایل لە نێوان دامەزراندن و لەوانەیە بابەتی داتا.</string>
+  <string name="enable_mobile_off">نەخێر</string>
+  <string name="enable_mobile_on">بەڵێ</string>
 </resources>

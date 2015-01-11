@@ -63,6 +63,7 @@
   <string name="cmaccount_add_create_label">Ett CyanogenMod-konto ger dig tillgång till mervärdestjänster och funktionalitet för din enhet som kör CyanogenMod.\n\nVill du lägga till ett befintligt konto eller skapa ett nytt?</string>
   <string name="cmaccount_learn_more">Läs mer\u2026</string>
   <string name="cmaccount_learn_more_alt">Läs mer</string>
+  <string name="cmaccount_update_required_title">Uppdatering krävs</string>
   <string name="cmaccount_update_required_text">Denna version av CyanogenMod-konto kan vara inkompatibel. Var vänlig uppdatera till den senaste versionen av CyanogenMod för att försäkra kompatibilitet.</string>
   <string name="cmaccount_update_required_short">Denna version kan vara inkompatibel.</string>
   <string name="cmaccount_checking_for_updates">Söker efter uppdateringar.</string>
@@ -93,6 +94,7 @@
   <string name="location_neighborhood_level">Tillåt appar att använda Googles platstjänst för att uppskatta din plats snabbare. Anonym platsinformation samlas in och skickas till Google.</string>
   <string name="update_icon_pack_available">Ett uppdaterat ikonpaket finns tillgängligt</string>
   <string name="apply_icon_pack">Tillämpa</string>
+  <string name="setup_mobile_data">Tillåt mobildata</string>
   <string name="enable_mobile_off">Nej</string>
   <string name="enable_mobile_on">Ja</string>
 </resources>

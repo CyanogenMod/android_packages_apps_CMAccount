@@ -77,8 +77,8 @@
   <string name="cmaccount_create_account_error_title">Feeler beim Erstelle vum Kont</string>
   <string name="cmaccount_server_error_message">Bei der Kommunikatioun mam Server ass e Feeler opgetrueden. Probéier méi spéit nees.</string>
   <string name="cmaccount_error_multiple_accounts">Et ass just ee CyanogenMod-Kont pro Apparat erlaabt</string>
-  <string name="sim_missing_summary" product="tablet">Du muss am Handbuch vun dengem Tablet no den Uweisunge fir d\'SIM-Kaart kucken.</string>
-  <string name="sim_missing_summary" product="default">Du muss am Handbuch vun dengem Telefon no den Uweisunge fir d\'SIM-Kaart kucken.</string>
+  <string name="sim_missing_summary" product="tablet">Du muss am Handbuch vun dengem Tablet no den Uweisunge fir d\'SIM-Kaart ukucken.</string>
+  <string name="sim_missing_summary" product="default">Du muss am Handbuch vun dengem Telefon no den Uweisunge fir d\'SIM-Kaart ukucken.</string>
   <string name="google_account_summary">Wëlls du e Google-Kont astellen?</string>
   <string name="btn_google_account">Google-Kont ariichten</string>
   <string name="whisperpush_title">Sécher SMSen aktivéieren</string>
