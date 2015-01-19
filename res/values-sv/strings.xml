@@ -95,6 +95,7 @@
   <string name="update_icon_pack_available">Ett uppdaterat ikonpaket finns tillgängligt</string>
   <string name="apply_icon_pack">Tillämpa</string>
   <string name="setup_mobile_data">Tillåt mobildata</string>
+  <string name="enable_mobile_data_summary">Tillåta mobildata under installationsprocessen kan leda till höga avgifter.</string>
   <string name="enable_mobile_off">Nej</string>
   <string name="enable_mobile_on">Ja</string>
 </resources>

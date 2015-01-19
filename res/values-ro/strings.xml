@@ -86,11 +86,11 @@
   <string name="apply_default_theme_title">Folosește tema CyanogenMod</string>
   <string name="use_nav_keys">Folosește tastele de pe ecran</string>
   <string name="location_access_title">Acces la locația mea</string>
-  <string name="location_access_summary">Permite aplicațiilor care au cerut permisiunea dvs să utilizeze informația de localizare</string>
+  <string name="location_access_summary">Permite aplicațiilor care au cerut permisiunea dvs. să utilizeze informația de localizare</string>
   <string name="location_gps">Sateliți GPS</string>
-  <string name="location_street_level" product="tablet">Permite aplicațiilor să folosească GPS-ul din tableta pentru a permite localizare dvs</string>
-  <string name="location_street_level" product="default">Permite aplicațiilor să folosească GPS-ul din telefon pentru a permite localizare dvs</string>
-  <string name="location_network_based">Wi-Fi &amp; localizare prin rețeaua mobilă</string>
+  <string name="location_street_level" product="tablet">Permite aplicațiilor să folosească GPS-ul din tabletă pentru a vă localiza</string>
+  <string name="location_street_level" product="default">Permite aplicațiilor să folosească GPS-ul din telefon pentru a vă localiza</string>
+  <string name="location_network_based">Localizare prin Wi-Fi &amp; rețeaua mobilă</string>
   <string name="location_neighborhood_level">Permite aplicațiilor să folosească serviciul de localizare Google pentru a estima mai rapid locația dvs. Datele anonime de localizare vor fi colectate și trimise la Google.</string>
   <string name="update_icon_pack_available">Un pachet de imagini actualizat este disponibil</string>
   <string name="apply_icon_pack">Activare</string>
