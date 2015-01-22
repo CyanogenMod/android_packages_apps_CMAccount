@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,19 +15,23 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center_vertical"
-        android:paddingStart="16dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:paddingEnd="16dp">
+    android:id="@+id/button_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:visibility="gone">
 
-    <TextView
-        android:id="@+id/locale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        style="@style/SetupWizardSpinnerItem" />
+    <Button
+        style="@style/ButtonBar.Left"
+        android:id="@+id/prev_button"
+        android:layout_width="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        style="@style/ButtonBar.Right"
+        android:id="@+id/next_button"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="@string/skip" />
+
 </LinearLayout>

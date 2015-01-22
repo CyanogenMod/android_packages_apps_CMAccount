@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,17 +14,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <color name="black">#000000</color>
-    <color name="white">#ffffff</color>
-    <color name="window_background">#e4e7e8</color>
-    <color name="page_background">#efefef</color>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/page_title_height"
+                style="@style/Header">
 
-    <color name="primary">#00B1E5</color>
-    <color name="primary_dark">#00A2E5</color>
-    <color name="accent">#009789</color>
-    <color name="primary_text">#8a000000</color>
-    <color name="secondary_text">#727272</color>
-    <color name="divider">#40000000</color>
-    <color name="status_bar">@color/primary</color>
-</resources>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/page_title_height"
+        style="@style/PageTitle" />
+
+</RelativeLayout>

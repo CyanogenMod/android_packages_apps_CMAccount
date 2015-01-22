@@ -141,19 +141,23 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     };
 
     public static void showForCreate(Activity context, int requestCode) {
-        Intent intent = new Intent(context, AuthActivity.class);
-        intent.putExtra(EXTRA_PARAM_CREATE_ACCOUNT, true);
-        context.startActivityForResult(intent, requestCode);
+        /* DEPRECATED */
+//        Intent intent = new Intent(context, AuthActivity.class);
+//        intent.putExtra(EXTRA_PARAM_CREATE_ACCOUNT, true);
+//        context.startActivityForResult(intent, requestCode);
     }
 
-    public static void showForAuth(Activity context, int requestCode) {
-        context.startActivityForResult(new Intent(context, AuthActivity.class), requestCode);
+    public static void showForAuth(Activity context, int requestCode, boolean showButtonBar) {
+        Intent intent = new Intent(context, AuthActivity.class);
+        intent.putExtra(CMAccount.EXTRA_SHOW_BUTTON_BAR, showButtonBar);
+        context.startActivityForResult(intent, requestCode);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cmaccount_auth);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.primary_dark));
         mAccountManager = AccountManager.get(this);
         mAuthClient = AuthClient.getInstance(getApplicationContext());
         CMAccountUtils.hideNotification(this, CMAccount.NOTIFICATION_ID_PASSWORD_RESET);
@@ -259,10 +263,27 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                 }
             }
         });
+        boolean showButtonBar = getIntent().getBooleanExtra(CMAccount.EXTRA_SHOW_BUTTON_BAR, false);
+        if (showButtonBar) {
+            View buttonBar = findViewById(R.id.button_bar);
+            buttonBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.prev_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setResult(RESULT_CANCELED);
+                    finish();
+                }
+            });
+            findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setResult(RESULT_OK);
+                    finish();
+                }
+            });
+        }
         if (savedInstanceState == null && (!CMAccountUtils.isWifiConnected(this)) || !CMAccountUtils.isNetworkConnected(this)) {
             CMAccountUtils.launchWifiSetup(this);
-        } else {
-            checkMinimumAppVersion();
         }
     }
 

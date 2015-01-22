@@ -16,6 +16,7 @@
 
 package com.cyanogenmod.account.util;
 
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.os.UserManager;
 import com.cyanogenmod.account.CMAccount;
@@ -44,7 +45,6 @@ import android.net.wifi.WifiManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.Settings;
-import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
@@ -160,14 +160,15 @@ public class CMAccountUtils {
     }
 
     private static Intent getWifiSetupIntent(Context context) {
-        Intent intent = new Intent(CMAccount.ACTION_SETUP_WIFI);
+        Intent intent = new Intent();
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setComponent(
+                new ComponentName(CMAccount.WIFI_COMPONENT_PKG, CMAccount.WIFI_COMPONENT_CLASS));
         intent.putExtra(CMAccount.EXTRA_FIRST_RUN, true);
-        intent.putExtra(CMAccount.EXTRA_ALLOW_SKIP, true);
+        intent.putExtra(CMAccount.EXTRA_ALLOW_SKIP, false);
         intent.putExtra(CMAccount.EXTRA_SHOW_BUTTON_BAR, true);
         intent.putExtra(CMAccount.EXTRA_ONLY_ACCESS_POINTS, true);
-        intent.putExtra(CMAccount.EXTRA_SHOW_SKIP, true);
         intent.putExtra(CMAccount.EXTRA_AUTO_FINISH, true);
-        intent.putExtra(CMAccount.EXTRA_PREF_BACK_TEXT, context.getString(R.string.skip));
         return intent;
     }
 
@@ -194,33 +195,6 @@ public class CMAccountUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mWifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return mWifi != null && mWifi.isConnected();
-    }
-
-    public static boolean isMobileDataEnabled(Context context) {
-        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
-            int subscription = MSimTelephonyManager.
-                    getDefault().getPreferredDataSubscription();
-            return android.provider.Settings.Global.getInt(context.getContentResolver(),
-                    android.provider.Settings.Global.MOBILE_DATA + subscription, 0) != 0;
-        } else {
-            return android.provider.Settings.Global.getInt(context.getContentResolver(),
-                    android.provider.Settings.Global.MOBILE_DATA, 0) != 0;
-        }
-    }
-
-    public static void setMobileDataEnabled(Context context, boolean enabled) {
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(
-                        Context.CONNECTIVITY_SERVICE);
-        cm.setMobileDataEnabled(enabled);
-        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
-            int subscription = MSimTelephonyManager.getDefault().getPreferredDataSubscription();
-            android.provider.Settings.Global.putInt(context.getContentResolver(),
-                    android.provider.Settings.Global.MOBILE_DATA + subscription, enabled ? 1 : 0);
-        } else {
-            android.provider.Settings.Global.putInt(context.getContentResolver(),
-                    android.provider.Settings.Global.MOBILE_DATA, enabled ? 1 : 0);
-        }
     }
 
     public static boolean hasTelephony(Context context) {

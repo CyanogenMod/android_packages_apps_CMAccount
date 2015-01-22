@@ -14,69 +14,76 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        style="@style/RootLayout">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/root"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        style="@style/SetupWizardCard">
+    <include layout="@layout/header_condensed" />
 
-        <TextView style="@style/SetupWizardPageTitle" />
+    <FrameLayout android:id="@+id/page"
+                 android:layout_width="match_parent"
+                 android:layout_height="0dp"
+                 android:layout_weight="1">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true">
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <View style="@style/SetupWizardDivider"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                style="@style/PageContent">
 
                 <EditText
                     android:id="@+id/cmaccount_email"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/content_margin_left"
+                    android:layout_marginRight="@dimen/content_margin_right"
                     android:contentDescription="@string/cmaccount_setup_email_label"
                     android:inputType="textEmailAddress"
                     android:imeOptions="actionNext"
-                    android:hint="@string/cmaccount_setup_email_label"
-                    style="@style/EditText"/>
+                    android:hint="@string/cmaccount_setup_email_label" />
 
                 <EditText
                     android:id="@+id/cmaccount_password"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/content_margin_left"
+                    android:layout_marginRight="@dimen/content_margin_right"
                     android:contentDescription="@string/cmaccount_setup_password_label"
                     android:inputType="textPassword"
-                    android:hint="@string/cmaccount_setup_password_label"
-                    style="@style/EditText" />
+                    android:hint="@string/cmaccount_setup_password_label" />
 
                 <EditText
                     android:id="@+id/cmaccount_confirm_password"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/content_margin_left"
+                    android:layout_marginRight="@dimen/content_margin_right"
                     android:contentDescription="@string/cmaccount_setup_confirm_password_label"
                     android:inputType="textPassword"
-                    android:hint="@string/cmaccount_setup_confirm_password_label"
-                    style="@style/EditText" />
+                    android:hint="@string/cmaccount_setup_confirm_password_label" />
 
                 <CheckBox
                     android:id="@+id/cmaccount_tos"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    style="@style/EditText" />
+                    android:layout_marginLeft="@dimen/content_margin_left"
+                    android:layout_marginRight="@dimen/content_margin_right"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <LinearLayout
                     android:id="@+id/back_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/content_margin_left"
+                    android:layout_marginRight="@dimen/content_margin_right"
                     android:orientation="horizontal">
 
                     <Button
@@ -86,8 +93,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="5dp"
                         android:layout_gravity="left"
-                        android:text="@string/cancel"
-                        style="@style/ActionButton" />
+                        android:text="@string/cancel"/>
 
                     <View
                         android:layout_height="1px"
@@ -101,10 +107,12 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="5dp"
                         android:layout_gravity="right"
-                        android:text="@string/login"
-                        style="@style/ActionButton" />
+                        android:text="@string/login"/>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
-</FrameLayout>
+    </FrameLayout>
+
+    <include layout="@layout/button_bar" />
+
+</LinearLayout>

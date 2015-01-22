@@ -18,7 +18,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     gson \
     play \
     spongycastle-light-jdk15on \
-	libphonenumbergoogle
+    libphonenumber
 
 LOCAL_JAVA_LIBRARIES += org.cyanogenmod.hardware
 

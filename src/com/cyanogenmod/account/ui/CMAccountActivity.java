@@ -27,23 +27,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CMAccountActivity extends Activity {
+
+    private boolean mShowButtonBar;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cmaccount_setup_standalone);
+        ((TextView)findViewById(android.R.id.title)).setText(R.string.cmaccount_add_title);
         findViewById(R.id.existing_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AuthActivity.showForAuth(CMAccountActivity.this, CMAccount.REQUEST_CODE_SETUP_CMAccount);
+                AuthActivity.showForAuth(CMAccountActivity.this,
+                        CMAccount.REQUEST_CODE_SETUP_CMAccount,
+                        mShowButtonBar);
 
             }
         });
         findViewById(R.id.new_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AuthActivity.showForCreate(CMAccountActivity.this, CMAccount.REQUEST_CODE_SETUP_CMAccount);
+                /* DEPRECATED */
+                // AuthActivity.showForCreate(CMAccountActivity.this, CMAccount.REQUEST_CODE_SETUP_CMAccount);
+                Toast.makeText(CMAccountActivity.this,
+                        R.string.cmaccount_deprecated, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -57,6 +67,25 @@ public class CMAccountActivity extends Activity {
                 }
             }
         });
+        mShowButtonBar = getIntent().getBooleanExtra(CMAccount.EXTRA_SHOW_BUTTON_BAR, false);
+        if (mShowButtonBar) {
+            View buttonBar = findViewById(R.id.button_bar);
+            buttonBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.prev_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setResult(RESULT_CANCELED);
+                    finish();
+                }
+            });
+            findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setResult(RESULT_CANCELED);
+                    finish();
+                }
+            });
+        }
     }
 
     @Override

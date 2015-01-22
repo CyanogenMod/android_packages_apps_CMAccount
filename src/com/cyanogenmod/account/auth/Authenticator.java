@@ -73,6 +73,8 @@ public class Authenticator extends AbstractAccountAuthenticator {
             final Intent intent = new Intent(mContext, CMAccountActivity.class);
             intent.putExtra(AccountManager.KEY_ACCOUNT_TYPE, CMAccount.ACCOUNT_TYPE_CMAccount);
             intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+            intent.putExtra(CMAccount.EXTRA_SHOW_BUTTON_BAR,
+                    options.getBoolean(CMAccount.EXTRA_SHOW_BUTTON_BAR, false));
             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
             return bundle;
         }

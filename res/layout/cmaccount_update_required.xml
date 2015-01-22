@@ -15,15 +15,15 @@
      limitations under the License.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/SetupWizardCard">
+        style="@style/PageContainer">
 
     <LinearLayout
-            style="@style/SetupWizardPageContent"
+            style="@style/PageContent"
             android:orientation="vertical"
             android:layout_gravity="top">
 
         <TextView
-            style="@style/SetupWizardPageTitle"
+            style="@style/PageTitle"
             android:text="@string/cmaccount_update_required_title" />
 
         <ScrollView
@@ -34,25 +34,17 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                    >
-
-                <View style="@style/SetupWizardDivider"/>
+                android:layout_height="wrap_content">
 
                 <TextView
-                    style="@style/SetupWizardPageSummary"
+                    style="@style/PageSummaryText"
                     android:text="@string/cmaccount_update_required_text" />
-
-                <View style="@style/SetupWizardDivider"
-                      android:layout_marginTop="10dp"
-                      android:layout_marginBottom="8dp"/>
 
                 <Button
                     android:id="@+id/btn_continue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/continue_label"
-                    style="@style/ActionButton" />
+                    android:text="@string/continue_label"/>
 
             </LinearLayout>
         </ScrollView>

@@ -15,11 +15,5 @@
      limitations under the License.
 -->
 <resources>
-    <dimen name="setup_img_height">100dp</dimen>
-    <dimen name="actionbar_min_height">25dp</dimen>
-    <dimen name="actionbar_icon_size">40dp</dimen>
-    <dimen name="actionbar_title_text_size">20sp</dimen>
-    <dimen name="actionbar_title_top_margin">1dp</dimen>
-    <dimen name="page_top_margin">40dp</dimen>
-    <dimen name="title_top_margin">2dp</dimen>
+    <dimen name="header_height">@dimen/page_title_height</dimen>
 </resources>

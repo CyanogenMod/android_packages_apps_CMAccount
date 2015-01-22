@@ -16,14 +16,11 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.cyanogenmod.account"
-        android:versionCode="2">
+        android:versionCode="3">
 
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-    <uses-permission android:name="android.permission.STATUS_BAR" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
-    <uses-permission android:name="android.permission.SET_TIME_ZONE" />
-    <uses-permission android:name="android.permission.SET_TIME" />
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
@@ -42,28 +39,18 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_THEME_MANAGER"/>
-    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
-    <uses-permission android:name="android.permission.HARDWARE_ABSTRACTION_ACCESS" />
-    <uses-permission android:name="org.whispersystems.whisperpush.permissions.REGISTER" />
-
-    <permission android:name="org.whispersystems.whisperpush.permissions.REGISTER"
-                android:protectionLevel="signature" />
 
     <permission android:name="com.cyanogenmod.account.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.cyanogenmod.account.permission.C2D_MESSAGE" />
 
-    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="17" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21" />
 
     <application android:label="@string/app_name"
         android:icon="@drawable/icon"
         android:theme="@style/Theme.CMAccount"
         android:name=".CMAccount">
-
-        <uses-library android:name="org.cyanogenmod.hardware"
-                      android:required="false" />
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -79,38 +66,17 @@
                 android:resource="@xml/authenticator" />
         </service>
 
-        <activity android:name=".ui.SetupWizardActivity"
-            android:label="@string/product_name"
-            android:launchMode="singleTop"
-            android:excludeFromRecents="true"
-            android:immersive="true"
-            android:configChanges="themeChange"
-            android:screenOrientation="locked">
-
-                <intent-filter android:priority="9">
-
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD" />
-
-                <category android:name="android.intent.category.HOME" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <activity android:name=".ui.CMAccountActivity"
             android:label="@string/product_name"
             android:launchMode="singleTop"
-            android:excludeFromRecents="true"
-            android:screenOrientation="locked" />
+            android:excludeFromRecents="true"/>
 
         <activity android:name=".auth.AuthActivity"
             android:label="@string/product_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="locked" />
+            android:launchMode="singleTop"/>
 
         <activity android:name=".auth.UpdateRequiredActivity"
-                  android:label="@string/product_name"
-                  android:screenOrientation="locked" />
+                  android:label="@string/product_name"/>
 
         <receiver android:name=".gcm.GCMReceiver" android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -137,11 +103,6 @@
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".receiver.ApplyHexoIconsReceiver" android:exported="false">
-            <intent-filter>
-                <action android:name="com.cyanogenmod.account.intent.action.APPLY_HEXO_ICONS" />
             </intent-filter>
         </receiver>
 

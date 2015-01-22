@@ -38,13 +38,14 @@ public class CMAccount extends Application implements Response.Listener<GetMinim
     public static final boolean DEBUG = false;
 
     public static final String ACCOUNT_TYPE_CMAccount = "com.cyanogenmod.account";
-    public static final String ACCOUNT_TYPE_GOOGLE = "com.google";
     public static final String AUTHTOKEN_TYPE_ACCESS = "com.cyanogenmod.account";
     public static final String AUTHTOKEN_EXPIRES_IN= "com.cyanogenmod.account.auth.expires_in";
     public static final String ACCOUNT_EXTRA_DEVICE_SALT = "com.cyanogenmod.account.auth.device_salt";
     public static final String ACCOUNT_EXTRA_HMAC_SECRET = "com.cyanogenmod.account.auth.hmac_secret";
 
     public static final String ACTION_SETUP_WIFI = "com.android.net.wifi.SETUP_WIFI_NETWORK";
+    public static final String WIFI_COMPONENT_PKG = "com.android.settings";
+    public static final String WIFI_COMPONENT_CLASS = "com.android.settings.wifi.WifiSettings";
 
     public static final String EXTRA_FIRST_RUN = "firstRun";
     public static final String EXTRA_ALLOW_SKIP = "allowSkip";
@@ -90,16 +91,6 @@ public class CMAccount extends Application implements Response.Listener<GetMinim
         if (CMAccountUtils.isNetworkConnected(getApplicationContext())) {
             authClient.getMinimumAppVersion(this, this);
         }
-    }
-
-    public void disableStatusBar() {
-        mStatusBarManager.disable(StatusBarManager.DISABLE_EXPAND | StatusBarManager.DISABLE_NOTIFICATION_ALERTS
-                | StatusBarManager.DISABLE_NOTIFICATION_TICKER | StatusBarManager.DISABLE_RECENT | StatusBarManager.DISABLE_HOME
-                | StatusBarManager.DISABLE_SEARCH);
-    }
-
-    public void enableStatusBar() {
-        mStatusBarManager.disable(StatusBarManager.DISABLE_NONE);
     }
 
     public String getCMAccountUri() {
