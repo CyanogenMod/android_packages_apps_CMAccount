@@ -81,7 +81,7 @@ public class CMAccountActivity extends Activity {
             findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    setResult(RESULT_CANCELED);
+                    setResult(RESULT_FIRST_USER);
                     finish();
                 }
             });
@@ -91,7 +91,8 @@ public class CMAccountActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount && resultCode == RESULT_OK) {
+        if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount &&
+                (resultCode == RESULT_OK || resultCode == RESULT_FIRST_USER)) {
             finish();
         } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI) {
             if (resultCode == Activity.RESULT_OK || CMAccountUtils.isNetworkConnected(CMAccountActivity.this)) {

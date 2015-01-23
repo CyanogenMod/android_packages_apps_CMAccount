@@ -277,7 +277,7 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
             findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    setResult(RESULT_OK);
+                    setResult(RESULT_FIRST_USER);
                     finish();
                 }
             });
