@@ -93,6 +93,7 @@ public class CMAccountActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount &&
                 (resultCode == RESULT_OK || resultCode == RESULT_FIRST_USER)) {
+            setResult(resultCode);
             finish();
         } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI) {
             if (resultCode == Activity.RESULT_OK || CMAccountUtils.isNetworkConnected(CMAccountActivity.this)) {
