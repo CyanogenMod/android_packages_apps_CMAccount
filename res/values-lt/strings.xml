@@ -60,7 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Patvirtinkite slaptažodį</string>
   <string name="cmaccount_setup_tos_label">Aš sutinku su %1$spaslaugų teikimo%2$s sąlygomis</string>
   <string name="cmaccount_add_title">Pridėti „CyanogenMod“ paskyrą</string>
-  <string name="cmaccount_add_create_label">„CyanogenMod“ paskyra suteikia prieigą prie pridėtinės vertės paslaugų ir funkcijų mobiliajame prietaise kuriame veikia „CyanogenMod“.\n\nAr norite pridėti esamą paskyrą arba sukurti naują?</string>
+  <string name="cmaccount_add_create_label">„CyanogenMod“ paskyra suteikia prieigą prie pridėtinės vertės paslaugų ir funkcijų mobiliajame įrenginyje kuriame veikia „CyanogenMod“.\n\nAr norite pridėti esamą paskyrą arba sukurti naują?</string>
   <string name="cmaccount_learn_more">Sužinokite daugiau\u2026</string>
   <string name="cmaccount_learn_more_alt">Sužinokite daugiau</string>
   <string name="cmaccount_update_required_title">Reikalingas atnaujinimas</string>
@@ -76,7 +76,7 @@
   <string name="cmaccount_server_error_title">Serverio klaida</string>
   <string name="cmaccount_create_account_error_title">Klaida kuriant paskyrą</string>
   <string name="cmaccount_server_error_message">Įvyko klaida, susijungiant su serveriu. Prašome pabandyti vėliau.</string>
-  <string name="cmaccount_error_multiple_accounts">Prietaise leidžiama tik viena „CyanogenMod“ paskyra</string>
+  <string name="cmaccount_error_multiple_accounts">Įrenginyje leidžiama tik viena „CyanogenMod“ paskyra</string>
   <string name="sim_missing_summary" product="tablet">Jums reikia kreiptis į SIM kortelės instrukcijas kuri atėjo kartu su planšetiniu kompiuteriu.</string>
   <string name="sim_missing_summary" product="default">Jums reikia kreiptis į SIM kortelės instrukcijas kuri atėjo kartu su telefonu.</string>
   <string name="google_account_summary">Ar norite sukurti „Google“ paskyrą?</string>
