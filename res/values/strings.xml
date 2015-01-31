@@ -107,8 +107,7 @@
     <string name="update_icon_pack_available">An updated icon pack is available</string>
     <string name="apply_icon_pack">Apply</string>
 
-    <string name="cmaccount_deprecated">Creating a new CMAccount has been deprecated, we are working
-        on an update.</string>
+    <string name="cmaccount_deprecated">Creating a new CyanogenMod account has been deprecated, we are working on an update.</string>
 
     <string name="setup_mobile_data">Allow mobile data</string>
     <string name="enable_mobile_data_summary">Turning on mobile data during the setup process may be subject to data charges.</string>
