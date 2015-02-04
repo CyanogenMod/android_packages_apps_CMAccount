@@ -227,12 +227,10 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
         mEmailInvalidText = getString(R.string.cmaccount_setup_email_invalid_label);
         if (mCreateNewAccount) {
             mEmailEdit.setVisibility(View.VISIBLE);
-            mCheckBox.setVisibility(View.VISIBLE);
             mTitle.setText(R.string.cmaccount_setup_create_title);
             mPasswordEdit.setHint(R.string.cmaccount_setup_password_create_label);
             mSubmitButton.setText(R.string.create);
         }  else {
-            mCheckBox.setVisibility(View.GONE);
             mConfirmPasswordEdit.setVisibility(View.GONE);
             mTitle.setText(R.string.cmaccount_setup_login_title);
             mSubmitButton.setText(R.string.login);
@@ -472,7 +470,8 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
                     terms;
         } else {
             valid = mEmail.length() > 0 &&
-                    mPassword.length() > 0;
+                    mPassword.length() > 0 &&
+                    terms;
         }
         if (mEmailInvalid) {
             mEmailEdit.setError(mEmailInvalidText);
