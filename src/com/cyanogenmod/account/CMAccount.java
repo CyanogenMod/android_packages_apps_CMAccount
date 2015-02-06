@@ -54,6 +54,7 @@ public class CMAccount extends Application implements Response.Listener<GetMinim
     public static final String EXTRA_SHOW_BUTTON_BAR = "extra_prefs_show_button_bar";
     public static final String EXTRA_PREF_BACK_TEXT = "extra_prefs_set_back_text";
     public static final String EXTRA_ONLY_ACCESS_POINTS = "only_access_points";
+    public static final String EXTRA_USE_IMMERSIVE = "useImmersiveMode";
 
     public static final String GCM_PREFERENCES = "com.cyanogenmod.account.gcm";
     public static final String AUTH_PREFERENCES = "com.cyanogenmod.account.auth";

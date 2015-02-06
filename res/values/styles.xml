@@ -58,25 +58,25 @@
     </style>
 
     <style name="ButtonBar" parent="@android:style/Widget.Material.ActionButton">
-        <item name="android:layout_height">48dp</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:maxLines">1</item>
         <item name="android:minWidth">15dp</item>
         <item name="android:minHeight">15dp</item>
         <item name="android:textColor">@color/primary_text</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:drawablePadding">5dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:drawablePadding">6dp</item>
     </style>
 
     <style name="ButtonBar.Left">
-        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingStart">34dp</item>
         <item name="android:gravity">center_vertical|start</item>
         <item name="android:drawableLeft">@drawable/ic_chevron_left_dark</item>
     </style>
 
     <style name="ButtonBar.Right">
-        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingEnd">34dp</item>
         <item name="android:gravity">center_vertical|end</item>
         <item name="android:drawableRight">@drawable/ic_chevron_right_dark</item>
     </style>

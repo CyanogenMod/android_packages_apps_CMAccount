@@ -147,8 +147,10 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
 //        context.startActivityForResult(intent, requestCode);
     }
 
-    public static void showForAuth(Activity context, int requestCode, boolean showButtonBar) {
+    public static void showForAuth(Activity context, int requestCode, boolean showButtonBar,
+            boolean isImmersive) {
         Intent intent = new Intent(context, AuthActivity.class);
+        intent.putExtra(CMAccount.EXTRA_USE_IMMERSIVE, isImmersive);
         intent.putExtra(CMAccount.EXTRA_SHOW_BUTTON_BAR, showButtonBar);
         context.startActivityForResult(intent, requestCode);
     }
@@ -156,6 +158,10 @@ public class AuthActivity extends AccountAuthenticatorActivity implements Respon
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getIntent().getBooleanExtra(CMAccount.EXTRA_USE_IMMERSIVE, false)) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        }
         setContentView(R.layout.cmaccount_auth);
         getWindow().setStatusBarColor(getResources().getColor(R.color.primary_dark));
         mAccountManager = AccountManager.get(this);

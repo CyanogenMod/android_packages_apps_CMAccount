@@ -33,9 +33,11 @@ import android.widget.Toast;
 public class CMAccountActivity extends Activity {
 
     private boolean mShowButtonBar;
+    private boolean mIsImmersive;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mIsImmersive = getIntent().getBooleanExtra(CMAccount.EXTRA_USE_IMMERSIVE, false);
         setContentView(R.layout.cmaccount_setup_standalone);
         ((TextView)findViewById(android.R.id.title)).setText(R.string.cmaccount_add_title);
         findViewById(R.id.existing_button).setOnClickListener(new View.OnClickListener() {
@@ -43,7 +45,7 @@ public class CMAccountActivity extends Activity {
             public void onClick(View view) {
                 AuthActivity.showForAuth(CMAccountActivity.this,
                         CMAccount.REQUEST_CODE_SETUP_CMAccount,
-                        mShowButtonBar);
+                        mShowButtonBar, mIsImmersive);
 
             }
         });
@@ -60,7 +62,8 @@ public class CMAccountActivity extends Activity {
         findViewById(R.id.learn_more_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!CMAccountUtils.isNetworkConnected(CMAccountActivity.this) || !CMAccountUtils.isWifiConnected(CMAccountActivity.this)) {
+                if (!CMAccountUtils.isNetworkConnected(CMAccountActivity.this) ||
+                        !CMAccountUtils.isWifiConnected(CMAccountActivity.this)) {
                     CMAccountUtils.launchWifiSetup(CMAccountActivity.this);
                 } else {
                     CMAccountUtils.showLearnMoreDialog(CMAccountActivity.this);
@@ -89,6 +92,15 @@ public class CMAccountActivity extends Activity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (mIsImmersive) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        }
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount &&
@@ -96,7 +108,8 @@ public class CMAccountActivity extends Activity {
             setResult(resultCode);
             finish();
         } else if (requestCode == CMAccount.REQUEST_CODE_SETUP_WIFI) {
-            if (resultCode == Activity.RESULT_OK || CMAccountUtils.isNetworkConnected(CMAccountActivity.this)) {
+            if (resultCode == Activity.RESULT_OK ||
+                    CMAccountUtils.isNetworkConnected(CMAccountActivity.this)) {
                 CMAccountUtils.showLearnMoreDialog(this);
             }
         }
