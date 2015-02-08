@@ -23,7 +23,5 @@
     <dimen name="content_margin_top">26dp</dimen>
     <dimen name="content_margin_left">26dp</dimen>
     <dimen name="content_margin_right">26dp</dimen>
-    <dimen name="content_margin_bottom">20dp</dimen>
-    <dimen name="summary_margin_bottom">20dp</dimen>
     <dimen name="setup_line_spacing">3sp</dimen>
 </resources>

@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="window_background">#e4e7e8</color>
     <color name="page_background">#efefef</color>
@@ -25,6 +24,5 @@
     <color name="accent">#009789</color>
     <color name="primary_text">#8a000000</color>
     <color name="secondary_text">#727272</color>
-    <color name="divider">#40000000</color>
     <color name="status_bar">@color/primary</color>
 </resources>
