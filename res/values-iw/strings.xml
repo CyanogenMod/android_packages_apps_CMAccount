@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">חשבון CyanogenMod</string>
-  <string name="next">הבא</string>
   <string name="continue_label">המשך</string>
-  <string name="prev">הקודם</string>
   <string name="skip">דלג</string>
-  <string name="finish">סיום</string>
   <string name="cancel">ביטול</string>
   <string name="create">צור</string>
   <string name="login">התחברות</string>
@@ -30,24 +27,9 @@
   <string name="new_account">חדש</string>
   <string name="skip_anyway">דלג בכל מקרה</string>
   <string name="dont_skip">אל תדלג</string>
-  <string name="setup_complete">ההגדרה הושלמה</string>
-  <string name="setup_complete_summary" product="tablet">מזל טוב! הטאבלט שלך מוכן לקרב.</string>
-  <string name="setup_complete_summary" product="default">מזל טוב! הטאבלט שלך מוכן לקרב.</string>
-  <string name="setup_welcome">ברוך הבא ל-CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">כדי להתחיל עם הטאבלט שלך, בחר את שפתך והמשך.</string>
-  <string name="setup_welcome_summary" product="default">כדי להתחיל עם הטאבלט שלך, בחר את שפתך והמשך.</string>
-  <string name="setup_cmaccount">הגדר את חשבון CyanogenMod שלך</string>
-  <string name="setup_sim_missing">הכנס כרטיס SIM</string>
-  <string name="setup_google_account">חשבון Google</string>
-  <string name="setup_location">הגדרות מיקום</string>
-  <string name="setup_datetime">הגדרות תאריך &amp; זמן</string>
-  <string name="setup_current_date">התאריך הנוכחי</string>
-  <string name="setup_current_time">הזמן הנוכחי</string>
   <string name="setup_msg_no_network">אזהרה: אתה לא תוכל להגדיר את החשבונות שלך</string>
   <string name="setup_warning_skip_wifi" product="tablet">אזהרה: אתה יכול לקבל תשלום גדול יותר מהספק שלך.\n\nהגדרת טאבלט יכולה לדרוש הרבה פעילות ברשת.</string>
   <string name="setup_warning_skip_wifi" product="default">אזהרה: אתה יכול לקבל תשלום גדול יותר מהספק שלך.\n\nהגדרת טאבלט יכולה לדרוש הרבה פעילות ברשת.</string>
-  <string name="setup_personalization">התאם</string>
-  <string name="setup_finalizing">סיום ההתקנה\u2026</string>
   <string name="cmaccount_setup_create_title">צור חשבון CyanogenMod</string>
   <string name="cmaccount_setup_login_title">התחבר לחשבון CyanogenMod שלך</string>
   <string name="cmaccount_setup_email_label">דואר אלקטרוני</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">הוסף חשבון CyanogenMod</string>
   <string name="cmaccount_add_create_label">חשבון CyanogenMod מספק גישה לשירותים נוספים ואפשרויות חדשות עבור מכשיר ה-CyanogenMod שלך.\n\nהאם אתה רוצה להוסיף חשבון קיים או ליצור אחד חדש?</string>
   <string name="cmaccount_learn_more">למד עוד\u2026</string>
-  <string name="cmaccount_learn_more_alt">למד עוד</string>
   <string name="cmaccount_update_required_title">נדרש עדכון</string>
   <string name="cmaccount_update_required_text">גרסת חשבון CyanogenMod שלך יכולה לא להתאים. אנה עדכן לגרסה האחרונה של חשבון CyanogenMod כדי להבטיח  תאימות.</string>
   <string name="cmaccount_update_required_short">גירסה זו עשויה להיות לא תואמת.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">שגיאה בעת יצירת חשבון</string>
   <string name="cmaccount_server_error_message">שגיאה אירעה בעת קיום תקשורת עם השרת. נסה שוב מאוחר יותר.</string>
   <string name="cmaccount_error_multiple_accounts">רק חשבון CyanogenMod אחד אפשרי למכשיר</string>
-  <string name="sim_missing_summary" product="tablet">צריך לפנות להגדרות כרטיס ה-SIM שלך שבאו עם הטאבלט.</string>
-  <string name="sim_missing_summary" product="default">צריך לפנות להגדרות כרטיס ה-SIM שלך שבאו עם הטאבלט.</string>
-  <string name="google_account_summary">האם ברצונך להגדיר את חשבון Google?</string>
-  <string name="btn_google_account">הגדרת חשבון Google</string>
-  <string name="whisperpush_title">אפשר SMS מאובטח</string>
-  <string name="whisperpush_summary">שיחות SMS עם אנשים אחרים בעזרת SMS מאובטח של CyanogenMod יוצפנו אוטומטית.</string>
-  <string name="apply_default_theme_title">השתמש בערכת עיצוב של CyanogenMod</string>
-  <string name="use_nav_keys">השתמש במקשים על המסך</string>
-  <string name="location_access_title">גישה למיקום שלי</string>
-  <string name="location_access_summary">אפשר ליישומים שביקשו הרשאה לקבל את מיקומך</string>
-  <string name="location_gps">‏לווייני GPS</string>
-  <string name="location_street_level" product="tablet">אפשר אפליקציות להשתמש ב-GPS על הטאבלט כדי לאתר את מיקומך המדויק</string>
-  <string name="location_street_level" product="default">אפשר אפליקציות להשתמש ב-GPS על הטאבלט כדי לאתר את מיקומך המדויק</string>
-  <string name="location_network_based">מיקום רשת Wi-Fi &amp; רשת לנייד</string>
-  <string name="location_neighborhood_level">‏אפשר לאפליקציות להשתמש בשירות המיקום של Google כדי להעריך את מיקומך מהר יותר. נתוני מיקום אנונימיים ייאספו ויישלחו אל Google.</string>
-  <string name="update_icon_pack_available">ערכת סמלים מעודכנת זמינה</string>
-  <string name="apply_icon_pack">החל</string>
-  <string name="setup_mobile_data">אפשר נתונים לנייד</string>
-  <string name="enable_mobile_data_summary">הפעלת נתונים לנייד במשך תהליך ההתקנה עשויי לגרום לחיוב בגין שימוש בנתונים.</string>
-  <string name="enable_mobile_off">לא</string>
-  <string name="enable_mobile_on">כן</string>
+  <string name="cmaccount_deprecated">יצירת חשבון חדש של CyanogenMod כרגע אינה אפשרית, אנו עובדים על עדכון.</string>
 </resources>

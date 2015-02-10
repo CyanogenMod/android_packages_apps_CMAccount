@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod Налог</string>
-  <string name="next">Следеће</string>
   <string name="continue_label">Настави</string>
-  <string name="prev">Претходно</string>
   <string name="skip">Прескочи</string>
-  <string name="finish">Заврши</string>
   <string name="cancel">Поништи</string>
   <string name="create">Направи</string>
   <string name="login">Пријави се</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Нови</string>
   <string name="skip_anyway">Ипак прескочи</string>
   <string name="dont_skip">Немој прескочити</string>
-  <string name="setup_complete">Подешавање је завршено</string>
-  <string name="setup_complete_summary" product="tablet">Честитамо! Твој таблет је спреман за рад.</string>
-  <string name="setup_complete_summary" product="default">Честитамо! Твој телефон је спреман за рад.</string>
-  <string name="setup_welcome">Добродошли у CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Да би започео подешавање твог таблета, одабери језик и настави даље.</string>
-  <string name="setup_welcome_summary" product="default">Да би започео подешавање твог телефона, одабери језик и настави даље.</string>
-  <string name="setup_cmaccount">Подеси CyanogenMod налог</string>
-  <string name="setup_sim_missing">Убаци SIM картицу</string>
-  <string name="setup_google_account">Google налог</string>
-  <string name="setup_location">Подешавања локације</string>
-  <string name="setup_datetime">Подешавања датума и времена</string>
-  <string name="setup_current_date">Тренутни датум</string>
-  <string name="setup_current_time">Тренутно време</string>
   <string name="setup_msg_no_network">УПОЗОРЕЊЕ: Нећеш бити у могућности да подесиш твоје налоге</string>
   <string name="setup_warning_skip_wifi" product="tablet">УПОЗОРЕЊЕ: Оператер ће ти можда наплатити додатне трошкове.\n\nПодешавање таблета може захтевати значајну употребу интернет везе.</string>
   <string name="setup_warning_skip_wifi" product="default">УПОЗОРЕЊЕ: Оператер ће ти можда наплатити додатне трошкове.\n\nПодешавање телефона може захтевати значајну употребу интернет везе.</string>
-  <string name="setup_personalization">Персонализуј</string>
-  <string name="setup_finalizing">Финализација подешавања\u2026</string>
   <string name="cmaccount_setup_create_title">Направи CyanogenMod налог</string>
   <string name="cmaccount_setup_login_title">Пријави се на постојећи CyanogenMod налог</string>
   <string name="cmaccount_setup_email_label">Е-пошта</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Додај CyanogenMod налог</string>
   <string name="cmaccount_add_create_label">CyanogenMod налог обезбеђује приступ услугама додатне-вредности и функционалности за твој мобилни уређај који ради на CyanogenMod-у.\n\nЖелиш ли да додаш постојећи налог или да отвориш нови?</string>
   <string name="cmaccount_learn_more">Сазнај више\u2026</string>
-  <string name="cmaccount_learn_more_alt">Сазнај више</string>
   <string name="cmaccount_update_required_title">Потребно ажурирање</string>
   <string name="cmaccount_update_required_text">Ова верзија CyanogenMod Налога је можда некомпатибилна. Молимо ажурирај твоју верзију CyanogenMod система како би обезбедио компатибилност.</string>
   <string name="cmaccount_update_required_short">Ова верзија је можда некомпатибилна.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">Грешка приликом креирања налога</string>
   <string name="cmaccount_server_error_message">Грешка приликом комуникације са сервером. Молимо покушај касније.</string>
   <string name="cmaccount_error_multiple_accounts">Само један CyanogenMod налог може бити коришћен на уређају</string>
-  <string name="sim_missing_summary" product="tablet">Погледај упутства за SIM картицу коју си добио са твојим таблетом.</string>
-  <string name="sim_missing_summary" product="default">Погледај упутства за SIM картицу коју си добио са твојим телефоном.</string>
-  <string name="google_account_summary">Желиш ли да подесиш Google налог?</string>
-  <string name="btn_google_account">Подеси Google налог</string>
-  <string name="whisperpush_title">Укључи сигурни SMS</string>
-  <string name="whisperpush_summary">SMS конверзација са другим корисницима који користе безбедан SMS на CyanogenMod-у биће аутоматски шифрована.</string>
-  <string name="apply_default_theme_title">Користи CyanogenMod тему</string>
-  <string name="use_nav_keys">Користи тастере на екрану</string>
-  <string name="location_access_title">Приступ мојој локацији</string>
-  <string name="location_access_summary">Дозволи апликацијама које захтевају твоју дозволу да користе информације о твојој локацији</string>
-  <string name="location_gps">GPS сателити</string>
-  <string name="location_street_level" product="tablet">Дозволи апликацијама да користе GPS сензор на твом таблету како би утврдиле твоју локацију</string>
-  <string name="location_street_level" product="default">Дозволи апликацијама да користе GPS сензор на твом телефону како би утврдиле твоју локацију</string>
-  <string name="location_network_based">Информације о локацији путем Wi-Fi и мобилне мреже</string>
-  <string name="location_neighborhood_level">Дозволи апликацијама да користе Google-ову услугу лоцирања како би утврдиле твоју локацију брже. Анонимни подаци о локацији ће бити прикупљани и послати у Google.</string>
-  <string name="update_icon_pack_available">Ажурирани пакет икона је доступан</string>
-  <string name="apply_icon_pack">Примени</string>
-  <string name="setup_mobile_data">Дозволи мобилне податакe</string>
-  <string name="enable_mobile_data_summary">Укључивањем мобилних података током процеса инсталације можете бити изложени наплати података.</string>
-  <string name="enable_mobile_off">Не</string>
-  <string name="enable_mobile_on">Да</string>
+  <string name="cmaccount_deprecated">Креирање новог CyanogenMod налога је одбијено, радимо на ажурирању.</string>
 </resources>

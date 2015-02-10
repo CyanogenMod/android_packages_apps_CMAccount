@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod Rekening</string>
-  <string name="next">Volgende</string>
   <string name="continue_label">Gaan voort</string>
-  <string name="prev">Vorige</string>
   <string name="skip">Slaan oor</string>
-  <string name="finish">Klaar</string>
   <string name="cancel">Kanselleer</string>
   <string name="create">Skep</string>
   <string name="login">Teken in</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Nuut</string>
   <string name="skip_anyway">Slaan in elk geval oor</string>
   <string name="dont_skip">Moenie oorslaan nie</string>
-  <string name="setup_complete">Opstelling is gedoen</string>
-  <string name="setup_complete_summary" product="tablet">Baie geluk! Jou tablet is gereed, geniet CM daarop.</string>
-  <string name="setup_complete_summary" product="default">Baie geluk! Jou foon is gereed, geniet CM daarop.</string>
-  <string name="setup_welcome">Welkom by CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Om te begin met die opstel van jou tablet, kies jou taal en gaan voort.</string>
-  <string name="setup_welcome_summary" product="default">Om te begin met die opstel van jou foon, kies jou taal en gaan voort.</string>
-  <string name="setup_cmaccount">Stel jou CyanogenMod rekening op</string>
-  <string name="setup_sim_missing">Voeg SIM-kaart in</string>
-  <string name="setup_google_account">Google rekening</string>
-  <string name="setup_location">Plek-instellings</string>
-  <string name="setup_datetime">Datum &amp; tyd instellings</string>
-  <string name="setup_current_date">Huidige datum</string>
-  <string name="setup_current_time">Huidige tyd</string>
   <string name="setup_msg_no_network">WAARSKUWING: Jy sal nie in staat wees om jou rekeninge op te stel nie</string>
   <string name="setup_warning_skip_wifi" product="tablet">WAARSKUWING: Jy kan ekstra netwerk data koste aangaan\n\nTablet opstelling kan aansienlike netwerk data gebruik.</string>
   <string name="setup_warning_skip_wifi" product="default">WAARSKUWING: Jy kan ekstra netwerk data koste aangaan\n\nFoon opstelling kan aansienlike netwerk data gebruik.</string>
-  <string name="setup_personalization">Personaliseer</string>
-  <string name="setup_finalizing">Finalisering van opstelling\u2026</string>
   <string name="cmaccount_setup_create_title">Skep \'n CyanogenMod rekening</string>
   <string name="cmaccount_setup_login_title">Teken in op jou CyanogenMod rekening</string>
   <string name="cmaccount_setup_email_label">EPos</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Voeg \'n CyanogenMod rekening by</string>
   <string name="cmaccount_add_create_label">\'n CyanogenMod rekening bied toegang tot toegevoegde waarde-dienste en funksies vir jou mobiele toestel.\n\nWil jy \'n bestaande rekening byvoeg of \'n nuwe een?</string>
   <string name="cmaccount_learn_more">Leer meer\u2026</string>
-  <string name="cmaccount_learn_more_alt">Leer meer</string>
   <string name="cmaccount_update_required_title">Vereis opdatering</string>
   <string name="cmaccount_update_required_text">Hierdie weergawe van CyanogenMod Rekening kan nie versoenbaar wees nie. Verander asb na die nuutste weergawe van CyanogenMod om versoenbaarheid te verseker.</string>
   <string name="cmaccount_update_required_short">Hierdie weergawe kan onversoenbaar wees.</string>
@@ -77,25 +58,4 @@
   <string name="cmaccount_create_account_error_title">Fout:Skep van rekening</string>
   <string name="cmaccount_server_error_message">ŉ Fout het voorgekom terwyl in kommunikasie met die bediener. Probeer asseblief weer later.</string>
   <string name="cmaccount_error_multiple_accounts">Slegs een CyanogenMod rekening word toegelaat per toestel</string>
-  <string name="sim_missing_summary" product="tablet">Jy moet verwys na die SIM-kaart instruksies wat gekom het met jou tablet.</string>
-  <string name="sim_missing_summary" product="default">Jy moet verwys na die SIM-kaart instruksies wat gekom het met jou foon.</string>
-  <string name="google_account_summary">Wil jy \'n Google-rekening opstel?</string>
-  <string name="btn_google_account">Stel Google rekening op</string>
-  <string name="whisperpush_title">Aktiveer veilige SMS</string>
-  <string name="whisperpush_summary">SMS gesprekke met ander persone met behulp van veilige SMS op CyanogenMod sal outomaties geënkripteer word.</string>
-  <string name="apply_default_theme_title">Gebruik CyanogenMod se tema</string>
-  <string name="use_nav_keys">Gebruik skerm sleutels</string>
-  <string name="location_access_title">Toegang tot my ligging</string>
-  <string name="location_access_summary">Laat programme toe wat toestemming gevra het om jou ligging inligting te gebruik</string>
-  <string name="location_gps">GPS satelliete</string>
-  <string name="location_street_level" product="tablet">Laat programme toe om jou GPS te gebruik op jou tablet ligging te identifiseer</string>
-  <string name="location_street_level" product="default">Laat programme toe om jou GPS te gebruik op jou foon ligging te identifiseer</string>
-  <string name="location_network_based">Wi-Fi &amp; mobiele netwerkligging</string>
-  <string name="location_neighborhood_level">Laat programme toe om Google\'s ligging diens te gebruik om jou ligging vinniger geskat te kry. Anonieme liggings data word ingesamel en gestuur aan Google.</string>
-  <string name="update_icon_pack_available">\'n Nuwer ikoon stel is beskikbaar</string>
-  <string name="apply_icon_pack">Pas toe</string>
-  <string name="setup_mobile_data">Laat mobiele data toe</string>
-  <string name="enable_mobile_data_summary">Die aktivering van mobiele data gedurende die opstel proses kan dalk data kostes veroorsaak.</string>
-  <string name="enable_mobile_off">Nee</string>
-  <string name="enable_mobile_on">Ja</string>
 </resources>

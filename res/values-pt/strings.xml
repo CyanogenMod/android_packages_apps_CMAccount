@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Conta CyanogenMod</string>
-  <string name="next">Próxima</string>
   <string name="continue_label">Continuar</string>
-  <string name="prev">Anterior</string>
   <string name="skip">Saltar</string>
-  <string name="finish">Terminar</string>
   <string name="cancel">Cancelar</string>
   <string name="create">Criar</string>
   <string name="login">Entrar</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Nova</string>
   <string name="skip_anyway">Saltar na mesma</string>
   <string name="dont_skip">Não salte</string>
-  <string name="setup_complete">Instalação completa</string>
-  <string name="setup_complete_summary" product="tablet">Parabéns! O seu tablet está pronto para entrar em ação.</string>
-  <string name="setup_complete_summary" product="default">Parabéns! O seu dispositivo está pronto.</string>
-  <string name="setup_welcome">Bem-vindo ao CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Para começar a configurar o seu tablet, escolha o seu idioma e continue.</string>
-  <string name="setup_welcome_summary" product="default">Para começar a configurar o seu telefone, escolha o seu idioma e continue.</string>
-  <string name="setup_cmaccount">Configurar a sua conta CyanogenMod</string>
-  <string name="setup_sim_missing">Insira o cartão SIM</string>
-  <string name="setup_google_account">Conta Google</string>
-  <string name="setup_location">Definições de localização</string>
-  <string name="setup_datetime">Definições de data e hora</string>
-  <string name="setup_current_date">Data atual</string>
-  <string name="setup_current_time">Tempo atual</string>
   <string name="setup_msg_no_network">AVISO: Não conseguirá configurar as suas contas</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do seu tablet pode precisar de atividade de rede significativa.</string>
   <string name="setup_warning_skip_wifi" product="default">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do telemóvel pode precisar de atividade de rede significativa.</string>
-  <string name="setup_personalization">Personalizar</string>
-  <string name="setup_finalizing">A finalizar instalação\u2026</string>
   <string name="cmaccount_setup_create_title">Criar uma conta CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entre na sua conta CyanogenMod</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Adicionar uma nova conta CyanogenMod</string>
   <string name="cmaccount_add_create_label">Uma conta CyanogenMod fornece acesso a funcionalidades e serviços extra para o seu dispositivo móvel.\n\nDeseja adicionar uma conta existente ou criar uma nova?</string>
   <string name="cmaccount_learn_more">Saiba mais\u2026</string>
-  <string name="cmaccount_learn_more_alt">Saber mais</string>
   <string name="cmaccount_update_required_title">Atualização necessária</string>
   <string name="cmaccount_update_required_text">Esta versão da Conta CyanogenMod pode ser incompatível.  Por favor atualize para a última versão da CyanogenMod para garantir a compatibilidade.</string>
   <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">Erro ao criar a conta</string>
   <string name="cmaccount_server_error_message">Ocorreu um erro durante a comunicação com o servidor. Por favor tente novamente mais tarde.</string>
   <string name="cmaccount_error_multiple_accounts">É permitida apenas uma conta CyanogenMod por dispositivo</string>
-  <string name="sim_missing_summary" product="tablet">Consulte as instruções do cartão SIM que vieram com o seu tablet.</string>
-  <string name="sim_missing_summary" product="default">Consulte as instruções do cartão SIM que vieram com o seu telefone.</string>
-  <string name="google_account_summary">Quer configurar uma conta Google?</string>
-  <string name="btn_google_account">Configurar conta Google</string>
-  <string name="whisperpush_title">Ativar SMS seguras</string>
-  <string name="whisperpush_summary">Conversas de SMS com os outros utilizadores de SMS seguros na CyanogenMod serão automaticamente encriptadas.</string>
-  <string name="apply_default_theme_title">Usar o tema da CyanogenMod</string>
-  <string name="use_nav_keys">Usar as teclas do ecrã</string>
-  <string name="location_access_title">Acesso à minha localização</string>
-  <string name="location_access_summary">Permite a aplicações que lhe tenham pedido permissão usar a informação da sua localização</string>
-  <string name="location_gps">Satélites GPS</string>
-  <string name="location_street_level" product="tablet">Permite a aplicações utilizar o GPS na sua tablet para marcar a sua localização</string>
-  <string name="location_street_level" product="default">Permite a aplicações utilizar o GPS no seu telemóvel para marcar a sua localização</string>
-  <string name="location_network_based">Localização por Wi-Fi e rede móvel</string>
-  <string name="location_neighborhood_level">Permite a aplicações utilizar o serviço de localização da Google para estimar a sua localização mais rapidamente. Dados anónimos de localização serão recolhidos e enviados à Google.</string>
-  <string name="update_icon_pack_available">Está disponivel um pacote de ícones atualizado</string>
-  <string name="apply_icon_pack">Aplicar</string>
-  <string name="setup_mobile_data">Permitir ligação de dados</string>
-  <string name="enable_mobile_data_summary">Ativar a ligação de dados durante o processo de instalação pode estar sujeito a gastos adicionais.</string>
-  <string name="enable_mobile_off">Não</string>
-  <string name="enable_mobile_on">Sim</string>
+  <string name="cmaccount_deprecated">Criar uma nova conta CyanogenMod tornou-se obsoleto, estamos a trabalhar numa atualização.</string>
 </resources>

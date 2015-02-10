@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod konto</string>
-  <string name="next">Järgmine</string>
   <string name="continue_label">Jätka</string>
-  <string name="prev">Eelmine</string>
   <string name="skip">Jäta vahele</string>
-  <string name="finish">Lõpeta</string>
   <string name="cancel">Tühista</string>
   <string name="create">Loo</string>
   <string name="login">Logi sisse</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Uus</string>
   <string name="skip_anyway">Jäta vahele</string>
   <string name="dont_skip">Ära jäta vahele</string>
-  <string name="setup_complete">Seadistus on valmis</string>
-  <string name="setup_complete_summary" product="tablet">Õnnitleme! Teie tahvel on valmis kasutamiseks.</string>
-  <string name="setup_complete_summary" product="default">Õnnitleme! Teie telefon on valmis kasutamiseks.</string>
-  <string name="setup_welcome">Tere tulemast CyanogenMod\'i</string>
-  <string name="setup_welcome_summary" product="tablet">Et alustada tahvli seadistamist, vali keel ja jätka.</string>
-  <string name="setup_welcome_summary" product="default">Et alustada oma telefoni seadistamist, vali keel ja jätka.</string>
-  <string name="setup_cmaccount">Seadista oma CyanogenMod\'i konto</string>
-  <string name="setup_sim_missing">Sisesta SIM-kaart</string>
-  <string name="setup_google_account">Google\'i konto</string>
-  <string name="setup_location">Asukoha seaded</string>
-  <string name="setup_datetime">Kuupäeva &amp; kella seaded</string>
-  <string name="setup_current_date">Tänane kuupäev</string>
-  <string name="setup_current_time">Praegune kellaaeg</string>
   <string name="setup_msg_no_network">HOIATUS: Te ei saa seadistada oma kontot</string>
   <string name="setup_warning_skip_wifi" product="tablet">HOIATUS: Teid võidakse maksustada andmete ülekande eest.\n\nTahvel võib vajada toimivat võrguühendust.</string>
   <string name="setup_warning_skip_wifi" product="default">HOIATUS: Teid võidakse maksustada andmete ülekande eest.\n\nTelefon võib vajada toimivat võrguühendust.</string>
-  <string name="setup_personalization">Isikupärasta</string>
-  <string name="setup_finalizing">Lõpetan seadistust\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod konto loomine</string>
   <string name="cmaccount_setup_login_title">CyanogenMod kontole sisselogimine</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,7 +44,7 @@
   <string name="cmaccount_add_title">CyanogenMod konto lisamine</string>
   <string name="cmaccount_add_create_label">CyanogenMod konto võimaldab ligipääsu lisaväärtusteenustele ja funktsionaalsusele teie telefonis, milles töötab CyanogenMod.\n\nKas soovite lisada olemasoleva konto või luua uue?</string>
   <string name="cmaccount_learn_more">Loe rohkem\u2026</string>
-  <string name="cmaccount_learn_more_alt">Saa rohkem teada</string>
+  <string name="cmaccount_update_required_title">Uuendus nõutud</string>
   <string name="cmaccount_update_required_text">See versioon CyanogenMod Kontost võib olla kokkusobimatu. Palun uuendage CyanogenMod\'i uusim versioon, et tagada ühilduvus.</string>
   <string name="cmaccount_update_required_short">See versioon võib olla kokkusobimatu.</string>
   <string name="cmaccount_checking_for_updates">Kontrollin värskendusi.</string>
@@ -76,21 +58,5 @@
   <string name="cmaccount_create_account_error_title">Konto loomisel ilmnes tõrge</string>
   <string name="cmaccount_server_error_message">Serveriga suhtlemisel ilmnes tõrge. Palun proovige hiljem uuesti.</string>
   <string name="cmaccount_error_multiple_accounts">Ainult üks CyanogenMod konto on lubatud ühe seadme kohta</string>
-  <string name="sim_missing_summary" product="tablet">Vaadake oma tahvliga kaasa tulnud SIM-kaardi juhendit.</string>
-  <string name="sim_missing_summary" product="default">Vaadake oma telefoniga kaasa tulnud SIM-kaardi juhendit.</string>
-  <string name="google_account_summary">Kas soovite luua Google\'i konto?</string>
-  <string name="btn_google_account">Google\'i konto seadistamine</string>
-  <string name="whisperpush_title">Luba turvatud SMS</string>
-  <string name="whisperpush_summary">SMS vestlused teiste CyanogenMod turvatud SMS kasutajatega krüptitakse automaatselt.</string>
-  <string name="apply_default_theme_title">Kasutage CyanogenMod\'i teemat</string>
-  <string name="use_nav_keys">Kasuta ekraaniklahve</string>
-  <string name="location_access_title">Juurdepääs minu asukohale</string>
-  <string name="location_access_summary">Lubatud rakendused saavad loa kasutada teie asukohateavet</string>
-  <string name="location_gps">GPS-satelliidid</string>
-  <string name="location_street_level" product="tablet">Lubage rakendustel asukoha määramiseks kasutada  tahvli GPS-i</string>
-  <string name="location_street_level" product="default">Lubage rakendustel asukoha määramiseks kasutada  telefoni GPS-i</string>
-  <string name="location_network_based">WiFi-ühendus &amp; mobiilse võrgu asukoht</string>
-  <string name="location_neighborhood_level">Lubage rakendustel oma asukoha kiiremini määramiseks Google\'i asukoha teenust. Anonüümsed andmed kogutakse ja saadetakse Google\'ile.</string>
-  <string name="update_icon_pack_available">Uuendatud ikoonide pakk on saadaval</string>
-  <string name="apply_icon_pack">Kinnita</string>
+  <string name="cmaccount_deprecated">Uue CyanogenModi kasutaja loomine on taunitud, me töötame uuenduse kallal.</string>
 </resources>

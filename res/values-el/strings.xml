@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Λογαριασμός CyanogenMod</string>
-  <string name="next">Επόμενο</string>
   <string name="continue_label">Συνέχεια</string>
-  <string name="prev">Προηγούμενο</string>
   <string name="skip">Παράβλεψη</string>
-  <string name="finish">Τέλος</string>
   <string name="cancel">Ακύρωση</string>
   <string name="create">Δημιουργία</string>
   <string name="login">Σύνδεση</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Νέος</string>
   <string name="skip_anyway">Παράβλεψη ούτως ή άλλως</string>
   <string name="dont_skip">Να μην γίνει παράβλεψη</string>
-  <string name="setup_complete">Η ρύθμιση ολοκληρώθηκε</string>
-  <string name="setup_complete_summary" product="tablet">Συγχαρητήρια! Το tablet σας είναι έτοιμo για χρήση.</string>
-  <string name="setup_complete_summary" product="default">Συγχαρητήρια! Το τηλέφωνό σας είναι έτοιμη για χρήση.</string>
-  <string name="setup_welcome">Καλωσορίσατε στο CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Για να ξεκινήσετε την ρύθμιση του tablet σας, επιλέξτε τη γλώσσα σας και συνεχίστε.</string>
-  <string name="setup_welcome_summary" product="default">Για να ξεκινήσετε την ρύθμιση του τηλεφώνου σας, επιλέξτε τη γλώσσα σας και συνεχίστε.</string>
-  <string name="setup_cmaccount">Ρυθμίστε τον CyanogenMod λογαριασμό σας</string>
-  <string name="setup_sim_missing">Εισάγετε κάρτα SIM</string>
-  <string name="setup_google_account">Λογαριασμός Google</string>
-  <string name="setup_location">Ρυθμίσεις τοποθεσίας</string>
-  <string name="setup_datetime">Ρυθμίσεις ημερομηνίας &amp; ώρας</string>
-  <string name="setup_current_date">Τρέχουσα ημερομηνία</string>
-  <string name="setup_current_time">Τρέχουσα ώρα</string>
   <string name="setup_msg_no_network">ΠΡΟΣΟΧΗ: Δεν θα είστε σε θέση να ρυθμίστετε τους λογαριασμούς σας</string>
   <string name="setup_warning_skip_wifi" product="tablet">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του tablet μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
   <string name="setup_warning_skip_wifi" product="default">ΠΡΟΣΟΧΗ: Ενδέχεται να υπάρξουν επιπλέον χρεώσεις δεδομένων από τον πάροχό σας.\n\nΗ ρύθμιση του τηλεφώνου μπορεί να απαιτήσει μεγάλη δραστηριότητα δικτύου.</string>
-  <string name="setup_personalization">Εξατομίκευση</string>
-  <string name="setup_finalizing">Οριστικοποίηση εγκατάστασης\u2026</string>
   <string name="cmaccount_setup_create_title">Δημιουργία λογαριασμού CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Συνδεθείτε στον CyanogenMod λογαριασμό σας</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Προσθήκη λογαριασμού CyanogenMod</string>
   <string name="cmaccount_add_create_label">Ένας λογαριασμός CyanogenMod παρέχει πρόσβαση σε πρόσθετες υπηρεσίες και λειτουργίες για την φορητή συσκευή σας που τρέχει CyanogenMod.\n\nΘέλετε να προσθέσετε έναν ήδη υπάρχων λογαριασμό ή να δημιουργήσετε ένα νέο;</string>
   <string name="cmaccount_learn_more">Μάθετε περισσότερα\u2026</string>
-  <string name="cmaccount_learn_more_alt">Μάθετε περισσότερα</string>
   <string name="cmaccount_update_required_title">Απαιτείται ενημέρωση</string>
   <string name="cmaccount_update_required_text">Αυτή η έκδοση του λογαριασμού CyanogenMod ίσως δεν είναι συμβατή. Παρακαλώ αναβαθμίστε στην πιο πρόσφατη έκδοση του CyanogenMod για εγγυημένη συμβατότητα.</string>
   <string name="cmaccount_update_required_short">Αυτή η έκδοση ίσως δεν είναι συμβατή.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">Σφάλμα κατά τη δημιουργία του λογαριασμού</string>
   <string name="cmaccount_server_error_message">Παρουσιάστηκε σφάλμα κατά την επικοινωνία με το διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.</string>
   <string name="cmaccount_error_multiple_accounts">Επιτρέπεται μόνο ένας λογαριασμός CyanogenMod ανά συσκευή</string>
-  <string name="sim_missing_summary" product="tablet">Θα πρέπει να ανατρέξετε στις οδηγίες της κάρτας SIM που συνοδεύει το tablet σας.</string>
-  <string name="sim_missing_summary" product="default">Θα πρέπει να ανατρέξετε στις οδηγίες της κάρτας SIM που συνοδεύει το τηλέφωνό σας.</string>
-  <string name="google_account_summary">Θέλετε να ρυθμίσετε έναν λογαριασμό Google;</string>
-  <string name="btn_google_account">Ρύθμιση λογαριασμού Google</string>
-  <string name="whisperpush_title">Ενεργοποίηση ασφαλών SMS</string>
-  <string name="whisperpush_summary">Οι συνομιλίες SMS με άλλους χρήστες ασφαλών SMS στο CyanogenMod θα κρυπτογραφούνται αυτόματα.</string>
-  <string name="apply_default_theme_title">Χρήση θέματος του CyanogenMod</string>
-  <string name="use_nav_keys">Χρήση πλήκτρων που εμφανίζονται στην οθόνη</string>
-  <string name="location_access_title">Πρόσβαση στην τοποθεσία μου</string>
-  <string name="location_access_summary">Να επιτρέπεται σε εφαρμογές που έχουν ζητήσει την άδειά σας να χρησιμοποιούν τις πληροφορίες της τοποθεσίας σας</string>
-  <string name="location_gps">Δορυφόροι GPS</string>
-  <string name="location_street_level" product="tablet">Να επιτρέπεται στις εφαρμογές η χρήση του GPS στο tablet σας για την επισήμανση της τοποθεσίας σας</string>
-  <string name="location_street_level" product="default">Να επιτρέπεται στις εφαρμογές η χρήση του GPS στο τηλέφωνό σας για την επισήμανση της τοποθεσίας σας</string>
-  <string name="location_network_based">Wi-Fi &amp; δίκτυο κιν. τηλεφωνίας</string>
-  <string name="location_neighborhood_level">Να επιτρέπεται στις εφαρμογές να χρησιμοποιούν την υπηρεσία τοποθεσίας της Google για γρήγορη εκτίμηση της τοποθεσίας σας. Θα συλλεχθούν ανώνυμα δεδομένα και θα αποσταλούν στην Google.</string>
-  <string name="update_icon_pack_available">Ένα ενημερωμένο πακέτο εικονιδίων είναι διαθέσιμο</string>
-  <string name="apply_icon_pack">Εφαρμογή</string>
-  <string name="setup_mobile_data">Ενεργοποίηση δεδομένων τηλεφωνίας</string>
-  <string name="enable_mobile_data_summary">Με την ενεργοποίηση των δεδομένων κινητής τηλεφωνίας ενδέχεται να υπάρξουν επιπλέον χρεώσεις.</string>
-  <string name="enable_mobile_off">Όχι</string>
-  <string name="enable_mobile_on">Ναι</string>
+  <string name="cmaccount_deprecated">Η δημιουργία ενός νέου λογαριασμού CyanogenMod δεν είναι πλέον διαθέσιμη, εργαζόμαστε για μια ενημερωμένη έκδοση.</string>
 </resources>

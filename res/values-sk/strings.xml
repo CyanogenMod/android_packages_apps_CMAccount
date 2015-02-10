@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Účet CyanogenMod</string>
-  <string name="next">Ďalej</string>
   <string name="continue_label">Pokračovať</string>
-  <string name="prev">Naspäť</string>
   <string name="skip">Preskočiť</string>
-  <string name="finish">Dokončiť</string>
   <string name="cancel">Zrušiť</string>
   <string name="create">Vytvoriť</string>
   <string name="login">Prihlásiť sa</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Nový</string>
   <string name="skip_anyway">Preskočiť</string>
   <string name="dont_skip">Nepreskakovať</string>
-  <string name="setup_complete">Nastavenie je dokončené</string>
-  <string name="setup_complete_summary" product="tablet">Gratulujeme! Váš tablet je pripravený na používanie.</string>
-  <string name="setup_complete_summary" product="default">Gratulujeme! Váš telefón je pripravený na používanie.</string>
-  <string name="setup_welcome">Vitajte v CyanogenMode</string>
-  <string name="setup_welcome_summary" product="tablet">Pre nastavenie vášho tabletu vyberte jazyk a pokračujte ďalej.</string>
-  <string name="setup_welcome_summary" product="default">Pre nastavenie vášho telefónu vyberte jazyk a pokračujte ďalej.</string>
-  <string name="setup_cmaccount">Nastavte váš účet CyanogenMod</string>
-  <string name="setup_sim_missing">Vložte kartu SIM</string>
-  <string name="setup_google_account">Účet Google</string>
-  <string name="setup_location">Nastavenia polohy</string>
-  <string name="setup_datetime">Nastavenia dátumu \u0026 času</string>
-  <string name="setup_current_date">Aktuálny dátum</string>
-  <string name="setup_current_time">Aktuálny čas</string>
   <string name="setup_msg_no_network">VAROVANIE: Nebudete môcť nastaviť svoje účty</string>
   <string name="setup_warning_skip_wifi" product="tablet">UPOZORNENIE: Toto nastavenie môže spôsobiť zvýšené poplatky za dátové prenosy.\n\nNastavenie tabletu môže vyžadovať zvýšený prenos dát.</string>
   <string name="setup_warning_skip_wifi" product="default">VAROVANIE: Môžu sa vyskytnúť ďalšie dátové poplatky u operátora.\n\nNastavenie telefónu môže vyžadovať značnú aktivitu v sieti.</string>
-  <string name="setup_personalization">Prispôsobenie</string>
-  <string name="setup_finalizing">Dokončovanie nastavovania\u2026</string>
   <string name="cmaccount_setup_create_title">Vytvorte si účet CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Prihláste sa do vášho účtu CyanogenMod</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Pridať účet CyanogenMod</string>
   <string name="cmaccount_add_create_label">Účet CyanogenMod poskytuje prístup k pridanej hodnote vo forme služieb a funkcií pre mobilné zariadenia s CyanogenModom.\n\nChcete pridať existujúci účet alebo vytvoriť nový?</string>
   <string name="cmaccount_learn_more">Zistiť viac\u2026</string>
-  <string name="cmaccount_learn_more_alt">Zistiť viac</string>
   <string name="cmaccount_update_required_title">Vyžadovaná aktualizácia</string>
   <string name="cmaccount_update_required_text">Táto verzia Účtu CyanogenMod môže byť nekompatibilná. Aktualizujte prosím na najnovšiu verziu CyanogenModu pre zaistenie kompatibility.</string>
   <string name="cmaccount_update_required_short">Táto verzia môže byť nekompatibilná.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">Chyba pri vytváraní účtu</string>
   <string name="cmaccount_server_error_message">Vyskytla sa chyba pri komunikácii so serverom. Skúste to znova neskôr.</string>
   <string name="cmaccount_error_multiple_accounts">Na jednom zariadení je povolené mať iba jeden účet CyanogenMod</string>
-  <string name="sim_missing_summary" product="tablet">Prečítajte si pokyny pre kartu SIM, ktoré boli dodané s vaším tabletom.</string>
-  <string name="sim_missing_summary" product="default">Prečítajte si pokyny pre kartu SIM, ktoré boli dodané s vaším telefónom.</string>
-  <string name="google_account_summary">Chcete nastaviť účet Google?</string>
-  <string name="btn_google_account">Nastaviť účet Google</string>
-  <string name="whisperpush_title">Povoliť zabezpečené SMS</string>
-  <string name="whisperpush_summary">SMS konverzácie s ostatnými pomocou zabezpečených SMS na CyanogenMode budú automaticky zašifrované.</string>
-  <string name="apply_default_theme_title">Použiť tému CyanogenModu</string>
-  <string name="use_nav_keys">Použiť tlačidlá na obrazovke</string>
-  <string name="location_access_title">Prístup k mojej polohe</string>
-  <string name="location_access_summary">Povoliť aplikáciám, ktoré žiadali o povolenie, používať informácie o vašej polohe</string>
-  <string name="location_gps">Satelity GPS</string>
-  <string name="location_street_level" product="tablet">Povoliť aplikáciám používať GPS na Vašom tablete pre určenie Vašej polohy</string>
-  <string name="location_street_level" product="default">Povoliť aplikáciám používať GPS na Vašom telefóne pre určenie vašej polohy</string>
-  <string name="location_network_based">Poloha založená na využití Wi-Fi \u0026 mobilnej sieti</string>
-  <string name="location_neighborhood_level">Povoliť aplikáciám používať lokalizačnú službu od spoločnosti Google na rýchlejšie zistenie vašej polohy. Anonymné údaje o polohe budú zhromaždené a odosielané do spoločnosti Google.</string>
-  <string name="update_icon_pack_available">Aktualizovaný balík ikon je k dispozícii</string>
-  <string name="apply_icon_pack">Použiť</string>
-  <string name="setup_mobile_data">Povoliť mobilné dáta</string>
-  <string name="enable_mobile_data_summary">Zapnutie mobilných dát počas procesu inštalácie môže byť príčinou poplatkov za dátové prenosy.</string>
-  <string name="enable_mobile_off">Nie</string>
-  <string name="enable_mobile_on">Áno</string>
+  <string name="cmaccount_deprecated">Vytvorenie nového účtu CyanogenMod sa stalo zastaraným. Pracujeme na aktualizácii.</string>
 </resources>

@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Аккаунт CyanogenMod</string>
-  <string name="next">Далее</string>
   <string name="continue_label">Продолжить</string>
-  <string name="prev">Назад</string>
   <string name="skip">Пропустить</string>
-  <string name="finish">Готово</string>
   <string name="cancel">Отмена</string>
   <string name="create">Создать</string>
   <string name="login">Войти</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Новый</string>
   <string name="skip_anyway">Всё равно пропустить</string>
   <string name="dont_skip">Не пропускать</string>
-  <string name="setup_complete">Настройка завершена</string>
-  <string name="setup_complete_summary" product="tablet">Поздравляем! Ваш планшет готов к использованию.</string>
-  <string name="setup_complete_summary" product="default">Поздравляем! Ваш телефон готов к использованию.</string>
-  <string name="setup_welcome">Добро пожаловать в CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Для начала настройки планшета выберите язык и нажмите «Далее».</string>
-  <string name="setup_welcome_summary" product="default">Для начала настройки телефона выберите язык и нажмите «Далее».</string>
-  <string name="setup_cmaccount">Настройка аккаунта CM</string>
-  <string name="setup_sim_missing">Вставьте SIM-карту</string>
-  <string name="setup_google_account">Аккаунт Google</string>
-  <string name="setup_location">Местоположение</string>
-  <string name="setup_datetime">Дата и время</string>
-  <string name="setup_current_date">Текущая дата</string>
-  <string name="setup_current_time">Текущее время</string>
   <string name="setup_msg_no_network">ВНИМАНИЕ: настройка учётных записей будет невозможна</string>
   <string name="setup_warning_skip_wifi" product="tablet">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка планшета может потребовать значительной сетевой активности.</string>
   <string name="setup_warning_skip_wifi" product="default">ВНИМАНИЕ: возможны нежелательные расходы при использовании мобильного интернета.\n\nНастройка телефона может потребовать значительной сетевой активности.</string>
-  <string name="setup_personalization">Персонализация</string>
-  <string name="setup_finalizing">Завершение настройки\u2026</string>
   <string name="cmaccount_setup_create_title">Создание аккаунта CM</string>
   <string name="cmaccount_setup_login_title">Вход в аккаунт СM</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Добавить аккаунт CyanogenMod</string>
   <string name="cmaccount_add_create_label">Аккаунт CyanogenMod предоставляет доступ к дополнительным сервисам и функциям вашего устройства.\n\nДобавить существующий аккаунт или создать новый?</string>
   <string name="cmaccount_learn_more">Узнать больше\u2026</string>
-  <string name="cmaccount_learn_more_alt">Подробнее</string>
   <string name="cmaccount_update_required_title">Требуется обновление</string>
   <string name="cmaccount_update_required_text">Текущая версия CyanogenMod может быть несовместима. Для обеспечения совместимости установите самую последнюю версию.</string>
   <string name="cmaccount_update_required_short">Эта версия может быть несовместима.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">Ошибка создания аккаунта</string>
   <string name="cmaccount_server_error_message">Произошла ошибка соединения с сервером. Повторите попытку позже.</string>
   <string name="cmaccount_error_multiple_accounts">Разрешён только один аккаунт CyanogenMod на устройстве</string>
-  <string name="sim_missing_summary" product="tablet">Обратитесь к инструкции по установке SIM-карты для вашего планшета.</string>
-  <string name="sim_missing_summary" product="default">Обратитесь к инструкции по установке SIM-карты для вашего телефона.</string>
-  <string name="google_account_summary">Вы хотите настроить аккаунт Google?</string>
-  <string name="btn_google_account">Настройка аккаунта Google</string>
-  <string name="whisperpush_title">Шифрование SMS</string>
-  <string name="whisperpush_summary">SMS-переписка с другими пользователями CyanogenMod будет автоматически шифроваться.</string>
-  <string name="apply_default_theme_title">Использовать тему CyanogenMod</string>
-  <string name="use_nav_keys">Включить экранные кнопки</string>
-  <string name="location_access_title">Доступ к моему местоположению</string>
-  <string name="location_access_summary">Разрешить приложениям получать сведения о вашем местоположении</string>
-  <string name="location_gps">По спутникам GPS</string>
-  <string name="location_street_level" product="tablet">Разрешить приложениям использовать GPS на вашем планшете для определения местоположения</string>
-  <string name="location_street_level" product="default">Разрешить приложениям использовать GPS на вашем телефоне для определения местоположения</string>
-  <string name="location_network_based">По координатам сети</string>
-  <string name="location_neighborhood_level">Разрешить приложениям использовать службы позиционирования Google для быстрого определения вашего местоположения.</string>
-  <string name="update_icon_pack_available">Доступен обновлённый набор значков</string>
-  <string name="apply_icon_pack">Применить</string>
-  <string name="setup_mobile_data">Включить мобильный интернет</string>
-  <string name="enable_mobile_data_summary">Передача данных через мобильную сеть во время начальной настройки может привести к нежелательным расходам.</string>
-  <string name="enable_mobile_off">Нет</string>
-  <string name="enable_mobile_on">Да</string>
+  <string name="cmaccount_deprecated">Создание новой учетной записи CyanogenMod устарело, мы работаем над обновлением.</string>
 </resources>

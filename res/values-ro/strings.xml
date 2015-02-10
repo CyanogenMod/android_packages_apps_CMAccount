@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Cont CyanogenMod</string>
-  <string name="next">Următorul</string>
   <string name="continue_label">Continuă</string>
-  <string name="prev">Anteriorul</string>
   <string name="skip">Omite</string>
-  <string name="finish">Terminare</string>
   <string name="cancel">Anulare</string>
   <string name="create">Creare</string>
   <string name="login">Logare</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Nou</string>
   <string name="skip_anyway">Oricum omite</string>
   <string name="dont_skip">Nu omite</string>
-  <string name="setup_complete">Configurarea este completă</string>
-  <string name="setup_complete_summary" product="tablet">Felicitări! Tableta dvs este gata pentru bubuit.</string>
-  <string name="setup_complete_summary" product="default">Felicitări! Telefonul dvs este gata pentru bubuit.</string>
-  <string name="setup_welcome">Bine ați venit la CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Pentru a începe să vă setați tableta, selectați limba dvs și continuați.</string>
-  <string name="setup_welcome_summary" product="default">Pentru a începe să vă setați telefonul, selectați limba dvs și continuați.</string>
-  <string name="setup_cmaccount">Configurați-vă contul dvs CuanogenMod</string>
-  <string name="setup_sim_missing">Introduceți cartela SIM</string>
-  <string name="setup_google_account">Contul Google</string>
-  <string name="setup_location">Setări de localizare</string>
-  <string name="setup_datetime">Setările de dată &amp; timp</string>
-  <string name="setup_current_date">Data curentă</string>
-  <string name="setup_current_time">Ora curentă</string>
   <string name="setup_msg_no_network">AVERTIZARE: Nu veți fi capabil să configurați conturile dvs</string>
   <string name="setup_warning_skip_wifi" product="tablet">AVERTIZARE: Se pot genera în contul dvs taxe de date suplimentare de către operator.\n\nConfigurarea tabletei poate necesita un trafic semnificativ în rețea.</string>
   <string name="setup_warning_skip_wifi" product="default">AVERTIZARE: Se pot genera în contul dvs taxe de date suplimentare de către operator.\n\nConfigurarea telefonului poate necesita un trafic semnificativ în rețea.</string>
-  <string name="setup_personalization">Personalizare</string>
-  <string name="setup_finalizing">Se termină setup-ul</string>
   <string name="cmaccount_setup_create_title">Creați un cont CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Conectați-vă la contul dvs CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Adaugă un cont CyanogenMod</string>
   <string name="cmaccount_add_create_label">Un cont CyanogenMod oferă acces la servicii de valoare și la funcționalități pentru mobilul tău care rulează CyanogenMod.\n\nDorești să adaugi un cont existent sau să creezi unul nou?</string>
   <string name="cmaccount_learn_more">Află mai multe\u2026</string>
-  <string name="cmaccount_learn_more_alt">Află mai multe</string>
   <string name="cmaccount_update_required_title">Actualizare necesară</string>
   <string name="cmaccount_update_required_text">Această versiune a Contului CyanogenMod poate fi incompatibilă. Vă rugăm să actualizați la ultima versiune de CyanogenMod pentru a asigura compatibilitatea.</string>
   <string name="cmaccount_update_required_short">Această versiune poate fi incompatibilă.</string>
@@ -77,25 +58,4 @@
   <string name="cmaccount_create_account_error_title">Eroare la crearea contului</string>
   <string name="cmaccount_server_error_message">S-a produs o eroare în momentul comunicării cu serverul. Vă rugăm să încercați din nou mai târziu.</string>
   <string name="cmaccount_error_multiple_accounts">Este permis doar un cont CyanogenMod per dispozitiv</string>
-  <string name="sim_missing_summary" product="tablet">Trebuie să urmăriți instructiunile care au venit cu cardul dvs SIM, primite cu tableta dvs.</string>
-  <string name="sim_missing_summary" product="default">Trebuie să urmăriți instructiunile care au venit cu cardul dvs SIM, primite cu telefonul dvs.</string>
-  <string name="google_account_summary">Doriți să configurați un cont Google?</string>
-  <string name="btn_google_account">Configurare cont Google</string>
-  <string name="whisperpush_title">Activare SMS securizat</string>
-  <string name="whisperpush_summary">Conversațiile SMS cu alte persoane care folosesc SMS securizat vor fi criptate automat.</string>
-  <string name="apply_default_theme_title">Folosește tema CyanogenMod</string>
-  <string name="use_nav_keys">Folosește tastele de pe ecran</string>
-  <string name="location_access_title">Acces la locația mea</string>
-  <string name="location_access_summary">Permite aplicațiilor care au cerut permisiunea dvs. să utilizeze informația de localizare</string>
-  <string name="location_gps">Sateliți GPS</string>
-  <string name="location_street_level" product="tablet">Permite aplicațiilor să folosească GPS-ul din tabletă pentru a vă localiza</string>
-  <string name="location_street_level" product="default">Permite aplicațiilor să folosească GPS-ul din telefon pentru a vă localiza</string>
-  <string name="location_network_based">Localizare prin Wi-Fi &amp; rețeaua mobilă</string>
-  <string name="location_neighborhood_level">Permite aplicațiilor să folosească serviciul de localizare Google pentru a estima mai rapid locația dvs. Datele anonime de localizare vor fi colectate și trimise la Google.</string>
-  <string name="update_icon_pack_available">Un pachet de imagini actualizat este disponibil</string>
-  <string name="apply_icon_pack">Activare</string>
-  <string name="setup_mobile_data">Permite date mobile</string>
-  <string name="enable_mobile_data_summary">Activarea datelor mobile în timpul procesului de instalare poate fi supusă tarifelor de date.</string>
-  <string name="enable_mobile_off">Nu</string>
-  <string name="enable_mobile_on">Da</string>
 </resources>

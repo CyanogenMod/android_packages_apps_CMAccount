@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">CyanogenMod Hesabı</string>
-  <string name="next">Sonrakı</string>
   <string name="continue_label">Davam</string>
-  <string name="prev">Geri</string>
   <string name="skip">Keç</string>
-  <string name="finish">Hazırdır</string>
   <string name="cancel">İmtina</string>
   <string name="create">Yarat</string>
   <string name="login">Giriş</string>
@@ -30,22 +27,7 @@
   <string name="new_account">Yeni</string>
   <string name="skip_anyway">Yenə də keç</string>
   <string name="dont_skip">Keçmə</string>
-  <string name="setup_complete">Quraşdırma tamamlandı</string>
-  <string name="setup_complete_summary" product="tablet">Təbriklər! Tabletiniz istifadəyə hazırdır.</string>
-  <string name="setup_complete_summary" product="default">Təbriklər! Telefonunuz istifadəyə hazırdır.</string>
-  <string name="setup_welcome">CyanogenMod\'a xoş gəlmisiniz</string>
-  <string name="setup_welcome_summary" product="tablet">Tabletinizi tənzimləməyə başlamaq üçün dili seçin və davam edin.</string>
-  <string name="setup_welcome_summary" product="default">Telefonunuzu tənzimləməyə başlamaq üçün dili seçin və davam edin.</string>
-  <string name="setup_cmaccount">CyanogenMod hesabınızı tənzimləyin</string>
-  <string name="setup_sim_missing">SIM kartı daxil edin</string>
-  <string name="setup_google_account">Google hesabı</string>
-  <string name="setup_location">Məkan tənzimləmələri</string>
-  <string name="setup_datetime">Tarix &amp; vaxt tənzimləmələri</string>
-  <string name="setup_current_date">Hazırki tarix</string>
-  <string name="setup_current_time">Hazırki vaxt</string>
   <string name="setup_msg_no_network">DİQQƏT: Hesablarınızı tənzimləyə bilməyəcəksiniz</string>
-  <string name="setup_personalization">Şəxsiləşdir</string>
-  <string name="setup_finalizing">Quraşdırma tamamlanır\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod hesabı yaradın</string>
   <string name="cmaccount_setup_login_title">CyanogenMod hesabınıza daxil olun</string>
   <string name="cmaccount_setup_email_label">E-poçt</string>
@@ -59,7 +41,6 @@
   <string name="cmaccount_setup_tos_label">Xidmət %1$sşərtlərini%2$s qəbul edirəm</string>
   <string name="cmaccount_add_title">CyanogenMod hesabı əlavə et</string>
   <string name="cmaccount_learn_more">Daha çox məlumat\u2026</string>
-  <string name="cmaccount_learn_more_alt">Daha çox məlumat</string>
   <string name="cmaccount_update_required_short">Bu versiya uyğunlaşmaya bilər.</string>
   <string name="cmaccount_checking_for_updates">Yeniliklər yoxlanılır.</string>
   <string name="cmaccount_password_changed_title">Şifrə dəyişdirildi</string>
@@ -68,6 +49,4 @@
   <string name="cmaccount_login_error_title">Giriş baş tutmadı</string>
   <string name="cmaccount_login_error_message">Etibarsız e-poçt və ya şifrə.</string>
   <string name="cmaccount_server_error_title">Server xətası</string>
-  <string name="location_network_based">Wi-Fi &amp; mobil şəbəkə məkanı</string>
-  <string name="apply_icon_pack">Tətbiq et</string>
 </resources>

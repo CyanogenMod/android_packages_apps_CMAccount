@@ -17,11 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Akun CyanogenMod</string>
-  <string name="next">Berikutnya</string>
   <string name="continue_label">Lanjutkan</string>
-  <string name="prev">Sebelumnya</string>
   <string name="skip">Lewati</string>
-  <string name="finish">Selesai</string>
   <string name="cancel">Batal</string>
   <string name="create">Buat</string>
   <string name="login">Masuk</string>
@@ -30,24 +27,9 @@
   <string name="new_account">Baru</string>
   <string name="skip_anyway">Lewati saja</string>
   <string name="dont_skip">Jangan lewati</string>
-  <string name="setup_complete">Setup selesai</string>
-  <string name="setup_complete_summary" product="tablet">Selamat! Tablet anda siap beraksi.</string>
-  <string name="setup_complete_summary" product="default">Selamat! Telepon anda siap beraksi.</string>
-  <string name="setup_welcome">Selamat datang di CyanogenMod</string>
-  <string name="setup_welcome_summary" product="tablet">Untuk memulai menyiapkan tablet anda, pilih bahasa dan lanjutkan.</string>
-  <string name="setup_welcome_summary" product="default">Untuk memulai menyiapkan telepon anda, pilih bahasa dan lanjutkan.</string>
-  <string name="setup_cmaccount">Setup akun CyanogenMod</string>
-  <string name="setup_sim_missing">Masukkan kartu SIM</string>
-  <string name="setup_google_account">Akun Google</string>
-  <string name="setup_location">Pengaturan lokasi</string>
-  <string name="setup_datetime">Pengaturan tanggal &amp; jam</string>
-  <string name="setup_current_date">Tanggal sekarang</string>
-  <string name="setup_current_time">Jam sekarang</string>
   <string name="setup_msg_no_network">PERINGATAN: Anda tidak akan dapat mengkonfigurasi akun anda</string>
   <string name="setup_warning_skip_wifi" product="tablet">PERINGATAN: Anda mungkin dikenakan tambahan biaya data oleh operator.\n\nSetup tablet memerlukan aktivitas jaringan yang signifikan.</string>
   <string name="setup_warning_skip_wifi" product="default">PERINGATAN: Anda mungkin dikenakan tambahan biaya data oleh operator.\n\nSetup telepon memerlukan aktivitas jaringan yang signifikan.</string>
-  <string name="setup_personalization">Personalisasi</string>
-  <string name="setup_finalizing">Menyelesaikan pengaturan\u2026</string>
   <string name="cmaccount_setup_create_title">Buat akun CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Masuk ke akun CyanogenMod anda</string>
   <string name="cmaccount_setup_email_label">Email</string>
@@ -62,7 +44,6 @@
   <string name="cmaccount_add_title">Tambah akun CyanogenMod</string>
   <string name="cmaccount_add_create_label">Akun CyanogenMod menyediakan akses ke layanan bernilai tambah dan fungsional untuk perangkat seluler Anda dalam menjalankan CyanogenMod.\n\nApakah Anda ingin menambahkan account yang ada atau membuat yang baru?</string>
   <string name="cmaccount_learn_more">Pelajari lebih jauh\u2026</string>
-  <string name="cmaccount_learn_more_alt">Pelajari lebih lanjut</string>
   <string name="cmaccount_update_required_title">Pembaruan Dibutuhkan</string>
   <string name="cmaccount_update_required_text">Versi Akun CyanogenMod ini mungkin tidak kompatibel. Silahkan perbarui ke versi terbaru dari CyanogenMod untuk memastikan kompatibilitas.</string>
   <string name="cmaccount_update_required_short">Versi ini mungkin tidak kompatibel.</string>
@@ -77,25 +58,5 @@
   <string name="cmaccount_create_account_error_title">Kesalahan pembuatan akun</string>
   <string name="cmaccount_server_error_message">Kesalahan telah terjadi sewaktu berkomunikasi dengan server. Harap coba lagi nanti.</string>
   <string name="cmaccount_error_multiple_accounts">Hanya satu akun CyanogenMod yang diperbolehkan per perangkat</string>
-  <string name="sim_missing_summary" product="tablet">Anda perlu merujuk ke petunjuk kartu SIM yang datang dengan tablet anda.</string>
-  <string name="sim_missing_summary" product="default">Anda perlu merujuk ke petunjuk kartu SIM yang datang dengan telepon anda.</string>
-  <string name="google_account_summary">Apakah anda ingin membuat akun Google?</string>
-  <string name="btn_google_account">Setup akun Google</string>
-  <string name="whisperpush_title">Aktifkan SMS aman</string>
-  <string name="whisperpush_summary">Percakapan SMS dengan orang lain menggunakan secure SMS di CyanogenMod akan secara otomatis dienkripsi.</string>
-  <string name="apply_default_theme_title">Gunakan tema CyanogenMod</string>
-  <string name="use_nav_keys">Gunakan tombol layar</string>
-  <string name="location_access_title">Akses ke lokasi saya</string>
-  <string name="location_access_summary">Perbolehkan aplikasi yang telah meminta izin anda untuk menggunakan informasi lokasi anda</string>
-  <string name="location_gps">Satelit GPS</string>
-  <string name="location_street_level" product="tablet">Perbolehkan aplikasi untuk menggunakan GPS pada tablet anda untuk menentukan lokasi anda</string>
-  <string name="location_street_level" product="default">Perbolehkan aplikasi untuk menggunakan GPS pada telepon anda untuk menentukan lokasi anda</string>
-  <string name="location_network_based">Wi-Fi &amp; lokasi jaringan mobile</string>
-  <string name="location_neighborhood_level">Perbolehkan aplikasi menggunakan Layanan Lokasi Google untuk memperkirakan lokasi anda lebih cepat. Data lokasi anonim akan dikumpulkan dan dikirimkan ke Google.</string>
-  <string name="update_icon_pack_available">Paket ikon terbaru tersedia</string>
-  <string name="apply_icon_pack">Terapkan</string>
-  <string name="setup_mobile_data">Izinkan data seluler</string>
-  <string name="enable_mobile_data_summary">Menyalakan data seluler selama proses pengaturan mungkin akan dikenakan biaya data.</string>
-  <string name="enable_mobile_off">Tidak</string>
-  <string name="enable_mobile_on">Ya</string>
+  <string name="cmaccount_deprecated">Membuat akun baru CyanogenMod tidak berlaku lagi, kami sedang mengerjakan pembaruan.</string>
 </resources>
