@@ -44,8 +44,8 @@
   <string name="setup_current_date">Aktuellen Datum</string>
   <string name="setup_current_time">Aktuell Zäit</string>
   <string name="setup_msg_no_network">WARNUNG: du wäerts deng Konten net erfollegräich ariichte kënnen</string>
-  <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Du kéins zousätzlech Datekäschte beim Provider verursaachen.\n\nD\'Installatioun vum Tablet ka signifikant Netzwierkaktivitéit beusprochen.</string>
-  <string name="setup_warning_skip_wifi" product="default">WARNUNG: Du kéins zousätzlech Datekäschte beim Provider verursaachen.\n\nD\'Installatioun vum Telefon ka signifikant Netzwierkaktivitéit beusprochen.</string>
+  <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Du kéins zousätzlech Datekäschte beim Netzbedreiwer verursaachen.\n\nD\'Installatioun vum Tablet ka signifikant Netzwierkaktivitéit beusprochen.</string>
+  <string name="setup_warning_skip_wifi" product="default">WARNUNG: Du kéins zousätzlech Datekäschte beim Netzbedreiwer verursaachen.\n\nD\'Installatioun vum Telefon ka signifikant Netzwierkaktivitéit beusprochen.</string>
   <string name="setup_personalization">Personaliséieren</string>
   <string name="setup_finalizing">Installatioun gëtt finaliséiert\u2026</string>
   <string name="cmaccount_setup_create_title">E CyanogenMod-Kont erstellen</string>
@@ -64,7 +64,7 @@
   <string name="cmaccount_learn_more">Méi léieren\u2026</string>
   <string name="cmaccount_learn_more_alt">Méi gewuer ginn</string>
   <string name="cmaccount_update_required_title">Update néideg</string>
-  <string name="cmaccount_update_required_text">Dës Versioun vun CyanogenMod-Konto ass wahrscheinlech net kompatibel. Aktualiséier w.e.g. op déi aktuell Versioun vu CyanogenMod fir Kompatibilitéit z\'erreechen.</string>
+  <string name="cmaccount_update_required_text">Dës Versioun vu CyanogenMod-Kont ass wahrscheinlech net kompatibel. Aktualiséier w.e.g. op déi aktuell Versioun vu CyanogenMod fir Kompatibilitéit z\'erreechen.</string>
   <string name="cmaccount_update_required_short">Dës Versioun kéint inkompatibel sinn.</string>
   <string name="cmaccount_checking_for_updates">Et gëtt no Aktualiséierunge gesicht.</string>
   <string name="cmaccount_password_changed_title">Passwuert geännert</string>
@@ -82,7 +82,7 @@
   <string name="google_account_summary">Wëlls du e Google-Kont astellen?</string>
   <string name="btn_google_account">Google-Kont ariichten</string>
   <string name="whisperpush_title">Sécher SMSen aktivéieren</string>
-  <string name="whisperpush_summary">SMS-Diskussioune mat anere Benotzer vu CyanogenMod, déi d\'Funktioun fir sécher SMSe benotzen, ginn automatesch verschlësselt.</string>
+  <string name="whisperpush_summary">SMS-Konversatioune mat anere Benotzer vu CyanogenMod, déi d\'Funktioun fir sécher SMSe benotzen, ginn automatesch verschlësselt.</string>
   <string name="apply_default_theme_title">CyanogenMod-Design benotzen</string>
   <string name="use_nav_keys">Schiermtaste benotzen</string>
   <string name="location_access_title">Zougrëff op mäi Standuert</string>

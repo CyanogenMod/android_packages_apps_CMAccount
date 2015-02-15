@@ -84,7 +84,7 @@
   <string name="whisperpush_title">セキュアSMSを有効化</string>
   <string name="whisperpush_summary">CyanogenModでセキュアSMSを使用している人とのSMSの会話は自動的に暗号化されます。</string>
   <string name="apply_default_theme_title">CyanogenModのテーマを使用</string>
-  <string name="use_nav_keys">オンスクリーンキーを使用</string>
+  <string name="use_nav_keys">スクリーンキーを使用</string>
   <string name="location_access_title">位置情報にアクセス</string>
   <string name="location_access_summary">位置情報を使用する権限を要求したアプリを許可する</string>
   <string name="location_gps">GPS衛星</string>

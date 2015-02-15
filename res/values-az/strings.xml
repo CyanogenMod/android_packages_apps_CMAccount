@@ -44,6 +44,8 @@
   <string name="setup_current_date">Hazırki tarix</string>
   <string name="setup_current_time">Hazırki vaxt</string>
   <string name="setup_msg_no_network">DİQQƏT: Hesablarınızı tənzimləyə bilməyəcəksiniz</string>
+  <string name="setup_warning_skip_wifi" product="tablet">DİQQƏT: Əlavə operator verilənlərinə görə ödəniş ola bilər.\n\nPlanşetin quraşdırılması əhəmiyyətli dərəcədə şəbəkə fəaliyyəti tələb edə bilər.</string>
+  <string name="setup_warning_skip_wifi" product="default">DİQQƏT: Əlavə operator verilənlərinə görə ödəniş ola bilər.\n\nTelefonun quraşdırılması əhəmiyyətli dərəcədə şəbəkə fəaliyyəti tələb edə bilər.</string>
   <string name="setup_personalization">Şəxsiləşdir</string>
   <string name="setup_finalizing">Quraşdırma tamamlanır\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod hesabı yaradın</string>
@@ -60,14 +62,35 @@
   <string name="cmaccount_add_title">CyanogenMod hesabı əlavə et</string>
   <string name="cmaccount_learn_more">Daha çox məlumat\u2026</string>
   <string name="cmaccount_learn_more_alt">Daha çox məlumat</string>
+  <string name="cmaccount_update_required_title">Yeniləmə lazımdır</string>
+  <string name="cmaccount_update_required_text">CyanogenMod Hesabının bu versiyası uyğunlaşmaya bilər. Uyğunluğu təmin etmək üçün, zəhmət olmasa CyanogenMod\'u son versiyasına yeniləyin.</string>
   <string name="cmaccount_update_required_short">Bu versiya uyğunlaşmaya bilər.</string>
   <string name="cmaccount_checking_for_updates">Yeniliklər yoxlanılır.</string>
   <string name="cmaccount_password_changed_title">Şifrə dəyişdirildi</string>
   <string name="cmaccount_password_changed_message">Zəhmət olmasa CyanogenMod hesabınıza daxil olun</string>
   <string name="cmaccount_login_message">CyanogenMod\'a daxil olunur</string>
+  <string name="cmaccount_creating_profile_message">CyanogenMod profiliniz yaradılır</string>
   <string name="cmaccount_login_error_title">Giriş baş tutmadı</string>
   <string name="cmaccount_login_error_message">Etibarsız e-poçt və ya şifrə.</string>
   <string name="cmaccount_server_error_title">Server xətası</string>
+  <string name="cmaccount_create_account_error_title">Hesab yaradılarkən xəta baş verdi</string>
+  <string name="cmaccount_server_error_message">Serverlə əlaqə saxlanılan zaman xəta baş verdi. Zəhmət olmasa daha sonra təkrar cəhd edin.</string>
+  <string name="cmaccount_error_multiple_accounts">Bir cihazda ancaq bir CyanogenMod hesabına icazə verilir</string>
+  <string name="sim_missing_summary" product="tablet">Planşetinizlə gələn SIM kart təlimatlarına istinad etməlisiniz.</string>
+  <string name="sim_missing_summary" product="default">Telefonunuzla gələn SIM kart təlimatlarına istinad etməlisiniz.</string>
+  <string name="google_account_summary">Google hesabınızı tənzimləmək istəyirsiniz?</string>
+  <string name="btn_google_account">Google hesabını tənzimlə</string>
+  <string name="whisperpush_title">Təhlükəsiz SMSi fəaallaşdırın</string>
+  <string name="whisperpush_summary">CyanogenMod\'da təhlükəsiz SMS\'dən istifadə edən digər şəxslərlə edilən SMS söhbətləri avtomatik şifrələnəcək.</string>
+  <string name="apply_default_theme_title">CyanogenMod temasından istifadə et</string>
+  <string name="use_nav_keys">Ekrandakı düymələrdən istifadə et</string>
+  <string name="location_gps">GPS peykləri</string>
+  <string name="location_street_level" product="tablet">Tətbiqetmələrin planşetinizdəki GPS ilə yerimi müəyyənləşdirməsinə icazə ver</string>
   <string name="location_network_based">Wi-Fi &amp; mobil şəbəkə məkanı</string>
+  <string name="update_icon_pack_available">Yenilənmiş nişan paketi mövcuddur</string>
   <string name="apply_icon_pack">Tətbiq et</string>
+  <string name="setup_mobile_data">Mobil verilənlərə icazə ver</string>
+  <string name="enable_mobile_data_summary">Quraşdırma prosesi zamanı mobil verilənlərin açılması əlavə xərclərə səbəb ola bilər.</string>
+  <string name="enable_mobile_off">Xeyr</string>
+  <string name="enable_mobile_on">Bəli</string>
 </resources>

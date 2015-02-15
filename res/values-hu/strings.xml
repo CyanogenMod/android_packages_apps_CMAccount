@@ -77,8 +77,8 @@
   <string name="cmaccount_create_account_error_title">Hiba a fiók létrehozásakor</string>
   <string name="cmaccount_server_error_message">Nem sikerült csatlakozni a szerverhez. Próbálja meg később.</string>
   <string name="cmaccount_error_multiple_accounts">Egy eszközhöz csak egy CyanogenMod fiók rendelhető</string>
-  <string name="sim_missing_summary" product="tablet">Nézze meg a SIM kártya leírását, melyet a táblagéppel együtt kapott.</string>
-  <string name="sim_missing_summary" product="default">Nézze meg a SIM kártya leírását, melyet a telefonnal együtt kapott.</string>
+  <string name="sim_missing_summary" product="tablet">Nézze meg a SIM-kártya leírását, melyet a táblagéppel együtt kapott.</string>
+  <string name="sim_missing_summary" product="default">Nézze meg a SIM-kártya leírását, melyet a telefonnal együtt kapott.</string>
   <string name="google_account_summary">Szeretne beállítani egy Google fiókot?</string>
   <string name="btn_google_account">Google fiók beállítása</string>
   <string name="whisperpush_title">Biztonságos SMS engedélyezése</string>
