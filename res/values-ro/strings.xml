@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Eroare la crearea contului</string>
   <string name="cmaccount_server_error_message">S-a produs o eroare în momentul comunicării cu serverul. Vă rugăm să încercați din nou mai târziu.</string>
   <string name="cmaccount_error_multiple_accounts">Este permis doar un cont CyanogenMod per dispozitiv</string>
+  <string name="cmaccount_deprecated">Momentan nu se poate crea un nou cont CyanogenMod, se lucrează la o actualizare.</string>
 </resources>

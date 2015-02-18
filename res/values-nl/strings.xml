@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Kan account niet aanmaken</string>
   <string name="cmaccount_server_error_message">Er is een verbindingsfout opgetreden. Probeer het later opnieuw.</string>
   <string name="cmaccount_error_multiple_accounts">Slechts één CyanogenMod-account toegestaan per apparaat</string>
+  <string name="cmaccount_deprecated">Het maken van een nieuw CyanogenMod-account wordt niet meer ondersteund; we werken aan een update.</string>
 </resources>

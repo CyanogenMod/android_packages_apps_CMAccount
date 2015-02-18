@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Hebo un fallu mentanto se creaba la cuenta</string>
   <string name="cmaccount_server_error_message">Hebo un fallu na comunicación col sirvidor. Por favor, inténtalo dempués.</string>
   <string name="cmaccount_error_multiple_accounts">Namái se permite una cuenta de CyanogenMod por preséu</string>
+  <string name="cmaccount_deprecated">Anguaño nun puen crease cuentes nueves en CyanogenMod. Tamos trabayando nun anovamientu.</string>
 </resources>

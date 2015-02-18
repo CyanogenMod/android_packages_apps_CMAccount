@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Fout:Skep van rekening</string>
   <string name="cmaccount_server_error_message">ŉ Fout het voorgekom terwyl in kommunikasie met die bediener. Probeer asseblief weer later.</string>
   <string name="cmaccount_error_multiple_accounts">Slegs een CyanogenMod rekening word toegelaat per toestel</string>
+  <string name="cmaccount_deprecated">Skep van \'n nuwe CyanogenMod rekening is verouderd, ons is besig om met \'n opdatering.</string>
 </resources>
