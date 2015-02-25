@@ -82,7 +82,7 @@
   <string name="google_account_summary">Wilt u een Google-account instellen?</string>
   <string name="btn_google_account">Google-account instellen</string>
   <string name="whisperpush_title">Beveiligde sms-berichten</string>
-  <string name="whisperpush_summary">Sms-gesprekken met anderen die beveiligde sms op CyanogenMod gebruiken worden automatisch versleuteld.</string>
+  <string name="whisperpush_summary">Sms-gesprekken met anderen die beveiligde sms-berichten op CyanogenMod gebruiken worden automatisch versleuteld.</string>
   <string name="apply_default_theme_title">CyanogenMod-thema gebruiken</string>
   <string name="use_nav_keys">On-screen toetsen gebruiken</string>
   <string name="location_access_title">Toegang tot mijn locatie</string>
