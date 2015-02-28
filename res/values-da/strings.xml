@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Fejl ved oprettelse af konto</string>
   <string name="cmaccount_server_error_message">Der opstod en fejl under kommunikation med serveren. Prøv venligst igen senere.</string>
   <string name="cmaccount_error_multiple_accounts">Kun én CyanogenMod-konto er tilladt per enhed</string>
+  <string name="cmaccount_deprecated">Opretning af ny CyanogenMod konto er udfaset. Vi arbejder på en opdatering.</string>
 </resources>
