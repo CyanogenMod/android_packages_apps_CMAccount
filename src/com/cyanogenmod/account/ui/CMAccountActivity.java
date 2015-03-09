@@ -101,6 +101,15 @@ public class CMAccountActivity extends Activity {
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        if (getIntent().getBooleanExtra(CMAccount.EXTRA_FIRST_RUN, false)) {
+            overridePendingTransition(R.anim.translucent_enter,
+                    R.anim.translucent_exit);
+        }
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CMAccount.REQUEST_CODE_SETUP_CMAccount &&
