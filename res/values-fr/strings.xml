@@ -52,7 +52,7 @@
   <string name="cmaccount_setup_login_title">Se connecter à son compte CyanogenMod</string>
   <string name="cmaccount_setup_email_label">E-mail</string>
   <string name="cmaccount_setup_email_unavailable_label">E-mail déjà enregistré</string>
-  <string name="cmaccount_setup_email_invalid_label">Adresse e-mail non valide</string>
+  <string name="cmaccount_setup_email_invalid_label">Adresse e-mail incorrecte</string>
   <string name="cmaccount_setup_password_label">Mot de passe</string>
   <string name="cmaccount_setup_password_create_label">Mot de passe (Min 8 caractères)</string>
   <string name="cmaccount_setup_password_mismatch_label">Le mot de passe ne correspond pas\u00A0!</string>
@@ -72,7 +72,7 @@
   <string name="cmaccount_login_message">Connexion à CyanogenMod</string>
   <string name="cmaccount_creating_profile_message">Création du profil CyanogenMod</string>
   <string name="cmaccount_login_error_title">Connexion échouée</string>
-  <string name="cmaccount_login_error_message">E-mail ou mot de passe non valide</string>
+  <string name="cmaccount_login_error_message">E-mail ou mot de passe incorrect.</string>
   <string name="cmaccount_server_error_title">Erreur serveur</string>
   <string name="cmaccount_create_account_error_title">Erreur lors de la création du compte</string>
   <string name="cmaccount_server_error_message">Une erreur de communication a été rencontrée avec le serveur. Réessayez ultérieurement.</string>
@@ -90,7 +90,7 @@
   <string name="location_gps">Satellites GPS</string>
   <string name="location_street_level" product="tablet">Permettre aux applications d\'utiliser le GPS sur votre tablette afin de situer votre localisation</string>
   <string name="location_street_level" product="default">Permettre aux applications d\'utiliser le GPS sur votre téléphone afin de situer votre localisation</string>
-  <string name="location_network_based">Localisation Wi-Fi &amp; réseau mobile</string>
+  <string name="location_network_based">Localisation Wi-Fi et réseau mobile</string>
   <string name="location_neighborhood_level">Permettre aux applications d\'utiliser le service de localisation de Google pour définir votre localisation plus rapidement. Des données de localisation anonymes seront collectées et envoyées à Google.</string>
   <string name="update_icon_pack_available">Un pack d\'icônes mis à jour est disponible</string>
   <string name="apply_icon_pack">Appliquer</string>

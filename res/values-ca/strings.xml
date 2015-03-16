@@ -40,7 +40,7 @@
   <string name="setup_sim_missing">Insereix una targeta SIM</string>
   <string name="setup_google_account">Compte Google</string>
   <string name="setup_location">Configuració de la ubicació</string>
-  <string name="setup_datetime">Configuració de data i hora</string>
+  <string name="setup_datetime">Ajustaments de data i hora</string>
   <string name="setup_current_date">Data actual</string>
   <string name="setup_current_time">Hora actual</string>
   <string name="setup_msg_no_network">ALERTA: No podràs configurar els teus comptes</string>
