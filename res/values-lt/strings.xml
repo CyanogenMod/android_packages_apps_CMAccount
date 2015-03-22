@@ -51,8 +51,8 @@
   <string name="cmaccount_password_changed_title">Slaptažodis pakeistas</string>
   <string name="cmaccount_password_changed_message">Prašome prisijungti prie savo „CyanogenMod“ paskyros</string>
   <string name="cmaccount_login_message">Jungiamasi prie „CyanogenMod“</string>
-  <string name="cmaccount_creating_profile_message">Kuriama jūsų „CyanogenMod“ paskyra</string>
-  <string name="cmaccount_login_error_title">Nepavyko prisijungti</string>
+  <string name="cmaccount_creating_profile_message">Kuriamas jūsų „CyanogenMod“ profilis</string>
+  <string name="cmaccount_login_error_title">Prisijungti nepavyko</string>
   <string name="cmaccount_login_error_message">Neteisingas el. paštas arba slaptažodis.</string>
   <string name="cmaccount_server_error_title">Serverio klaida</string>
   <string name="cmaccount_create_account_error_title">Klaida kuriant paskyrą</string>
