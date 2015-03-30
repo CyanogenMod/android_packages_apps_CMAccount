@@ -28,8 +28,8 @@
   <string name="skip_anyway">Trotzdeem iwwersprangen</string>
   <string name="dont_skip">Net iwwersprangen</string>
   <string name="setup_msg_no_network">WARNUNG: du wäerts deng Konten net erfollegräich ariichte kënnen</string>
-  <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Du kéins zousätzlech Datekäschte beim Netzbedreiwer verursaachen.\n\nD\'Installatioun vum Tablet ka signifikant Netzwierkaktivitéit beusprochen.</string>
-  <string name="setup_warning_skip_wifi" product="default">WARNUNG: Du kéins zousätzlech Datekäschte beim Netzbedreiwer verursaachen.\n\nD\'Installatioun vum Telefon ka signifikant Netzwierkaktivitéit beusprochen.</string>
+  <string name="setup_warning_skip_wifi" product="tablet">WARNUNG: Du kéints zousätzlech Datekäschte beim Provider verursaachen.\n\nD\'Installatioun vum Tablet ka signifikant Netzwierkaktivitéit beusprochen.</string>
+  <string name="setup_warning_skip_wifi" product="default">WARNUNG: Du kéints zousätzlech Datekäschte beim Provider verursaachen.\n\nD\'Installatioun vum Telefon ka signifikant Netzwierkaktivitéit beusprochen.</string>
   <string name="cmaccount_setup_create_title">E CyanogenMod-Kont erstellen</string>
   <string name="cmaccount_setup_login_title">An de CyanogenMod-Kont aloggen</string>
   <string name="cmaccount_setup_email_label">E-Mail</string>
