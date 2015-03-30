@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Mobiilidatan käytöstä asennuksen aikana voidaan veloittaa tiedonsiirtomaksuja.</string>
   <string name="enable_mobile_off">Ei</string>
   <string name="enable_mobile_on">Kyllä</string>
+  <string name="setup_unlock">Avaa lukitus</string>
+  <string name="setup_device_locked">Käyttäjä on lukinnut laitteen.</string>
+  <string name="setup_require_cyanogen_label"><b>Vaadi Cyanogen OS-tilin salasana</b> käyttääksesi laitetta myös tehdasasetusten palautuksen jälkeen.</string>
+  <string name="setup_device_locked_instructions"><i>Poistaaksesi tämän ominaisuuden käytöstä/ottaaksesi käyttöön, mene Asetukset &gt; Suojaus</i></string>
 </resources>

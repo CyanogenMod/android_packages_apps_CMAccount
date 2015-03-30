@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Kurulum işlemi sırasında mobil veriyi açarak veri ücretlerine tabi kalabilirsiniz.</string>
   <string name="enable_mobile_off">Hayır</string>
   <string name="enable_mobile_on">Evet</string>
+  <string name="setup_unlock">Kilidi kaldır</string>
+  <string name="setup_device_locked">Bu cihaz kullanıcı tarafından kilitlenmiş.</string>
+  <string name="setup_require_cyanogen_label"><b>Cyanogen İS hesap şifresi gerekir</b> ki cihazınızı fabrika ayarlarına sıfırladıktan sonra kullanabilin.</string>
+  <string name="setup_device_locked_instructions"><i>Bu özelliği açıp kapatmak için, lütfen Ayarlar &gt; Güvenlik bölümüne gidin</i></string>
 </resources>

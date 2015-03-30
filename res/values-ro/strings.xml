@@ -98,4 +98,6 @@
   <string name="enable_mobile_data_summary">Activarea datelor mobile în timpul procesului de instalare poate fi supusă tarifelor de date.</string>
   <string name="enable_mobile_off">Nu</string>
   <string name="enable_mobile_on">Da</string>
+  <string name="setup_unlock">Deblocare</string>
+  <string name="setup_device_locked">Acest dispozitiv a fost blocat de utilizator.</string>
 </resources>

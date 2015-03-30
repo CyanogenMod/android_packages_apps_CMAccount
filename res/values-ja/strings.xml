@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">セットアップの過程でモバイルデータ通信をONにすると、パケット通信料が発生する可能性があります。</string>
   <string name="enable_mobile_off">いいえ</string>
   <string name="enable_mobile_on">はい</string>
+  <string name="setup_unlock">ロック解除</string>
+  <string name="setup_device_locked">この端末はユーザーによってロックされています。</string>
+  <string name="setup_require_cyanogen_label">工場出荷時の状態にリセットした後であっても、この端末を使用するには<b>Cyanogen OSアカウントのパスワードの入力が必要です</b>。</string>
+  <string name="setup_device_locked_instructions"><i>この機能をOFF/ONするには、設定&gt;プライバシーを開いてください</i></string>
 </resources>

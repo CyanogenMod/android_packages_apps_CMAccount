@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Zapnutie mobilných dát počas procesu inštalácie môže byť príčinou poplatkov za dátové prenosy.</string>
   <string name="enable_mobile_off">Nie</string>
   <string name="enable_mobile_on">Áno</string>
+  <string name="setup_unlock">Odomknúť</string>
+  <string name="setup_device_locked">Toto zariadenie bolo uzamknuté používateľom.</string>
+  <string name="setup_require_cyanogen_label"><b>Vyžadovať heslo vášho účtu Cyanogen OS</b> na použitie vášho zariadenia aj po obnove továrenských nastavení.</string>
+  <string name="setup_device_locked_instructions"><i>Na vypnutie/zapnutie tejto funkcie prejdite do Nastavenia &gt; Zabezpečenie</i></string>
 </resources>

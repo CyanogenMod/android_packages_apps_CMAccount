@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Encenent les dades mòbils durant el procés de configuració pot provocar càrrecs degut a l\'ús de dades.</string>
   <string name="enable_mobile_off">No</string>
   <string name="enable_mobile_on">Sí</string>
+  <string name="setup_unlock">Desbloqueja</string>
+  <string name="setup_device_locked">Aquest dispositiu ha estat bloquejat per l\'usuari.</string>
+  <string name="setup_require_cyanogen_label"><b>Demana la contrasenya del teu compte Cyanogen OS</b> per utilitzar el teu dispositiu, fins i tot després de restaurar als ajustaments de fàbrica.</string>
+  <string name="setup_device_locked_instructions"><i>Per activar/desactivar aquesta característica, si us plau ves a Configuració &gt; Seguretat</i></string>
 </resources>

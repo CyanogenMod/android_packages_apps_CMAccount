@@ -20,26 +20,26 @@
   <string name="next">Sonrakı</string>
   <string name="continue_label">Davam</string>
   <string name="prev">Geri</string>
-  <string name="skip">Keç</string>
-  <string name="finish">Hazırdır</string>
+  <string name="skip">Ötür</string>
+  <string name="finish">Bitir</string>
   <string name="cancel">İmtina</string>
   <string name="create">Yarat</string>
   <string name="login">Giriş</string>
-  <string name="ok">OK</string>
+  <string name="ok">Oldu</string>
   <string name="existing">Mövcud</string>
   <string name="new_account">Yeni</string>
-  <string name="skip_anyway">Yenə də keç</string>
-  <string name="dont_skip">Keçmə</string>
+  <string name="skip_anyway">Yenə də ötür</string>
+  <string name="dont_skip">Ötürmə</string>
   <string name="setup_complete">Quraşdırma tamamlandı</string>
-  <string name="setup_complete_summary" product="tablet">Təbriklər! Tabletiniz istifadəyə hazırdır.</string>
+  <string name="setup_complete_summary" product="tablet">Təbriklər! Planşetiniz istifadəyə hazırdır.</string>
   <string name="setup_complete_summary" product="default">Təbriklər! Telefonunuz istifadəyə hazırdır.</string>
   <string name="setup_welcome">CyanogenMod\'a xoş gəlmisiniz</string>
-  <string name="setup_welcome_summary" product="tablet">Tabletinizi tənzimləməyə başlamaq üçün dili seçin və davam edin.</string>
-  <string name="setup_welcome_summary" product="default">Telefonunuzu tənzimləməyə başlamaq üçün dili seçin və davam edin.</string>
+  <string name="setup_welcome_summary" product="tablet">Tabletinizi tənzimləməyə başlamaq üçün dilinizi seçin və davam edin.</string>
+  <string name="setup_welcome_summary" product="default">Telefonunuzu tənzimləməyə başlamaq üçün dilinizi seçin və davam edin.</string>
   <string name="setup_cmaccount">CyanogenMod hesabınızı tənzimləyin</string>
   <string name="setup_sim_missing">SIM kartı daxil edin</string>
   <string name="setup_google_account">Google hesabı</string>
-  <string name="setup_location">Məkan tənzimləmələri</string>
+  <string name="setup_location">Yer tənzimləmələri</string>
   <string name="setup_datetime">Tarix &amp; vaxt tənzimləmələri</string>
   <string name="setup_current_date">Hazırki tarix</string>
   <string name="setup_current_time">Hazırki vaxt</string>
@@ -60,6 +60,7 @@
   <string name="cmaccount_setup_confirm_password_label">Şifrəni təsdiq edin</string>
   <string name="cmaccount_setup_tos_label">Xidmət %1$sşərtlərini%2$s qəbul edirəm</string>
   <string name="cmaccount_add_title">CyanogenMod hesabı əlavə et</string>
+  <string name="cmaccount_add_create_label">CyanogenMod hesabı, CyanogenMod işlədən mobil cihazınız üçün dəyərli olan xidmətlər və funksiyalara müraciəti təmin edər.\n\nMövcud hesabınızdan istifadə etmək, ya da yeni hesab açmaq istəyirsiniz?</string>
   <string name="cmaccount_learn_more">Daha çox məlumat\u2026</string>
   <string name="cmaccount_learn_more_alt">Daha çox məlumat</string>
   <string name="cmaccount_update_required_title">Yeniləmə lazımdır</string>
@@ -84,13 +85,22 @@
   <string name="whisperpush_summary">CyanogenMod\'da təhlükəsiz SMS\'dən istifadə edən digər şəxslərlə edilən SMS söhbətləri avtomatik şifrələnəcək.</string>
   <string name="apply_default_theme_title">CyanogenMod temasından istifadə et</string>
   <string name="use_nav_keys">Ekrandakı düymələrdən istifadə et</string>
+  <string name="location_access_title">Olduğum yerə müraciət</string>
+  <string name="location_access_summary">Olduğum yerə giriş icazəsi istəyən tətbiqetmələrə icazə ver</string>
   <string name="location_gps">GPS peykləri</string>
   <string name="location_street_level" product="tablet">Tətbiqetmələrin planşetinizdəki GPS ilə yerimi müəyyənləşdirməsinə icazə ver</string>
-  <string name="location_network_based">Wi-Fi &amp; mobil şəbəkə məkanı</string>
+  <string name="location_street_level" product="default">Tətbiqetmələrin telefonunuzdakı GPS ilə yerinizi müəyyənləşdirməsinə icazə ver</string>
+  <string name="location_network_based">Wi-Fi &amp; mobil şəbəkə yeri</string>
+  <string name="location_neighborhood_level">Tətbiqetmənin yerinizi daha tez tapması üçün Google\'un yer xidmətindən istifadəsinə icazə verin.
+Anonim verilənlər yığılıb Google\'a göndəriləcək.</string>
   <string name="update_icon_pack_available">Yenilənmiş nişan paketi mövcuddur</string>
   <string name="apply_icon_pack">Tətbiq et</string>
   <string name="setup_mobile_data">Mobil verilənlərə icazə ver</string>
   <string name="enable_mobile_data_summary">Quraşdırma prosesi zamanı mobil verilənlərin açılması əlavə xərclərə səbəb ola bilər.</string>
   <string name="enable_mobile_off">Xeyr</string>
   <string name="enable_mobile_on">Bəli</string>
+  <string name="setup_unlock">Kilidi aç</string>
+  <string name="setup_device_locked">Bu cihaz istifadəçisi tərəfindən kilidlənib.</string>
+  <string name="setup_require_cyanogen_label"><b>Cyanogen ƏS hesab şifrəsi lazımdır</b>ki, cihazınız zavod tənzimləmələrinə sıfırlandıqdan sonra istifadə edə bilin.</string>
+  <string name="setup_device_locked_instructions"><i>Bu özəlliyi açıb bağlamaq üçün, zəhmət olmasa Tənzimləmələr &gt; Təhlükəsizlik bölməsinə gedin</i></string>
 </resources>

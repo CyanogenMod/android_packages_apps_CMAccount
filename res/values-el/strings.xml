@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Με την ενεργοποίηση των δεδομένων κινητής τηλεφωνίας ενδέχεται να υπάρξουν επιπλέον χρεώσεις.</string>
   <string name="enable_mobile_off">Όχι</string>
   <string name="enable_mobile_on">Ναι</string>
+  <string name="setup_unlock">Ξεκλείδωμα</string>
+  <string name="setup_device_locked">Αυτή η συσκευή έχει κλειδωθεί από το χρήστη.</string>
+  <string name="setup_require_cyanogen_label"><b>Απαίτηση του κωδικού πρόσβασης του λογαριασμού σας Cyanogen OS</b> για να χρησιμοποιήσετε τη συσκευή σας, ακόμα και μετά από επαναφορά εργοστασιακών ρυθμίσεων.</string>
+  <string name="setup_device_locked_instructions"><i>Για να ενεργοποιήσετε/απενεργοποιήσετε αυτή τη λειτουργία, παρακαλώ πηγαίνετε στις Ρυθμίσεις &gt; Ασφάλεια</i></string>
 </resources>

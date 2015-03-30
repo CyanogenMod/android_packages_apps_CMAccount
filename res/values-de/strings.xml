@@ -98,4 +98,7 @@
   <string name="enable_mobile_data_summary">Das Aktivieren der Datenverbindung während des Einrichtens kann Kosten verursachen.</string>
   <string name="enable_mobile_off">Nein</string>
   <string name="enable_mobile_on">Ja</string>
+  <string name="setup_unlock">Entsperren</string>
+  <string name="setup_device_locked">Dieses Gerät wurde durch den Benutzer gesperrt.</string>
+  <string name="setup_device_locked_instructions"><i>Um diese Funktion zu aktivieren/deaktivieren, gehen Sie zu Einstellungen &gt; Sicherheit</i></string>
 </resources>

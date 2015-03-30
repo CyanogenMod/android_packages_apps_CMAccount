@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">在设置过程中打开移动数据，此步骤可能会收取额外的流量费用。</string>
   <string name="enable_mobile_off">否</string>
   <string name="enable_mobile_on">是</string>
+  <string name="setup_unlock">解锁</string>
+  <string name="setup_device_locked">此设备的持有者锁定了该设备。</string>
+  <string name="setup_require_cyanogen_label">即使您的设备被恢复出厂设置，<b>也要求输入您的 Cyanogen OS 帐户密码</b>。</string>
+  <string name="setup_device_locked_instructions"><i>要开启或关闭此功能，请进入设置 &gt; 安全</i></string>
 </resources>

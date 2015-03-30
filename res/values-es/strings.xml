@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Activar los datos móviles durante el proceso de configuración puede ocasionar cargos de datos.</string>
   <string name="enable_mobile_off">No</string>
   <string name="enable_mobile_on">Sí</string>
+  <string name="setup_unlock">Desbloquear</string>
+  <string name="setup_device_locked">Este dispositivo ha sido bloqueado por el usuario.</string>
+  <string name="setup_require_cyanogen_label"><b>Se requiere la contraseña de tu cuenta Cyanogen</b> para poder utilizar el dispositivo incluso después de un restablecimiento de fábrica.</string>
+  <string name="setup_device_locked_instructions"><i>Para activar y desactivar esta función, ve a Ajustes &gt; Seguridad</i></string>
 </resources>

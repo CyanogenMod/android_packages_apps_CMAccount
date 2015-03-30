@@ -58,7 +58,7 @@
   <string name="cmaccount_setup_password_mismatch_label">Wachtwoorden komen niet overeen</string>
   <string name="cmaccount_setup_password_invalid_label">Wachtwoord moet ten minste 8 tekens bevatten</string>
   <string name="cmaccount_setup_confirm_password_label">Wachtwoord bevestigen</string>
-  <string name="cmaccount_setup_tos_label">Ik ga akkoord met de %1$sservicevoorwaarden%2$s</string>
+  <string name="cmaccount_setup_tos_label">Ik ga akkoord met de %1$salgemene voorwaarden%2$s</string>
   <string name="cmaccount_add_title">CyanogenMod-account toevoegen</string>
   <string name="cmaccount_add_create_label">Een CyanogenMod-account biedt toegang tot extra diensten en functies voor uw apparaten die op CyanogenMod draaien.\n\nWilt u een bestaand account toevoegen of een nieuw account maken?</string>
   <string name="cmaccount_learn_more">Lees meer\u2026</string>
@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">Mobiele gegevens inschakelen tijdens het instellen kan leiden tot kosten.</string>
   <string name="enable_mobile_off">Nee</string>
   <string name="enable_mobile_on">Ja</string>
+  <string name="setup_unlock">Ontgrendelen</string>
+  <string name="setup_device_locked">Dit apparaat is vergrendeld door de gebruiker.</string>
+  <string name="setup_require_cyanogen_label"><b>Uw Cyanogen OS-accountwachtwoord vereisen</b> om het apparaat te gebruiken, zelfs na terugzetten naar fabrieksinstellingen.</string>
+  <string name="setup_device_locked_instructions"><i>Om deze functie in of uit te schakelen, ga naar Instellingen &gt; Beveiliging</i></string>
 </resources>
