@@ -32,6 +32,7 @@
     <string name="new_account">New</string>
     <string name="skip_anyway">Skip anyway</string>
     <string name="dont_skip">Don\'t skip</string>
+    <string name="go_back">Go back</string>
 
     <string name="setup_complete">Setup is complete</string>
     <string name="setup_complete_summary" product="tablet">Congratulations! Your tablet is ready to rumble.</string>
@@ -114,6 +115,7 @@
 
     <string name="setup_unlock">Unlock</string>
     <string name="setup_device_locked">This device has been locked by the user.</string>
-    <string name="setup_require_cyanogen_label"><b>Require your Cyanogen OS account password</b> in order to use your device even after a factory reset.</string>
+    <string name="setup_require_cyanogen_label">Require your Cyanogen OS account password in order to use your device even after a factory reset.</string>
     <string name="setup_device_locked_instructions"><i>To turn this feature off/on, please go to Settings > Security</i></string>
+    <string name="setup_warning_skip_anyway">Without a Cyanogen OS Account, you won\'t be able to:\n\nCustomize your phone with new icons, wallpapers and more in the Themes app\n\nLocate or remotely erase your phone if it\'s lost</string>
 </resources>
