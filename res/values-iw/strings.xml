@@ -19,9 +19,9 @@
   <string name="app_name">חשבון CyanogenMod</string>
   <string name="continue_label">המשך</string>
   <string name="skip">דלג</string>
-  <string name="cancel">ביטול</string>
+  <string name="cancel">בטל</string>
   <string name="create">צור</string>
-  <string name="login">התחברות</string>
+  <string name="login">התחבר</string>
   <string name="ok">אישור</string>
   <string name="existing">קיים</string>
   <string name="new_account">חדש</string>
@@ -40,7 +40,7 @@
   <string name="cmaccount_setup_password_mismatch_label">הסיסמאות לא תואמות!</string>
   <string name="cmaccount_setup_password_invalid_label">‏אורך הסיסמה חייב להיות לפחות 8 תווים!</string>
   <string name="cmaccount_setup_confirm_password_label">אישור סיסמה</string>
-  <string name="cmaccount_setup_tos_label">אני מסכים לתנאי השימוש</string>
+  <string name="cmaccount_setup_tos_label">אני מסכים ל%1$sתנאי%2$s השימוש</string>
   <string name="cmaccount_add_title">הוסף חשבון CyanogenMod</string>
   <string name="cmaccount_add_create_label">חשבון CyanogenMod מספק גישה לשירותים נוספים ואפשרויות חדשות עבור מכשיר ה-CyanogenMod שלך.\n\nהאם אתה רוצה להוסיף חשבון קיים או ליצור אחד חדש?</string>
   <string name="cmaccount_learn_more">למד עוד\u2026</string>
