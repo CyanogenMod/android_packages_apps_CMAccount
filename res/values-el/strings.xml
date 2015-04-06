@@ -30,6 +30,7 @@
   <string name="new_account">Νέος</string>
   <string name="skip_anyway">Παράβλεψη ούτως ή άλλως</string>
   <string name="dont_skip">Να μην γίνει παράβλεψη</string>
+  <string name="go_back">Πίσω</string>
   <string name="setup_complete">Η ρύθμιση ολοκληρώθηκε</string>
   <string name="setup_complete_summary" product="tablet">Συγχαρητήρια! Το tablet σας είναι έτοιμo για χρήση.</string>
   <string name="setup_complete_summary" product="default">Συγχαρητήρια! Το τηλέφωνό σας είναι έτοιμη για χρήση.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Ναι</string>
   <string name="setup_unlock">Ξεκλείδωμα</string>
   <string name="setup_device_locked">Αυτή η συσκευή έχει κλειδωθεί από το χρήστη.</string>
-  <string name="setup_require_cyanogen_label"><b>Απαίτηση του κωδικού πρόσβασης του λογαριασμού σας Cyanogen OS</b> για να χρησιμοποιήσετε τη συσκευή σας, ακόμα και μετά από επαναφορά εργοστασιακών ρυθμίσεων.</string>
+  <string name="setup_require_cyanogen_label">Απαίτηση του κωδικού πρόσβασης του λογαριασμού σας Cyanogen OS για να χρησιμοποιήσετε τη συσκευή σας, ακόμα και μετά από επαναφορά εργοστασιακών ρυθμίσεων.</string>
   <string name="setup_device_locked_instructions"><i>Για να ενεργοποιήσετε/απενεργοποιήσετε αυτή τη λειτουργία, παρακαλώ πηγαίνετε στις Ρυθμίσεις &gt; Ασφάλεια</i></string>
+  <string name="setup_warning_skip_anyway">Χωρίς ένα λογαριασμό Cyanogen OS, δεν θα είστε σε θέση να:\n\nΠροσαρμόσετε το τηλέφωνό σας με νέα εικονίδια, ταπετσαρίες και πολλά άλλα στην εφαρμογή Θεμάτων\n\nΕντοπίσετε ή διαγράψετε εξ αποστάσεως το τηλέφωνό σας εάν το χάσετε</string>
 </resources>

@@ -100,6 +100,5 @@
   <string name="enable_mobile_on">Yes</string>
   <string name="setup_unlock">Unlock</string>
   <string name="setup_device_locked">This device has been locked by the user.</string>
-  <string name="setup_require_cyanogen_label"><b>Require your Cyanogen OS account password</b> in order to use your device even after a factory reset.</string>
   <string name="setup_device_locked_instructions"><i>To turn this feature off/on, please go to Settings &gt; Security</i></string>
 </resources>

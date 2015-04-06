@@ -98,4 +98,7 @@
   <string name="enable_mobile_data_summary">Activar los datos móviles mentanto\'l procesu de configuración pue ocasionar cargos de datos.</string>
   <string name="enable_mobile_off">Non</string>
   <string name="enable_mobile_on">Sí</string>
+  <string name="setup_unlock">Desbloquiar</string>
+  <string name="setup_device_locked">Esti preséu ta bloquiáu pol usuariu.</string>
+  <string name="setup_device_locked_instructions"><i>P\'activar y desactivar esta función, ve a Axustes &gt; Seguridá</i></string>
 </resources>

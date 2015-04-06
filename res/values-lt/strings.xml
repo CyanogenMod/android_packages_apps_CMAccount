@@ -100,6 +100,5 @@
   <string name="enable_mobile_on">Taip</string>
   <string name="setup_unlock">Atrakinti</string>
   <string name="setup_device_locked">Šis įrenginys buvo užrakintas naudotojo.</string>
-  <string name="setup_require_cyanogen_label"><b>Reikalauti jūsų „Cyanogen“ OS paskyros slaptažodžio</b> , kad būtų galima naudotis įrenginiu net ir po gamyklinių nustatymų iš naujo.</string>
   <string name="setup_device_locked_instructions"><i>Kad išjungtumėte / įjungtumėte šią funkciją, eikite į Nustatymai &gt; Sauga</i></string>
 </resources>

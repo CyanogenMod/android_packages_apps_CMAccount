@@ -30,6 +30,7 @@
   <string name="new_account">Uusi</string>
   <string name="skip_anyway">Ohita silti</string>
   <string name="dont_skip">Älä ohita</string>
+  <string name="go_back">Mene takaisin</string>
   <string name="setup_complete">Asennus on valmis</string>
   <string name="setup_complete_summary" product="tablet">Onnittelut! Tablettisi on valmis käyttöön.</string>
   <string name="setup_complete_summary" product="default">Onnittelut! Puhelimesi on valmis käyttöön.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Kyllä</string>
   <string name="setup_unlock">Avaa lukitus</string>
   <string name="setup_device_locked">Käyttäjä on lukinnut laitteen.</string>
-  <string name="setup_require_cyanogen_label"><b>Vaadi Cyanogen OS-tilin salasana</b> käyttääksesi laitetta myös tehdasasetusten palautuksen jälkeen.</string>
+  <string name="setup_require_cyanogen_label">Vaadi Cyanogen OS-tilin salasana käyttääksesi laitetta myös tehdasasetusten palautuksen jälkeen.</string>
   <string name="setup_device_locked_instructions"><i>Poistaaksesi tämän ominaisuuden käytöstä/ottaaksesi käyttöön, mene Asetukset &gt; Suojaus</i></string>
+  <string name="setup_warning_skip_anyway">Ilman Cyanogen OS-tiliä, et voi:\n\nMukauttaa puhelintasi uusilla kuvakkeilla, taustakuvilla tai muilla käyttämällä Teemat-sovellusta\n\nPaikantaa tai etätyhjentää kadonnutta puhelintasi</string>
 </resources>

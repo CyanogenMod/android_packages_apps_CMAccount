@@ -30,6 +30,7 @@
   <string name="new_account">Nuovo</string>
   <string name="skip_anyway">Salta comunque</string>
   <string name="dont_skip">Non saltare</string>
+  <string name="go_back">Indietro</string>
   <string name="setup_complete">Il setup è completo</string>
   <string name="setup_complete_summary" product="tablet">Congratulazioni! Il tuo tablet è pronto a far faville!</string>
   <string name="setup_complete_summary" product="default">Congratulazioni! Il tuo telefono è pronto a far faville!</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Sì</string>
   <string name="setup_unlock">Sblocca</string>
   <string name="setup_device_locked">Questo dispositivo è stato bloccato dall\'utente.</string>
-  <string name="setup_require_cyanogen_label"><b>È necessaria la password del tuo account Cyanogen OS</b> al fine di utilizzare il dispositivo anche dopo il ripristino di fabbrica.</string>
+  <string name="setup_require_cyanogen_label">È necessaria la password del tuo account Cyanogen OS al fine di utilizzare il dispositivo anche dopo il ripristino di fabbrica.</string>
+  <string name="setup_device_locked_instructions"><i>Per attivare e disattivare questa funzione, vai in Impostazioni &gt; Sicurezza</i></string>
+  <string name="setup_warning_skip_anyway">\"Senza un account Cyanogen OS, non sarai in grado di:\n\nPersonalizzare il telefono con nuove icone, sfondi ed altro ancora dall\'app Temi\n\nLocalizzare o formattare da remoto il telefono se viene smarrito\"</string>
 </resources>

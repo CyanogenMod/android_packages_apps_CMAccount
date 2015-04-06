@@ -30,6 +30,7 @@
   <string name="new_account">Новый</string>
   <string name="skip_anyway">Всё равно пропустить</string>
   <string name="dont_skip">Не пропускать</string>
+  <string name="go_back">Вернуться назад</string>
   <string name="setup_complete">Настройка завершена</string>
   <string name="setup_complete_summary" product="tablet">Поздравляем! Ваш планшет готов к использованию.</string>
   <string name="setup_complete_summary" product="default">Поздравляем! Ваш телефон готов к использованию.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Да</string>
   <string name="setup_unlock">Разблокировать</string>
   <string name="setup_device_locked">Устройство было заблокировано пользователем.</string>
-  <string name="setup_require_cyanogen_label"><b>Требовать пароль аккаунта ОС Cyanogen</b> для использования устройства даже после удаления всех данных.</string>
+  <string name="setup_require_cyanogen_label">Требовать пароль аккаунта ОС Cyanogen для использования устройства даже после удаления всех данных.</string>
   <string name="setup_device_locked_instructions"><i>Чтобы включить или отключить эту функцию, перейдите в меню «Настройки &gt; Безопасность»</i></string>
+  <string name="setup_warning_skip_anyway">Без учетной записи ОС Cyanogen вы не сможете:\n\nПерсонализировать телефон новыми обоями, значками и другими компонентами в приложении «Темы»\n\nНаходить или выполнять удалённый сброс настроек на телефоне в случае его утери</string>
 </resources>

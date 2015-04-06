@@ -30,6 +30,7 @@
   <string name="new_account">Nou</string>
   <string name="skip_anyway">Salta de totes maneres</string>
   <string name="dont_skip">No saltis</string>
+  <string name="go_back">Torna</string>
   <string name="setup_complete">Configuració completa</string>
   <string name="setup_complete_summary" product="tablet">Felicitats! La teva tauleta està llesta per funcionar.</string>
   <string name="setup_complete_summary" product="default">Felicitats! El teu telèfon està llest per funcionar.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Sí</string>
   <string name="setup_unlock">Desbloqueja</string>
   <string name="setup_device_locked">Aquest dispositiu ha estat bloquejat per l\'usuari.</string>
-  <string name="setup_require_cyanogen_label"><b>Demana la contrasenya del teu compte Cyanogen OS</b> per utilitzar el teu dispositiu, fins i tot després de restaurar als ajustaments de fàbrica.</string>
+  <string name="setup_require_cyanogen_label">Demana la contrasenya del teu compte Cyanogen OS per utilitzar el teu dispositiu, fins i tot després de restaurar als ajustaments de fàbrica.</string>
   <string name="setup_device_locked_instructions"><i>Per activar/desactivar aquesta característica, si us plau ves a Configuració &gt; Seguretat</i></string>
+  <string name="setup_warning_skip_anyway">Sense un compte Cyanogen OS, no podràs:\n\nPersonalitzar el teu telèfon amb noves icones, fons de pantalla i més en l\'aplicació de Temes\n\nLocalitzar o esborrar remotament el teu telèfon si el perds</string>
 </resources>

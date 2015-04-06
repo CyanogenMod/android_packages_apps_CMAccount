@@ -100,6 +100,5 @@
   <string name="enable_mobile_on">Да</string>
   <string name="setup_unlock">Откључај</string>
   <string name="setup_device_locked">Овај уређај је закључао корисник.</string>
-  <string name="setup_require_cyanogen_label"><b>Захтева твоју лозинку Cyanogen налога</b> да би користио свој уређај чак и после ресетовања на фабрички .</string>
   <string name="setup_device_locked_instructions"><i>Да би искључио/укључио ово, идите на Подешавања &gt; Приватност</i></string>
 </resources>

@@ -30,6 +30,7 @@
   <string name="new_account">新建</string>
   <string name="skip_anyway">总是跳过</string>
   <string name="dont_skip">不要跳过</string>
+  <string name="go_back">返回</string>
   <string name="setup_complete">设置完成</string>
   <string name="setup_complete_summary" product="tablet">恭喜您！您的平板已设置完毕。</string>
   <string name="setup_complete_summary" product="default">恭喜您！您的手机已设置完毕。</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">是</string>
   <string name="setup_unlock">解锁</string>
   <string name="setup_device_locked">此设备的持有者锁定了该设备。</string>
-  <string name="setup_require_cyanogen_label">即使您的设备被恢复出厂设置，<b>也要求输入您的 Cyanogen OS 帐户密码</b>。</string>
+  <string name="setup_require_cyanogen_label">即使您的设备被恢复出厂设置，也要求输入您的 Cyanogen OS 帐户密码。</string>
   <string name="setup_device_locked_instructions"><i>要开启或关闭此功能，请进入设置 &gt; 安全</i></string>
+  <string name="setup_warning_skip_anyway">如果不创建 Cyanogen OS 帐户，您将：\n\n无法使用主题应用来使用新的图标、壁纸和其他内容来自定义您的手机\n\n无法定位或擦除遗失的手机</string>
 </resources>

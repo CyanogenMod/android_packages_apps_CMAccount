@@ -30,6 +30,7 @@
   <string name="new_account">Nieuw</string>
   <string name="skip_anyway">Toch overslaan</string>
   <string name="dont_skip">Niet overslaan</string>
+  <string name="go_back">Terug</string>
   <string name="setup_complete">Instellen is voltooid</string>
   <string name="setup_complete_summary" product="tablet">Gefeliciteerd! Uw tablet is gereed.</string>
   <string name="setup_complete_summary" product="default">Gefeliciteerd! Uw telefoon is gereed.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Ja</string>
   <string name="setup_unlock">Ontgrendelen</string>
   <string name="setup_device_locked">Dit apparaat is vergrendeld door de gebruiker.</string>
-  <string name="setup_require_cyanogen_label"><b>Uw Cyanogen OS-accountwachtwoord vereisen</b> om het apparaat te gebruiken, zelfs na terugzetten naar fabrieksinstellingen.</string>
+  <string name="setup_require_cyanogen_label">Uw Cyanogen OS-accountwachtwoord vereisen om het apparaat te gebruiken, zelfs na terugzetten naar fabrieksinstellingen.</string>
   <string name="setup_device_locked_instructions"><i>Om deze functie in of uit te schakelen, ga naar Instellingen &gt; Beveiliging</i></string>
+  <string name="setup_warning_skip_anyway">Zonder een Cyanogen OS-account kunt u niet:\n\nUw telefoon personaliseren met nieuwe pictogrammen, achtergronden en meer in de app Thema\'s\n\nUw telefoon lokaliseren of op afstand wissen wanneer u deze kwijt raakt</string>
 </resources>

@@ -30,6 +30,7 @@
   <string name="new_account">Yeni</string>
   <string name="skip_anyway">Yine de atla</string>
   <string name="dont_skip">Atlama</string>
+  <string name="go_back">Geri git</string>
   <string name="setup_complete">Kurulum tamamlandı</string>
   <string name="setup_complete_summary" product="tablet">Tebrikler! Tabletiniz coşmaya hazır.</string>
   <string name="setup_complete_summary" product="default">Tebrikler! Telefonunuz coşmaya hazır.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Evet</string>
   <string name="setup_unlock">Kilidi kaldır</string>
   <string name="setup_device_locked">Bu cihaz kullanıcı tarafından kilitlenmiş.</string>
-  <string name="setup_require_cyanogen_label"><b>Cyanogen İS hesap şifresi gerekir</b> ki cihazınızı fabrika ayarlarına sıfırladıktan sonra kullanabilin.</string>
+  <string name="setup_require_cyanogen_label">Cihazınızı fabrika ayarlarına sıfırladıktan sonra kullanabilmek için Cyanogen İS şifreniz gerekir.</string>
   <string name="setup_device_locked_instructions"><i>Bu özelliği açıp kapatmak için, lütfen Ayarlar &gt; Güvenlik bölümüne gidin</i></string>
+  <string name="setup_warning_skip_anyway">Cyanogen İS Hesabı olmadan, aşağıdakiler mümkün olmayacaktır:\n\nTelefonunuzu yeni simgeler, duvar kağıtları ve Temalar uygulamasındaki daha fazla ögeyle özelleştirmek\n\nTelefonunuzu kaybedince uzaktan konumunu bulmak veya içeriğini silmek</string>
 </resources>

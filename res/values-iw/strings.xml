@@ -30,6 +30,7 @@
   <string name="new_account">חדש</string>
   <string name="skip_anyway">דלג בכל מקרה</string>
   <string name="dont_skip">אל תדלג</string>
+  <string name="go_back">חזור אחורה</string>
   <string name="setup_complete">ההגדרה הושלמה</string>
   <string name="setup_complete_summary" product="tablet">מזל טוב! הטאבלט שלך מוכן לקרב.</string>
   <string name="setup_complete_summary" product="default">מזל טוב! הטאבלט שלך מוכן לקרב.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">הפעלת נתונים לנייד במשך תהליך ההתקנה עשויי לגרום לחיוב בגין שימוש בנתונים.</string>
   <string name="enable_mobile_off">לא</string>
   <string name="enable_mobile_on">כן</string>
+  <string name="setup_unlock">שחרר נעילה</string>
+  <string name="setup_device_locked">מכשיר זה ננעל על-ידי המשתמש.</string>
+  <string name="setup_require_cyanogen_label">נדרשת סיסמת חשבון ה-Cyanogen OS על מנת להשתמש במכשירך, אפילו אחרי איפוס הגדרות יצרן.</string>
+  <string name="setup_device_locked_instructions"><i>כדי להפעיל/לכבות אפשרות זו, אנא גש להגדרות &gt; אבטחה</i></string>
+  <string name="setup_warning_skip_anyway">בלי חשבון Cyanogen OS לא ניתן יהיה:\n\nלהתאים את מכשירך עם סמלים, רקעים ועוד ביישום ערכות העיצוב\n\nלאתר או למחוק מרחוק את מכשירך במקרה של אובדן</string>
 </resources>

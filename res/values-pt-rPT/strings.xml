@@ -30,6 +30,7 @@
   <string name="new_account">Nova</string>
   <string name="skip_anyway">Saltar na mesma</string>
   <string name="dont_skip">Não salte</string>
+  <string name="go_back">Voltar</string>
   <string name="setup_complete">Instalação completa</string>
   <string name="setup_complete_summary" product="tablet">Parabéns! O seu tablet está pronto para entrar em ação.</string>
   <string name="setup_complete_summary" product="default">Parabéns! O seu dispositivo está pronto.</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">Sim</string>
   <string name="setup_unlock">Desbloquear</string>
   <string name="setup_device_locked">Este dispositivo foi bloqueado pelo utilizador.</string>
-  <string name="setup_require_cyanogen_label"><b>Exigir a palavra-passe da conta Cyanogen OS</b> para usar o dispositivo mesmo depois da reposição dos dados de fábrica.</string>
+  <string name="setup_require_cyanogen_label">Exigir a palavra-passe da conta Cyanogen OS para usar o dispositivo mesmo depois da reposição dos dados de fábrica.</string>
   <string name="setup_device_locked_instructions"><i>Para ativar ou desativar este recurso, por favor vá a Definições &gt; Segurança</i></string>
+  <string name="setup_warning_skip_anyway">Sem uma conta Cyanogen OS, não será capaz de: \n\nPersonalizar o telefone com novos ícones, imagens de fundo e muito mais na aplicação de Temas\n\n Localizar ou apagar remotamente o seu telefone se estiver perdido</string>
 </resources>

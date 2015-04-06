@@ -30,6 +30,7 @@
   <string name="new_account">新しいアカウント</string>
   <string name="skip_anyway">とにかくスキップ</string>
   <string name="dont_skip">スキップしない</string>
+  <string name="go_back">戻る</string>
   <string name="setup_complete">セットアップが完了しました</string>
   <string name="setup_complete_summary" product="tablet">おめでとうございます！お使いのタブレットを楽しむ準備ができました。</string>
   <string name="setup_complete_summary" product="default">おめでとうございます！ お使いの携帯電話を楽しむ準備ができました。</string>
@@ -100,6 +101,7 @@
   <string name="enable_mobile_on">はい</string>
   <string name="setup_unlock">ロック解除</string>
   <string name="setup_device_locked">この端末はユーザーによってロックされています。</string>
-  <string name="setup_require_cyanogen_label">工場出荷時の状態にリセットした後であっても、この端末を使用するには<b>Cyanogen OSアカウントのパスワードの入力が必要です</b>。</string>
+  <string name="setup_require_cyanogen_label">工場出荷時の状態にリセットした後であっても、この端末を使用するにはCyanogen OSアカウントのパスワードが必要になります。</string>
   <string name="setup_device_locked_instructions"><i>この機能をOFF/ONするには、設定&gt;プライバシーを開いてください</i></string>
+  <string name="setup_warning_skip_anyway">Cyanogen OSアカウントがないと、以下のことができません:\n\nテーマアプリで新しいアイコンや壁紙などによって携帯電話をカスタマイズする\n\n紛失時に携帯電話を探したり遠隔操作でデータを消去する</string>
 </resources>

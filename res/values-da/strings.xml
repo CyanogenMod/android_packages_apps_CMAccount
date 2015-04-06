@@ -98,4 +98,7 @@
   <string name="enable_mobile_data_summary">At tænde for mobildata under opsætningen kan medføre betaling for data abonnement.</string>
   <string name="enable_mobile_off">Nej</string>
   <string name="enable_mobile_on">Ja</string>
+  <string name="setup_unlock">Lås op</string>
+  <string name="setup_device_locked">Denne enhed er blevet låst af brugeren.</string>
+  <string name="setup_device_locked_instructions"><i>For at slå denne funktion til/fra, skal du gå til Indstillinger &gt; Sikkerhed</i></string>
 </resources>
