@@ -20,7 +20,6 @@
   <string name="next">Hurrengoa</string>
   <string name="continue_label">Jarraitu</string>
   <string name="prev">Aurrekoa</string>
-  <string name="skip">Alde batera utzi</string>
   <string name="finish">Amaitu</string>
   <string name="cancel">Ezeztatu</string>
   <string name="create">Sortu</string>
@@ -28,13 +27,9 @@
   <string name="ok">Ondo da</string>
   <string name="existing">Existitzen da</string>
   <string name="new_account">Berria</string>
-  <string name="skip_anyway">Alde batera utzi</string>
-  <string name="dont_skip">Alde batera ez utzi</string>
   <string name="setup_complete">Ezarpena burutu da</string>
-  <string name="setup_complete_summary" product="tablet">Zorionak! Zure tablet-a prest dago.</string>
   <string name="setup_complete_summary" product="default">Zorionak! Zure telefonoa prest dago.</string>
   <string name="setup_welcome">Ongi etorri CyanogenMod-era</string>
-  <string name="setup_welcome_summary" product="tablet">Tablet-a konfiguratzen hasteko, aukeratu hizkuntza eta \'Hurrengoa\' sakatu.</string>
   <string name="setup_welcome_summary" product="default">Telefonoa konfiguratzen hasteko, aukeratu hizkuntza eta \'Hurrengoa\' sakatu.</string>
   <string name="setup_cmaccount">CyanogenMod kontua konfiguratu</string>
   <string name="setup_sim_missing">SIM txartela sartu</string>
@@ -44,8 +39,6 @@
   <string name="setup_current_date">Uneko data</string>
   <string name="setup_current_time">Uneko ordua</string>
   <string name="setup_msg_no_network">KONTUZ: Ez zara zure kontuak konfiguratzeko gai izango</string>
-  <string name="setup_warning_skip_wifi" product="tablet">KONTUZ: Zordunketa osagarriak jasan ditzazkezu.\n\nTablet-aren konfigurazioak sare aktibitate altua behar dezake.</string>
-  <string name="setup_warning_skip_wifi" product="default">KONTUZ: Zordunketa osagarriak jasan ditzazkezu.\n\nTelefonoaren konfigurazioak sare aktibitate altua behar dezake.</string>
   <string name="setup_personalization">Pertsonalizatu</string>
   <string name="setup_finalizing">Konfigurazioa amaitzen\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod kontu bat sortu</string>
@@ -60,7 +53,6 @@
   <string name="cmaccount_setup_confirm_password_label">Pasahitza berretsi</string>
   <string name="cmaccount_setup_tos_label">Zerbitzuaren %1$sbaldintzekin%2$s ados nago</string>
   <string name="cmaccount_add_title">CyanogenMod kontu bat gehitu</string>
-  <string name="cmaccount_add_create_label">Cyanogenmod kontu batek CyanogenMod duen gailu mugikorrari funtzionalitate eta balio erantsiko zerbitzuetara sarbidea ahalbidetzen dio.\n\nKontu berri bat sortu edo existitzen den kontu bat gehitu nahi duzu?</string>
   <string name="cmaccount_learn_more">Gehiago irakurri\u2026</string>
   <string name="cmaccount_learn_more_alt">Gehiago ezagutu</string>
   <string name="cmaccount_update_required_text">CyanogenMod Kontua-ren bertsio hau bateragarria ez izatea gerta daiteke. Bateragarritasuna bermatzeko CyanogenMod-en azken bertsiora egunerazazu, mesedez.</string>
@@ -75,8 +67,6 @@
   <string name="cmaccount_server_error_title">Zerbitzariaren akatsa</string>
   <string name="cmaccount_create_account_error_title">Kontua sortzerakoan akats bat egon da</string>
   <string name="cmaccount_server_error_message">Zerbitzariarekin komunikatzean akats bat egon da. Saiatu berriro beranduago, mesedez.</string>
-  <string name="cmaccount_error_multiple_accounts">Gailu bakoitzeko CyanogenMod kontu bakarra dago onartuta</string>
-  <string name="sim_missing_summary" product="tablet">Tablet-arekin batera datozen SIM txartelari buruzko argibideak irakurri.</string>
   <string name="sim_missing_summary" product="default">Telefonoarekin batera datozen SIM txartelari buruzko argibideak irakurri.</string>
   <string name="google_account_summary">Google kontu bat konfiguratu nahi duzu?</string>
   <string name="btn_google_account">Google kontua konfiguratu</string>
@@ -87,7 +77,6 @@
   <string name="location_access_title">Sarbidea kokapenera</string>
   <string name="location_access_summary">Kokapenara sarbidea eskatu duten aplikazioei informazio hori erabiltzera baimendu</string>
   <string name="location_gps">GPS sateliteak</string>
-  <string name="location_street_level" product="tablet">Aplikazioei kokapena ezartzeko tablet-aren GPS-a erabiltzera baimendu</string>
   <string name="location_street_level" product="default">Aplikazioei kokapena ezartzeko telefonoaren GPS-a erabiltzera baimendu</string>
   <string name="location_network_based">Datu mugikor eta Wi-Fi bidezko kokapena</string>
   <string name="location_neighborhood_level">Aplikazioak Google-ren kokapen zerbitzua erabiltzera baimendu kokapena azkarrago ezartzeko. Kokapen datu anonimoak batu eta Google-ra bidaliko dira.</string>

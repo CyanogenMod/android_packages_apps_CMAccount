@@ -30,6 +30,7 @@
   <string name="new_account">Nový</string>
   <string name="skip_anyway">Přeskočit</string>
   <string name="dont_skip">Nepřeskakovat</string>
+  <string name="go_back">Jít zpět</string>
   <string name="setup_complete">Nastavení dokončeno</string>
   <string name="setup_complete_summary" product="tablet">Gratulujeme, Váš tablet je připraven.</string>
   <string name="setup_complete_summary" product="default">Gratulujeme, Váš telefon je připraven.</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Ano</string>
   <string name="setup_unlock">Odemknout</string>
   <string name="setup_device_locked">Toto zařízení bylo uzamčeno uživatelem.</string>
+  <string name="setup_require_cyanogen_label">Po obnovení továrního nastavení bude vyžadováno heslo k Vašemu účtu Cyanogen OS.</string>
   <string name="setup_device_locked_instructions"><i>Pro zapnutí/vypnutí této funkce, přejděte do nastavení &gt; Zabezpečení</i></string>
+  <string name="setup_warning_skip_anyway">Bez účtu Cyanogen nebudete schopni:\n\nPřizpůsobit svůj telefon novými ikonami, tapetami a další z aplikace Motivy\n\nVzdáleně vyhledat nebo vymazat telefon v případě ztráty</string>
 </resources>

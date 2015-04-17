@@ -30,6 +30,7 @@
   <string name="new_account">Nowe</string>
   <string name="skip_anyway">Pomiń mimo to</string>
   <string name="dont_skip">Nie pomijaj</string>
+  <string name="go_back">Wróć</string>
   <string name="setup_complete">Konfiguracja zakończona</string>
   <string name="setup_complete_summary" product="tablet">Gratulacje! Twój tablet jest gotowy do działania.</string>
   <string name="setup_complete_summary" product="default">Gratulacje! Twój telefon jest gotowy do działania.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Włączenie transmisji komórkowej podczas procesu instalacji może być obciążone opłatą za transmisję danych.</string>
   <string name="enable_mobile_off">Nie</string>
   <string name="enable_mobile_on">Tak</string>
+  <string name="setup_unlock">Odblokuj</string>
+  <string name="setup_device_locked">To urządzenie zostało zablokowane przez użytkownika.</string>
+  <string name="setup_require_cyanogen_label">Wymaga hasła Twojego konta Cyanogen OS, aby korzystać z urządzenia, nawet po przywróceniu ustawień fabrycznych.</string>
+  <string name="setup_device_locked_instructions"><i>Aby włączyć/wyłączyć tę funkcję, przejdź do Ustawienia &gt; Zabezpieczenia</i></string>
+  <string name="setup_warning_skip_anyway">Bez Konta Cyanogen OS nie będziesz w stanie:\n\nDostosować swojego telefonu wybierając nowe ikony, tapety oraz więcej innych opcji w aplikacji Motywy\n\nZlokalizować lub zdalnie wymazać pamięć telefonu w przypadku zgubienia</string>
 </resources>

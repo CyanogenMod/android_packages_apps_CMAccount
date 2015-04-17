@@ -30,6 +30,7 @@
   <string name="new_account">Nuut</string>
   <string name="skip_anyway">Slaan in elk geval oor</string>
   <string name="dont_skip">Moenie oorslaan nie</string>
+  <string name="go_back">Gaan terug</string>
   <string name="setup_complete">Opstelling is gedoen</string>
   <string name="setup_complete_summary" product="tablet">Baie geluk! Jou tablet is gereed, geniet CM daarop.</string>
   <string name="setup_complete_summary" product="default">Baie geluk! Jou foon is gereed, geniet CM daarop.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Die aktivering van mobiele data gedurende die opstel proses kan dalk data kostes veroorsaak.</string>
   <string name="enable_mobile_off">Nee</string>
   <string name="enable_mobile_on">Ja</string>
+  <string name="setup_unlock">Ontsluit</string>
+  <string name="setup_device_locked">Die toestel is gesluit deur die gebruiker.</string>
+  <string name="setup_require_cyanogen_label">Benodig  jou Cyanogen wagwoord om jou toestel te gebruik, selfs nadat \'n fabriek herstel gedoen is.</string>
+  <string name="setup_device_locked_instructions"><i>Om hierdie funksie te aan/af te skakel, gaan asseblief na Instellings &gt; Sekuriteit</i></string>
+  <string name="setup_warning_skip_anyway">Sonder \'n Cyanogen bedryfstelsel rekening, sal jy nie in staat wees om:\n\nOm jou selfoon met nuwe ikone, agtergronde en meer in die Temas program te verpersoonlik nie\n\nJou selfoon te vind of op te spoor indien dit verlore gaan nie</string>
 </resources>

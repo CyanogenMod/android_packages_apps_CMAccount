@@ -30,6 +30,7 @@
   <string name="new_account">Új</string>
   <string name="skip_anyway">Most kihagyom</string>
   <string name="dont_skip">Nem hagyom ki</string>
+  <string name="go_back">Vissza</string>
   <string name="setup_complete">Beállítás kész</string>
   <string name="setup_complete_summary" product="tablet">Gratulálunk! Táblagépe használatra kész.</string>
   <string name="setup_complete_summary" product="default">Gratulálunk! Telefonja használatra kész.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Mobil adatforgalom bekapcsolása a telepítési folyamat közben szolgáltatói díjak felszámolását vonhatja maga után.</string>
   <string name="enable_mobile_off">Nem</string>
   <string name="enable_mobile_on">Igen</string>
+  <string name="setup_unlock">Feloldás</string>
+  <string name="setup_device_locked">Ezt az eszközt a felhasználó zárolta.</string>
+  <string name="setup_require_cyanogen_label">Cyanogen OS fiókjának jelszava szükséges a készülék használatához, még a gyári beállítások visszaállítása után is.</string>
+  <string name="setup_device_locked_instructions"><i>A szolgáltatás ki/be kapcsolásához, kérjük menjen ide: Beállítások &gt; Biztonság</i></string>
+  <string name="setup_warning_skip_anyway">Cyanogen OS fiók nélkül nem fog hozzáférni a következőkhöz:\n\nTelefon testreszabása új ikonokkal, háttérképekkel és egyebekkel a Téma kezelő alkalmazáson keresztül\n\nTelefon helyének maghatározása, vagy távolról való törlése, ha elveszett</string>
 </resources>

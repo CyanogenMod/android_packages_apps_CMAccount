@@ -30,6 +30,7 @@
   <string name="new_account">새 계정</string>
   <string name="skip_anyway">일단 건너뛰기</string>
   <string name="dont_skip">건너뛰지 않기</string>
+  <string name="go_back">뒤로 가기</string>
   <string name="setup_complete">설정 완료</string>
   <string name="setup_complete_summary" product="tablet">축하합니다! 태블릿을 사용할 준비가 되었습니다.</string>
   <string name="setup_complete_summary" product="default">축하합니다! 휴대전화를 사용할 준비가 되었습니다.</string>
@@ -98,4 +99,10 @@
   <string name="enable_mobile_data_summary">설치 과정 중에 모바일 데이터를 사용하면 데이터 요금이 부과될 수 있습니다.</string>
   <string name="enable_mobile_off">아니오</string>
   <string name="enable_mobile_on">예</string>
+  <string name="setup_unlock">잠금 해제</string>
+  <string name="setup_device_locked">이 기기는 사용자에 의해 잠겨 있습니다.</string>
+  <string name="setup_require_cyanogen_label">공장 초기화 후에도 기기를 사용하려면 Cyanogen OS 계정의 비밀번호가 필요합니다.</string>
+  <string name="setup_device_locked_instructions"><i>이 기능을 켜기/끄기 하려면 &gt; 보안 설정으로 이동</i></string>
+  <string name="setup_warning_skip_anyway">Cyanogen OS 계정이 없을 경우 사용 불가 사항:\n\n
+테마 앱을 통한 새로운 아이콘, 배경화면 등의 적용\n\n기기를 잃어버렸을 경우 기기 찾기 또는 원격 개인정보 삭제</string>
 </resources>
