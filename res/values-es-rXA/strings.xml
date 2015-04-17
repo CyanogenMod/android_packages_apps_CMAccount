@@ -30,6 +30,7 @@
   <string name="new_account">Nueva</string>
   <string name="skip_anyway">Omitir</string>
   <string name="dont_skip">Nun omitir</string>
+  <string name="go_back">Volver</string>
   <string name="setup_complete">Configuración completada</string>
   <string name="setup_complete_summary" product="tablet">¡Norabona! Configuróse la tablet.</string>
   <string name="setup_complete_summary" product="default">¡Norabona! Configuróse\'l teléfonu.</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Sí</string>
   <string name="setup_unlock">Desbloquiar</string>
   <string name="setup_device_locked">Esti preséu ta bloquiáu pol usuariu.</string>
+  <string name="setup_require_cyanogen_label">Precísase la contraseña de la cuenta Cyanogen pa poder usar el preséu inclusu dempués d\'un restablecimientu de fábrica.</string>
   <string name="setup_device_locked_instructions"><i>P\'activar y desactivar esta función, ve a Axustes &gt; Seguridá</i></string>
+  <string name="setup_warning_skip_anyway">Ensin una cuenta de Cyanogen OS, nun vas poder: \n\nPersonalizar el to teléfonu con iconos nuevos, fondos de pantalla y muncho más al traviés de l\'aplicación de temes\n\nDesaniciar el teléfonu llocalmente o de manera remota si se perdió</string>
 </resources>

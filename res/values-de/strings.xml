@@ -30,6 +30,7 @@
   <string name="new_account">Neu</string>
   <string name="skip_anyway">Trotzdem überspringen</string>
   <string name="dont_skip">Zurück</string>
+  <string name="go_back">Zurück</string>
   <string name="setup_complete">Einrichtung abgeschlossen</string>
   <string name="setup_complete_summary" product="tablet">Glückwunsch! Ihr Tablet ist nun vollständig eingerichtet.</string>
   <string name="setup_complete_summary" product="default">Glückwunsch! Ihr Telefon ist nun vollständig eingerichtet.</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Ja</string>
   <string name="setup_unlock">Entsperren</string>
   <string name="setup_device_locked">Dieses Gerät wurde durch den Benutzer gesperrt.</string>
+  <string name="setup_require_cyanogen_label">Ihr Cyanogen OS Konto-Passwort wird auch nach dem Zurücksetzen auf Werkseinstellungen benötigt, um Ihr Gerät nutzen zu können.</string>
   <string name="setup_device_locked_instructions"><i>Um diese Funktion zu aktivieren/deaktivieren, gehen Sie zu Einstellungen &gt; Sicherheit</i></string>
+  <string name="setup_warning_skip_anyway">Ohne ein Cyanogen OS-Konto können Sie ihr Telefon nicht:\n\nMit neuen Symbolen, Hintergründen und mehr in der Design-App anpassen\n\nLokalisieren oder löschen, falls Sie es verloren haben</string>
 </resources>

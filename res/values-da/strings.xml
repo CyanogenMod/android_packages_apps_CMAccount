@@ -30,6 +30,7 @@
   <string name="new_account">Ny</string>
   <string name="skip_anyway">Ignorér alligevel</string>
   <string name="dont_skip">Ignorér ikke</string>
+  <string name="go_back">Gå tilbage</string>
   <string name="setup_complete">Installationen er færdig</string>
   <string name="setup_complete_summary" product="tablet">Tillykke! Din tablet er klar til kamp.</string>
   <string name="setup_complete_summary" product="default">Tillykke! Din telefon er klar til kamp.</string>

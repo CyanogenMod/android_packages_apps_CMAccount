@@ -30,6 +30,7 @@
   <string name="new_account">Nový</string>
   <string name="skip_anyway">Preskočiť</string>
   <string name="dont_skip">Nepreskakovať</string>
+  <string name="go_back">Naspäť</string>
   <string name="setup_complete">Nastavenie je dokončené</string>
   <string name="setup_complete_summary" product="tablet">Gratulujeme! Váš tablet je pripravený na používanie.</string>
   <string name="setup_complete_summary" product="default">Gratulujeme! Váš telefón je pripravený na používanie.</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Áno</string>
   <string name="setup_unlock">Odomknúť</string>
   <string name="setup_device_locked">Toto zariadenie bolo uzamknuté používateľom.</string>
+  <string name="setup_require_cyanogen_label">Vyžadovať heslo vášho účtu Cyanogen OS na použitie vášho zariadenia aj po obnove továrenských nastavení.</string>
   <string name="setup_device_locked_instructions"><i>Na vypnutie/zapnutie tejto funkcie prejdite do Nastavenia &gt; Zabezpečenie</i></string>
+  <string name="setup_warning_skip_anyway">Bez účtu Cyanogen OS nebudete môcť:\n\nPrispôsobiť si telefón s novými ikonami, tapetami a ďalším obsahom z aplikácie Témy\n\nNájsť alebo vzdialene vymazať váš telefón po jeho strate</string>
 </resources>

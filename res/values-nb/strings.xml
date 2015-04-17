@@ -30,6 +30,7 @@
   <string name="new_account">Ny</string>
   <string name="skip_anyway">Hopp over uansett</string>
   <string name="dont_skip">Ikke hopp over</string>
+  <string name="go_back">gå tilbake</string>
   <string name="setup_complete">Konfigureringen er ferdig</string>
   <string name="setup_complete_summary" product="tablet">Gratulerer! Enheten er nå klar til bruk.</string>
   <string name="setup_complete_summary" product="default">Gratulerer! Enheten er nå klar til bruk.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Ved å slå på mobildata under installeringsprosessen kan operatøren kreve datakostnader.</string>
   <string name="enable_mobile_off">Nei</string>
   <string name="enable_mobile_on">Ja</string>
+  <string name="setup_unlock">Låse opp</string>
+  <string name="setup_device_locked">Denne enheten er låst av brukeren.</string>
+  <string name="setup_require_cyanogen_label">Krev Cyanogen OS konto passord for å gjennopprette til fabrikkinstillinger.</string>
+  <string name="setup_device_locked_instructions"><i>For å slå denne funksjonen av/på, kan du gå til Innstillinger &gt; sikkerhet</i></string>
+  <string name="setup_warning_skip_anyway">Uten en Cyanogen OS konto, vil du ikke kunne: \n\nCustomize telefonen med nye ikoner, bakgrunnsbilder og mer i temaer-app\n\nLokalisere eller eksternt slette telefonen hvis du har mistet den</string>
 </resources>

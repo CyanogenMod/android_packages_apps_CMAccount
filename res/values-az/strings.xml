@@ -30,6 +30,7 @@
   <string name="new_account">Yeni</string>
   <string name="skip_anyway">Yenə də ötür</string>
   <string name="dont_skip">Ötürmə</string>
+  <string name="go_back">Geri get</string>
   <string name="setup_complete">Quraşdırma tamamlandı</string>
   <string name="setup_complete_summary" product="tablet">Təbriklər! Planşetiniz istifadəyə hazırdır.</string>
   <string name="setup_complete_summary" product="default">Təbriklər! Telefonunuz istifadəyə hazırdır.</string>
@@ -101,5 +102,7 @@ Anonim verilənlər yığılıb Google\'a göndəriləcək.</string>
   <string name="enable_mobile_on">Bəli</string>
   <string name="setup_unlock">Kilidi aç</string>
   <string name="setup_device_locked">Bu cihaz istifadəçisi tərəfindən kilidlənib.</string>
+  <string name="setup_require_cyanogen_label">Cihazınızı zavod tənzimləmələrinə sıfırladıqdan sonra istifadə etmək üçün Cyanogen ƏS şifrəsi lazımdır.</string>
   <string name="setup_device_locked_instructions"><i>Bu özəlliyi açıb bağlamaq üçün, zəhmət olmasa Tənzimləmələr &gt; Təhlükəsizlik bölməsinə gedin</i></string>
+  <string name="setup_warning_skip_anyway">Cyanogen ƏS Hesabı olmadan, bunlar mümkün olmayacaq:\n\nTelefonunuzu Temalar tətbiqetməsindəki nişanlar, divar kağızları və daha çox elementlə özəlləşdirmək\n\nTelefonunuzu itirəndə uzaqdan yerini tapmaq və ya içindəkiləri silmək</string>
 </resources>

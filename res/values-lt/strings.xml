@@ -30,6 +30,7 @@
   <string name="new_account">Nauja</string>
   <string name="skip_anyway">Praleisti vis tiek</string>
   <string name="dont_skip">Nepraleisti</string>
+  <string name="go_back">Grįžti atgal</string>
   <string name="setup_complete">Sąranka baigta</string>
   <string name="setup_complete_summary" product="tablet">Sveikiname! Jūsų planšetinis kompiuteris paruoštas darbui.</string>
   <string name="setup_complete_summary" product="default">Sveikiname! Jūsų telefonas paruoštas darbui.</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Taip</string>
   <string name="setup_unlock">Atrakinti</string>
   <string name="setup_device_locked">Šis įrenginys buvo užrakintas naudotojo.</string>
+  <string name="setup_require_cyanogen_label">Reikalauti jūsų „Cyanogen“ OS paskyros slaptažodžio, kad būtų galima naudotis įrenginiu net ir po gamyklinių nustatymų atstatymo.</string>
   <string name="setup_device_locked_instructions"><i>Kad išjungtumėte / įjungtumėte šią funkciją, eikite į Nustatymai &gt; Sauga</i></string>
+  <string name="setup_warning_skip_anyway">Be „Cyanogen“ OS paskyros, jums nebus suteikta galimybė:\n\nTemų programoje tinkinti savo telefoną su naujomis piktogramomis, ekrano fonais ir daugiau\n\nRasti arba nuotoliniu būdu ištrinti savo telefoną, jei jis yra prarastas</string>
 </resources>

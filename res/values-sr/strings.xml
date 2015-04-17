@@ -30,6 +30,7 @@
   <string name="new_account">Нови</string>
   <string name="skip_anyway">Ипак прескочи</string>
   <string name="dont_skip">Немој прескочити</string>
+  <string name="go_back">Врати се</string>
   <string name="setup_complete">Подешавање је завршено</string>
   <string name="setup_complete_summary" product="tablet">Честитамо! Твој таблет је спреман за рад.</string>
   <string name="setup_complete_summary" product="default">Честитамо! Твој телефон је спреман за рад.</string>
@@ -100,5 +101,7 @@
   <string name="enable_mobile_on">Да</string>
   <string name="setup_unlock">Откључај</string>
   <string name="setup_device_locked">Овај уређај је закључао корисник.</string>
+  <string name="setup_require_cyanogen_label">Захтева твоју лозинку Cyanogen налога да би користио свој уређај чак и после ресетовања на фабрички.</string>
   <string name="setup_device_locked_instructions"><i>Да би искључио/укључио ово, идите на Подешавања &gt; Приватност</i></string>
+  <string name="setup_warning_skip_anyway">Без Cyanogen налога, нећеш моћи да:\n\nПрилагодиш телефон са новим иконама, тапетама и осталим у апликацији тема\n\nЛоцираш или обришеш телефон на даљину ако га изгубиш</string>
 </resources>

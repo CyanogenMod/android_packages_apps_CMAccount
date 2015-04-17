@@ -30,6 +30,7 @@
   <string name="new_account">Nei</string>
   <string name="skip_anyway">Trotzdeem iwwersprangen</string>
   <string name="dont_skip">Net iwwersprangen</string>
+  <string name="go_back">Zréck</string>
   <string name="setup_complete">Astellungen ofgeschloss</string>
   <string name="setup_complete_summary" product="tablet">Gléckwënsch! Däin Tablet ass prett fir duerchzestarten.</string>
   <string name="setup_complete_summary" product="default">Gléckwënsch! Däin Telefon ass prett fir duerchzestarten.</string>
@@ -98,4 +99,7 @@
   <string name="enable_mobile_data_summary">D\'Aktivéiere vun der Dateconnectioun während dem Installatiounsprozess kann zousätzlech Käschte verursaachen.</string>
   <string name="enable_mobile_off">Nee</string>
   <string name="enable_mobile_on">Jo</string>
+  <string name="setup_unlock">Entspären</string>
+  <string name="setup_device_locked">Dësen Apparat gouf duerch de Benotzer gespaart.</string>
+  <string name="setup_device_locked_instructions"><i>Fir dës Funktioun z\'aktivéieren/desaktivéieren, géi op Astellungen  &gt; Sécherheet</i></string>
 </resources>
