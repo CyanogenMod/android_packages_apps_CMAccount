@@ -101,5 +101,7 @@
   <string name="enable_mobile_on">Ja</string>
   <string name="setup_unlock">Lås op</string>
   <string name="setup_device_locked">Denne enhed er blevet låst af brugeren.</string>
+  <string name="setup_require_cyanogen_label">Kræver adgangskoden til din Cyanogen-konto for at bruge enheden, selv efter en nulstilling til fabriksindstillinger.</string>
   <string name="setup_device_locked_instructions"><i>For at slå denne funktion til/fra, skal du gå til Indstillinger &gt; Sikkerhed</i></string>
+  <string name="setup_warning_skip_anyway">Uden en Cyanogen-konto kan du ikke:\n\nTilpasse din telefon med nye ikoner, tapeter og meget mere i Tema app\'en\n\nFinde eller slette din telefon, hvis du mister den</string>
 </resources>
