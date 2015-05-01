@@ -30,6 +30,7 @@
   <string name="new_account">Nouveau</string>
   <string name="skip_anyway">Toujours ignorer</string>
   <string name="dont_skip">Ne pas ignorer</string>
+  <string name="go_back">Retour</string>
   <string name="setup_complete">Paramétrage terminé</string>
   <string name="setup_complete_summary" product="tablet">Félicitations\u00A0! Votre tablette est prête pour la bagarre.</string>
   <string name="setup_complete_summary" product="default">Félicitations\u00A0! Votre téléphone est prêt pour la bagarre.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Activer les données mobiles pendant le processus d\'installation peut engendrer des frais supplémentaires.</string>
   <string name="enable_mobile_off">Non</string>
   <string name="enable_mobile_on">Oui</string>
+  <string name="setup_unlock">Déverrouiller</string>
+  <string name="setup_device_locked">Cet appareil a été verrouillé par l\'utilisateur.</string>
+  <string name="setup_require_cyanogen_label">Nécessite votre mot de passe du compte Cyanogen OS afin d\'utiliser votre appareil même après une réinitialisation d\'usine.</string>
+  <string name="setup_device_locked_instructions"><i>Pour activer/désactiver cette fonction, veuillez vous rendre dans Paramètres &gt; Sécurité</i></string>
+  <string name="setup_warning_skip_anyway">Sans un compte Cyanogen OS, vous ne serez pas en mesure de :\n\nPersonnaliser votre téléphone avec de nouvelles icônes, fonds d\'écran et plus encore dans l\'application Thèmes\n\nLocaliser ou réinitialiser votre téléphone à distance s\'il est perdu</string>
 </resources>

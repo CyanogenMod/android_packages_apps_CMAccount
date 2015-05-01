@@ -30,6 +30,7 @@
   <string name="new_account">Новий</string>
   <string name="skip_anyway">Пропустити</string>
   <string name="dont_skip">Не пропускати</string>
+  <string name="go_back">Повернутись</string>
   <string name="setup_complete">Встановлення завершено</string>
   <string name="setup_complete_summary" product="tablet">Вітаємо! Ваш планшет готовий для використання.</string>
   <string name="setup_complete_summary" product="default">Вітаємо! Ваш телефон готовий для використання.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Увімкнення мобільного інтернету під час налаштування може понести витрати.</string>
   <string name="enable_mobile_off">Ні</string>
   <string name="enable_mobile_on">Так</string>
+  <string name="setup_unlock">Розблокувати</string>
+  <string name="setup_device_locked">Цей пристрій заблоковано користувачем.</string>
+  <string name="setup_require_cyanogen_label">Вимагати пароль від акаунту ОС Cyanogen для використання пристрою навіть після видалення всіх даних.</string>
+  <string name="setup_device_locked_instructions"><i>Щоб увімкнути/вимкнути цю функцію, будь ласка, перейдіть у Налаштування &gt; Безпека</i></string>
+  <string name="setup_warning_skip_anyway">Без облікового запису ОС Cyanogen ви не зможете:\n\nПерсоналізувати телефон новими шпалерами, іконками та іншими компонентами в додатку «Теми»\n\nЗнаходити або виконувати віддалене скидання налаштувань на телефоні в випадку його втрати</string>
 </resources>
