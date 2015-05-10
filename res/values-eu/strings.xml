@@ -39,6 +39,8 @@
   <string name="setup_current_date">Uneko data</string>
   <string name="setup_current_time">Uneko ordua</string>
   <string name="setup_msg_no_network">KONTUZ: Ez zara zure kontuak konfiguratzeko gai izango</string>
+  <string name="setup_warning_skip_wifi" product="tablet">KONTUZ: Zordunketa osagarriak jasan ditzakezu.\n\nTabletaren konfigurazioak sare aktibitate ugari behar dezake.</string>
+  <string name="setup_warning_skip_wifi" product="default">KONTUZ: Zordunketa osagarriak jasan ditzakezu.\n\nTelefonoaren konfigurazioak sare aktibitate ugari behar dezake.</string>
   <string name="setup_personalization">Pertsonalizatu</string>
   <string name="setup_finalizing">Konfigurazioa amaitzen\u2026</string>
   <string name="cmaccount_setup_create_title">CyanogenMod kontu bat sortu</string>
@@ -53,6 +55,7 @@
   <string name="cmaccount_setup_confirm_password_label">Pasahitza berretsi</string>
   <string name="cmaccount_setup_tos_label">Zerbitzuaren %1$sbaldintzekin%2$s ados nago</string>
   <string name="cmaccount_add_title">CyanogenMod kontu bat gehitu</string>
+  <string name="cmaccount_add_create_label">CyanogenMod kontu batek CyanogenMod duen gailu mugikorrari funtzionalitate eta balio erantsiko zerbitzuetara sarbidea ahalbidetzen dio.\n\nKontu berri bat sortu edo existitzen den kontu bat gehitu nahi duzu?</string>
   <string name="cmaccount_learn_more">Gehiago irakurri\u2026</string>
   <string name="cmaccount_learn_more_alt">Gehiago ezagutu</string>
   <string name="cmaccount_update_required_text">CyanogenMod Kontua-ren bertsio hau bateragarria ez izatea gerta daiteke. Bateragarritasuna bermatzeko CyanogenMod-en azken bertsiora egunerazazu, mesedez.</string>
