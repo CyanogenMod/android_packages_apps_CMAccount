@@ -98,4 +98,8 @@
   <string name="enable_mobile_data_summary">کردنەوەی داتای مۆبایل لە نێوان دامەزراندن و لەوانەیە بابەتی داتا.</string>
   <string name="enable_mobile_off">نەخێر</string>
   <string name="enable_mobile_on">بەڵێ</string>
+  <string name="setup_unlock">کردنەوە</string>
+  <string name="setup_device_locked">ئەم ئامێرە بەدەستی کاربەر قوفڵ کراوە.</string>
+  <string name="setup_device_locked_instructions">
+<i>بۆ چالاک کردن/ناچالاک کردن,تکایە بڕۆن بۆ ڕێکخستنەکان &gt; ئاسایش</i></string>
 </resources>
