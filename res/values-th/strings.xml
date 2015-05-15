@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">พบข้อผิดพลาดขณะกำลังสร้างบัญชี</string>
   <string name="cmaccount_server_error_message">เกิดข้อผิดพลาดขณะกำลังติดต่อเซิฟเวอร์ โปรดลองใหม่ในภายหลัง</string>
   <string name="cmaccount_error_multiple_accounts">อนุญาติให้มีบัญชี CyanogenMod เพียง 1 บัญชีต่อ 1 เครื่องเท่านั้น</string>
+  <string name="cmaccount_deprecated">ไม่สามารถสร้างบัญชี CyanogenMod ใหม่ได้ในตอนนี้ พวกเรากำลังดำเนินการแก้ไขอยู่</string>
 </resources>
