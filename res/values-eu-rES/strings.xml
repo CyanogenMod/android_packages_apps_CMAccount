@@ -23,7 +23,7 @@
   <string name="create">Sortu</string>
   <string name="login">Saioa hasi</string>
   <string name="ok">Ados</string>
-  <string name="existing">Existitzen da</string>
+  <string name="existing">Badaukat</string>
   <string name="new_account">Berria</string>
   <string name="skip_anyway">Saltatu halere</string>
   <string name="dont_skip">Ez saltatu</string>
@@ -39,11 +39,12 @@
   <string name="cmaccount_setup_password_create_label">Pasahitza (8 karak. gutxienez)</string>
   <string name="cmaccount_setup_password_mismatch_label">Pasahitzak ez dira berdinak!</string>
   <string name="cmaccount_setup_password_invalid_label">Pasahitzak 8 karaktere izan behar ditu gutxienez!</string>
-  <string name="cmaccount_setup_confirm_password_label">Pasahitza berretsi</string>
+  <string name="cmaccount_setup_confirm_password_label">Berretsi pasahitza</string>
   <string name="cmaccount_setup_tos_label">Zerbitzuaren %1$sbaldintzekin%2$s ados nago</string>
   <string name="cmaccount_add_title">Gehitu CyanogenMod kontu bat</string>
   <string name="cmaccount_add_create_label">CyanogenMod kontu batek CyanogenMod duen gailu mugikorrari funtzionalitate eta balio erantsiko zerbitzuetara sarbidea ahalbidetzen dio.\n\nKontu berri bat sortu edo existitzen den kontu bat gehitu nahi duzu?</string>
-  <string name="cmaccount_learn_more">Gehiago irakurri\u2026</string>
+  <string name="cmaccount_learn_more">Ikasi gehiago\u2026</string>
+  <string name="cmaccount_update_required_title">Eguneratzea beharrezkoa</string>
   <string name="cmaccount_update_required_text">CyanogenMod Kontua-ren bertsio hau bateragarria ez izatea gerta daiteke. Bateragarritasuna bermatzeko CyanogenMod-en azken bertsiora egunerazazu, mesedez.</string>
   <string name="cmaccount_update_required_short">Bertsio hau bateragarria ez izatea gerta daiteke.</string>
   <string name="cmaccount_checking_for_updates">Eguneraketak bilatzen.</string>
@@ -56,4 +57,6 @@
   <string name="cmaccount_server_error_title">Zerbitzariaren akatsa</string>
   <string name="cmaccount_create_account_error_title">Kontua sortzerakoan akats bat egon da</string>
   <string name="cmaccount_server_error_message">Zerbitzariarekin komunikatzean akats bat egon da. Saiatu berriro beranduago, mesedez.</string>
+  <string name="cmaccount_error_multiple_accounts">Gailu bakoitzeko CyanogenMod kontu bakarra onartzen da</string>
+  <string name="cmaccount_deprecated">CyanogenMod kontu berri bat sortzea zaharkituta dago, eguneraketa prestatzen ari gara.</string>
 </resources>
