@@ -82,8 +82,8 @@
   <string name="sim_missing_summary" product="default">Telefonunuzla gelen SIM kart talimatlarına başvurmanız gerekmekte.</string>
   <string name="google_account_summary">Google hesabınızı ayarlamak istiyor musunuz?</string>
   <string name="btn_google_account">Google hesabımı ayarla</string>
-  <string name="whisperpush_title">Güvenli SMSi etkinleştirin</string>
-  <string name="whisperpush_summary">CyanogenMod\'ta güvenli SMSi kullanan diğer kişilerle yapılan SMS sohbetleri otomatik olarak şifrelenecek.</string>
+  <string name="whisperpush_title">Şifreli SMSi etkinleştirin</string>
+  <string name="whisperpush_summary">CyanogenMod\'ta şifreli SMSi kullanan diğer kişilerle yapılan SMS sohbetleri otomatik olarak şifrelenecek.</string>
   <string name="apply_default_theme_title">CyanogenMod teması kullan</string>
   <string name="use_nav_keys">Ekran-üstü tuşları kullan</string>
   <string name="location_access_title">Konumuma erişim</string>
