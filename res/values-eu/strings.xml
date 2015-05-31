@@ -20,21 +20,27 @@
   <string name="next">Hurrengoa</string>
   <string name="continue_label">Jarraitu</string>
   <string name="prev">Aurrekoa</string>
+  <string name="skip">Saltatu</string>
   <string name="finish">Amaitu</string>
   <string name="cancel">Ezeztatu</string>
   <string name="create">Sortu</string>
   <string name="login">Saioa hasi</string>
-  <string name="ok">Ondo da</string>
-  <string name="existing">Existitzen da</string>
+  <string name="ok">Ados</string>
+  <string name="existing">Badaukat</string>
   <string name="new_account">Berria</string>
+  <string name="skip_anyway">Saltatu halere</string>
+  <string name="dont_skip">Ez saltatu</string>
+  <string name="go_back">Itzuli</string>
   <string name="setup_complete">Ezarpena burutu da</string>
+  <string name="setup_complete_summary" product="tablet">Zorionak! Zure tableta prest dago.</string>
   <string name="setup_complete_summary" product="default">Zorionak! Zure telefonoa prest dago.</string>
-  <string name="setup_welcome">Ongi etorri CyanogenMod-era</string>
-  <string name="setup_welcome_summary" product="default">Telefonoa konfiguratzen hasteko, aukeratu hizkuntza eta \'Hurrengoa\' sakatu.</string>
+  <string name="setup_welcome">Ongi etorri CyanogenModera</string>
+  <string name="setup_welcome_summary" product="tablet">Tableta konfiguratzen hasteko, hautatu hizkuntza eta sakatu \'Hurrengoa\'.</string>
+  <string name="setup_welcome_summary" product="default">Telefonoa konfiguratzen hasteko, hautatu hizkuntza eta sakatu \'Hurrengoa\'.</string>
   <string name="setup_cmaccount">CyanogenMod kontua konfiguratu</string>
-  <string name="setup_sim_missing">SIM txartela sartu</string>
+  <string name="setup_sim_missing">Sartu SIM txartela</string>
   <string name="setup_google_account">Google kontua</string>
-  <string name="setup_location">Kokapen ezarpenak</string>
+  <string name="setup_location">Kokaleku ezarpenak</string>
   <string name="setup_datetime">Data eta ordu ezarpenak</string>
   <string name="setup_current_date">Uneko data</string>
   <string name="setup_current_time">Uneko ordua</string>
@@ -52,12 +58,13 @@
   <string name="cmaccount_setup_password_create_label">Pasahitza (8 karak. gutxienez)</string>
   <string name="cmaccount_setup_password_mismatch_label">Pasahitzak ez dira berdinak!</string>
   <string name="cmaccount_setup_password_invalid_label">Pasahitzak 8 karaktere izan behar ditu gutxienez!</string>
-  <string name="cmaccount_setup_confirm_password_label">Pasahitza berretsi</string>
+  <string name="cmaccount_setup_confirm_password_label">Berretsi pasahitza</string>
   <string name="cmaccount_setup_tos_label">Zerbitzuaren %1$sbaldintzekin%2$s ados nago</string>
-  <string name="cmaccount_add_title">CyanogenMod kontu bat gehitu</string>
+  <string name="cmaccount_add_title">Gehitu CyanogenMod kontu bat</string>
   <string name="cmaccount_add_create_label">CyanogenMod kontu batek CyanogenMod duen gailu mugikorrari funtzionalitate eta balio erantsiko zerbitzuetara sarbidea ahalbidetzen dio.\n\nKontu berri bat sortu edo existitzen den kontu bat gehitu nahi duzu?</string>
-  <string name="cmaccount_learn_more">Gehiago irakurri\u2026</string>
-  <string name="cmaccount_learn_more_alt">Gehiago ezagutu</string>
+  <string name="cmaccount_learn_more">Ikasi gehiago\u2026</string>
+  <string name="cmaccount_learn_more_alt">Ikasi gehiago</string>
+  <string name="cmaccount_update_required_title">Eguneratzea beharrezkoa</string>
   <string name="cmaccount_update_required_text">CyanogenMod Kontua-ren bertsio hau bateragarria ez izatea gerta daiteke. Bateragarritasuna bermatzeko CyanogenMod-en azken bertsiora egunerazazu, mesedez.</string>
   <string name="cmaccount_update_required_short">Bertsio hau bateragarria ez izatea gerta daiteke.</string>
   <string name="cmaccount_checking_for_updates">Eguneraketak bilatzen.</string>
@@ -70,19 +77,31 @@
   <string name="cmaccount_server_error_title">Zerbitzariaren akatsa</string>
   <string name="cmaccount_create_account_error_title">Kontua sortzerakoan akats bat egon da</string>
   <string name="cmaccount_server_error_message">Zerbitzariarekin komunikatzean akats bat egon da. Saiatu berriro beranduago, mesedez.</string>
+  <string name="cmaccount_error_multiple_accounts">Gailu bakoitzeko CyanogenMod kontu bakarra onartzen da</string>
+  <string name="sim_missing_summary" product="tablet">Irakurri tabletarekin batera datozen SIM txartelari buruzko argibideak.</string>
   <string name="sim_missing_summary" product="default">Telefonoarekin batera datozen SIM txartelari buruzko argibideak irakurri.</string>
   <string name="google_account_summary">Google kontu bat konfiguratu nahi duzu?</string>
   <string name="btn_google_account">Google kontua konfiguratu</string>
-  <string name="whisperpush_title">SMS babestuak gaitu</string>
+  <string name="whisperpush_title">Gaitu SMS segurua</string>
   <string name="whisperpush_summary">SMS babestuak erabiltzen, CyanogenMod-a duten beste erabiltzaileekiko SMS elkarrizketak automatikoki zifratuko dira.</string>
   <string name="apply_default_theme_title">CyanogenMod gaia erabili</string>
   <string name="use_nav_keys">Pantailan teklak erakutsi</string>
-  <string name="location_access_title">Sarbidea kokapenera</string>
-  <string name="location_access_summary">Kokapenara sarbidea eskatu duten aplikazioei informazio hori erabiltzera baimendu</string>
+  <string name="location_access_title">Nire kokalekua atzitu</string>
+  <string name="location_access_summary">Zure kokaleku informazioa erabiltzea ahalbidetzen die baimena eskatu dizuten aplikazioei</string>
   <string name="location_gps">GPS sateliteak</string>
-  <string name="location_street_level" product="default">Aplikazioei kokapena ezartzeko telefonoaren GPS-a erabiltzera baimendu</string>
-  <string name="location_network_based">Datu mugikor eta Wi-Fi bidezko kokapena</string>
-  <string name="location_neighborhood_level">Aplikazioak Google-ren kokapen zerbitzua erabiltzera baimendu kokapena azkarrago ezartzeko. Kokapen datu anonimoak batu eta Google-ra bidaliko dira.</string>
+  <string name="location_street_level" product="tablet">Zure kokalekua zehazteko tabletako GPSa erabiltzea ahalbidetzen die aplikazioei</string>
+  <string name="location_street_level" product="default">Zure kokalekua zehazteko tabletako GPSa erabiltzea ahalbidetzen die aplikazioei</string>
+  <string name="location_network_based">Wi-Fi eta datu mugikorren bidezko kokalekua</string>
+  <string name="location_neighborhood_level">Baimendu aplikazioei Google kokaleku zerbitzuak erabiltzea zure kokalekua azkarrago kalkulatzeko. Kokaleku informazio anonimoa metatuko da eta Googlei bidaliko zaio.</string>
   <string name="update_icon_pack_available">Ikono pakete eguneratu bat eskuragarri dago</string>
   <string name="apply_icon_pack">Ezarri</string>
+  <string name="setup_mobile_data">Baimendu datu mugikorrak</string>
+  <string name="enable_mobile_data_summary">Instalazio prozesuan datu mugikorrak pizteak gastuak ekar ditzake.</string>
+  <string name="enable_mobile_off">Ez</string>
+  <string name="enable_mobile_on">Bai</string>
+  <string name="setup_unlock">Desblokeatu</string>
+  <string name="setup_device_locked">Erabiltzaileak gailu hau blokeatu du.</string>
+  <string name="setup_require_cyanogen_label">Eskatu zure Cyanogen OS kontuaren pasahitza gailua erabiltzeko lantegiko jatorrizko egoerara leheneratu eta gero.</string>
+  <string name="setup_device_locked_instructions"><i>Ezaugarri hau gaitu edo ezgaitzeko zoan hona: Ezarpenak &gt; Segurtasuna</i></string>
+  <string name="setup_warning_skip_anyway">Cyanogen OS kontu bat gabe, ezin izango duzu:\n\nZure telefonoa ikono, horma-paper eta gai berriekin pertsonalizatu Gai aplikazioan\n\n.Urrunetik telefonoa aurkitu edo ezabatu galtzen baduzu</string>
 </resources>

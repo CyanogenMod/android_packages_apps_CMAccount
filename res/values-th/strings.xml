@@ -30,6 +30,7 @@
   <string name="new_account">ใหม่</string>
   <string name="skip_anyway">ข้ามไปเลย</string>
   <string name="dont_skip">อย่าข้าม</string>
+  <string name="go_back">ย้อนกลับ</string>
   <string name="setup_complete">การตั้งค่าเรียบร้อย</string>
   <string name="setup_complete_summary" product="tablet">ยินดีด้วย! แท็ปเล็ตของคุณพร้อมที่จะใช้งานแล้ว</string>
   <string name="setup_complete_summary" product="default">ยินดีด้วย! โทรศัพท์ของคุณพร้อมที่จะใช้งานแล้ว</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">เปิดข้อมูลเครือข่ายมือถือขณะทำการติดตั้งอาจมีค่าบริการข้อมูล</string>
   <string name="enable_mobile_off">ไม่</string>
   <string name="enable_mobile_on">ใช่</string>
+  <string name="setup_unlock">ปลดล็อก</string>
+  <string name="setup_device_locked">อุปกรณ์นี้ถูกล็อคโดยผู้ใช้</string>
+  <string name="setup_require_cyanogen_label">กรุณาใส่รหัสผ่านบัญชี Cyanogen OS แม้ว่าจะทำการคืนค่าโรงงานไปแล้วก็ตาม</string>
+  <string name="setup_device_locked_instructions"><i>เพื่อปิด/เปิดความสามารถนี้ กรุณาไปที่ การตั้งค่า &gt; ความปลอดภัย</i></string>
+  <string name="setup_warning_skip_anyway">ถ้าหากไม่มีบัญชี Cyanogen OS แล้วคุณจะไม่สามารถ:\n\n ปรับเปลี่ยน ไอคอน,ภาพหน้าจอและอื่นๆผ่านแอปชุดรูปแบบ\n\nค้นหาและลบข้อมูลระยะไกลหากอุปกรณ์สูญหาย</string>
 </resources>
