@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Аккаунт CyanogenMod</string>
   <string name="continue_label">Продолжить</string>
-  <string name="skip">Пропустить</string>
+  <string name="skip">Пропуск</string>
   <string name="cancel">Отмена</string>
   <string name="create">Создать</string>
   <string name="login">Войти</string>
