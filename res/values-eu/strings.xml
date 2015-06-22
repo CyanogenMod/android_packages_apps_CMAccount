@@ -22,7 +22,7 @@
   <string name="prev">Aurrekoa</string>
   <string name="skip">Saltatu</string>
   <string name="finish">Amaitu</string>
-  <string name="cancel">Ezeztatu</string>
+  <string name="cancel">Utzi</string>
   <string name="create">Sortu</string>
   <string name="login">Saioa hasi</string>
   <string name="ok">Ados</string>
@@ -84,7 +84,7 @@
   <string name="btn_google_account">Google kontua konfiguratu</string>
   <string name="whisperpush_title">Gaitu SMS segurua</string>
   <string name="whisperpush_summary">SMS babestuak erabiltzen, CyanogenMod-a duten beste erabiltzaileekiko SMS elkarrizketak automatikoki zifratuko dira.</string>
-  <string name="apply_default_theme_title">CyanogenMod gaia erabili</string>
+  <string name="apply_default_theme_title">Erabili CyanogenMod gaia</string>
   <string name="use_nav_keys">Pantailan teklak erakutsi</string>
   <string name="location_access_title">Nire kokalekua atzitu</string>
   <string name="location_access_summary">Zure kokaleku informazioa erabiltzea ahalbidetzen die baimena eskatu dizuten aplikazioei</string>
@@ -94,7 +94,7 @@
   <string name="location_network_based">Wi-Fi eta datu mugikorren bidezko kokalekua</string>
   <string name="location_neighborhood_level">Baimendu aplikazioei Google kokaleku zerbitzuak erabiltzea zure kokalekua azkarrago kalkulatzeko. Kokaleku informazio anonimoa metatuko da eta Googlei bidaliko zaio.</string>
   <string name="update_icon_pack_available">Ikono pakete eguneratu bat eskuragarri dago</string>
-  <string name="apply_icon_pack">Ezarri</string>
+  <string name="apply_icon_pack">Aplikatu</string>
   <string name="setup_mobile_data">Baimendu datu mugikorrak</string>
   <string name="enable_mobile_data_summary">Instalazio prozesuan datu mugikorrak pizteak gastuak ekar ditzake.</string>
   <string name="enable_mobile_off">Ez</string>

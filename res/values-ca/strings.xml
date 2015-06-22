@@ -87,12 +87,12 @@
   <string name="apply_default_theme_title">Utilitza el tema de CyanogenMod</string>
   <string name="use_nav_keys">Utilitza tecles en pantalla</string>
   <string name="location_access_title">Accedeix a la meva ubicació</string>
-  <string name="location_access_summary">Permet apps que t\'han demanat permís per utilitzar la teva informació d\'ubicació</string>
+  <string name="location_access_summary">Permet aplicacions que t\'han demanat permís per utilitzar la teva informació d\'ubicació</string>
   <string name="location_gps">Satèlits GPS</string>
-  <string name="location_street_level" product="tablet">Permet a les apps utilitzar el GPS de la tauleta per fixar la teva ubicació</string>
-  <string name="location_street_level" product="default">Permet a les apps utilitzar el GPS del telèfon per fixar la teva ubicació</string>
+  <string name="location_street_level" product="tablet">Permet a les aplicacions utilitzar el GPS de la tauleta per fixar la teva ubicació</string>
+  <string name="location_street_level" product="default">Permet a les aplicacions utilitzar el GPS del telèfon per fixar la teva ubicació</string>
   <string name="location_network_based">Ubicacions Wi-Fi i de xarxa mòbil</string>
-  <string name="location_neighborhood_level">Permet a les apps utilitzar el servei d\'ubicacions de Google per calcular més ràpid la teva ubicació. Dades d\'ubicació anonòmines seran recollides i enviades a Google.</string>
+  <string name="location_neighborhood_level">Permet a les aplicacions utilitzar el servei d\'ubicacions de Google per calcular més ràpid la teva ubicació. Dades d\'ubicació anònimes seran recollides i enviades a Google.</string>
   <string name="update_icon_pack_available">Hi ha disponible un paquet d\'icones actualitzat</string>
   <string name="apply_icon_pack">Aplica</string>
   <string name="setup_mobile_data">Permet les dades mòbils</string>
