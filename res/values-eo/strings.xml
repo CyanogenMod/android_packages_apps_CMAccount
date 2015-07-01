@@ -47,6 +47,7 @@
   <string name="cmaccount_update_required_title">Ĝisdatigo bezonata</string>
   <string name="cmaccount_update_required_text">Tiu versio de CyanogenMod konto estas malmoderna. Bonvolu ĝisdatigi al la lasta versio por kongrui.</string>
   <string name="cmaccount_update_required_short">Tiu versio estas malmoderna.</string>
+  <string name="cmaccount_checking_for_updates">Kontroli ĝisdatigojn.</string>
   <string name="cmaccount_password_changed_title">Pasvorto ŝanĝita</string>
   <string name="cmaccount_password_changed_message">Bonvolu ensaluti en via CyanogenMod konto</string>
   <string name="cmaccount_login_message">Ensalutado al CyanogenMod</string>
