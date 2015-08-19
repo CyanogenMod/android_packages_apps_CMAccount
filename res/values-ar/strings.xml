@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">خطأ أثناء إنشاء حساب</string>
   <string name="cmaccount_server_error_message">حدث خطأ أثناء الاتصال مع الخادم. الرجاء المحاولة مرة أخرى لاحقاً.</string>
   <string name="cmaccount_error_multiple_accounts">حساب CyanogenMod واحد فقط مسموح لكل جهاز</string>
+  <string name="cmaccount_deprecated">تم إهمال إنشاء حساب CyanogenMod جديد، جاري العمل على تحديث.</string>
 </resources>

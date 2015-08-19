@@ -16,9 +16,47 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_name">حساب CyanogenMod</string>
+  <string name="continue_label">ادامه</string>
+  <string name="skip">رد شدن</string>
   <string name="cancel">لغو</string>
+  <string name="create">ایجاد</string>
+  <string name="login">ورود به سیستم</string>
   <string name="ok">بسیارخب</string>
+  <string name="existing">موجود</string>
+  <string name="new_account">جدید</string>
+  <string name="skip_anyway">به هرحال رد شو</string>
+  <string name="dont_skip">رد نشو</string>
+  <string name="setup_msg_no_network">هشدار: شما قادر به راه اندازی حسابهایتان نخواهید بود</string>
   <string name="setup_warning_skip_wifi" product="tablet">هشدار: ممکن است متحمل هزینه‌های اضافی خط موبایل شوید.\n\nراه‌اندازی تبلت نیاز به ارتباطات اینترنتی قابل توجهی دارد.</string>
   <string name="setup_warning_skip_wifi" product="default">هشدار: ممکن است متحمل هزینه‌های اضافی خط موبایل شوید.\n\nراه‌اندازی گوشی نیاز به ارتباطات اینترنتی قابل توجهی دارد.</string>
+  <string name="cmaccount_setup_create_title">ایجاد یک حساب CyanogenMod</string>
+  <string name="cmaccount_setup_login_title">ورود به حساب CyanogenMod</string>
+  <string name="cmaccount_setup_email_label">ایمیل</string>
+  <string name="cmaccount_setup_email_unavailable_label">این ایمیل قبلا ثبت شده است</string>
+  <string name="cmaccount_setup_email_invalid_label">این آدرس ایمیل معتبر نیست</string>
+  <string name="cmaccount_setup_password_label">رمز عبور</string>
+  <string name="cmaccount_setup_password_create_label">گذرواژه (حداقل 8 کاراکتر)</string>
+  <string name="cmaccount_setup_password_mismatch_label">گذرواژه ها مطابقت ندارند!</string>
+  <string name="cmaccount_setup_password_invalid_label">رمز عبور باید حداقل 8 حرف باشد!</string>
+  <string name="cmaccount_setup_confirm_password_label">تکرار گذرواژه</string>
   <string name="cmaccount_setup_tos_label">من با %1$sشرایط%2$s استفاده از خدمات موافقم</string>
+  <string name="cmaccount_add_title">افزودن حساب CyanogenMod</string>
+  <string name="cmaccount_add_create_label">حساب کاربری در سیانوژن مود دسترسی به خدمات ارزش افزوده و عملکرد دستگاه تلفن همراه شما که سیانوژن روی آن نصب است را در اختیار شما قرار می‌دهد.\n\nآیا از حساب کاربری جدید استفاده می‌کنید یا یک حساب کاربری ایجاد می‌کنید؟</string>
+  <string name="cmaccount_learn_more">بیشتر بدانید\u2026</string>
+  <string name="cmaccount_update_required_title">نیازمند به‌روزرسانی</string>
+  <string name="cmaccount_update_required_text">ممکن است این نسخه از حساب کاربری سیانوژن مود سازگار نباشد. لطفاً به آخرین نسخه از سیانوژن مود به‌روزرسانی کنید تا سازگاری آن تضمین شود.</string>
+  <string name="cmaccount_update_required_short">ممکن است این نسخه ناسازگار باشد.</string>
+  <string name="cmaccount_checking_for_updates">در حال بررسی برای بروزرسانی.</string>
+  <string name="cmaccount_password_changed_title">رمز عبور تغییر یافت</string>
+  <string name="cmaccount_password_changed_message">لطفا به حساب کاربری سیاتوژن مود خود وارد شوید</string>
+  <string name="cmaccount_login_message">درحال ورود به CyanogenMod</string>
+  <string name="cmaccount_creating_profile_message">ایجاد پروفایل CyanogenMod</string>
+  <string name="cmaccount_login_error_title">ورود ناموفق بود</string>
+  <string name="cmaccount_login_error_message">ایمیل یا رمز عبور نامعتبر است.</string>
+  <string name="cmaccount_server_error_title">خطای سرور</string>
+  <string name="cmaccount_create_account_error_title">خطا در ایجاد حساب کاربری</string>
+  <string name="cmaccount_server_error_message">خطایی در هنگام برقراری ارتباط با سرور رخ داده است. لطفاً بعداً دوباره امتحان کنید.</string>
+  <string name="cmaccount_error_multiple_accounts">تنها یک حساب کاربری سیانوژن مود برای هر دستگاه مجاز است</string>
+  <string name="cmaccount_deprecated">ایجاد یک حساب سایانوژن مود جدید ممکن نیست،‌ ما در حال کار بر روی یک به‌روزرسانی هستیم.</string>
 </resources>
