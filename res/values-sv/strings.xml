@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Fel vid skapandet av konto</string>
   <string name="cmaccount_server_error_message">Ett fel inträffade vid kontakt med servern. Försök igen senare.</string>
   <string name="cmaccount_error_multiple_accounts">Endast ett CyanogenMod-konto är tillåtet per enhet</string>
+  <string name="cmaccount_deprecated">Skapa ett nytt konto för CyanogenMod har tagits bort, vi arbetar på en uppdatering.</string>
 </resources>

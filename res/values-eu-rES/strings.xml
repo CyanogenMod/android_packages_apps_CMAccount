@@ -32,9 +32,9 @@
   <string name="setup_warning_skip_wifi" product="default">KONTUZ: Zordunketa osagarriak jasan ditzakezu.\n\nTelefonoaren konfigurazioak sare ugaria altua behar dezake.</string>
   <string name="cmaccount_setup_create_title">CyanogenMod kontu bat sortu</string>
   <string name="cmaccount_setup_login_title">Saioa hasi zure CyanogenMod kontuarekin</string>
-  <string name="cmaccount_setup_email_label">Posta</string>
-  <string name="cmaccount_setup_email_unavailable_label">Posta honekin izena eman du inork aurretik</string>
-  <string name="cmaccount_setup_email_invalid_label">Ez da posta elektroniko zuzena</string>
+  <string name="cmaccount_setup_email_label">Eposta</string>
+  <string name="cmaccount_setup_email_unavailable_label">Eposta hau erregistratuta dago aurretik</string>
+  <string name="cmaccount_setup_email_invalid_label">Ez da eposta helbide zuzena</string>
   <string name="cmaccount_setup_password_label">Pasahitza</string>
   <string name="cmaccount_setup_password_create_label">Pasahitza (8 karak. gutxienez)</string>
   <string name="cmaccount_setup_password_mismatch_label">Pasahitzak ez dira berdinak!</string>
@@ -53,7 +53,7 @@
   <string name="cmaccount_login_message">CyanogenMod-en saioa hasten</string>
   <string name="cmaccount_creating_profile_message">Zure CyanogenMod profila sortzen</string>
   <string name="cmaccount_login_error_title">Akatsa sartzerakoan</string>
-  <string name="cmaccount_login_error_message">Posta edo pasahitz okerrak.</string>
+  <string name="cmaccount_login_error_message">Eposta edo pasahitz okerra.</string>
   <string name="cmaccount_server_error_title">Zerbitzariaren akatsa</string>
   <string name="cmaccount_create_account_error_title">Kontua sortzerakoan akats bat egon da</string>
   <string name="cmaccount_server_error_message">Zerbitzariarekin komunikatzean akats bat egon da. Saiatu berriro beranduago, mesedez.</string>
