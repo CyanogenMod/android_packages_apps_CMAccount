@@ -35,8 +35,8 @@
   <string name="cmaccount_setup_email_label">ایمیل</string>
   <string name="cmaccount_setup_email_unavailable_label">این ایمیل قبلا ثبت شده است</string>
   <string name="cmaccount_setup_email_invalid_label">این آدرس ایمیل معتبر نیست</string>
-  <string name="cmaccount_setup_password_label">رمز عبور</string>
-  <string name="cmaccount_setup_password_create_label">گذرواژه (حداقل 8 کاراکتر)</string>
+  <string name="cmaccount_setup_password_label">گذرواژه</string>
+  <string name="cmaccount_setup_password_create_label">گذرواژه (حداقل ۸ کاراکتر)</string>
   <string name="cmaccount_setup_password_mismatch_label">گذرواژه ها مطابقت ندارند!</string>
   <string name="cmaccount_setup_password_invalid_label">رمز عبور باید حداقل 8 حرف باشد!</string>
   <string name="cmaccount_setup_confirm_password_label">تکرار گذرواژه</string>
