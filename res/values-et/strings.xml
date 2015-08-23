@@ -30,6 +30,7 @@
   <string name="new_account">Uus</string>
   <string name="skip_anyway">Jäta vahele</string>
   <string name="dont_skip">Ära jäta vahele</string>
+  <string name="go_back">Tagasi</string>
   <string name="setup_complete">Seadistus on valmis</string>
   <string name="setup_complete_summary" product="tablet">Õnnitleme! Teie tahvel on valmis kasutamiseks.</string>
   <string name="setup_complete_summary" product="default">Õnnitleme! Teie telefon on valmis kasutamiseks.</string>
@@ -63,6 +64,7 @@
   <string name="cmaccount_add_create_label">CyanogenMod konto võimaldab ligipääsu lisaväärtusteenustele ja funktsionaalsusele teie telefonis, milles töötab CyanogenMod.\n\nKas soovite lisada olemasoleva konto või luua uue?</string>
   <string name="cmaccount_learn_more">Loe rohkem\u2026</string>
   <string name="cmaccount_learn_more_alt">Saa rohkem teada</string>
+  <string name="cmaccount_update_required_title">Uuendus nõutav</string>
   <string name="cmaccount_update_required_text">See versioon CyanogenMod Kontost võib olla kokkusobimatu. Palun uuendage CyanogenMod\'i uusim versioon, et tagada ühilduvus.</string>
   <string name="cmaccount_update_required_short">See versioon võib olla kokkusobimatu.</string>
   <string name="cmaccount_checking_for_updates">Kontrollin värskendusi.</string>
@@ -93,4 +95,13 @@
   <string name="location_neighborhood_level">Lubage rakendustel oma asukoha kiiremini määramiseks Google\'i asukoha teenust. Anonüümsed andmed kogutakse ja saadetakse Google\'ile.</string>
   <string name="update_icon_pack_available">Uuendatud ikoonide pakk on saadaval</string>
   <string name="apply_icon_pack">Kinnita</string>
+  <string name="setup_mobile_data">Luba mobiilandmeside</string>
+  <string name="enable_mobile_data_summary">Mobiilandmeside sisselülitamine paigaldamise protsessi käigus võib põhjustada andmeside kulusid.</string>
+  <string name="enable_mobile_off">EI</string>
+  <string name="enable_mobile_on">Jah</string>
+  <string name="setup_unlock">Ava lukustus</string>
+  <string name="setup_device_locked">Seade on kasutaja poolt lukustatud\".\"</string>
+  <string name="setup_require_cyanogen_label">Nõua Cyanogen OS konto parooli, et kasutada seadet ka peale tehase taastamist.</string>
+  <string name="setup_device_locked_instructions"><i>Funktsiooni sisse/välja lülitamiseks mine Seaded &gt; Turvalisus</i></string>
+  <string name="setup_warning_skip_anyway">Ilma Cyanogen OS kontota ei ole sul võimalik:\n\nkohandada oma telefoni ikoone, tasutapilte ja muud Themes rakenduses\n\nLeida või kaugelt puhastada oma kadunud seadet</string>
 </resources>

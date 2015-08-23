@@ -34,7 +34,7 @@
   <string name="setup_complete">Beállítás kész</string>
   <string name="setup_complete_summary" product="tablet">Gratulálunk! Táblagépe használatra kész.</string>
   <string name="setup_complete_summary" product="default">Gratulálunk! Telefonja használatra kész.</string>
-  <string name="setup_welcome">Üdvözöli a CyanogenMod Csapata</string>
+  <string name="setup_welcome">Üdvözli a CyanogenMod Csapata</string>
   <string name="setup_welcome_summary" product="tablet">A táblagép beállításához válasszon nyelvet, majd kattintson a folytatásra.</string>
   <string name="setup_welcome_summary" product="default">A telefon beállításához válasszon nyelvet, majd kattintson a folytatásra.</string>
   <string name="setup_cmaccount">Állítsa be a CyanogenMod fiókját</string>

@@ -71,7 +71,7 @@
   <string name="cmaccount_password_changed_title">Parola a fost modificată</string>
   <string name="cmaccount_password_changed_message">Vă rog logați-vă la contul dvs CyanogenMod</string>
   <string name="cmaccount_login_message">Conectare la CyanogenMod</string>
-  <string name="cmaccount_creating_profile_message">Creez un  profil CyanogenMod</string>
+  <string name="cmaccount_creating_profile_message">Creez un profil CyanogenMod</string>
   <string name="cmaccount_login_error_title">Autentificare eșuată</string>
   <string name="cmaccount_login_error_message">Email sau parolă incorectă.</string>
   <string name="cmaccount_server_error_title">Eroare de server</string>
@@ -93,7 +93,7 @@
   <string name="location_street_level" product="default">Permite aplicațiilor să folosească GPS-ul din telefon pentru a vă localiza</string>
   <string name="location_network_based">Localizare prin Wi-Fi &amp; rețeaua mobilă</string>
   <string name="location_neighborhood_level">Permite aplicațiilor să folosească serviciul de localizare Google pentru a estima mai rapid locația dvs. Datele anonime de localizare vor fi colectate și trimise la Google.</string>
-  <string name="update_icon_pack_available">Un pachet de imagini actualizat este disponibil</string>
+  <string name="update_icon_pack_available">Un pachet de pictograme actualizat este disponibil</string>
   <string name="apply_icon_pack">Activare</string>
   <string name="setup_mobile_data">Permite date mobile</string>
   <string name="enable_mobile_data_summary">Activarea datelor mobile în timpul procesului de instalare poate fi supusă tarifelor de date.</string>

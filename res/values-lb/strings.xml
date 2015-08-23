@@ -41,7 +41,7 @@
   <string name="setup_sim_missing">SIM-Kaart asetzen</string>
   <string name="setup_google_account">Google-Kont</string>
   <string name="setup_location">Standuert-Astellungen</string>
-  <string name="setup_datetime">Datum- &amp; Zäit-Astellungen</string>
+  <string name="setup_datetime">Datum- an Zäit-Astellungen</string>
   <string name="setup_current_date">Aktuellen Datum</string>
   <string name="setup_current_time">Aktuell Zäit</string>
   <string name="setup_msg_no_network">WARNUNG: du wäerts deng Konten net erfollegräich ariichte kënnen</string>
