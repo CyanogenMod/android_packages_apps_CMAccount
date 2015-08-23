@@ -25,5 +25,5 @@
   <string name="setup_warning_skip_wifi" product="default">هشدار: ممکن است متحمل هزینه‌های اضافی خط موبایل شوید.\n\nراه‌اندازی گوشی نیاز به ارتباطات اینترنتی قابل توجهی دارد.</string>
   <string name="cmaccount_setup_tos_label">من با %1$sشرایط%2$s استفاده از خدمات موافقم</string>
   <string name="location_network_based">موقعیت وای‌فای و شبکه همراه</string>
-  <string name="setup_unlock">بازگشایی</string>
+  <string name="setup_unlock">باز کردن</string>
 </resources>

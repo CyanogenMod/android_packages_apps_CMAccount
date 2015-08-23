@@ -30,6 +30,7 @@
   <string name="new_account">Baru</string>
   <string name="skip_anyway">Lewati saja</string>
   <string name="dont_skip">Jangan lewati</string>
+  <string name="go_back">Kembali</string>
   <string name="setup_complete">Setup selesai</string>
   <string name="setup_complete_summary" product="tablet">Selamat! Tablet anda siap beraksi.</string>
   <string name="setup_complete_summary" product="default">Selamat! Telepon anda siap beraksi.</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Menyalakan data seluler selama proses pengaturan mungkin akan dikenakan biaya data.</string>
   <string name="enable_mobile_off">Tidak</string>
   <string name="enable_mobile_on">Ya</string>
+  <string name="setup_unlock">Buka kunci</string>
+  <string name="setup_device_locked">Perangkat ini telah dikunci oleh pengguna.</string>
+  <string name="setup_require_cyanogen_label">Sandi akun Cyanogen OS diperlukan untuk menggunakan perangkat meskipun setelah dikembalikan ke setelan pabrik.</string>
+  <string name="setup_device_locked_instructions"><i>Untuk mengaktifkan/menonaktifkan fitur ini, buka Pengaturan &gt; Keamanan</i></string>
+  <string name="setup_warning_skip_anyway">Tanpa Akun Cyanogen OS, Anda tidak bisa:\n\nMengubahsuai ponsel Anda dengan ikon baru, wallpaper dan masih banyak lagi di aplikasi Tema\n\nMencari atau menghapus data secara jarak jauh jika ponsel Anda hilang</string>
 </resources>

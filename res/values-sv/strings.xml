@@ -30,6 +30,7 @@
   <string name="new_account">Nytt</string>
   <string name="skip_anyway">Hoppa över ändå</string>
   <string name="dont_skip">Hoppa inte över</string>
+  <string name="go_back">Gå tillbaka</string>
   <string name="setup_complete">Konfigurationen är klar</string>
   <string name="setup_complete_summary" product="tablet">Grattis! Din surfplatta är klar att köra.</string>
   <string name="setup_complete_summary" product="default">Grattis! Din telefon är klar att köra.</string>
@@ -38,9 +39,9 @@
   <string name="setup_welcome_summary" product="default">För att komma igång med din telefon, välj ditt språk och fortsätt.</string>
   <string name="setup_cmaccount">Ställ in ditt CyanogenMod-konto</string>
   <string name="setup_sim_missing">Sätt i SIM-kort</string>
-  <string name="setup_google_account">Googlekonto</string>
+  <string name="setup_google_account">Google-konto</string>
   <string name="setup_location">Platsinställningar</string>
-  <string name="setup_datetime">Datum &amp; tid-inställningar</string>
+  <string name="setup_datetime">Datum- &amp; tidinställningar</string>
   <string name="setup_current_date">Aktuellt datum</string>
   <string name="setup_current_time">Aktuell tid</string>
   <string name="setup_msg_no_network">VARNING: Du kommer inte ha möjlighet att ställa in dina konton</string>
@@ -98,4 +99,9 @@
   <string name="enable_mobile_data_summary">Tillåta mobildata under installationsprocessen kan leda till höga avgifter.</string>
   <string name="enable_mobile_off">Nej</string>
   <string name="enable_mobile_on">Ja</string>
+  <string name="setup_unlock">Lås upp</string>
+  <string name="setup_device_locked">Denna enhet har blivit låst av användaren.</string>
+  <string name="setup_require_cyanogen_label">Kräver lösenordet till ditt Cyanogen-konto för att använda enheten, även efter en fabriksåterställning.</string>
+  <string name="setup_device_locked_instructions"><i>För att slå av/på denna funktion, gå till Inställningar &gt; Säkerhet</i></string>
+  <string name="setup_warning_skip_anyway">Utan ett Cyanogen-konto kan du inte:\n\nAnpassa din telefon med nya ikoner, bakgrundsbilder med mer i Tema-applikationen\n\nLokalisera eller radera din telefon, om du förlorar den</string>
 </resources>
