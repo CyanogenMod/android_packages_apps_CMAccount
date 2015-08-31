@@ -43,7 +43,7 @@
   <string name="cmaccount_setup_tos_label">Ech stëmmen den %1$sKonditioune%2$s vum Service zou</string>
   <string name="cmaccount_add_title">E CyanogenMod-Kont dobäisetzen</string>
   <string name="cmaccount_add_create_label">E CyanogenMod-Kont bitt Zougank zu zousätzleche Servicer a Funktioune fir däin Apparat mat CyanogenMod.\n\nWëlls du en existéierende Kont dobäisetzen oder een neien erstellen?</string>
-  <string name="cmaccount_learn_more">Méi léieren\u2026</string>
+  <string name="cmaccount_learn_more">Méi gewuer ginn\u2026</string>
   <string name="cmaccount_update_required_title">Update néideg</string>
   <string name="cmaccount_update_required_text">Dës Versioun vu CyanogenMod-Kont ass wahrscheinlech net kompatibel. Aktualiséier w.e.g. op déi aktuell Versioun vu CyanogenMod fir Kompatibilitéit z\'erreechen.</string>
   <string name="cmaccount_update_required_short">Dës Versioun kéint inkompatibel sinn.</string>

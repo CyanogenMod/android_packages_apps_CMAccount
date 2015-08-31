@@ -28,20 +28,20 @@
   <string name="skip_anyway">به هرحال رد شو</string>
   <string name="dont_skip">رد نشو</string>
   <string name="setup_msg_no_network">هشدار: شما قادر به راه‌اندازی حساب‌هایتان نخواهید بود</string>
-  <string name="setup_warning_skip_wifi" product="tablet">هشدار: ممکن است متحمل هزینه‌های اضافی خط موبایل شوید.\n\nراه‌اندازی تبلت نیاز به ارتباطات اینترنتی قابل توجهی دارد.</string>
-  <string name="setup_warning_skip_wifi" product="default">هشدار: ممکن است متحمل هزینه‌های اضافی خط موبایل شوید.\n\nراه‌اندازی گوشی نیاز به ارتباطات اینترنتی قابل توجهی دارد.</string>
+  <string name="setup_warning_skip_wifi" product="tablet">هشدار: ممکن است متحمل هزینه‌های اضافی تبادل داده شوید.\n\nراه‌اندازی تبلت ممکن است به فعالیت زیاد شبکه نیاز داشته باشد.</string>
+  <string name="setup_warning_skip_wifi" product="default">هشدار: ممکن است متحمل هزینه‌های اضافی تبادل داده شوید.\n\nراه‌اندازی گوشی ممکن است به فعالیت زیاد شبکه نیاز داشته باشد.</string>
   <string name="cmaccount_setup_create_title">ایجاد یک حساب سایانوژن‌مود</string>
   <string name="cmaccount_setup_login_title">به حساب سایانوژن‌مود خود وارد شوید</string>
   <string name="cmaccount_setup_email_label">ایمیل</string>
   <string name="cmaccount_setup_email_unavailable_label">این ایمیل قبلا ثبت شده است</string>
-  <string name="cmaccount_setup_email_invalid_label">این آدرس ایمیل معتبر نیست</string>
+  <string name="cmaccount_setup_email_invalid_label">آدرس ایمیل معتبر نیست</string>
   <string name="cmaccount_setup_password_label">گذرواژه</string>
   <string name="cmaccount_setup_password_create_label">گذرواژه (حداقل ۸ کاراکتر)</string>
   <string name="cmaccount_setup_password_mismatch_label">گذرواژه‌ها یکسان نیستند!</string>
-  <string name="cmaccount_setup_password_invalid_label">گذرواژه باید حداقل ۸ کاراکتر باشد!</string>
+  <string name="cmaccount_setup_password_invalid_label">گذرواژه باید حداقل ۸ کاراکتر داشته باشد!</string>
   <string name="cmaccount_setup_confirm_password_label">تکرار گذرواژه</string>
   <string name="cmaccount_setup_tos_label">من با %1$sشرایط%2$s استفاده از خدمات موافقم</string>
-  <string name="cmaccount_add_title">افزودن یک حساب سیانوژن‌مود</string>
+  <string name="cmaccount_add_title">افزودن یک حساب سایانوژن‌مود</string>
   <string name="cmaccount_add_create_label">حساب کاربری در سایانوژن‌مود به شما خدمات ارزش افزوده می‌دهد و شما می‌توانید عملکرد بیشتری را با دستگاه خود انجام دهید.\n\n مایلید وارد حساب کاربری خود شوید و یا یک حساب کاربری جدید ایجاد نمایید؟</string>
   <string name="cmaccount_learn_more">بیشتر بدانید\u2026</string>
   <string name="cmaccount_update_required_title">بروزرسانی لازم است</string>
@@ -50,8 +50,8 @@
   <string name="cmaccount_checking_for_updates">بررسی برای بروزرسانی.</string>
   <string name="cmaccount_password_changed_title">گذرواژه تغییر کرد</string>
   <string name="cmaccount_password_changed_message">لطفا به حساب سایانوژن‌مود خود وارد شوید</string>
-  <string name="cmaccount_login_message">ورود به سایانوژن‌مود</string>
-  <string name="cmaccount_creating_profile_message">ایجاد پروفایل سایانوژن‌مود شما</string>
+  <string name="cmaccount_login_message">درحال ورود به سایانوژن‌مود</string>
+  <string name="cmaccount_creating_profile_message">درحال ایجاد پروفایل سایانوژن‌مود شما</string>
   <string name="cmaccount_login_error_title">ورود ناموفق بود</string>
   <string name="cmaccount_login_error_message">ایمیل یا گذرواژه نامعتبر است.</string>
   <string name="cmaccount_server_error_title">خطای سرور</string>
