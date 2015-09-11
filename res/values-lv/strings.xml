@@ -58,4 +58,5 @@
   <string name="cmaccount_create_account_error_title">Veidojot kontu, radās kļūda</string>
   <string name="cmaccount_server_error_message">Sazinoties ar serveri, radās kļūda. Lūdzu, vēlāk mēģiniet vēlreiz.</string>
   <string name="cmaccount_error_multiple_accounts">Katrai iekārtai ir atļauts tikai viens CyanogenMod konts</string>
+  <string name="cmaccount_deprecated">Izveidot CyanogenMod kontu šobrīd nav iespējams. Mēs strādājam pie atjaunojuma.</string>
 </resources>
