@@ -41,7 +41,7 @@
   <string name="cmaccount_setup_password_invalid_label">Geslo mora biti dolgo vsaj 8 znakov!</string>
   <string name="cmaccount_setup_confirm_password_label">Potrdi geslo</string>
   <string name="cmaccount_setup_tos_label">Strinjam se s %1$spogoji%2$s storitve</string>
-  <string name="cmaccount_add_title">Dodaj račun CyanogenMod</string>
+  <string name="cmaccount_add_title">Dodajte račun CyanogenMod</string>
   <string name="cmaccount_add_create_label">Račun CyanogenMod omogoča dostop do storitev z dodano vrednostjo in funkcionalnosti za vašo mobilno napravo, na kateri se izvaja CyanogenMod.\n\nAli želite dodati obstoječi račun ali ustvariti novega?</string>
   <string name="cmaccount_learn_more">Več o tem \u2026</string>
   <string name="cmaccount_update_required_title">Zahtevana je posodobitev</string>
