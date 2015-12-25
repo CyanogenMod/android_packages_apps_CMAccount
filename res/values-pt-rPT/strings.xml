@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Conta CyanogenMod</string>
   <string name="continue_label">Continuar</string>
-  <string name="skip">Saltar</string>
+  <string name="skip">Ignorar</string>
   <string name="cancel">Cancelar</string>
   <string name="create">Criar</string>
   <string name="login">Entrar</string>
@@ -26,9 +26,9 @@
   <string name="existing">Existente</string>
   <string name="new_account">Nova</string>
   <string name="skip_anyway">Saltar na mesma</string>
-  <string name="dont_skip">Não salte</string>
+  <string name="dont_skip">Não saltar</string>
   <string name="setup_msg_no_network">AVISO: Não conseguirá configurar as suas contas</string>
-  <string name="setup_warning_skip_wifi" product="tablet">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do seu tablet pode precisar de atividade de rede significativa.</string>
+  <string name="setup_warning_skip_wifi" product="tablet">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do tablet pode precisar de atividade de rede significativa.</string>
   <string name="setup_warning_skip_wifi" product="default">AVISO: Poderá ter de pagar dados adicionais.\n\nA configuração do telemóvel pode precisar de atividade de rede significativa.</string>
   <string name="cmaccount_setup_create_title">Criar uma conta CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entre na sua conta CyanogenMod</string>
@@ -45,11 +45,11 @@
   <string name="cmaccount_add_create_label">Uma conta CyanogenMod fornece acesso a funcionalidades e serviços extra para o seu dispositivo móvel.\n\nDeseja adicionar uma conta existente ou criar uma nova?</string>
   <string name="cmaccount_learn_more">Saiba mais\u2026</string>
   <string name="cmaccount_update_required_title">Atualização necessária</string>
-  <string name="cmaccount_update_required_text">Esta versão da Conta CyanogenMod pode ser incompatível.  Por favor atualize para a última versão da CyanogenMod para garantir a compatibilidade.</string>
+  <string name="cmaccount_update_required_text">Esta versão da Conta CyanogenMod pode ser incompatível. Por favor atualize para a última versão da CyanogenMod para garantir a compatibilidade.</string>
   <string name="cmaccount_update_required_short">Esta versão pode ser incompatível.</string>
   <string name="cmaccount_checking_for_updates">A procurar atualizações.</string>
   <string name="cmaccount_password_changed_title">Palavra-passe alterada</string>
-  <string name="cmaccount_password_changed_message">Por favor, inicie a sessão na sua conta CyanogenMod</string>
+  <string name="cmaccount_password_changed_message">Por favor, inicie sessão na sua conta CyanogenMod</string>
   <string name="cmaccount_login_message">A entrar na CyanogenMod</string>
   <string name="cmaccount_creating_profile_message">A criar o seu perfil CyanogenMod</string>
   <string name="cmaccount_login_error_title">Falha ao entrar</string>
@@ -57,6 +57,6 @@
   <string name="cmaccount_server_error_title">Erro no servidor</string>
   <string name="cmaccount_create_account_error_title">Erro ao criar a conta</string>
   <string name="cmaccount_server_error_message">Ocorreu um erro durante a comunicação com o servidor. Por favor tente novamente mais tarde.</string>
-  <string name="cmaccount_error_multiple_accounts">É permitida apenas uma conta CyanogenMod por dispositivo</string>
-  <string name="cmaccount_deprecated">Criar uma nova conta CyanogenMod tornou-se obsoleto, estamos a trabalhar numa atualização.</string>
+  <string name="cmaccount_error_multiple_accounts">Apenas é permitida uma conta CyanogenMod por dispositivo</string>
+  <string name="cmaccount_deprecated">Deixou de ser possível criar uma nova conta CyanogenMod. Estamos a trabalhar numa atualização.</string>
 </resources>
