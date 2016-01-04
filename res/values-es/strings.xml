@@ -33,6 +33,7 @@
   <string name="cmaccount_setup_create_title">Crear una cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_login_title">Entra a tu cuenta de CyanogenMod</string>
   <string name="cmaccount_setup_email_label">Correo electrónico</string>
+  <string name="cmaccount_setup_email_unavailable_label">Correo electrónico ya registrado</string>
   <string name="cmaccount_setup_email_invalid_label">No es una dirección de correo electrónico válida</string>
   <string name="cmaccount_setup_password_label">Contraseña</string>
   <string name="cmaccount_setup_password_create_label">Contraseña (mín. 8 car.)</string>
@@ -49,10 +50,12 @@
   <string name="cmaccount_checking_for_updates">Comprobar actualizaciones.</string>
   <string name="cmaccount_password_changed_title">Contraseña cambiada</string>
   <string name="cmaccount_password_changed_message">Por favor, entra con tu cuenta de CyanogenMod</string>
+  <string name="cmaccount_login_message">Entrando an CyanogenMod</string>
   <string name="cmaccount_creating_profile_message">Creando tu perfil en CyanogenMod</string>
   <string name="cmaccount_login_error_title">Error al iniciar sesión</string>
   <string name="cmaccount_login_error_message">Dirección de correo o contraseña no válidos.</string>
   <string name="cmaccount_server_error_title">Error del servidor</string>
+  <string name="cmaccount_create_account_error_title">Se ha producido un error mientras se creaba la cuenta</string>
   <string name="cmaccount_server_error_message">Ocurrió un error en la comunicación con el servidor. Por favor, inténtalo más tarde.</string>
   <string name="cmaccount_error_multiple_accounts">Solo se permite una cuenta de CyanogenMod por dispositivo</string>
   <string name="cmaccount_deprecated">Actualmente no se pueden crear nuevas cuentas CyanogenMod. Estamos trabajando en una actualización.</string>
