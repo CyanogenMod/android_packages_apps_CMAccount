@@ -50,6 +50,8 @@
   <string name="cmaccount_checking_for_updates">التحقق من وجود تحديثات.</string>
   <string name="cmaccount_password_changed_title">تم تغيير كلمة المرور</string>
   <string name="cmaccount_password_changed_message">الرجاء تسجيل الدخول إلى حسابك CyanogenMod</string>
+  <string name="cmaccount_login_message">تسجيل الدخول إلى CyanogenMod</string>
+  <string name="cmaccount_creating_profile_message">إنشاء ملفك التعريفي CyanogenMod</string>
   <string name="cmaccount_login_error_title">فشل تسجيل الدخول</string>
   <string name="cmaccount_login_error_message">البريد الإلكتروني غير صحيح أو كلمة المرور غير صالحة.</string>
   <string name="cmaccount_server_error_title">خطأ في الخادم</string>
