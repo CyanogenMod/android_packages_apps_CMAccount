@@ -38,7 +38,6 @@ public class CMSetupWizardData extends AbstractSetupData {
             pages.add(new MobileDataPage(mContext, this, R.string.setup_mobile_data));
         }
         pages.add(new GoogleAccountPage(mContext, this, R.string.setup_google_account));
-        pages.add(new CMAccountPage(mContext, this, R.string.setup_cmaccount));
         pages.add(new LocationSettingsPage(mContext, this, R.string.setup_location));
         pages.add(new PersonalizationPage(mContext, this, R.string.setup_personalization));
         pages.add(new DateTimePage(mContext, this, R.string.setup_datetime));
