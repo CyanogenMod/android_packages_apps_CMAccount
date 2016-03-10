@@ -29,7 +29,6 @@ public class CMSetupWizardData extends AbstractSetupData {
     @Override
     protected PageList onNewPageList() {
         return new PageList(new WelcomePage(mContext, this, R.string.setup_welcome),
-               new CMAccountPage(mContext, this, R.string.setup_cmaccount),
                new GoogleAccountPage(mContext, this, R.string.setup_google_account),
                new LocationSettingsPage(mContext, this, R.string.setup_location),
                new DateTimePage(mContext, this, R.string.setup_datetime),
